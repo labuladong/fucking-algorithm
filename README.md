@@ -8,7 +8,7 @@
 2. 可以在我的 gitbook 上直接查看所有文章，会持续更新：https://labuladong.gitbook.io/algo
 3. 可以关注我的公众号 labuladong，这些文章就是从公众号里整理出来的，目前主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
 
-![labuladong](./pictures/qrcode.jpg)
+<img src="./pictures/qrcode.jpg" width = "300" height = "300" alt="brutal" align=center />
 
 其他的先不多说了，直接上干货吧。
 
@@ -90,4 +90,5 @@
 
 # Donate
 
-![wechatPay](pictures/pay.jpg)
+
+<img src="pictures/pay.jpg" width = "216" height = "300" alt="brutal" align=center />
