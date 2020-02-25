@@ -136,3 +136,7 @@ for (int i = 0; i < n; i++)
     if (isOK(i))
         return ans;
 ```
+
+坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+
+![labuladong](../pictures/labuladong.jpg)

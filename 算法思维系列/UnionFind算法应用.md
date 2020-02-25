@@ -216,3 +216,8 @@ boolean equationsPossible(String[] equations) {
 
 很多更复杂的 DFS 算法问题，都可以利用 Union-Find 算法更漂亮的解决。LeetCode 上 Union-Find 相关的问题也就二十多道，有兴趣的读者可以去做一做。
 
+
+
+坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+
+![labuladong](../pictures/labuladong.jpg)

@@ -77,3 +77,7 @@ Redis 监听的默认端口是 6379，我们设置它接收网卡 127.0.0.1 的�
 2、配置服务器防火墙和 Redis 的 config 文件，尽量不要让 Redis 与外界接触。
 
 3、利用 rename 功能伪装 flushall 这种危险命令，以防被删库，丢失数据。
+
+坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+
+![labuladong](../pictures/labuladong.jpg)
