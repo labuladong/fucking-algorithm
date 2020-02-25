@@ -4,13 +4,17 @@
 
 ### 使用方法
 
-1. **先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star，给我一点继续写文的动力，感谢。
-2. 可以在我的 gitbook 上直接查看所有文章，会持续更新：https://labuladong.gitbook.io/algo
-3. 可以关注我的公众号 labuladong，这些文章就是从公众号里整理出来的，目前主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
+1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star，给我一点继续写文的动力，感谢。
 
-<img src="./pictures/qrcode.jpg" width = "300" height = "300" alt="brutal" align=center />
+2、可以在我的 gitbook 上直接查看所有文章，会同步持续更新，建议收藏。地址：https://labuladong.gitbook.io/algo
 
-其他的先不多说了，直接上干货吧。
+3、可以关注我的公众号 **labuladong**，我就是不喜欢转载乱七八糟的低质文章，**坚持原创，全是高质量原创，说是最良心最硬核的算法公众号都不为过**。
+
+这些文章就是从公众号里整理出来的，目前主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
+
+<img src="./pictures/qrcode.jpg" width = "250" height = "250" alt="brutal" align=center />
+
+其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
 # 二、文章目录
 
@@ -97,6 +101,5 @@
   * [Git/SQL/正则表达式的在线练习平台](技术/在线练习平台.md)
 
 # Donate
-
 
 <img src="pictures/pay.jpg" width = "216" height = "300" alt="brutal" align=center />
