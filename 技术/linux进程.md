@@ -65,15 +65,27 @@ PS：不要忘了，Linux 中一切都被抽象成文件，设备也是文件，
 
 明白了这个原理，**输入重定向**就很好理解了，程序想读取数据的时候就会去`files[0]`读取，所以我们只要把`files[0]`指向一个文件，那么程序就会从这个文件中读取数据，而不是从键盘：
 
-![](../pictures/linuxProcess/4.jpg)
+```shell
+$ command < file.txt
+```
+
+![](../pictures/linuxProcess/5.jpg)
 
 同理，**输出重定向**就是把`files[1]`指向一个文件，那么程序的输出就不会写入到显示器，而是写入到这个文件中：
 
-![](../pictures/linuxProcess/5.jpg)
+```shell
+$ command > file.txt
+```
+
+![](../pictures/linuxProcess/4.jpg)
 
 错误重定向也是一样的，就不再赘述。
 
 **管道符**其实也是异曲同工，把一个进程的输出流和另一个进程的输入流接起一条「管道」，数据就在其中传递，不得不说这种设计思想真的很优美：
+
+```shell
+$ cmd1 | cmd2 | cmd3
+```
 
 ![](../pictures/linuxProcess/6.jpg)
 
