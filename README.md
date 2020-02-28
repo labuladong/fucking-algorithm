@@ -108,7 +108,7 @@ English translation is processing…… Star this repo and go back sonn：)
 * 第五章、计算机技术
   * [Linux的进程、线程、文件描述符是什么](技术/linux进程.md)
   * [一文看懂 session 和 cookie](技术/session和cookie.md)
-  * [关于 Linux shell 你必须知道的](技术/linuxsell.md)
+  * [关于 Linux shell 你必须知道的](技术/linuxshell.md)
   * [加密算法的前身今世](技术/密码技术.md)
   * [Git/SQL/正则表达式的在线练习平台](技术/在线练习平台.md)
 
