@@ -2,7 +2,7 @@
 name: 参与翻译
 about: 我想参与仓库中文章的翻译工作
 title: 'translate '
-labels: documentation
+labels: translate
 assignees: ''
 
 ---
