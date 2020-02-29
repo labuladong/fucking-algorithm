@@ -1,16 +1,24 @@
-# Linux的进程、线程、文件描述符是什么
+# What are Process, Thread, and File Descriptor in Linux? 
 
 说到进程，恐怕面试中最常见的问题就是线程和进程的关系了，那么先说一下答案：**在 Linux 系统中，进程和线程几乎没有区别**。
 
+Speaking of process, I am afraid that the most common problem of interviews is the relationship between thread and process. The answer is: **In Linux systems, there is almost no difference between process and thread**.
+
 Linux 中的进程就是一个数据结构，看明白就可以理解文件描述符、重定向、管道命令的底层工作原理，最后我们从操作系统的角度看看为什么说线程和进程基本没有区别。
 
-### 一、进程是什么
+A process of Linux is a data structure. You can clearly understand the underlying working principle of file descriptors, redirection, and pipeline commands. Finally, from the perspective of operating system, we can see why there is basically no difference between thread and process.
+
+### 一、进程是什么 What is a process?
 
 首先，抽象地来说，我们的计算机就是这个东西：
+
+First, abstractly, our computer is this thing as follows:
 
 ![](../pictures/linuxProcess/1.jpg)
 
 这个大的矩形表示计算机的**内存空间**，其中的小矩形代表**进程**，左下角的圆形表示**磁盘**，右下角的图形表示一些**输入输出设备**，比如鼠标键盘显示器等等。另外，注意到内存空间被划分为了两块，上半部分表示**用户空间**，下半部分表示**内核空间**。
+
+
 
 用户空间装着用户进程需要使用的资源，比如你在程序代码里开一个数组，这个数组肯定存在用户空间；内核空间存放内核进程需要加载的系统资源，这一些资源一般是不允许用户访问的。但是注意有的用户进程会共享一些内核空间的资源，比如一些动态链接库等等。
 
@@ -50,7 +58,7 @@ struct task_struct {
 举个例子，以我们的角度 C 语言的`printf`函数是向命令行打印字符，但是从进程的角度来看，就是向`files[1]`写入数据；同理，`scanf`函数就是进程试图从`files[0]`这个文件中读取数据。
 
 **每个进程被创建时，`files`的前三位被填入默认值，分别指向标准输入流、标准输出流、标准错误流。我们常说的「文件描述符」就是指这个文件指针数组的索引**，所以程序的文件描述符默认情况下 0 是输入，1 是输出，2 是错误。
- 
+
 我们可以重新画一幅图：
 
 ![](../pictures/linuxProcess/2.jpg)
