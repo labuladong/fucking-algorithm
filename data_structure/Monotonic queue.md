@@ -7,7 +7,7 @@ See a LeetCode title，difficulty is hard：
 
 ![](../pictures/单调队列/title.png)
 
-### First, build a problem solving framewor
+### 1, build a problem solving framewor
 
 This problem is not complicated. The difficulty is how to calculate the maximum value in each "window" at O(1) time, so that the entire algorithm is completed in linear time.We discussed similar scenarios before and came to a conclusion:
 
@@ -20,9 +20,9 @@ An ordinary queue must have these two operations:
 ```java
 class Queue {
     void push(int n);
-    // Or enqueue, adding element n to the end of the line
+    // or enqueue, adding element n to the end of the line
     void pop();
-    // Or dequeue, remove the leader element
+    // or dequeue, remove the leader element
 }
 ```
 
@@ -30,11 +30,11 @@ The operation of a "monotonic queue" is similar:
 
 ```java
 class MonotonicQueue {
-    // Add element n to the end of the line
+    // add element n to the end of the line
     void push(int n);
-    // Returns the maximum value in the current queue
+    // returns the maximum value in the current queue
     int max();
-    // If the head element is n, delete it
+    // if the head element is n, delete it
     void pop(int n);
 }
 ```
@@ -45,9 +45,9 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     MonotonicQueue window;
     vector<int> res;
     for (int i = 0; i < nums.size(); i++) {
-        if (i < k - 1) { // Fill the first k-1 of the window first
+        if (i < k - 1) { // fill the first k-1 of the window first
             window.push(nums[i]);
-        } else { // The window begins to slide forward
+        } else { // the window begins to slide forward
             window.push(nums[i]);
             res.push_back(window.max());
             window.pop(nums[i - k + 1]);
@@ -60,32 +60,32 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 
 ![图示](../pictures/单调队列/1.png)
 
-这个思路很简单，能理解吧？下面我们开始重头戏，单调队列的实现。
+The idea is simple, understand? Below we start the highlight, the implementation of monotonic queues.
 
-### 二、实现单调队列数据结构
+### 2, Implementing a monotonic queue data structure
 
-首先我们要认识另一种数据结构：deque，即双端队列。很简单：
+First we need to know another data structure: deque, which is a double-ended queue. It's simple:
 
 ```java
 class deque {
-    // 在队头插入元素 n
+    // insert element n at the head of the team
     void push_front(int n);
-    // 在队尾插入元素 n
+    // insert element n at the end of the line
     void push_back(int n);
-    // 在队头删除元素
+    // remove elements at the head of the team
     void pop_front();
-    // 在队尾删除元素
+    // remove element at the end of the line
     void pop_back();
-    // 返回队头元素
+    // returns the team head element
     int front();
-    // 返回队尾元素
+    // returns the tail element
     int back();
 }
 ```
 
-而且，这些操作的复杂度都是 O(1)。这其实不是啥稀奇的数据结构，用链表作为底层结构的话，很容易实现这些功能。
+Moreover, the complexity of these operations is O (1). This is actually not a rare data structure. If you use a linked list as the underlying structure, it is easy to implement these functions.
 
-「单调队列」的核心思路和「单调栈」类似。单调队列的 push 方法依然在队尾添加元素，但是要把前面比新元素小的元素都删掉：
+The core idea of "monotonic queue" is similar to "monotonic stack". The push method of the monotonic queue still adds elements to the end of the queue, but deletes the previous elements smaller than the new element:
 
 ```cpp
 class MonotonicQueue {
@@ -100,11 +100,11 @@ public:
 };
 ```
 
-你可以想象，加入数字的大小代表人的体重，把前面体重不足的都压扁了，直到遇到更大的量级才停住。
+As you can imagine, adding the size of the number represents the weight of the person, squashing the underweight in front, and stopping until it encounters a larger magnitude.
 
 ![](../pictures/单调队列/2.png)
 
-如果每个元素被加入时都这样操作，最终单调队列中的元素大小就会保持一个单调递减的顺序，因此我们的 max() API 可以可以这样写：
+If every element is added like this, the size of the elements in the monotonic queue will eventually decrease in a monotonic order, so our max () API can be written like this:
 
 ```cpp
 int max() {
@@ -112,7 +112,7 @@ int max() {
 }
 ```
 
-pop() API 在队头删除元素 n，也很好写：
+The pop () API deletes element n at the head of the team, which is also very easy to write:
 
 ```cpp
 void pop(int n) {
@@ -121,11 +121,11 @@ void pop(int n) {
 }
 ```
 
-之所以要判断 `data.front() == n`，是因为我们想删除的队头元素 n 可能已经被「压扁」了，这时候就不用删除了：
+The reason to judge `data.front () == n` is because the team head element n we want to delete may have been" squashed ", so we don't need to delete it at this time:
 
 ![](../pictures/单调队列/3.png)
 
-至此，单调队列设计完毕，看下完整的解题代码：
+At this point, the monotonous queue design is complete, look at the complete problem-solving code:
 
 ```cpp
 class MonotonicQueue {
@@ -150,9 +150,9 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     MonotonicQueue window;
     vector<int> res;
     for (int i = 0; i < nums.size(); i++) {
-        if (i < k - 1) { //先填满窗口的前 k - 1
+        if (i < k - 1) { // fill the first k-1 of the window first
             window.push(nums[i]);
-        } else { // 窗口向前滑动
+        } else { // window slide forward
             window.push(nums[i]);
             res.push_back(window.max());
             window.pop(nums[i - k + 1]);
@@ -162,22 +162,22 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 }
 ```
 
-**三、算法复杂度分析**
+**3, Algorithm complexity analysis**
 
-读者可能疑惑，push 操作中含有 while 循环，时间复杂度不是 O(1) 呀，那么本算法的时间复杂度应该不是线性时间吧？
+Readers may be wondering, while the push operation contains a while loop, the time complexity is not O (1), so the time complexity of this algorithm should not be linear time, right?
 
-单独看 push 操作的复杂度确实不是 O(1)，但是算法整体的复杂度依然是 O(N) 线性时间。要这样想，nums 中的每个元素最多被 push_back 和 pop_back 一次，没有任何多余操作，所以整体的复杂度还是 O(N)。
+The complexity of the push operation alone is not O (1), but the overall complexity of the algorithm is still O (N) linear time. To think of it this way, each element in nums is pushed_back and pop_back at most once, without any redundant operations, so the overall complexity is still O (N).
 
-空间复杂度就很简单了，就是窗口的大小 O(k)。
+The space complexity is very simple, which is the size of the window O (k).
 
-**四、最后总结**
+**4, Final conclusion**
 
-有的读者可能觉得「单调队列」和「优先级队列」比较像，实际上差别很大的。
+Some readers may think that "monotonic queues" and "priority queues" are more similar, but they are actually very different.
 
-单调队列在添加元素的时候靠删除元素保持队列的单调性，相当于抽取出某个函数中单调递增（或递减）的部分；而优先级队列（二叉堆）相当于自动排序，差别大了去了。
+The monotonic queue maintains the monotonicity of the queue by deleting elements when adding elements, which is equivalent to extracting the monotonically increasing (or decreasing) part of a function; while the priority queue (binary heap) is equivalent to automatic sorting, the difference is large went.
 
-赶紧去拿下 LeetCode 第 239 道题吧～
+Hurry up and get LeetCode's Question 239 ~
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+Stick to original high-quality articles, and work hard to make algorithmic problems clear. Welcome to follow my public account labuladong for the latest articles:
 
 ![labuladong](../pictures/labuladong.jpg)
