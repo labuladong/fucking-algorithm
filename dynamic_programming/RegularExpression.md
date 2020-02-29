@@ -1,3 +1,5 @@
+# Regular Expression - Dynamic Programming
+
 The previous article, "Dynamic Programming in Detail," was very well-received. Today, I'm going to talk about a practical application: Regular Expression. I highly recommend you to take a look at the previous article, if you don't know what is "Dynamic Programming".
 
 Regular Expression is an ingenious algorithm but is a little bit hard to understand. This article mainly focuses on the implementation of two Regular Expression symbols: period「.」and asterisk「*」. Don't worry if you have never used Regular Expression; I will introduce it later. At the end of this article, I'll share with you a tip to quickly find the overlapping subproblems.
