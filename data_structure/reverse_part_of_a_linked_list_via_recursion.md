@@ -1,5 +1,9 @@
 # Reverse Part of a Linked List via Recusion
 
+**Author: [labuladong](https://github.com/labuladong)**
+
+**Translator: [CarrieOn](https://github.com/CarrieOn)**
+
 It's easy to reverse a single linked list using iteration, however it's kind of difficult to come up with a recursive solution. Furthermore, if only part of a linked list needs reversed, can you nail it with **recursion**?
 
 If you haven't known how to **recursively reverse a single linked list**, no worry, we will start right here and guide you step by step to a deeper level.
@@ -183,5 +187,3 @@ Compared to iteration, it is a little bit difficult to understand recursion, the
 For time complexity, iteration is O(1) while recursion is always O(N). For space complexity, iteration needs O(N) while recursion needs stack. Overall, iteration has a better performance. Solutions in this article provides you a good way to learn recursion.
 
 **Mission**: Stick to original high quality articles, and make algorithms easy to understand. Welcome to subscribe my Wechat public account `ID:labuladong` for latest articles.
-
-![labuladong](../pictures/labuladong.jpg)
