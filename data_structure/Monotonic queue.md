@@ -1,59 +1,57 @@
-# 特殊数据结构：单调队列
+# special data structure: monotonic queue
+The previous article talked about a special data structure "monotonic stack"a type of problem "Next Greater Number" is solved. This article writes a similar data structure "monotonic queue".
 
-前文讲了一种特殊的数据结构「单调栈」monotonic stack，解决了一类问题「Next Greater Number」，本文写一个类似的数据结构「单调队列」。
+Maybe you haven't heard of the name of this data structure. In fact, it is not difficult. It is a "queue", but it uses a clever method to make the elements in the queue monotonically increase (or decrease). What's the use of this data structure? Can solve a series of problems with sliding windows.
 
-也许这种数据结构的名字你没听过，其实没啥难的，就是一个「队列」，只是使用了一点巧妙的方法，使得队列中的元素单调递增（或递减）。这个数据结构有什么用？可以解决滑动窗口的一系列问题。
-
-看一道 LeetCode 题目，难度 hard：
+See a LeetCode title，difficulty is hard：
 
 ![](../pictures/单调队列/title.png)
 
-### 一、搭建解题框架
+### First, build a problem solving framewor
 
-这道题不复杂，难点在于如何在 O(1) 时间算出每个「窗口」中的最大值，使得整个算法在线性时间完成。在之前我们探讨过类似的场景，得到一个结论：
+This problem is not complicated. The difficulty is how to calculate the maximum value in each "window" at O(1) time, so that the entire algorithm is completed in linear time.We discussed similar scenarios before and came to a conclusion:
 
-在一堆数字中，已知最值，如果给这堆数添加一个数，那么比较一下就可以很快算出最值；但如果减少一个数，就不一定能很快得到最值了，而要遍历所有数重新找最值。
+In a bunch of numbers,the best value is known,If you add a number to this bunch of numbers,you can quickly calculate the most value by comparing them,but if you reduce one number,you may not get the maximum vaue quickly,but you can have to go through all the numbers and find the maximum value agai
 
-回到这道题的场景，每个窗口前进的时候，要添加一个数同时减少一个数，所以想在 O(1) 的时间得出新的最值，就需要「单调队列」这种特殊的数据结构来辅助了。
+Back to the scenario of this problem,as each window advances,you need to add a number and decrease one number,so if you want to get a new maximum value in O(1) time,you need a special "monotonic queue" data structure to assist
 
-一个普通的队列一定有这两个操作：
+An ordinary queue must have these two operations:
 
 ```java
 class Queue {
     void push(int n);
-    // 或 enqueue，在队尾加入元素 n
+    // Or enqueue, adding element n to the end of the line
     void pop();
-    // 或 dequeue，删除队头元素
+    // Or dequeue, remove the leader element
 }
 ```
 
-一个「单调队列」的操作也差不多：
+The operation of a "monotonic queue" is similar:
 
 ```java
 class MonotonicQueue {
-    // 在队尾添加元素 n
+    // Add element n to the end of the line
     void push(int n);
-    // 返回当前队列中的最大值
+    // Returns the maximum value in the current queue
     int max();
-    // 队头元素如果是 n，删除它
+    // If the head element is n, delete it
     void pop(int n);
 }
 ```
-
-当然，这几个 API 的实现方法肯定跟一般的 Queue 不一样，不过我们暂且不管，而且认为这几个操作的时间复杂度都是 O(1)，先把这道「滑动窗口」问题的解答框架搭出来：
+Of course, the implementation methods of these APIs are definitely different from the general Queue, but we leave them alone, and think that the time complexity of these operations is O (1), first answer this "sliding window" problem Frame out:
 
 ```cpp
 vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     MonotonicQueue window;
     vector<int> res;
     for (int i = 0; i < nums.size(); i++) {
-        if (i < k - 1) { //先把窗口的前 k - 1 填满
+        if (i < k - 1) { // Fill the first k-1 of the window first
             window.push(nums[i]);
-        } else { // 窗口开始向前滑动
+        } else { // The window begins to slide forward
             window.push(nums[i]);
             res.push_back(window.max());
             window.pop(nums[i - k + 1]);
-            // nums[i - k + 1] 就是窗口最后的元素
+            // nums[i - k + 1] is the last element of the window
         }
     }
     return res;
