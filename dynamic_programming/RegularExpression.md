@@ -1,5 +1,9 @@
 # Regular Expression - Dynamic Programming
 
+**Translator: [PaperJets](https://github.com/PaperJets)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 The previous article, "Dynamic Programming in Detail," was very well-received. Today, I'm going to talk about a practical application: Regular Expression. I highly recommend you to take a look at the previous article, if you don't know what is "Dynamic Programming".
 
 Regular Expression is an ingenious algorithm but is a little bit hard to understand. This article mainly focuses on the implementation of two Regular Expression symbols: period「.」and asterisk「*」. Don't worry if you have never used Regular Expression; I will introduce it later. At the end of this article, I'll share with you a tip to quickly find the overlapping subproblems.
@@ -128,7 +132,7 @@ if len(pattern) >= 2 and pattern[1] == '*':
 ```
 As we can see, we keep the 「\*」 in the pattern and pushed the text backwards to implement the function of 「*」 to match the characters repeatedly for many times. A simple example will illustrate the logic. Suppose 'pattern = a*', 'text = aaa', we can draw a picture to see the matching process:
   
-![example](../pictures/%E6%AD%A3%E5%88%99/regex_example.jpg)
+![example](../pictures/regularExpression/regex_example.jpg)
 
 At this point, the regular expression algorithm is almost complete.
 
@@ -171,8 +175,7 @@ def isMatch(text, pattern) -> bool:
     else:
         return first and isMatch(text[1:], pattern[1:])
 ```
-**Some readers may ask, how do you know that this problem is a dynamic programming problem, how do you know that there is an overlapping subproblem? It's not easy to find that!**  
-**有的读者也许会问，你怎么知道这个问题是个动态规划问题呢，你怎么知道它就存在「重叠子问题」呢，这似乎不容易看出来呀？**  
+**Some readers may ask, how do you know that this problem is a dynamic programming problem, how do you know that there is an overlapping subproblem? It's not easy to find that!** 
 
 
 The clearest way is to answer this question is to assume an input and then draw a recursion tree. And you will definitely find the same node, which is a quantitative analysis. In fact, without so much trouble, let me teach you the qualitative analysis, at a glance can see the "overlapping sub-problem" property.
@@ -185,8 +188,7 @@ def fib(n):
     fib(n - 2) #2
 ```
 
-Look at the frame, how do I get from the original problem f(n) to the sub-problem f(n - 2)? There are two paths, one is f(n) -> #1 -> #1, and the other is f(n) -> #2. The former recurses twice; the latter recurse once. Two different computational paths but all face the same problem, which is called the "overlap subproblem". It is certain that **as long as you find a repeated path, there must be tens of thousands of such repeated paths, meaning that the huge quantum problem overlaps.**  
-**只要你发现一条重复路径，这样的重复路径一定存在千万条，意味着巨量子问题重叠。**
+Look at the frame, how do I get from the original problem f(n) to the sub-problem f(n - 2)? There are two paths, one is f(n) -> #1 -> #1, and the other is f(n) -> #2. The former recurses twice; the latter recurse once. Two different computational paths but all face the same problem, which is called the "overlap subproblem". It is certain that **as long as you find a repeated path, there must be tens of thousands of such repeated paths, meaning that the huge quantum problem overlaps.**
 
 Similarly, for this problem, we still abstract the algorithm framework first:
 

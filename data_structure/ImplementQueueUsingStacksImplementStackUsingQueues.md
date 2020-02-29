@@ -1,8 +1,8 @@
 # Implement Queue using Stacks |Implement Stack using Queues
 
-**Author**:[labuladong](https://github.com/labuladong)
-
 **Translator**:[walsvid](https://github.com/walsvid)
+
+**Author**:[labuladong](https://github.com/labuladong)
 
 Queue is a FIFO (first-in-first-out) strategy data structure, while Stack is a FILO (first-in-last-out) data structure. The visual description of these data structures is shown in the figure:
 

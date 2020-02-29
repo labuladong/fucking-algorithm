@@ -1,8 +1,8 @@
 # Reverse Part of a Linked List via Recusion
 
-**Author: [labuladong](https://github.com/labuladong)**
-
 **Translator: [CarrieOn](https://github.com/CarrieOn)**
+
+**Author: [labuladong](https://github.com/labuladong)**
 
 It's easy to reverse a single linked list using iteration, however it's kind of difficult to come up with a recursive solution. Furthermore, if only part of a linked list needs reversed, can you nail it with **recursion**?
 

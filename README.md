@@ -4,9 +4,9 @@
 
 翻译完成后，你可以删除文末的公众号二维码。对于第一个提交的翻译版本，你可以在文章开头添加作者和翻译者：
 
-**Author: [labuladong](https://github.com/labuladong)**
-
 **Translator: [YourName](https://github.com/YourName)**
+
+**Author: [labuladong](https://github.com/labuladong)**
 
 你的链接可以指向任何你希望的地方。
 
