@@ -15,9 +15,7 @@ assignees: ''
 
 <!-- 注释不会显示在 issue 中，下面的内容只需修改两处，文章名字和翻译时间 -->
 
-我已阅读过[翻译组工作流程](https://github.com/labuladong/fucking-algorithm/issues/9)，我开启的 issue 是【进行翻译】，我没有和其他人的工作产生冗余或冲突。
-
-我已阅读过[翻译要求](https://github.com/labuladong/fucking-algorithm/blob/english/README.md)，我暂时拥有了向主仓库提交的权限，会对此次翻译的质量负责。
+我已阅读过[翻译组工作流程](https://github.com/labuladong/fucking-algorithm/issues/9)，我已阅读过[翻译要求](https://github.com/labuladong/fucking-algorithm/blob/english/README.md)，我拥有了向主仓库提交 pull request 的权限，会对负责此次翻译的质量。
 
 我将开始翻译如下文章（点击可查看目标文章）：
 
@@ -26,5 +24,5 @@ assignees: ''
 
 我对如何翻译此文章已经心中有数，我准备将它翻译成：**英文**
 
-<!-- 将 X 替换成你的占有时间，尽可能快，不得多于 7 天，负责视为无效，请把机会让给别人 -->
-**预计 X 天内翻译完成**，若由于种种原因，规定时间已过但此 issue 还未提交 pull request，则此 issue 自动失效。如果你愿意，你可以 @ 管理员关闭此 issue 并新开一个 issue 接替我的工作翻译这篇文章。
+<!-- 替换成你的占有时间，尽可能快，主仓库接受的第一个 pr 将会注明翻译者昵称及链接 -->
+**预计 3 天内翻译完成**，我会尽可能快地完成翻译，主仓库允许第一个完成的 pull request 添加翻译者昵称/姓名及 Github profile 链接（或任意你希望的链接）。
