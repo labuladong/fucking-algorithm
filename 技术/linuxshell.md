@@ -132,3 +132,10 @@ $ sudo /home/fdl/bin/connect.sh
 坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
 
 ![labuladong](../pictures/labuladong.jpg)
+
+
+[上一篇：一文看懂 session 和 cookie](../技术/session和cookie.md)
+
+[下一篇：加密算法的前身今世](../技术/密码技术.md)
+
+[目录](../README.md#目录)

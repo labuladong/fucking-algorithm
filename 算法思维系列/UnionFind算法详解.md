@@ -292,3 +292,9 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 **致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
 
 ![labuladong](../pictures/labuladong.png)
+
+[上一篇：如何调度考生的座位](../高频面试系列/座位调度.md)
+
+[下一篇：Union-Find算法应用](../算法思维系列/UnionFind算法应用.md)
+
+[目录](../README.md#目录)

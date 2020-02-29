@@ -130,3 +130,10 @@ https://github.com/astaxie/build-web-application-with-golang
 坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
 
 ![labuladong](../pictures/labuladong.jpg)
+
+
+[上一篇：Linux的进程、线程、文件描述符是什么](../技术/linux进程.md)
+
+[下一篇：关于 Linux shell 你必须知道的](../技术/linuxshell.md)
+
+[目录](../README.md#目录)

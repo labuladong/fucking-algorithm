@@ -2,7 +2,7 @@ English translation is processing…… Star this repo and go back sonn：)
 
 没想到两天就火了，招募翻译组啦，有兴趣可查看这个置顶 [issue](https://github.com/labuladong/fucking-algorithm/issues/9)，成为本仓库的贡献者就是这么容易！
 
-# 一、前言
+# 前言
 
 本仓库总共 60 多篇原创文章，基本上都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
 
@@ -28,7 +28,7 @@ English translation is processing…… Star this repo and go back sonn：)
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
-# 二、文章目录
+# 目录
 
 * 第零章、必读系列
   * [学习算法和刷题的框架思维](算法思维系列/学习数据结构和算法的高效方法.md)
@@ -71,6 +71,7 @@ English translation is processing…… Star this repo and go back sonn：)
 * 第三章、算法思维系列
   * [算法学习之路](算法思维系列/算法学习之路.md)
   * [回溯算法详解](算法思维系列/回溯算法详解修订版.md)
+  * [回溯算法团灭排列、组合、子集问题](高频面试系列/子集排列组合.md)
   * [二分查找详解](算法思维系列/二分查找详解.md)
   * [双指针技巧总结](算法思维系列/双指针技巧.md)
   * [滑动窗口技巧](算法思维系列/滑动窗口技巧.md)
@@ -98,6 +99,7 @@ English translation is processing…… Star this repo and go back sonn：)
   * [如何k个一组反转链表](高频面试系列/k个一组反转链表.md)
   * [如何判定括号合法性](高频面试系列/合法括号判定.md)
   * [如何寻找消失的元素](高频面试系列/消失的元素.md)
+  * [如何寻找缺失和重复的元素](高频面试系列/缺失和重复的元素.md)
   * [如何判断回文链表](高频面试系列/判断回文链表.md)
   * [如何在无限序列中随机抽取元素](高频面试系列/水塘抽样.md)
   * [如何调度考生的座位](高频面试系列/座位调度.md)

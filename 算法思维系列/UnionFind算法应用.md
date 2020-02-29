@@ -221,3 +221,10 @@ boolean equationsPossible(String[] equations) {
 坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
 
 ![labuladong](../pictures/labuladong.jpg)
+
+
+[上一篇：Union-Find算法详解](../算法思维系列/UnionFind算法详解.md)
+
+[下一篇：一行代码就能解决的算法题](../高频面试系列/一行代码解决的智力题.md)
+
+[目录](../README.md#目录)

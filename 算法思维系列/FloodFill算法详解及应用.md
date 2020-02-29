@@ -219,3 +219,10 @@ int fill(int[][] image, int x, int y,
 坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
 
 ![labuladong](../pictures/labuladong.jpg)
+
+
+[上一篇：字符串乘法](../算法思维系列/字符串乘法.md)
+
+[下一篇：区间调度之区间合并问题](../算法思维系列/区间调度问题之区间合并.md)
+
+[目录](../README.md#目录)

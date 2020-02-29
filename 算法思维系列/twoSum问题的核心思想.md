@@ -156,3 +156,10 @@ int[] twoSum(int[] nums, int target) {
 坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
 
 ![labuladong](../pictures/labuladong.jpg)
+
+
+[上一篇：滑动窗口技巧](../算法思维系列/滑动窗口技巧.md)
+
+[下一篇：常用的位操作](../算法思维系列/常用的位操作.md)
+
+[目录](../README.md#目录)
