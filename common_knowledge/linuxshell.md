@@ -1,3 +1,5 @@
+# Things you must know about Linux Shell 
+
 **Translator: [Tianhao Zhou](https://github.com/tianhaoz95)**
 
 **Author: [labuladong](https://github.com/labuladong)**
@@ -125,14 +127,10 @@ $ where connect.sh
 /home/fdl/bin/connect.sh
 ```
 
-**When prefixing `sudo`, we tell the OS that the root user is executing the command, so the OS will search the environment variables of the root user** where the `connect.sh` script doesn't exist.
+**When prefixing `sudo`, we tell the OS that the `sudoer` is executing the command, so the OS will search the environment variables of the `sudoer`(defined in `/etc/sudoer`)** where the `connect.sh` script doesn't exist.
 
 The solution is to locate the script with a path instead of a name:
 
 ```shell
 $ sudo /home/fdl/bin/connect.sh
 ```
-
-Our mission: To help clarify algorithms by creating original articles. Please subscribe to my WeChat newsletter, labuladong, for the latest updates:
-
-![labuladong](../pictures/labuladong.jpg)

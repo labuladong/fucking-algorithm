@@ -1,8 +1,8 @@
+# Detailed Analysis of LRU Algorithm
+
 **Translator: [youyun](https://github.com/youyun)**
 
 **Author: [labuladong](https://github.com/labuladong)**
-
-# Detailed Analysis of LRU Algorithm
 
 ### 1. What is LRU Algorithm
 
@@ -14,17 +14,17 @@ LRU (Least Recently Used) cache clean-up algorithm is a common strategy. Accordi
 
 For example, an Android phone can run apps in the background. If I opened in sequence: Settings, Phone Manager, and Calendar, their order in the background will be shown as following:
 
-![jietu](../pictures/LRU%E7%AE%97%E6%B3%95/1.jpg)
+![jietu](../pictures/LRU/1.jpg)
 
 If I switch to Settings now, Settings will be brought to the first:
 
-![jietu](../pictures/LRU%E7%AE%97%E6%B3%95/2.jpg)
+![jietu](../pictures/LRU/2.jpg)
 
 Assume that my phone only allows me to open 3 apps simultaneously, then the cache is already full by now. If I open another app, Clock, then I have to close another app to free up space for Clock. Which one should be closed?
 
 According to LRU strategy, the lowest app, Phone Manager, should be closed, because it is the longest unused app. Afterwards, the newly opened app will be on the top:
 
-![jietu](../pictures/LRU%E7%AE%97%E6%B3%95/3.jpg)
+![jietu](../pictures/LRU/3.jpg)
 
 Now you should understand LRU (Least Recently Used) strategy. There are some other strategies available, for example, LFU (Least Frequently Used) strategy, etc. Different strategies can be applied in different use cases. We'll focus on LRU in this article.
 
@@ -83,7 +83,7 @@ Which data structure can fulfill the above requirements? Hash table can search f
 
 The core data structure of LRU cache algorithm is hash linked list, a combination of doubly linked list and hash table. Here is how the data structure looks:
 
-![HashLinkedList](../pictures/LRU%E7%AE%97%E6%B3%95/5.jpg)
+![HashLinkedList](../pictures/LRU/5.jpg)
 
 The idea is simple - using a hash table to provide the ability of fast search to linked list. Think again about the previous example, isn't this data structure the perfect solution for LRU cache data structure?
 
@@ -227,7 +227,3 @@ if (cap == cache.size()) {
 If the cache is full, we not only need to delete the last node, but also need to delete the key in the map, where we can only get the key through the node. If we only store value in a node, we can't get the key, and hence, can't delete the key from the map.
 
 Till now, you should have understood the idea and implementation of LRU algorithm. One common mistake is to update associated entries in the hash table when you deal with nodes in the linked list.
-
-**Explanine the algorithms clearly! Subscribe to my WeChat blog labuladong, and find more easy-to-understand articles.**：
-
-![labuladong](../pictures/labuladong.png)

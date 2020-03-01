@@ -1,8 +1,8 @@
 # How to find **The Longest Palindromic Substring**
 
-Author: [labuladong](https://github.com/labuladong)
+**Author: [labuladong](https://github.com/labuladong)**
 
-Translator: [Lrc123](https://github.com/Lrc123)
+**Translator: [Lrc123](https://github.com/Lrc123)**
 
 Palindrome questions are very common in the interview, this article provides some insights about palindromic problem.
 

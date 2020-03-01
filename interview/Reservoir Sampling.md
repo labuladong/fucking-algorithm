@@ -1,6 +1,8 @@
-Author: [labuladong](https://github.com/labuladong)
+# Reservoir Sampling algorithm
 
-Translator: [wsyzxxxx](https://github.com/wsyzxxxx)
+**Author: [labuladong](https://github.com/labuladong)**
+
+**Translator: [wsyzxxxx](https://github.com/wsyzxxxx)**
 
 Recently I met with two interesting questions on LeetCode, LC382 and LC398. They are about Reservoir Sampling algorithm which basically is one kind of random possibility algorithm. If you understnd it, then such kind of questions will not be difficult. Otherwise, it may confuse you a lot.
 
