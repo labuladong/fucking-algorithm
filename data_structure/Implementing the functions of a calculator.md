@@ -1,4 +1,4 @@
-# Dismantling complex problems: implementing the functions of a calculator
+# Dismantling complex problems: Implementing the functions of a calculator
 
 **Translator: [Zero](https://github.com/Mr2er0)**
 
