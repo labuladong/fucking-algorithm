@@ -2,17 +2,17 @@
 
 **Author: [labuladong](https://github.com/labuladong)**
 
-# Detaild Analysis of LRU Algorithm
+# Detailed Analysis of LRU Algorithm
 
 ### 1. What is LRU Algorithm
 
 It is just a cache clean-up strategy.
 
-A computer has limited memory cache. If the cache is full, some contents need to be removed from cache to provide space for new content. However, which part of the cache should be removed? We hope to remove not so useful contents, while leaving useful contents untouched for future usage. So the question is, what is the criteria to determine if the data is _useful_ or not?
+A computer has limited memory cache. If the cache is full, some contents need to be removed from cache to provide space for new content. However, which part of the cache should be removed? We hope to remove not so useful contents, while leaving useful contents untouched for future usage. So the question is, what are the criteria to determine if the data is _useful_ or not?
 
-LRU (Least Recently Used) cache clean-up algorithm is a common strategy. According to the name, the latest used data should be _useful_. Hence, when the memory cache is full, we should priortize to remove those data that haven't been used for long are not useful.
+LRU (Least Recently Used) cache clean-up algorithm is a common strategy. According to the name, the latest used data should be _useful_. Hence, when the memory cache is full, we should prioritize removing those data that haven't been used for long are not useful.
 
-For example, an Android phone can run apps in the backgroud. If I opened in sequence: Settings, Phone Manager, and Calendar, their order in the background will be shown as following:
+For example, an Android phone can run apps in the background. If I opened in sequence: Settings, Phone Manager, and Calendar, their order in the background will be shown as following:
 
 ![jietu](../pictures/LRU%E7%AE%97%E6%B3%95/1.jpg)
 
@@ -22,7 +22,7 @@ If I switch to Settings now, Settings will be brought to the first:
 
 Assume that my phone only allows me to open 3 apps simultaneously, then the cache is already full by now. If I open another app, Clock, then I have to close another app to free up space for Clock. Which one should be closed?
 
-Accoording to LRU strategy, the lowest app, Phone Manager, should be closed, because it is the longest unused app. Afterwards, the newly opened app will be on the top:
+According to LRU strategy, the lowest app, Phone Manager, should be closed, because it is the longest unused app. Afterwards, the newly opened app will be on the top:
 
 ![jietu](../pictures/LRU%E7%AE%97%E6%B3%95/3.jpg)
 
@@ -34,10 +34,10 @@ LRU algorithm is actually about data structure design:
 1. Take a parameter, `capacity`, as the maximum size; then
 2. Implement two APIs:
     * `put(key, val)`: to store key-value pair
-    * `get(key)`: return the value associated with the key; return -1 if key doesn't exist.
+    * `get(key)`: return the value associated with the key; return -1 if the key doesn't exist.
 3. The time complexity for both `get` and `put` should be __O(1)__.
 
-Let's use an example to understand how LRU algorithm works.
+Let's use an example to understand how the LRU algorithm works.
 
 ```cpp
 /* Cache capacity is 2 */
@@ -59,7 +59,7 @@ cache.put(3, 3);
 // cache = [(3, 3), (1, 1)]
 // Remarks: the memory capacity is full
 // We need to remove some contents to free up space
-// Removal will priortize longest unused data, which is at the tail
+// Removal will prioritize longest unused data, which is at the tail
 // Afterwards, insert the new data at the head
 cache.get(2);       // return -1 (not found)
 // cache = [(3, 3), (1, 1)]
@@ -79,21 +79,21 @@ Through analysis of the above steps, if time complexity for `put` and `get` are 
 - _Fast Deletion_: If the cache is full, we need to delete the last element.
 - _Fast Insertion_: We need to insert the data to the head upon each visit.
 
-Which data structure can fulfill the above requirements? Hash table can search fast, but the data is unordered. Data in linked list is ordered, and can be inserted or deleted fast, but is hard to be searched. Combining these two, we can come up with a new data structure: __hash linked list__.
+Which data structure can fulfill the above requirements? Hash table can search fast, but the data is unordered. Data in linked list is ordered, and can be inserted or deleted fast, but is hard to search. Combining these two, we can come up with a new data structure: __hash linked list__.
 
 The core data structure of LRU cache algorithm is hash linked list, a combination of doubly linked list and hash table. Here is how the data structure looks:
 
 ![HashLinkedList](../pictures/LRU%E7%AE%97%E6%B3%95/5.jpg)
 
-The idea is simple - using hash table to provide the ability of fast earch to linked list. Think again about the previous example, isn't this data structure the perfect solution for LRU cache data structure?
+The idea is simple - using a hash table to provide the ability of fast search to linked list. Think again about the previous example, isn't this data structure the perfect solution for LRU cache data structure?
 
 Some audience may wonder, why doubly linked list? Can't single linked list work? Since key exists in hash table, why do we have to store the key-value pairs in linked list instead of values only?
 
-The answers only afloat when we actually do it. We can only understand the rationale behind the design after we implement LRU algorithm ourselves. Let's look at the code.
+The answers only afloat when we actually do it. We can only understand the rationale behind the design after we implement the LRU algorithm ourselves. Let's look at the code.
 
 ### 4. Implementation
 
-A lot of programming languages has built-in hash linked list, or LRU-alike functions. To help understand the details of LRU algorithm, let's use Java to re-invent the wheel.
+A lot of programming languages have built-in hash linked list, or LRU-alike functions. To help understand the details of the LRU algorithm, let's use Java to reinvent the wheel.
 
 First, define the `Node` class of doubly linked list. Assuming both `key` and `val` are of type `int`.
 
@@ -115,7 +115,7 @@ class DoubleList {
     // Add x at the head, time complexity O(1)
     public void addFirst(Node x);
 
-    // Delete node x in the linked list (x is guarenteed to exist)
+    // Delete node x in the linked list (x is guaranteed to exist)
     // Given a node in a doubly linked list, time complexity O(1)
     public void remove(Node x);
     
@@ -129,9 +129,9 @@ class DoubleList {
 
 P.S. This is the typical interface of a doubly linked list. In order to focus on the LRU algorithm, we'll skip the detailed implementation of functions in this class.
 
-Now we can answer the question, why we have to use doubly linked list. In order to delete a node, we not only need to get the pointer of the node itself, but also need to update the node before and the node after. Only using a doubly linked list, we can guarentee the time complexity is O(1).
+Now we can answer the question, why we have to use a doubly linked list. In order to delete a node, we not only need to get the pointer of the node itself, but also need to update the node before and the node after. Only using a doubly linked list, we can guarantee the time complexity is O(1).
 
-With the doubly linked list, we just need to use it in with hash table in LRU algorithm. Let's sort out the logic with pseudo code:
+With the doubly linked list, we just need to use it in with a hash table in the LRU algorithm. Let's sort out the logic with pseudo code:
 
 ```java
 // key associated with Node(key, val)
@@ -158,7 +158,7 @@ void put(int key, int val) {
             delete the last node in the linked list;
             delete the associated value in map;
         } 
-        inseart the new node x to the head;
+        insert the new node x to the head;
         associate the new node x with key in map;
     }
 }
@@ -228,6 +228,6 @@ If the cache is full, we not only need to delete the last node, but also need to
 
 Till now, you should have understood the idea and implementation of LRU algorithm. One common mistake is to update associated entries in the hash table when you deal with nodes in the linked list.
 
-**To make algorithm clear! Subscribe to my WeChat blog labuladong, and find more easy-to-understand articles.**：
+**Explanine the algorithms clearly! Subscribe to my WeChat blog labuladong, and find more easy-to-understand articles.**：
 
 ![labuladong](../pictures/labuladong.png)
