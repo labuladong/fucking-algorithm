@@ -15,7 +15,7 @@ assignees: ''
 
 <!-- 注释不会显示在 issue 中，下面的内容只需修改两处，文章名字和翻译时间 -->
 
-我已阅读过[翻译组工作流程](https://github.com/labuladong/fucking-algorithm/issues/9)，我已阅读过[翻译要求](https://github.com/labuladong/fucking-algorithm/blob/english/README.md)，我拥有了向主仓库提交 pull request 的权限，会对负责此次翻译的质量。
+我已阅读过[翻译组工作流程](https://github.com/labuladong/fucking-algorithm/issues/9)，我已阅读过[翻译要求](https://github.com/labuladong/fucking-algorithm/blob/english/README.md)，我已查看 [已完成列表](https://github.com/labuladong/fucking-algorithm/pulls?q=is%3Apr+is%3Aclosed)，确保我要翻译的文章还没有被翻译。
 
 我将开始翻译如下文章（点击可查看目标文章）：
 
@@ -25,4 +25,4 @@ assignees: ''
 我对如何翻译此文章已经心中有数，我准备将它翻译成：**英文**
 
 <!-- 替换成你的占有时间，尽可能快，主仓库接受的第一个 pr 将会注明翻译者昵称及链接 -->
-**预计 3 天内翻译完成**，我会尽可能快地完成翻译，主仓库允许第一个完成的 pull request 添加翻译者昵称/姓名及 Github profile 链接（或任意你希望的链接）。
+**预计 3 天内翻译完成**，我会尽可能快地完成翻译，主仓库会对第一个完成的 pull request 添加翻译者昵称/姓名及个人链接。
