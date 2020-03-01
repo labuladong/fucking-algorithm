@@ -49,7 +49,7 @@ Think about how we find out all the permutations. If you are given three numbers
 
 In fact, this is the ''backtracking''. You can use it even without a teacher! The following figure shows the backtracking tree:
 
-![](E:/workToDo/github translate/fucking-algorithm/pictures/backtracking/1en.jpg)
+![](../pictures/backtracking/1en.jpg)
 
 Just traverse this tree from the root to the leaves and record the numbers on the paths, and you will get all the permutations. **We might as well call this tree a “decision tree” for backtracking **for you're actually making decisions on each node. For instance, if you are now at the red node, you will making a decision between the "1" branch and "3" branch. Why only 1 and 3? Because the "2" branch is behind you, you have made this selection before, and the full permutation is not allowed to reuse numbers.
 
@@ -57,7 +57,7 @@ Just traverse this tree from the root to the leaves and record the numbers on th
 
 If you understand these terms, **you can use the "Path" and "Selection List" as attributes of each node in the decision tree**. For example, the following figure lists the attributes of several nodes
 
-![](E:/workToDo/github translate/fucking-algorithm/pictures/backtracking/3en.png)
+![](../pictures/backtracking/3en.png)
 
 **The  function ```backtrack()``` we defined is actually like a pointer. It is necessary to walk on the tree and maintain the attributes of each node correctly. Whenever it reaches the bottom of the tree, its “Path” is a full permutation **.
 
@@ -74,13 +74,13 @@ void traverse(TreeNode root) {
 
 The so-called preorder traversal and postorder traversal are just two very useful time points. The following picture will make you more clear:
 
-![](E:/workToDo/github translate/fucking-algorithm/pictures/backtracking/4en.jpg)
+![](../pictures/backtracking/4en.jpg)
 
 **Preorder travers is executed at the time point before entering a node, and postorder traversal is executed at the time point after leaving a node**.
 
 Recalling what we just said:"Path" and "Selection List" are attributes of each node. If want the function to  maintain the attributes of the node correctly, we must do something at these two special time points:
 
-![](E:/workToDo/github translate/fucking-algorithm/pictures/backtracking/5en.jpg)
+![](../pictures/backtracking/5en.jpg)
 
 Now, do you understand the core framework of backtracking?
 
@@ -136,7 +136,7 @@ void backtrack(int[] nums, LinkedList<Integer> track) {
 
 We made a few changes here: instead of explicitly recording the "selection List", we use `nums` and `track` to deduce the current selection list:
 
-![](E:/workToDo/github translate/fucking-algorithm/pictures/backtracking/6en.jpg)
+![](../pictures/backtracking/6en.jpg)
 
 So far, we have explained the underlying principle of the backtracking through the full permutation problem. Of course, this algorithm is not very efficient, and using the `contains` method for linked list requires $$O(N)$$ time complexity. There are better ways to achieve the purpose by exchanging elements which are more difficult to understand. I won't discuss them in this article. If you are interested, you can google related knowledge by yourself.
 
@@ -217,7 +217,7 @@ bool isValid(vector<string>& board, int row, int col) {
 
 The function ```backtrack()``` still looks like a pointer walking in the decision tree. The position traversed by the ```backtrack()```can be represented by` row` and `col`, and the unqualified condition can be pruned by the ```isValid()``` :
 
-![](E:/workToDo/github translate/fucking-algorithm/pictures/backtracking/7en.jpg)
+![](../pictures/backtracking/7en.jpg)
 
 ![](https://upload.wikimedia.org/wikipedia/commons/1/1f/Eight-queens-animation.gif)
 
