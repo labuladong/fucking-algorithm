@@ -1,8 +1,8 @@
+# How to find **The Longest Palindromic Substring**
+
 Author: [labuladong](https://github.com/labuladong)
 
 Translator: [Lrc123](https://github.com/Lrc123)
-
-# How to find **The Longest Palindromic Substring**
 
 Palindrome questions are very common in the interview, this article provides some insights about palindromic problem.
 
@@ -14,7 +14,7 @@ For example: `aba` and `abba` are both palindromic, because they are symetric st
 
 Notice: palindrome string could be in either odd length or even length, a good solution would be **double pointers**. Next, I'll show you how **doulbe pointers** work in a real leetcode problem.
 
-![](../pictures/回文/example.png)
+![](../pictures/palindrome/example.png)
 
 ```cpp
 string longestPalindrome(string s) {}
@@ -109,7 +109,7 @@ Time complexity: O(N^2)
 Space complexity: O(1)
 
 
-By the way, a dynamic approach can also work in this problem in a same time complexity. However, we need at least O(N^2) spaces to store DP table. 
+By the way, a dynamic programming approach can also work in this problem in a same time complexity. However, we need at least O(N^2) spaces to store DP table. 
 Therefore, in this problem, dp approach is not the best solution.
 
 In addition, **Manacher's Algorithm** requires only O(N) time complexity. You readers can search it through the Internet by your own interests. It should be very interesting.
@@ -117,4 +117,3 @@ In addition, **Manacher's Algorithm** requires only O(N) time complexity. You re
 
 **Stick to original high-quality articles, and strive to make clear the algorithm problems. Welcome to follow my Wechat official account "labuladong" for the latest articles.**
 
-![labuladong](../pictures/labuladong.png)
