@@ -296,8 +296,6 @@ The complexity of the Union-Find algorithm can be analyzed as follows: the const
 
 **The algorithm is committed to make it clear! Welcome to follow us on WeChat public account labuladong for more easy-to-understand articles**：
 
-![labuladong](../pictures/labuladong.png)
-
 [Previous: How to schedule candidates' seats](../高频面试系列/座位调度.md)
 
 [Next：Application of Union-Find algorithm](../算法思维系列/UnionFind算法应用.md)
