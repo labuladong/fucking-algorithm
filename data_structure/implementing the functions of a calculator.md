@@ -1,5 +1,9 @@
 # Dismantling complex problems: implementing the functions of a calculator
 
+**Translator: [Zero](https://github.com/Mr2er0)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 The calculator function we will eventually implement is as follows:
  
 1、Enter a string that can include `+-* /`, numbers, brackets, and spaces. Your algorithm returns the structure of the operation.
@@ -28,7 +32,7 @@ Then this article talks about how to implement one of the above-mentioned full-f
 
 Let's take apart. Starting with the simplest question.
 
-### 一、Convert string to integer
+### 1.Convert string to integer
 
 Yes, it is such a simple question. First tell me, how to convert a **positive** integer in the form of a string into an int?
 
@@ -47,32 +51,32 @@ This is still very simple, old-fashioned. But even so simple, there are still is
 
 Because the variable `c` is an ASCII code, if there is no parentheses, it will be added first and then subtracted. Imagine that` s` will overflow if it approaches INT_MAX. So use parentheses to ensure that you subtract before adding.
 
-### 二、处理加减法
+### 2.Processing addition and subtraction
 
-现在进一步，**如果输入的这个算式只包含加减法，而且不存在空格**，你怎么计算结果？我们拿字符串算式`1-12+3`为例，来说一个很简单的思路：
+Now further more, **If the input formula only contains addition and subtraction, and there are no spaces**, how do you calculate the result? Let's take the string expression `1-12 + 3` as an example. A very simple idea is implemented below:
 
-1、先给第一个数字加一个默认符号`+`，变成`+1-12+3`。
+1、First add a default symbol `+` to the first number and change it to `+ 1-12 + 3`.
 
-2、把一个运算符和数字组合成一对儿，也就是三对儿`+1`，`-12`，`+3`，把它们转化成数字，然后放到一个栈中。
+2、Combine an operator and a number into a pair, that is, three pairs of `+ 1`,` -12`, `+ 3`, convert them into numbers, and put them on a stack.
 
-3、将栈中所有的数字求和，就是原算式的结果。
+3、Summing all the numbers in the stack , which is the result of the original calculation.
 
-我们直接看代码，结合一张图就看明白了：
+Let's look directly at the code and see it in combination with a picture:
 
 ```cpp
 int calculate(string s) {
     stack<int> stk;
-    // 记录算式中的数字
+    // Record numbers in calculations
     int num = 0;
-    // 记录 num 前的符号，初始化为 +
+    // Record the sign before num, initialized to +
     char sign = '+';
     for (int i = 0; i < s.size(); i++) {
         char c = s[i];
-        // 如果是数字，连续读取到 num
+        // If it is a number, assign it continuously to num
         if (isdigit(c)) 
             num = 10 * num + (c - '0');
-        // 如果不是数字，就是遇到了下一个符号，
-        // 之前的数字和符号就要存进栈中
+        // If it's not a number, it must be the next symbol,
+        // the previous numbers and symbols should be stored on the stack
         if (!isdigit(c) || i == s.size() - 1) {
             switch (sign) {
                 case '+':
@@ -80,12 +84,12 @@ int calculate(string s) {
                 case '-':
                     stk.push(-num); break;
             }
-            // 更新符号为当前符号，数字清零
+            // Update the symbol to the current symbol and clear the number
             sign = c;
             num = 0;
         }
     }
-    // 将栈中所有结果求和就是答案
+    // Sum all the results in the stack is the answer
     int res = 0;
     while (!stk.empty()) {
         res += stk.top();
@@ -95,23 +99,23 @@ int calculate(string s) {
 }
 ```
 
-我估计就是中间带`switch`语句的部分有点不好理解吧，`i`就是从左到右扫描，`sign`和`num`跟在它身后。当`s[i]`遇到一个运算符时，情况是这样的：
+I guess the part with the `switch` statement in the middle is a bit hard to understand. `i` is scanned from left to right, and `sign` and `num` follow it. When `s [i]` encounters an operator, the situation is this:
 
 ![](../pictures/calculator/1.jpg)
 
-所以说，此时要根据`sign`的 case 不同选择`nums`的正负号，存入栈中，然后更新`sign`并清零`nums`记录下一对儿符合和数字的组合。
+Therefore, at this time, the sign of `nums` should be selected according to the case of` sign`, stored in the stack, and then `sign` is updated and the` nums` is cleared to record the next pair of sign and numbers.
 
-另外注意，不只是遇到新的符号会触发入栈，当`i`走到了算式的尽头（`i == s.size() - 1`），也应该将前面的数字入栈，方便后续计算最终结果。
+Also note that not only the new symbol will trigger the stack. When `i` reaches the end of the expression (`i == s.size ()-1`), the previous number should also be pushed on the stack for subsequent calculate the final result.
 
 ![](../pictures/calculator/2.jpg)
 
-至此，仅处理紧凑加减法字符串的算法就完成了，请确保理解以上内容，后续的内容就基于这个框架修修改改就完事儿了。
+At this point, the algorithm for processing only the compact addition and subtraction strings is complete. Please ensure that you understand the above. The subsequent content will be modified based on this framework.
 
-### 三、处理乘除法
+### 3.Multiplication and division
 
-其实思路跟仅处理加减法没啥区别，拿字符串`2-3*4+5`举例，核心思路依然是把字符串分解成符号和数字的组合。
+In fact, the idea is no different from just adding and subtracting. Take the string `2-3 * 4 + 5` as an example. The core idea is still to decompose the string into a combination of symbols and numbers.
 
-比如上述例子就可以分解为`+2`，`-3`，`*4`，`+5`几对儿，我们刚才不是没有处理乘除号吗，很简单，**其他部分都不用变**，在`switch`部分加上对应的 case 就行了：
+For example, the above example can be decomposed into `+ 2`,` -3`, `* 4`,` + 5`. We have not dealt with the multiplication and division signs just now. It is very simple. **No other parts need to be changed**, add the corresponding case to the `switch` section:
 
 ```cpp
 for (int i = 0; i < s.size(); i++) {
@@ -126,7 +130,7 @@ for (int i = 0; i < s.size(); i++) {
                 stk.push(num); break;
             case '-':
                 stk.push(-num); break;
-            // 只要拿出前一个数字做对应运算即可
+            // Just take out the previous number and do the corresponding operation
             case '*':
                 pre = stk.top();
                 stk.pop();
@@ -138,7 +142,7 @@ for (int i = 0; i < s.size(); i++) {
                 stk.push(pre / num);
                 break;
         }
-        // 更新符号为当前符号，数字清零
+        // Update the symbol to the current symbol and clear the number
         sign = c;
         num = 0;
     }
@@ -147,12 +151,12 @@ for (int i = 0; i < s.size(); i++) {
 
 ![](../pictures/calculator/3.jpg)
 
-**乘除法优先于加减法体现在，乘除法可以和栈顶的数结合，而加减法只能把自己放入栈**。
+** Multiplication and division take precedence over addition and subtraction in that multiplication and division can be combined with numbers on the top of the stack, and addition and subtraction can only put themselves on the stack **.
 
-现在我们思考一下**如何处理字符串中可能出现的空格字符**。其实也非常简单，想想空格字符的出现，会影响我们现有代码的哪一部分？
+Now let's think about **how to deal with the possible space characters in a string**. In fact, it is very simple. Think about what part of our existing code whil be affected by the appearance of the space character. 
 
 ```cpp
-// 如果 c 非数字
+// If c is not a number
 if (!isdigit(c) || i == s.size() - 1) {
     switch (c) {...}
     sign = c;
@@ -160,9 +164,9 @@ if (!isdigit(c) || i == s.size() - 1) {
 }
 ```
 
-显然空格会进入这个 if 语句，但是我们并不想让空格的情况进入这个 if，因为这里会更新`sign`并清零`nums`，空格根本就不是运算符，应该被忽略。
+Obviously spaces will enter this if statement, but we don't want to let spaces enter this if, because `sign` will be updated and `nums` will be cleared. Spaces are not operators at all and should be ignored.
 
-那么只要多加一个条件即可：
+Then just add one more condition:
 
 ```cpp
 if ((!isdigit(c) && c != ' ') || i == s.size() - 1) {
@@ -170,13 +174,13 @@ if ((!isdigit(c) && c != ' ') || i == s.size() - 1) {
 }
 ```
 
-好了，现在我们的算法已经可以按照正确的法则计算加减乘除，并且自动忽略空格符，剩下的就是如何让算法正确识别括号了。
+Well, now our algorithm can calculate addition, subtraction, multiplication and division according to the correct rules, and automatically ignore the space characters. The rest is how to make the algorithm recognize the brackets correctly.
 
-### 四、处理括号
+### 4.Handling parentheses
 
-处理算式中的括号看起来应该是最难的，但真没有看起来那么难。
+Dealing with parentheses in calculations should seem the hardest, but it's not as difficult as it seems.
 
-为了规避编程语言的繁琐细节，我把前面解法的代码翻译成 Python 版本：
+To avoid the tedious details of the programming language, I translated the previous solution code into a Python version:
 
 ```python
 def calculate(s: str) -> int:
@@ -199,28 +203,28 @@ def calculate(s: str) -> int:
                 elif sign == '*':
                     stack[-1] = stack[-1] * num
                 elif sign == '/':
-                    # python 除法向 0 取整的写法
+                    # Python division to 0 rounding
                     stack[-1] = int(stack[-1] / float(num))                    
                 num = 0
                 sign = c
 
         return sum(stack)
-    # 需要把字符串转成列表方便操作
+    # Need to turn strings into lists for easy operation
     return helper(list(s))
 ```
 
-这段代码跟刚才 C++ 代码完全相同，唯一的区别是，不是从左到右遍历字符串，而是不断从左边`pop`出字符，本质还是一样的。
+This code is exactly the same as the C ++ code just now. The only difference is that instead of traversing the string from left to right, it continues to pop out characters from the left.
 
-那么，为什么说处理括号没有看起来那么难呢，**因为括号具有递归性质**。我们拿字符串`3*(4-5/2)-6`举例：
+So why isn't it so hard to deal with parentheses, **because parentheses are recursive** Let's take the string `3 * (4-5 / 2) -6` as an example:
 
 calculate(`3*(4-5/2)-6`)
 = 3 * calculate(`4-5/2`) - 6
 = 3 * 2 - 6
 = 0
 
-可以脑补一下，无论多少层括号嵌套，通过 calculate 函数递归调用自己，都可以将括号中的算式化简成一个数字。**换句话说，括号包含的算式，我们直接视为一个数字就行了**。
+In fact, no matter how many levels of parentheses are nested, you can reduce the calculation in the parentheses to a number by calling itself recursively through the calculate function. **In other words, the calculations in parentheses are just a number.**
 
-现在的问题是，递归的开始条件和结束条件是什么？**遇到`(`开始递归，遇到`)`结束递归**：
+The question is, what are the start and end conditions for recursion? **Meet `(` begin recursion, encounter `)` end recursion**:
 
 ```python
 def calculate(s: str) -> int:
@@ -234,7 +238,7 @@ def calculate(s: str) -> int:
             c = s.pop(0)
             if c.isdigit():
                 num = 10 * num + int(c)
-            # 遇到左括号开始递归计算 num
+            # Meet the left parenthesis and start recursive calculation of num
             if c == '(':
                 num = helper(s)
 
@@ -245,7 +249,7 @@ def calculate(s: str) -> int:
                 elif sign == '/': ...
                 num = 0
                 sign = c
-            # 遇到右括号返回递归结果
+            # Return recursive result when encountering right parenthesis
             if c == ')': break
         return sum(stack)
 
@@ -258,18 +262,13 @@ def calculate(s: str) -> int:
 
 ![](../pictures/calculator/6.jpg)
 
-你看，加了两三行代码，就可以处理括号了，这就是递归的魅力。至此，计算器的全部功能就实现了，通过对问题的层层拆解化整为零，再回头看，这个问题似乎也没那么复杂嘛。
+As you can see, with two or three lines of code, you can handle parentheses, which is the charm of recursion. At this point, all the functions of the calculator have been realized. By dismantling the problem layer by layer and solving the problems one by one, the problem does not seem so complicated.
+### 5. Final summary
 
-### 五、最后总结
+In this article, I want to express the idea of ​​dealing with complex problems by implementing the functions of a calculator.
 
-本文借实现计算器的问题，主要想表达的是一种处理复杂问题的思路。
+We start with the simple problem of converting strings to numbers, and then work with expressions that only include addition and subtraction, then work with expressions that include four operations: addition, subtraction, multiplication, and division, then space characters, and then expressions that include parentheses.
 
-我们首先从字符串转数字这个简单问题开始，进而处理只包含加减法的算式，进而处理包含加减乘除四则运算的算式，进而处理空格字符，进而处理包含括号的算式。
+**It can be seen that for some difficult problems, the solution is not achieved overnight, but it is advanced step by step and spirally rises**. If you give you the original question at the beginning, you may fail to handel it, and you  even can't understand the answer. It ’s normal. The key lies in how we simplify the problem ourselves and how to retreat for the sake of advancing.
 
-**可见，对于一些比较困难的问题，其解法并不是一蹴而就的，而是步步推进，螺旋上升的**。如果一开始给你原题，你不会做，甚至看不懂答案，都很正常，关键在于我们自己如何简化问题，如何以退为进。
-
-**退而求其次是一种很聪明策略**。你想想啊，假设这是一道考试题，你不会实现这个计算器，但是你写了字符串转整数的算法并指出了容易溢出的陷阱，那起码可以得 20 分吧；如果你能够处理加减法，那可以得 40 分吧；如果你能处理加减乘除四则运算，那起码够 70 分了；再加上处理空格字符，80 有了吧。我就是不会处理括号，那就算了，80 已经很 OK 了好不好。
-
-**致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
-
-![labuladong](../pictures/labuladong.png)
+**It's a very clever strategy to retreat and take the second best**。Think about it, assuming this is an exam question, you won't implement this calculator, but you wrote the string to integer algorithm and pointed out the easy-to-overflow trap, then at least you can get 20 points; if you can handle addition and subtraction, you can get 40 points; if you can handle addition, subtraction, multiplication and division, that is at least 70 points; plus the space character, 80. I just don't handle parentheses, so forget it, 80 is OK, OK?
