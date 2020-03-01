@@ -22,15 +22,15 @@ As you can see, this is very close to the calculator we use in real life. Althou
 
 3、To handle spaces. For the sake of beauty, we habitually put spaces between numbers and operators, but we have to figure out ways to ignore these spaces.
 
-I remember a lot of textbooks on university data structure. When talking about data structures like stacks, they may use calculators as examples, but most can't make it clear. I don’t know how many future computer scientists will be so simple. The data structure dismissed.
+I remember a lot of textbooks on university data structure. When talking about data structures like stacks, they may use calculators as examples, but most can't make it clear. I don’t know how many future computer scientists may quit because of  such a simple data structure .
 
-那么本文就来聊聊怎么实现上述一个功能完备的计算器功能，**关键在于层层拆解问题，化整为零，逐个击破**，相信这种思维方式能帮大家解决各种复杂问题。
+Then this article talks about how to implement one of the above-mentioned full-featured calculator functions.**The key lies in dismantling the problems layer by layer and solving the problems one by one**, I believe that this way of thinking can help everyone solve various complex problems.
 
-下面就来拆解，从最简单的一个问题开始。
+Let's take apart. Starting with the simplest question.
 
-### 一、字符串转整数
+### 一、Convert string to integer
 
-是的，就是这么一个简单的问题，首先告诉我，怎么把一个字符串形式的**正**整数，转化成 int 型？
+Yes, it is such a simple question. First tell me, how to convert a **positive** integer in the form of a string into an int?
 
 ```cpp
 string s = "458";
@@ -40,12 +40,12 @@ for (int i = 0; i < s.size(); i++) {
     char c = s[i];
     n = 10 * n + (c - '0');
 }
-// n 现在就等于 458
+// n is now equal to 458
 ```
 
-这个还是很简单的吧，老套路了。但是即便这么简单，依然有坑：**`(c - '0')`的这个括号不能省略，否则可能造成整型溢出**。
+This is still very simple, old-fashioned. But even so simple, there are still issues that need attention: **This bracket in `(c - '0')` cannot be omitted, otherwise it may cause integer overflow**
 
-因为变量`c`是一个 ASCII 码，如果不加括号就会先加后减，想象一下`s`如果接近 INT_MAX，就会溢出。所以用括号保证先减后加才行。
+Because the variable `c` is an ASCII code, if there is no parentheses, it will be added first and then subtracted. Imagine that` s` will overflow if it approaches INT_MAX. So use parentheses to ensure that you subtract before adding.
 
 ### 二、处理加减法
 
