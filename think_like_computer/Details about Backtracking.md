@@ -1,5 +1,9 @@
 # Details about Backtracking
 
+**Translator**: [xiaodp](https://github.com/xiaodp)
+
+**Author**: [labuladong](https://github.com/labuladong)
+
 This article is an advanced version of "Details of Backtracking Algorithms" before. The previous one isn't clear enough, so you don't need to read it and just read this article.
 
 Ponder carefully and you will find that the backtracking  problems follow the same pattern, that is, have the same framework.
@@ -35,7 +39,7 @@ Then what `makes a selection` and `undo the selection` means? and what is the un
 
 ### Permutation
 
-You must have learned the permutations and combinations. As we know, for $$N$$ unique numbers, the number of full permutations is $$N!$$.
+You must have learned the permutations and combinations. As we know, for $N$ unique numbers, the number of full permutations is $N!$.
 
 `note`: For simplicity and clarity, **the full permutation problem we are discussing this time does not contain duplicate numbers**.
 
@@ -138,15 +142,15 @@ We made a few changes here: instead of explicitly recording the "selection List"
 
 ![](../pictures/backtracking/6en.jpg)
 
-So far, we have explained the underlying principle of the backtracking through the full permutation problem. Of course, this algorithm is not very efficient, and using the `contains` method for linked list requires $$O(N)$$ time complexity. There are better ways to achieve the purpose by exchanging elements which are more difficult to understand. I won't discuss them in this article. If you are interested, you can google related knowledge by yourself.
+So far, we have explained the underlying principle of the backtracking through the full permutation problem. Of course, this algorithm is not very efficient, and using the `contains` method for linked list requires $O(N)$ time complexity. There are better ways to achieve the purpose by exchanging elements which are more difficult to understand. I won't discuss them in this article. If you are interested, you can google related knowledge by yourself.
 
-However, it must be noted that no matter how optimized, it conforms to the backtracking framework, and the time complexity cannot be lower than $$O (N!)$$.Because exhaustion of the entire decision tree is unavoidable. **This is also a feature of backtracking. Unlike dynamic programming having overlapping subproblems which can be optimized, backtracking is purely violent exhaustion, and time complexity is generally high**.
+However, it must be noted that no matter how optimized, it conforms to the backtracking framework, and the time complexity cannot be lower than $O (N!)$.Because exhaustion of the entire decision tree is unavoidable. **This is also a feature of backtracking. Unlike dynamic programming having overlapping subproblems which can be optimized, backtracking is purely violent exhaustion, and time complexity is generally high**.
 
 After understanding the full permutation problem, you can directly use the backtracking framework to solve some problems. Let's take a brief look at the `N Queen`problem.
 
 ### N Queen Problem
 
-This is a classical problem: place $$N$$ non-attacking queens on an $$N{\times}N$$ chessboard. Thus, a solution requires that no two queens share the same row, column, or diagonal. 
+This is a classical problem: place $N$ non-attacking queens on an $N{\times}N$ chessboard. Thus, a solution requires that no two queens share the same row, column, or diagonal. 
 
 This problem is essentially similar to the full permutation problem. If we build a decision tree, each layer of the decision tree represents each row on the chessboard. And the selection that each node can make is to place a queen on any column of the row.
 
@@ -223,7 +227,7 @@ The function ```backtrack()``` still looks like a pointer walking in the decisio
 
 If you are facing such a chunk of  solution code directly, you may feel very puzzled. But if you understand the framework of backtracking, it is not difficult to understand the solution code. Based on the framework, the changes are just  the way of making selection and excluding illegal selections. As long as you keep the framework in mind, you are left with only minor issues.
 
-When $$N = 8$$, it is the eight queens problem. Gauss, the mathematics prince , spent his whole life not counting  all possible ways to place, but our algorithm only needs one second .But don't blame Gauss, the complexity of this problem is indeed very high. Look at our decision tree, although there is a pruning by the ```isValid()``` , the worst time complexity is still $$O (N ^ {N + 1})$$.And it cannot be optimized. If $$N = 10$$, the calculation is already rather time consuming.
+When $N = 8$, it is the eight queens problem. Gauss, the mathematics prince , spent his whole life not counting  all possible ways to place, but our algorithm only needs one second .But don't blame Gauss, the complexity of this problem is indeed very high. Look at our decision tree, although there is a pruning by the ```isValid()``` , the worst time complexity is still $O (N ^ {N + 1})$.And it cannot be optimized. If $N = 10$, the calculation is already rather time consuming.
 
 **When we don't want to get all legal answers but only one answer, what should we do ?** For example, the algorithm for solving Sudoku is too complicated to find all the solutions and one solution is enough.
 
@@ -271,7 +275,3 @@ def backtrack(...):
 Think carefully, is the backtracking and dynamic programming somehow similar? We have repeatedly emphasized in the series of articles about dynamic planning that the three points that need to be clear in dynamic programming are "State", "selection" and "Base Case". Do they correspond to the "Path" that has passed, and the current "selection List" And "End Condition "?
 
 To some extent, the brute-force solution phase of dynamic programming is a backtracking. When some problems have overlapping sub-problems, you can use dp table or memo to greatly prune the recursive tree, which becomes dynamic programming. However, today's two problems do not have overlapping subproblems, that is, the problem of backtracking, and the high complexity is inevitable.
-
-**Committed to making the algorithm clear! Welcome to follow me on WeChat public account `labuladong` for more easy-to-understand articles**:
-
-![labuladong](../pictures/labuladong.png)
