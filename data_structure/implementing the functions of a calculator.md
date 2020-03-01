@@ -1,28 +1,28 @@
-# 拆解复杂问题：实现计算器
+# Dismantling complex problems: implementing the functions of a calculator
 
-我们最终要实现的计算器功能如下：
+The calculator function we will eventually implement is as follows:
  
-1、输入一个字符串，可以包含`+ - * /`、数字、括号以及空格，你的算法返回运算结构。
+1、Enter a string that can include `+-* /`, numbers, brackets, and spaces. Your algorithm returns the structure of the operation.
 
-2、要符合运算法则，括号的优先级最高，先乘除后加减。
+2、To comply with the algorithm, parentheses have the highest priority, multiply and divide first, then add and subtract.
 
-3、除号是整数除法，无论正负都向 0 取整（5/2=2，-5/2=-2）。
+3、The division sign is an integer division, rounded to zero regardless of the sign (5/2 = 2, -5 / 2 = -2).
 
-4、可以假定输入的算式一定合法，且计算过程不会出现整型溢出，不会出现除数为 0 的意外情况。
+4、It can be assumed that the input formula must be legal, and there will be no integer overflow in the calculation process, and there will be no unexpected situation where the divisor is 0.
 
-比如输入如下字符串，算法会返回 9：
+For example, if you enter the following string, the algorithm will return 9:
 
 `3 * (2-6 /(3 -7))`
 
-可以看到，这就已经非常接近我们实际生活中使用的计算器了，虽然我们以前肯定都用过计算器，但是如果简单思考一下其算法实现，就会大惊失色：
+As you can see, this is very close to the calculator we use in real life. Although we have definitely used the calculator before, if we think about its algorithm implementation, we will find that it is not easy to implment:
 
-1、按照常理处理括号，要先计算最内层的括号，然后向外慢慢化简。这个过程我们手算都容易出错，何况写成算法呢！
+1、To handle parentheses according to common sense, first calculate the innermost parentheses, and then gradually simplify them outward. This process is easy to make mistakes, let alone write algorithms!
 
-2、要做到先乘除，后加减，这一点教会小朋友还不算难，但教给计算机恐怕有点困难。
+2、It is not difficult to teach children to multiply and divide first, then add and subtract, but it may be difficult to teach computers.
 
-3、要处理空格。我们为了美观，习惯性在数字和运算符之间打个空格，但是计算之中得想办法忽略这些空格。
+3、To handle spaces. For the sake of beauty, we habitually put spaces between numbers and operators, but we have to figure out ways to ignore these spaces.
 
-我记得很多大学数据结构的教材上，在讲栈这种数据结构的时候，应该都会用计算器举例，但是有一说一，讲的真的垃圾，不知道多少未来的计算机科学家就被这种简单的数据结构劝退了。
+I remember a lot of textbooks on university data structure. When talking about data structures like stacks, they may use calculators as examples, but most can't make it clear. I don’t know how many future computer scientists will be so simple. The data structure dismissed.
 
 那么本文就来聊聊怎么实现上述一个功能完备的计算器功能，**关键在于层层拆解问题，化整为零，逐个击破**，相信这种思维方式能帮大家解决各种复杂问题。
 
