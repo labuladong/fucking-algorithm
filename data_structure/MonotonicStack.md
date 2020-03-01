@@ -5,6 +5,7 @@
 **Translator: [YourName](Anything you want to link)**
 
 **Author: [labuladong](https://github.com/labuladong)**
+
 `Stack` is a very simple data structure. The logical sequence of first in and last out conforms to the characteristics of some problems, such as function call stack.      
 
 `Monotonic stack` is actually a stack. It just uses some ingenious logic to keep the elements in the stack orderly (monotone increasing or monotone decreasing) after each new element putting into the stack.      
@@ -15,7 +16,8 @@ First, explain the original problem of `Next Greater Number`: give you an array,
 
 Give you an array `[2,1,2,4,3]`,and you return an array `[4,2,4,-1,-1]`.      
 
-**Explanation**   
+### Explanation
+
 The number that is larger than `2` after `the first 2` is `4`.The number that is larger than `1` after `the first 1` is `2`. The number that is larger than `2` after `the second 2` is `4`.There is no number that is larger than `4` after `the fourth`,so  fill in `-1`.There is no number that is larger than `3` after `the third`,so fill in `-1`.   
 
 It's a good idea for the violent solution of this problem.It scans the back of each element to find the first larger element. But the time complexity of the violent solution is `O (n^2)`.         
@@ -23,7 +25,7 @@ It's a good idea for the violent solution of this problem.It scans the back of e
 This problem can be thought abstractly: think of the elements in the array as people standing side by side, and the size of the elements as the height of an adult. These people stand in line before you. How to find the `Next Greater Number` of element `"2"`? Very simply, if you can see the element `"2"`, then the first person you can see behind him is the `Next Greater Number` of `"2"`. Because the element smaller than `"2"` is not tall enough and it is blocked by `"2"`,the first one not being blocked is the answer. 
 
 
-![ink-image](../pictures/%E5%8D%95%E8%B0%83%E6%A0%88/1.png)
+![ink-image](../pictures/MonotonicStack/1.png)
 
 This is a very understandable situation,huh? With this abstract scenario in mind, let's look at the code first. 
 
@@ -52,7 +54,8 @@ Now that you have mastered the technique of using monotonic stack, and take a si
 
 Give you an array `T = [73, 74, 75, 71, 69, 72, 76, 73]`, which stores the weather temperature in recent days(Is it in teppanyaki? No, it's in Fahrenheit). You return an array to calculate: for each day, how many days do you have to wait for a warmer temperature;and if you can't wait for that day, fill in `0`.            
 
-**Example**  
+### Example
+
 Give you `T = [73, 74, 75, 71, 69, 72, 76, 73]`, and you return `[1, 1, 4, 2, 1, 1, 0, 0]`.          
 **Explanation**  
 The first day is 73 degrees Fahrenheit, and the next day is 74 degrees Fahrenheit, which is higher than 73 degrees Fahrenheit.So for the first day, you can wait for a warmer temperature just one day. The same goes for the latter.            
@@ -82,7 +85,7 @@ It's also `Next Greater Number`. Now suppose the array given to you is a ring an
 
 Give you an array `[2,1,2,4,3]`,and you return an array `[4,2,4,-1,4]`. With the ring attribute, the last element `3` goes around and finds the element `4` larger than itself. 
 
-![ink-image](../pictures/%E5%8D%95%E8%B0%83%E6%A0%88/2.png)
+![ink-image](../pictures/MonotonicStack/2.png)
 
 First of all, the memory of the computer is linear, and there is no real ring array. However, we can simulate the effect of ring array. Generally, we use the `%` operator to calculate the modulus (remainder) to get the ring effect: 
 
@@ -99,7 +102,7 @@ Back to the problem of `Next Greater Number`. After adding the ring attribute, t
 
 If we are clear about the problem, it will be half solved. We can think about like this: "Double" the original array,or in another word,to connect another original array at the back. In this way, according to the previous "height comparison" process, each element can not only compare with the elements on its right, but also the elements on its left. 
 
-![ink-image (2)](../pictures/%E5%8D%95%E8%B0%83%E6%A0%88/3.png)
+![ink-image (2)](../pictures/MonotonicStack/3.png)
 
 How do you achieve it? Of course, you can construct this double length array and apply the algorithm template. However, instead of constructing a new array, we can use the technique of `circular array` to simulate. Just look at the code: 
 

@@ -1,15 +1,16 @@
 # special data structure: monotonic queue
-Author:labuladong https://github.com/labuladong
 
-Translator:warmingkkk https://github.com/warmingkkk
+**Author:[labuladong](https://github.com/labuladong)**
+
+**Translator:[warmingkkk](https://github.com/warmingkkk)**
 
 The previous article talked about a special data structure "monotonic stack"a type of problem "Next Greater Number" is solved. This article writes a similar data structure "monotonic queue".
 
 Maybe you haven't heard of the name of this data structure. In fact, it is not difficult. It is a "queue", but it uses a clever method to make the elements in the queue monotonically increase (or decrease). What's the use of this data structure? Can solve a series of problems with sliding windows.
 
-See a LeetCode title，difficulty is hard：
+See a LeetCode title, 239 question，difficulty is hard：
 
-![](../pictures/单调队列/title.png)
+![](../pictures/monotonic_queue/title.png)
 
 ### 1, build a problem solving framewor
 
@@ -62,7 +63,7 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 }
 ```
 
-![图示](../pictures/单调队列/1.png)
+![图示](../pictures/monotonic_queue/1.png)
 
 The idea is simple, understand? Below we start the highlight, the implementation of monotonic queues.
 
@@ -106,7 +107,7 @@ public:
 
 As you can imagine, adding the size of the number represents the weight of the person, squashing the underweight in front, and stopping until it encounters a larger magnitude.
 
-![](../pictures/单调队列/2.png)
+![](../pictures/monotonic_queue/2.png)
 
 If every element is added like this, the size of the elements in the monotonic queue will eventually decrease in a monotonic order, so our max () API can be written like this:
 
@@ -127,7 +128,7 @@ void pop(int n) {
 
 The reason to judge `data.front () == n` is because the queue head element n we want to delete may have been" squashed ", so we don't need to delete it at this time:
 
-![](../pictures/单调队列/3.png)
+![](../pictures/monotonic_queue/3.png)
 
 At this point, the monotonous queue design is complete, look at the complete problem-solving code:
 
