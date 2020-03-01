@@ -1,3 +1,7 @@
+**Translator: [Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 # Application of Union-Find
 
 Many readers in the previous article expressed interest in the Union-Find algorithm, so in this article, I will take a few LeetCode problems to talk about the ingenious use of this algorithm.
