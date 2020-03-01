@@ -1,45 +1,49 @@
-我个人很喜欢使用 Linux 系统，虽然说 Windows 的图形化界面做的确实比 Linux 好，但是对脚本的支持太差了。一开始有点不习惯命令行操作，但是熟悉了之后反而发现移动鼠标点点点才是浪费时间的罪魁祸首。。。
+**Translator: [Tianhao Zhou](https://github.com/tianhaoz95)**
 
-**那么对于 Linux 命令行，本文不是介绍某些命令的用法，而是说明一些简单却特别容易让人迷惑的细节问题**。
+**Author: [labuladong](https://github.com/labuladong)**
 
-1、标准输入和命令参数的区别。
+Although Windows has advantages over Linux in terms of graphical interfaces, due to Windows' limited support for terminal scripts, I still prefer Linux. Using terminal may, at first, seem counterintuitive, but with more familiarity, it can become a timer saver over graphical interfaces.
 
-2、在后台运行命令在退出终端后也全部退出了。
+**Instead of demonstrating the usage of Linux terminal, the post focuses on the basic yet confusing gotchas:**
 
-3、单引号和双引号表示字符串的区别。
+1. The difference between standard input and variables.
 
-4、有的命令和`sudo`一起用就 command not found。
+2. Why processes running on the background exit upon terminal termination?
 
-### 一、标准输入和参数的区别
+3. Single-quotes vs. double-quotes.
 
-这个问题一定是最容易让人迷惑的，具体来说，就是搞不清什么时候用管道符`|`和文件重定向`>`，`<`，什么时候用变量`$`。
+4. How does `sudo` make commands `not found`?
 
-比如说，我现在有个自动连接宽带的 shell 脚本`connect.sh`，存在我的家目录：
+### 1. The difference between standard input and variables
+
+The difference between standard input and variables boils down to the question of when to use pipe `|` and redirecting `>`, `<` vs. when to use variables `$`.
+
+For example, if a shell script to automate ethernet connection locates in my home directory:
 
 ```shell
 $ where connect.sh
 /home/fdl/bin/connect.sh
 ```
 
-如果我想删除这个脚本，而且想少敲几次键盘，应该怎么操作呢？我曾经这样尝试过：
+To remove the script with minimal effort, I tried:
 
 ```shell
 $ where connect.sh | rm
 ```
 
-实际上，这样操作是错误的，正确的做法应该是这样的：
+However, the command above is incorrect. The proper way is:
 
 ```shell
 $ rm $(where connect.sh)
 ```
 
-前者试图将`where`的结果连接到`rm`的标准输入，后者试图将结果作为命令行参数传入。
+The former attempts to pipe the output from `where` into the standard input of `rm`, whereas the latter passes it in as an variable.
 
-**标准输入就是编程语言中诸如`scanf`或者`readline`这种命令；而参数是指程序的`main`函数传入的`args`字符数组**。
+**Typically standard inputs appear in programming languages as `scanf` and `readline`; Variables refer to the literal arguments, `args`, the `main` program consumes.**
 
-前文「Linux文件描述符」说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
+As mentioned in「Linux file descriptor」, Pipe and redirecting aim to use data as standard input. By contrast, `$(cmd)` reads the output from `cmd` as variables.
 
-用刚才的例子说，`rm`命令源代码中肯定不接受标准输入，而是接收命令行参数，删除相应的文件。作为对比，`cat`命令是既接受标准输入，又接受命令行参数：
+Revisiting the previous example, the source code of `rm` will certainly prefer receiving variable arguments over standard input to remove a file. In comparison, the `cat` command accepts both standard input and variables.
 
 ```shell
 $ cat filename
@@ -52,22 +56,22 @@ $ echo 'hello world' | cat
 hello world
 ```
 
-**如果命令能够让终端阻塞，说明该命令接收标准输入，反之就是不接受**，比如你只运行`cat`命令不加任何参数，终端就会阻塞，等待你输入字符串并回显相同的字符串。
+**If a command can clog the terminal, then it accepts standard input and vice versa.** For example, running "cat" without arguments will suspend (intentionally clog) the terminal to wait for user input and print back the same content.
 
-### 二、后台运行程序
+### 2. Why processes running on the background exit upon terminal termination?
 
-比如说你远程登录到服务器上，运行一个 Django web 程序：
+For example, we want to spin up a Django web server on a remote server:
 
 ```shell
 $ python manager.py runserver 0.0.0.0
 Listening on 0.0.0.0:8080...
 ```
 
-现在你可以通过服务器的 IP 地址测试 Django 服务，但是终端此时就阻塞了，你输入什么都不响应，除非输入 Ctrl-C 或者 Ctrl-/ 终止 python 进程。
+With the server up and running, we can test it through the server's IP address. However, at the same time, the terminal will suspend, not responding to any input, until it detects `Ctrl-C`/`Ctrl-/` and kills the Python process.
 
-可以在命令之后加一个`&`符号，这样命令行不会阻塞，可以响应你后续输入的命令，但是如果你退出服务器的登录，就不能访问该网页了。
+With a tailing `&`, the command won't clog the terminal and will continue to respond to incoming commands. However, the website becomes unavailable once you log out of the server.
 
-如果你想在退出服务器之后仍然能够访问 web 服务，应该这样写命令 `(cmd &)`：
+To keep the web service available after logging out of the server, consider using this command `(cmd &)`:
 
 ```shell
 $ (python manager.py runserver 0.0.0.0 &)
@@ -76,35 +80,35 @@ Listening on 0.0.0.0:8080...
 $ logout
 ```
 
-**底层原理是这样的**：
+**Under the hood:**：
 
-每一个命令行终端都是一个 shell 进程，你在这个终端里执行的程序实际上都是这个 shell 进程分出来的子进程。正常情况下，shell 进程会阻塞，等待子进程退出才重新接收你输入的新的命令。加上`&`号，只是让 shell 进程不再阻塞，可以继续响应你的新命令。但是无论如何，你如果关掉了这个 shell 命令行端口，依附于它的所有子进程都会退出。
+Every terminal is a shell process, and it forks itself to provide child processes to execute commands. Usually, the shell process clogs while waiting for the child processes to exit, not accepting new commands. With a tailing `&`, the shell process allows issuing new commands. However, when the shell process exits upon the termination of the terminal window, all its child processes will exit.
 
-而`(cmd &)`这样运行命令，则是将`cmd`命令挂到一个`systemd`系统守护进程名下，认`systemd`做爸爸，这样当你退出当前终端时，对于刚才的`cmd`命令就完全没有影响了。
+Nevertheless, commands like `(cmd &)` move the process under `systemd`, an OS guarded process that prevents the process from exiting when we close the current terminal.
 
-类似的，还有一种后台运行常用的做法是这样：
+An alternative approach to background execution is:
 
 ```shell
 $ nohub some_cmd &
 ```
 
-`nohub`命令也是类似的原理，不过通过我的测试，还是`(cmd &)`这种形式更加稳定。
+`nohub` functions similarly, but with extensive testing, `(cmd &)` appears to be more stable.
 
-### 三、单引号和双引号的区别
+### 3. Single-quotes vs. double-quotes
 
-不同的 shell 行为会有细微区别，但有一点是确定的，**对于`$`，`(`，`)`这几个符号，单引号包围的字符串不会做任何转义，双引号包围的字符串会转义**。
+Shells with different flavors behave differently, but with one invariant: **for `$`，`(`，`)`, single-quote won't trigger evaluation, but double-quote will.**
 
-shell 的行为可以测试，使用`set -x`命令，会开启 shell 的命令回显，你可以通过回显观察 shell 到底在执行什么命令：
+The shell behavior is observable through `set -x`, which triggers playback:
 
 ![](../pictures/linuxshell/1.png)
 
-可见 `echo $(cmd)` 和 `echo "$(cmd)"`，结果差不多，但是仍然有区别。注意观察，双引号转义完成的结果会自动增加单引号，而前者不会。
+As shown above, `echo $(cmd)` and `echo "$(cmd)"` differ slightly. Look closely, double-quote adds single-quote after evaluation whereas single-quote doesn't.
 
-**也就是说，如果 `$` 读取出的参数字符串包含空格，应该用双引号括起来，否则就会出错**。
+**As a result, if the literal value from `$` contains space, we should use double-quote to avoid errors.**
 
-### 四、sudo 找不到命令
+### 4. How does `sudo` make commands `not found`?
 
-有时候我们普通用户可以用的命令，用`sudo`加权限之后却报错 command not found：
+Under certain situations, a command that non-privileged users can execute becomes "not found" when privileged users try to run with `sudo`:
 
 ```shell
 $ connect.sh
@@ -114,21 +118,21 @@ $ sudo connect.sh
 sudo: command not found
 ```
 
-原因在于，`connect.sh`这个脚本仅存在于该用户的环境变量中：
+The root cause is that the `connect.sh` script only exists in the user's environment variables.
 
 ```shell
 $ where connect.sh 
 /home/fdl/bin/connect.sh
 ```
 
-**当使用`sudo`时，系统认为是 root 用户在执行命令，所以会去搜索 root 用户的环境变量**，而这个脚本在 root 的环境变量目录中当然是找不到的。
+**When prefixing `sudo`, we tell the OS that the root user is executing the command, so the OS will search the environment variables of the root user** where the `connect.sh` script doesn't exist.
 
-解决方法是使用脚本文件的路径，而不是仅仅通过脚本名称：
+The solution is to locate the script with a path instead of a name:
 
 ```shell
 $ sudo /home/fdl/bin/connect.sh
 ```
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+Our mission: To help clarify algorithms by creating original articles. Please subscribe to my WeChat newsletter, labuladong, for the latest updates:
 
 ![labuladong](../pictures/labuladong.jpg)
