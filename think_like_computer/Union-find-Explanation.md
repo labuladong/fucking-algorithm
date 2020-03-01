@@ -1,4 +1,4 @@
-**Translator: [Ziming]](https://github.com/ML-ZimingMeng/LeetCode-Python3)**
+**Translator: [Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)**
 
 **Author: [labuladong](https://github.com/labuladong)**
 
