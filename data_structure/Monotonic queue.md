@@ -1,4 +1,8 @@
 # special data structure: monotonic queue
+Author:labuladong https://github.com/labuladong
+
+Translator:warmingkkk https://github.com/warmingkkk
+
 The previous article talked about a special data structure "monotonic stack"a type of problem "Next Greater Number" is solved. This article writes a similar data structure "monotonic queue".
 
 Maybe you haven't heard of the name of this data structure. In fact, it is not difficult. It is a "queue", but it uses a clever method to make the elements in the queue monotonically increase (or decrease). What's the use of this data structure? Can solve a series of problems with sliding windows.
@@ -112,7 +116,7 @@ int max() {
 }
 ```
 
-The pop () API deletes element n at the head of the team, which is also very easy to write:
+The pop () API deletes element n at the head of the queue, which is also very easy to write:
 
 ```cpp
 void pop(int n) {
@@ -121,7 +125,7 @@ void pop(int n) {
 }
 ```
 
-The reason to judge `data.front () == n` is because the team head element n we want to delete may have been" squashed ", so we don't need to delete it at this time:
+The reason to judge `data.front () == n` is because the queue head element n we want to delete may have been" squashed ", so we don't need to delete it at this time:
 
 ![](../pictures/单调队列/3.png)
 
@@ -162,7 +166,7 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 }
 ```
 
-**3, Algorithm complexity analysis**
+### 3, Algorithm complexity analysis
 
 Readers may be wondering, while the push operation contains a while loop, the time complexity is not O (1), so the time complexity of this algorithm should not be linear time, right?
 
@@ -170,14 +174,10 @@ The complexity of the push operation alone is not O (1), but the overall complex
 
 The space complexity is very simple, which is the size of the window O (k).
 
-**4, Final conclusion**
+### 4, Final conclusion
 
 Some readers may think that "monotonic queues" and "priority queues" are more similar, but they are actually very different.
 
 The monotonic queue maintains the monotonicity of the queue by deleting elements when adding elements, which is equivalent to extracting the monotonically increasing (or decreasing) part of a function; while the priority queue (binary heap) is equivalent to automatic sorting, the difference is large went.
 
 Hurry up and get LeetCode's Question 239 ~
-
-Stick to original high-quality articles, and work hard to make algorithmic problems clear. Welcome to follow my public account labuladong for the latest articles:
-
-![labuladong](../pictures/labuladong.jpg)
