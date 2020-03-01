@@ -2,7 +2,9 @@
 
 > 原文地址：[https://github.com/labuladong/fucking-algorithm/blob/master/数据结构系列/单调栈.md](https://github.com/labuladong/fucking-algorithm/blob/master/数据结构系列/单调栈.md)
 
+**Translator: [YourName](Anything you want to link)**
 
+**Author: [labuladong](https://github.com/labuladong)**
 `Stack` is a very simple data structure. The logical sequence of first in and last out conforms to the characteristics of some problems, such as function call stack.      
 
 `Monotonic stack` is actually a stack. It just uses some ingenious logic to keep the elements in the stack orderly (monotone increasing or monotone decreasing) after each new element putting into the stack.      
