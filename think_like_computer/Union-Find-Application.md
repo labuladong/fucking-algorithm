@@ -1,8 +1,8 @@
+# Application of Union-Find
+
 **Translator: [Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)**
 
 **Author: [labuladong](https://github.com/labuladong)**
-
-# Application of Union-Find
 
 Many readers in the previous article expressed interest in the Union-Find algorithm, so in this article, I will take a few LeetCode problems to talk about the ingenious use of this algorithm.
 
@@ -83,7 +83,7 @@ Some readers may ask, **Since the path compression, does the weight balance of t
 
 In my opinion, when it comes to time complexity, indeed, it is also O (1) without the need for weight balance. However, if the size array is added, the efficiency is still slightly higher, such as the following:
 
-![](../pictures/unionfind应用/1.jpg)
+![](../pictures/unionfind-application/1.jpg)
 
 If weight balance optimization is carried out, case 1 will surely be obtained, without weight optimization, case 2 may occur. The `while` loop of path compression is triggered only when the height is 3, so case 1 will not trigger path compression at all, while case 2 will perform path compression many times to compress the nodes in the third layer to the second layer.
 
@@ -101,9 +101,9 @@ For instance, Surrounded Regions of question 130: Given a 2D board containing `X
 void solve(char[][] board);
 ```
 
-Note that `O` must be surrounded by four sides in order to be replaced with` X`, that is, `O` on the corner must not be enclosed, and further,` O` connected to `O` on the corner `Will not be surrounded by` X` and will not be replaced.
+Note that `O` must be surrounded by four sides in order to be replaced with `X`, that is, `O` on the corner must not be enclosed, and further, `O` connected to `O` on the corner Will not be surrounded by `X` and will not be replaced.
 
-![](../pictures/unionfind应用/2.jpg)
+![](../pictures/unionfind-application/2.jpg)
 
 PS: This reminds me of the chess game "Othello" when I was a kid. As long as you use two pieces to sandwich each other's pieces, the opponent's pieces will be replaced with yours. Similarly, the pieces occupying the four corners are invincible, and the side pieces connected to it are also invincible (cannot be clipped).
 
@@ -113,7 +113,7 @@ This problem can also be solved with the Union-Find algorithm. Although the impl
 
 **Those `O` which do not need to be replaced have a common ancestor called` dummy`. These `O` and` dummy` are connected to each other,however, those `O` that need to be replaced are not connected to` dummy`**.
 
-![](../pictures/unionfind应用/3.jpg)
+![](../pictures/unionfind-application/3.jpg)
 
 This is the core idea of Union-Find and it is easy to understand the code if you understand this diagram.
 
@@ -166,7 +166,7 @@ void solve(char[][] board) {
 }
 ```
 
-This code is very long. In fact, it is just the realization of the previous idea. Only the `O` connected to the boundary` O` have the connectivity with `dummy 'and they will not be replaced.
+This code is very long. In fact, it is just the realization of the previous idea. Only the `O` connected to the boundary `O` have the connectivity with `dummy` and they will not be replaced.
 
 To be honest, the Union-Find algorithm solves this simple problem. It can be a bit of a killer. It can solve more complex and more technical problems. **The main idea is to add virtual nodes in a timely manner. Dynamic connectivity**.
 
@@ -178,7 +178,7 @@ Given an array equations of strings that represent relationships between variab
 
 Return true if and only if it is possible to assign integers to variable names so as to satisfy all the given equations.
 
-The core idea of solving the problem is that **divide the expressions in `equations` into two parts according to `==` and `!=`, First process the expressions of `==`, so that they collude into martial arts through equality. `!=` Expression to check if the inequality relationship breaks the connectivity of the equality relationship**.
+The core idea of solving the problem is that **divide the expressions in `equations` into two parts according to `==` and `!=`, First process the expressions of `==`, so that they are connected. `!=` Expression to check if the inequality relationship breaks the connectivity of the equality relationship**.
 
 ```java    
 boolean equationsPossible(String[] equations) {
