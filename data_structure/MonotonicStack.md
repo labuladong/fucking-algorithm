@@ -117,4 +117,4 @@ vector<int> nextGreaterElements(vector<int>& nums) {
 }
 ```
 
-Till now,you have caught up with the design method and code template for `Monotonic Stack`，learned to solve the problem of `Next Greater Number` ,can deal with `circular array`.
+Till now,you have caught up with the design method and code template for `Monotonic Stack`，learned to solve the problem of `Next Greater Number` ,and can deal with `circular array`.
