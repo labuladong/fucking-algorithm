@@ -1,4 +1,4 @@
-English translation is processing…… Star this repo and go back sonn：)
+English translation is processing on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english)…… Gitbook will deploy as soon as possible. Star this repo and go back sonn：)
 
 没想到两天就火了，招募翻译组啦，有兴趣可查看这个置顶 [issue](https://github.com/labuladong/fucking-algorithm/issues/9)，成为本仓库的贡献者就是这么容易！
 
