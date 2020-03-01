@@ -1,5 +1,9 @@
 # Binary heap detail implements priority queues
 
+**Translator: [build2645](https://github.com/build2645)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 There is nothing mysterious about binary heap, and its properties are simpler than binary search tree BST.The main operations are 'sink' and 'swim' to maintain the binary heap properties.There are two main applications, the first is a sorting method "heap sort", the second is a very useful data structure "priority queue".
 
 This article takes implementing a Priority Queue as an example，using pictures and human language to describe how binary heap works.
@@ -47,7 +51,7 @@ The function of data structure is nothing more than adding and deleting，Priori
 
 Let's implement a simplified priority queue, starting with the code framework：
 
-PS：For clarity, Java generics are used here，`Key` can be any data type of comparable size，You can think of it as int, char, etc
+PS：For clarity, Java generics are used here，`Key` can be any data type of comparable value，You can think of it as int, char, etc
 
 ```java
 public class MaxPQ
@@ -115,7 +119,7 @@ The observant reader may ask, aren't these two operations reciprocal, so the ope
 
 Yes, the operations are inversely equivalent, but in the end we will only operate at the bottom and the top of the heap (we'll see why), and obviously the "misaligned" elements at the bottom of the heap need to float up, and the "misaligned" elements at the top of the heap need to sink.
 
-**上浮的代码实现：**
+This is the code to implement the `swim` API:
 
 ```java
 private void swim(int k) {
@@ -135,7 +139,7 @@ Draw a GIF to help you understand：
 
 **Sinking code implementation：**
 
-Sinking is slightly more complicated than floating up, because floating up A node A only requires A to compare the size with its parent node; However, to sink A node A, we need to compare the size of A with its **two child nodes** If A is not the largest, we need to adjust the position and exchange the larger child node with A.
+Sinking is slightly more complicated than floating up, because floating up A node A only requires A to compare the value with its parent node; However, to sink node A, we need to compare the value of A with its **two child nodes** If A is not the largest, we need to adjust the position and exchange the larger child node with A.
 
 ```java
 private void sink(int k) {
@@ -143,7 +147,7 @@ private void sink(int k) {
     while (left(k) <= N) {
         // Let's assume that the left node is larger
         int older = left(k);
-        // If the right node exists, compare the size
+        // If the right node exists, compare the value
         if (right(k) <= N && less(older, right(k)))
             older = right(k);
         // Node k is bigger than both of the children, so you don't have to sink
@@ -207,7 +211,3 @@ Binary heap operation is very simple, mainly floating up and down, to maintain t
 Priority queues are implemented based on binary heap, with the main operations being insert and delete. Insert is to insert to the end first and then float up to the correct position; Deletion is to reverse the position and then delete, and then sink to the correct position. The core code is only ten lines.
 
 Perhaps this is the power of data structure, simple operation can achieve clever functions, really admire the invention of binary heap algorithm people!
-
-**Commit to making the algorithm clear! Welcome to my WeChat public labuladong for more articles that are easy to understand**：
-
-![labuladong](../pictures/labuladong.png)
