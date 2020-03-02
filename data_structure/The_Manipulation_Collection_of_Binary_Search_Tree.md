@@ -247,5 +247,3 @@ void BST(TreeNode root, int target) {
 ```
 
 4. We grasp the basic operations of BST.
-
-**Mission**: Stick to original high-quality articles, and work hard to make algorithmic problems clear. Welcome to subscribe my Wechat public account `ID:labuladong` for latest articles.
