@@ -1,29 +1,19 @@
-# 双指针技巧总结
-#Summary of double pointer technique 
+# Summary of double pointer technique[](#双指针技巧总结) 
 
-我把双指针技巧再分为两类，一类是「快慢指针」，一类是「左右指针」。前者解决主要解决链表中的问题，比如典型的判定链表中是否包含环；后者主要解决数组（或者字符串）中的问题，比如二分查找。
 I divide the double pointer technique into two categories, one is "fast and slow pointer", the other is "left and right pointer". The former mainly solves the problems in the linked list, such as the typical determination of whether a link is included in the linked list; the latter mainly solves the problems in the array (or string), such as binary search. 
 
-### 一、快慢指针的常见算法
-###1、 Common algorithms of fast and slow pointer 
+### Part 1. Common algorithms of fast and slow pointer[](#快慢指针的常见算法) 
 
-快慢指针一般都初始化指向链表的头结点 head，前进时快指针 fast 在前，慢指针 slow 在后，巧妙解决一些链表中的问题。
 The fast and slow pointers are usually initialized to point to the head node of the linked list. When moving forward, the fast pointer is in the front and the slow pointer is in the back, which ingeniously solves some problems in the linked list. 
 
-**1、判定链表中是否含有环**
-**1. Determine whether there are links in the list** 
-
-这应该属于链表最基本的操作了，如果读者已经知道这个技巧，可以跳过。
-
-单链表的特点是每个节点只知道下一个节点，所以一个指针的话无法判断链表中是否含有环的。
-
-如果链表中不含环，那么这个指针最终会遇到空指针 null 表示链表到头了，这还好说，可以判断该链表不含环。
+**1. Determine whether there are links in the list**[](#判定链表中是否含有环) 
 
 This should be the most basic operation of linked list. If the reader already knows this skill, he can skip it.   
 
 The feature of single linked list is that each node only knows the next node, so a pointer can't judge whether there is a link in the linked list.      
 
-If there is no ring in the list, then this pointer will eventually encounter a null pointer indicating that the list is at the end, which is easy to say. It can be judged that the list does not contain a ring. 
+If there is no ring in the list, then this pointer will eventually encounter a null pointer indicating that the list is at the end, which is easy to say. It can be judged that the list does not contain a ring.
+
 ```java
 
 boolean hasCycle(ListNode head) {
@@ -33,12 +23,10 @@ boolean hasCycle(ListNode head) {
 }
 ```
 
-但是如果链表中含有环，那么这个指针就会陷入死循环，因为环形数组中没有 null 指针作为尾部节点。
-
-经典解法就是用两个指针，一个跑得快，一个跑得慢。如果不含有环，跑得快的那个指针最终会遇到 null，说明链表不含环；如果含有环，快指针最终会超慢指针一圈，和慢指针相遇，说明链表含有环。
 But if the linked list contains a ring, the pointer will fall into a dead loop, because there is no null pointer as the tail node in the ring array.            
 
 The classic solution is to use two pointers, one is fast, the other is slow. If there is no ring, the fast pointer will eventually encounter null, indicating that the link list does not contain a ring; if there is a ring, the fast pointer will eventually exceed the slow pointer by a circle, indicating that the link list contains a ring.      
+
 ```java
 boolean hasCycle(ListNode head) {
     ListNode fast, slow;
@@ -53,12 +41,10 @@ boolean hasCycle(ListNode head) {
 }
 ```
 
-**2、已知链表中含有环，返回这个环的起始位置**
-**2. If a link is known to exist in the list, return the starting position of the link** 
+**2. If a link is known to exist in the list, return the starting position of the link**[](#已知链表中含有环，返回这个环的起始位置) 
 
 ![1](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/1.png)
 
-这个问题一点都不困难，有点类似脑筋急转弯，先直接看代码：
 This problem is not difficult at all. It's a bit like a brain teaser. First, look at the code directly: 
 
 ```java
@@ -70,7 +56,6 @@ ListNode detectCycle(ListNode head) {
         slow = slow.next;
         if (fast == slow) break;
     }
-    // 上面的代码类似 hasCycle 函数
     //The above code is similar to the hascycle function 
     slow = head;
     while (slow != fast) {
@@ -81,53 +66,45 @@ ListNode detectCycle(ListNode head) {
 }
 ```
 
-可以看到，当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次相遇时所在的节点位置就是环开始的位置。这是为什么呢？
-
-第一次相遇时，假设慢指针 slow 走了 k 步，那么快指针 fast 一定走了 2k 步，也就是说比 slow 多走了 k 步（也就是环的长度）。
 It can be seen that when the fast and slow pointers meet, let any of them point to the head node, and then let them advance at the same speed. When they meet again, the node position is the beginning position of the ring. Why is that?            
 
 At the first meeting, if the slow pointer takes K steps, then the fast pointer must take 2K steps, that is to say, it takes K steps more than the slow pointer (that is, the length of the ring).
 
 ![2](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/2.png)
 
-设相遇点距环的起点的距离为 m，那么环的起点距头结点 head 的距离为 k - m，也就是说如果从 head 前进 k - m 步就能到达环起点。
-
-巧的是，如果从相遇点继续前进 k - m 步，也恰好到达环起点。
 If the distance between the meeting point and the starting point of the ring is m, then the distance between the starting point of the ring and the head of the head node is k - m, that is to say, if we advance K - M steps from the head, we can reach the starting point of the ring.            
 
 Coincidentally, if we continue to move K - M steps from the meeting point, we will also arrive at the starting point of the ring. 
 
 ![3](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/3.png)
 
-所以，只要我们把快慢指针中的任一个重新指向 head，然后两个指针同速前进，k - m 步后就会相遇，相遇之处就是环的起点了。
+So, as long as we point any one of the fast and slow pointers back to head, and then the two pointers move at the same speed, K - M steps will meet, and the place where they meet is the starting point of the ring. 
 
-**3、寻找链表的中点**
+**3. Find the midpoint of the list**[](#寻找链表的中点) 
 
-类似上面的思路，我们还可以让快指针一次前进两步，慢指针一次前进一步，当快指针到达链表尽头时，慢指针就处于链表的中间位置。
+Similar to the above idea, we can also make the fast pointer advance two steps at a time and the slow pointer advance one step at a time. When the fast pointer reaches the end of the list, the slow pointer is in the middle of the list. 
 
 ```java
 while (fast != null && fast.next != null) {
     fast = fast.next.next;
     slow = slow.next;
 }
-// slow 就在中间位置
+//Slow is in the middle 
 return slow;
 ```
 
-当链表的长度是奇数时，slow 恰巧停在中点位置；如果长度是偶数，slow 最终的位置是中间偏右：
+When the length of the linked list is odd, slow happens to stop at the midpoint; if the length is even, the final position of slow is right in the middle: 
 
 ![center](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/center.png)
 
-寻找链表中点的一个重要作用是对链表进行归并排序。
+An important role in finding the midpoint of a linked list is to merge and sort the linked list.
 
-回想数组的归并排序：求中点索引递归地把数组二分，最后合并两个有序数组。对于链表，合并两个有序链表是很简单的，难点就在于二分。
+Recall the merging and sorting of arrays: find the midpoint index to divide the arrays recursively, and finally merge the two ordered arrays. For linked list, it is very simple to merge two ordered linked lists, and the difficulty lies in dichotomy.   
 
-但是现在你学会了找到链表的中点，就能实现链表的二分了。关于归并排序的具体内容本文就不具体展开了。
+But now that you have learned to find the midpoint of a list, you can achieve the dichotomy of a list. On the specific content of merging and sorting, this paper will not expand specifically. 
 
-
-**4、寻找链表的倒数第 k 个元素**
-
-我们的思路还是使用快慢指针，让快指针先走 k 步，然后快慢指针开始同速前进。这样当快指针走到链表末尾 null 时，慢指针所在的位置就是倒数第 k 个链表节点（为了简化，假设 k 不会超过链表长度）：
+**4. Looking for the last K element of the list**[](#寻找链表的倒数第 k 个元素)            
+Our idea is to use the fast and slow pointer, let the fast pointer go K steps first, and then the fast and slow pointer starts to move at the same speed. In this way, when the fast pointer goes to null at the end of the list, the position of the slow pointer is the last K list node (for simplification, suppose K does not exceed the length of the list): 
 
 ```java
 ListNode slow, fast;
@@ -142,14 +119,13 @@ while (fast != null) {
 return slow;
 ```
 
+### Part 2.Common algorithms of left and right pointers[](#左右指针的常用算法) 
 
-### 二、左右指针的常用算法
+The left and right pointers in the array actually refer to two index values, which are usually initialized as left = 0, right = nums.length - 1.   
 
-左右指针在数组中实际是指两个索引值，一般初始化为 left = 0, right = nums.length - 1 。
+**1. Dichotomy search**[](#二分查找)           
 
-**1、二分查找**
-
-前文「二分查找」有详细讲解，这里只写最简单的二分算法，旨在突出它的双指针特性：
+The previous "binary search" is explained in detail. Here only the simplest binary algorithm is written to highlight its double pointer feature: 
 
 ```java
 int binarySearch(int[] nums, int target) {
@@ -168,13 +144,13 @@ int binarySearch(int[] nums, int target) {
 }
 ```
 
-**2、两数之和**
+**2. Sum of two numbers**[](#两数之和)
 
-直接看一道 LeetCode 题目吧：
+Take a look at a leetcode question: 
 
 ![title](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/title.png)
 
-只要数组有序，就应该想到双指针技巧。这道题的解法有点类似二分查找，通过调节 left 和 right 可以调整 sum 的大小：
+As long as the array is ordered, you should think of the double pointer technique. The solution of this problem is similar to binary search. The size of sum can be adjusted by adjusting left and right: 
 
 ```java
 int[] twoSum(int[] nums, int target) {
@@ -182,7 +158,7 @@ int[] twoSum(int[] nums, int target) {
     while (left < right) {
         int sum = nums[left] + nums[right];
         if (sum == target) {
-            // 题目要求的索引是从 1 开始的
+            //The index required by the title starts from 1 
             return new int[]{left + 1, right + 1};
         } else if (sum < target) {
             left++; // 让 sum 大一点
@@ -194,7 +170,7 @@ int[] twoSum(int[] nums, int target) {
 }
 ```
 
-**3、反转数组**
+**3. Invert array**[](#反转数组)
 
 ```java
 void reverse(int[] nums) {
@@ -210,12 +186,8 @@ void reverse(int[] nums) {
 }
 ```
 
-**4、滑动窗口算法**
+**4. Sliding window algorithm**[](#滑动窗口算法) 
 
-这也许是双指针技巧的最高境界了，如果掌握了此算法，可以解决一大类子字符串匹配的问题，不过「滑动窗口」稍微比上述的这些算法复杂些。
+This may be the highest level of the double pointer technique. If you master this algorithm, you can solve a large class of substring matching problems, but the "sliding window" is slightly more complex than the above algorithms.            
 
-幸运的是，这类算法是有框架模板的，而且[这篇文章](滑动窗口技巧.md)就讲解了「滑动窗口」算法模板，帮大家秒杀几道 LeetCode 子串匹配的问题。
-
-**致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
-
-![labuladong](../pictures/labuladong.png)
+Fortunately, there are framework templates for this kind of algorithm, and [this article] (sliding window technique. MD) explains the "sliding window" algorithm template, which helps you to kill several matching problems of leetcode substrings. 
