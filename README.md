@@ -28,6 +28,14 @@ English translation is processing on [english branch](https://github.com/labulad
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
+**PS：如果仅是 clone 此仓库学习（不是参与翻译工作）的话，请使用如下 Git 命令**：
+
+```shell
+git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
+```
+
+这样会限制 clone 的深度，不会下载 Git 协作的历史记录，可以极大加快下载速度。
+
 # 目录
 
 * 第零章、必读系列
