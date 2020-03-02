@@ -4,7 +4,7 @@
 
 **Author: [labuladong](https://github.com/labuladong)**
 
-[Design Twitter](https://leetcode.com/problems/design-twitter/) is question 355 on LeetCode. This question is both interesting and pratical. It combines both algorithm about ordered linked list and Object Oriented (OO) design principles. We'll be able to link Twitter functions with algorithms when we look at the requirements.
+[Design Twitter](https://leetcode.com/problems/design-twitter/) is question 355 on LeetCode. This question is both interesting and practical. It combines both algorithms about ordered linked lists and Object Oriented (OO) design principles. We'll be able to link Twitter functions with algorithms when we look at the requirements.
 
 ### 1. The Question and Use Cases
 
@@ -68,7 +68,7 @@ Most of these APIs are easy to implement. The most functionally difficult part c
 
 __Algorithm helps here__: Imagine we store each user's own tweets in a linked list sorted by timestamp, with each node representing the tweet's ID and timestamp (datetime of creation). If a user follows k followees, we can combine these k ordered linked lists, and apply an algorithm to get the correct `getNewsFeed`.
 
-Let's put the algorithm aside first and discuss in details later. There is another question: how should we use code to represent user and tweet to apply the algorithm? __This involves OO design__. Let's break into parts and tackle them one step at a time.
+Let's put the algorithm aside first and discuss in details later. There is another question: how should we use code to represent users and tweets to apply the algorithm? __This involves OO design__. Let's break into parts and tackle them one step at a time.
 
 ### 2. OO Design
 
@@ -224,7 +224,7 @@ while pq not empty:
 # Sorted Output：1,2,4,6,9
 ```
 
-Based on this cool data structure, we can easily implement the core function. Note that we use Priority Queue to sort `time` in __descending order__, because the lager the value of `time`, the more recent it is, and hence, the close to the head it should be placed:
+Based on this cool data structure, we can easily implement the core function. Note that we use Priority Queue to sort `time` in __descending order__, because the larger the value of `time`, the more recent it is, and hence, the close to the head it should be placed:
 
 ```java
 public List<Integer> getNewsFeed(int userId) {
@@ -267,12 +267,12 @@ As of now, the design of a simple Twitter timeline function is completed.
 
 ### 4. Summary
 
-In this article, we designed a simple timeline function using OO design priciples and an algorithm which combines k sorted linked lists. This functionality is widely used in many social applications.
+In this article, we designed a simple timeline function using OO design principles and an algorithm which combines k sorted linked lists. This functionality is widely used in many social applications.
 
-Firstly, we design the two classes, `User` and `Tweet`. On top of these, we used an algorithm to resovle the most important function. From this example, we can see that algorithms are not used alone in real applications. Algorithms need to be integrated with other knowledge to show their value.
+Firstly, we design the two classes, `User` and `Tweet`. On top of these, we used an algorithm to resolve the most important function. From this example, we can see that algorithms are not used alone in real applications. Algorithms need to be integrated with other knowledge to show their value.
 
-However, our simple design may not cope with large throughput. In fact, the amount of data in real social applications are tremendous. There are a lot more aspects to take into consideration, including read and write performence to Database, the limit of memmory cache, etc. Real applications are big and complicated engineering projects. For instance, the diagram below is a high-level system architecture diagram of a social network such as Twitter:
+However, our simple design may not cope with large throughput. In fact, the amount of data in real social applications is tremendous. There are a lot more aspects to take into consideration, including read and write performance to Database, the limit of memory cache, etc. Real applications are big and complicated engineering projects. For instance, the diagram below is a high-level system architecture diagram of a social network such as Twitter:
 
 ![design](../pictures/design_Twitter/design.png)
 
-The problem we resolved is only small part of Timeline Service component. As the number of functions increases, the degree of complexity grows exponentially. Having one algorithm is not enough. It is more important to have a proper high-level design.
+The problem we resolved is only a small part of the Timeline Service component. As the number of functions increases, the degree of complexity grows exponentially. Having one algorithm is not enough. It is more important to have a proper high-level design.
