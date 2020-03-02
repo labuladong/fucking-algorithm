@@ -163,7 +163,7 @@ public void leave(int p) {
 }
 ```
 
-![三种情况](../pictures/seat_scheduling/8.png)
+![three contidions](../pictures/seat_scheduling/8.png)
 
 
 

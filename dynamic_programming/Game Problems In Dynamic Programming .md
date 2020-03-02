@@ -1,5 +1,9 @@
 # Game Problems In Dynamic Programming 
 
+**Translator: [wadegrc](https://github.com/wadegrc)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 In the last article,we discussed a fun「stone game 」in [several puzzles](../高频面试系列/一行代码解决的智力题.md),By the constraints 
 of the problem, the game is first to win.But intelligence questions are always intelligence questions,Real algorithmic problems are 
 not solved by cutting corners. So this paper is going to talk about the stone game and assuming that both of these guys are smart enough, who's going to win in the end how do you solve this problem with dynamic programming.
@@ -27,7 +31,7 @@ lead to different state transition equations,But as long as there's no logic pro
 
 Before we introduce what a dp array means,let's take a look at what it ultimately looks like:
 
-![1](../pictures/博弈问题/1.png)
+![1](../pictures/GameProblems/1.png)
 
 As explained below,tupels are considered to be a calss containing first and second atrributes,And to save space,these two atrributes are abbreviated to fir and sec.As shown in the figure above,we think `dp[1][3].fir = 10`，`dp[0][1].sec = 3`.
 
@@ -48,7 +52,7 @@ dp[1][3].sec = 2 means:Facing the pile of stones [9, 1, 2],The second player eve
 
 The answer we want is the difference between the final score of the first hand and the final score of the second hand,By thisdefinition, that is $dp[0][n-1].fir - dp[0][n-1].sec$ That is,facing the whole piles,the difference between the best score of the first hand and the best score of the second hand.
 
-###2.state transition equation:
+### 2.state transition equation:
 
 It's easy to write the transition equation,The first step is to find all the states and the choices you can make for each state,and then pick the best.
 
@@ -107,15 +111,15 @@ range: 0 <= i == j < n
 # there are no stones int the back,so his score is 0
 ```
 
-![2](../pictures/博弈问题/2.png)
+![2](../pictures/GameProblems/2.png)
 
 One thing to note here is that we found that the base case is tilted in the table,and we need dp[i+1][j] and dp[i][j-1] to compute dp[i][j]: 
 
-![3](../pictures/博弈问题/3.png)
+![3](../pictures/GameProblems/3.png)
 
 So the algorithm can not simply traverse the dp array row by row,but **traverse the array diagonally**.
 
-![4](../pictures/博弈问题/4.png)
+![4](../pictures/GameProblems/4.png)
 
 To be honest,traversing a two-dimensional array diagonally is easier said than done.
 
@@ -187,7 +191,3 @@ Those of you who have read this should understand how algorithms solve game prob
 
 
 I hope this article has been helpful.
-
-**Focus on making the algorithm clear！Welcome to my public account labuladong,See more articles on learning to program**：
-
-![labuladong](../pictures/labuladong.png)
