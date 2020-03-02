@@ -1,5 +1,8 @@
 # The way to Algorithm learning
 
+**Translator**: [ShuozheLi](https://github.com/ShuoZheLi/)
+**Author**: [labuladong](https://github.com/labuladong)
+
 I have published an article about the ideal framework. People from the community have give praised me. I have never thought so many people will be agree with me. I will work harder to write more easily understanding Algorithm articles.
 
 Many friends asked me how should I learn Data Structure and Algorithm. Especially those who are beginner feel exhausted when going through all the LeetCode questions even after reading my article about the ideal framework. So, they hope to explain and tell them the way how I begin.
@@ -9,7 +12,7 @@ First of all, I want to congrats my friends who are asking me for it because you
 For the ideal framework, a beginner may not be easy to understand. But if you are able to understand it, you are not a beginner anymore :D! It just like software engineering. People like me who never lead a group project feel so bored. But, for someone who has led a team. He/she will treat every sentence in software engineering as a treasure. (if you do not understand this, it is fine for now)
 
 Now, I will go through my experience.
-# if you have read many articles such as "how to practice LeetCode" and "how to study Algorithm", but you still cannot keep up. Then, this article is for you.
+**if you have read many articles such as "how to practice LeetCode" and "how to study Algorithm", but you still cannot keep up. Then, this article is for you.**
 
 When I begin to learn Data Structure and Algorithm, I am always having knowledge gaps in my mind.
 If we summary them into two questions:
@@ -18,7 +21,7 @@ If we summary them into two questions:
 
 For example, if you learned the word stack, your teacher may tell you "first in last out" or "function stack." However, all these are like literature words. They cannot answer your question.
 Here is how to answer them:
-1.what is it? Go read the textbook
+1.what is it? Go read the textbook or description of its basic elements
 2.what is that for? practice some coding questions
 
 **1.what the hell is it？**
@@ -74,26 +77,18 @@ No matter you start with "Explore" or "Problems". You better practice problems b
 **5. I know what you said, but I cannot keep up**
 
 This is all bout what you really want. You need to activate your desire!
-!! what I am saying is not a hobby but desire!!
+!! what I am saying is not a hobby but strong desire!!
 Let me take myself as an example
 
 Half-year ago I start to practice problems for a job after graduation. But, most of the people start it when they almost graduate.
 
 I know I am not smart so I start early. I have a strong desire for a decent job. I have girl who I want to be in love and I have made boasts in front of my friend. So, I have to achieve it to earn the money the fame I want. The desire for money and for fame has made to work harder and harder.
 
-But, I am the kind of person who does not good at doing things quickly. I understand things slowly. Therefore, I decide to wake up early and start everything ahead. In fact, if you keep focusing on something for only just a month. You can see your improvement by your eye.
+But, I am the kind of person who does not good at doing things quickly right before deadline. I understand things slowly. Therefore, I decide to wake up early and start everything ahead. In fact, if you keep focusing on something for only just a month. You can see your improvement by your eye.
 
-Also, as a person who likes to share, I find out what I said actually helps others. This gives me recognition too! This is also what I want!! So, I decided to write more about what I experienced and share them on WeChat.
+Also, as a person who likes to share, I find out what I said actually helps others. This gives me recognition too! This is also what I want!! So, I decided to write more about what I experienced and share them on WeChat and internet.
 
 Above, it is not only about Algorithm learning. We, as a human being, are driven by our desires. There must be a thing that is tangible to help us to keep up. We have to benefit directly form it! This should be a simple reason to keep up for what we want to achieve.
 
 **You can find me on Wechat official account labuladong**:
-all my friend, labuladong loves you.
-
-![labuladong](../pictures/labuladong.png)
-
-[上一篇：队列实现栈\|栈实现队列](../数据结构系列/队列实现栈栈实现队列.md)
-
-[下一篇：回溯算法详解](../算法思维系列/回溯算法详解修订版.md)
-
-[目录](../README.md#目录)
+All my friend, labuladong loves you.
