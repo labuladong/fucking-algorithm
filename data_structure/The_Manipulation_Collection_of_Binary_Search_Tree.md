@@ -75,7 +75,7 @@ boolean isValidBST(TreeNode root) {
 
 But such algorithm is an error. Because the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree. For example, the following binary tree is not a BST, but our algorithm will make the wrong decision.
 
-![notBST](D:\fucking-algorithm\data_structure\assets\假BST.png)
+![notBST](../pictures/BST/假BST.png)
 
 Don't panic though the algorithm is wrong. Our framework is still correct, and we didn't notice some details information. Let's refresh the definition of BST: The manipulations in root node should not only include the comparison between left and right child, but it also require a comparison of the whole left and right sub-tree. What should do? It is beyond the reach of the root node.
 
