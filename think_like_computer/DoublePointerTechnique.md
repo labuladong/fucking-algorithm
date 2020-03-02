@@ -1,5 +1,11 @@
 # Summary of double pointer technique[](#双指针技巧总结) 
 
+> 原文地址:[https://github.com/labuladong/fucking-algorithm/blob/master/算法思维系列/双指针技巧.md](https://github.com/labuladong/fucking-algorithm/blob/master/算法思维系列/双指针技巧.md)
+
+**Translator: [miaoxiaozui2017](https://github.com/miaoxiaozui2017)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 I divide the double pointer technique into two categories, one is "fast and slow pointer", the other is "left and right pointer". The former mainly solves the problems in the linked list, such as the typical determination of whether a link is included in the linked list; the latter mainly solves the problems in the array (or string), such as binary search. 
 
 ### Part 1. Common algorithms of fast and slow pointer[](#快慢指针的常见算法) 
@@ -43,7 +49,7 @@ boolean hasCycle(ListNode head) {
 
 **2. If a link is known to exist in the list, return the starting position of the link**[](#已知链表中含有环，返回这个环的起始位置) 
 
-![1](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/1.png)
+![1](../pictures/DoublePointerTechnique/1.png)
 
 This problem is not difficult at all. It's a bit like a brain teaser. First, look at the code directly: 
 
@@ -70,13 +76,13 @@ It can be seen that when the fast and slow pointers meet, let any of them point 
 
 At the first meeting, if the slow pointer takes K steps, then the fast pointer must take 2K steps, that is to say, it takes K steps more than the slow pointer (that is, the length of the ring).
 
-![2](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/2.png)
+![2](../pictures/DoublePointerTechnique/2.png)
 
 If the distance between the meeting point and the starting point of the ring is m, then the distance between the starting point of the ring and the head of the head node is k - m, that is to say, if we advance K - M steps from the head, we can reach the starting point of the ring.            
 
 Coincidentally, if we continue to move K - M steps from the meeting point, we will also arrive at the starting point of the ring. 
 
-![3](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/3.png)
+![3](../pictures/DoublePointerTechnique/3.png)
 
 So, as long as we point any one of the fast and slow pointers back to head, and then the two pointers move at the same speed, K - M steps will meet, and the place where they meet is the starting point of the ring. 
 
@@ -95,7 +101,7 @@ return slow;
 
 When the length of the linked list is odd, slow happens to stop at the midpoint; if the length is even, the final position of slow is right in the middle: 
 
-![center](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/center.png)
+![center](../pictures/DoublePointerTechnique/center.png)
 
 An important role in finding the midpoint of a linked list is to merge and sort the linked list.
 
@@ -148,7 +154,7 @@ int binarySearch(int[] nums, int target) {
 
 Take a look at a leetcode question: 
 
-![title](../pictures/%E5%8F%8C%E6%8C%87%E9%92%88/title.png)
+![title](../pictures/DoublePointerTechnique/title.png)
 
 As long as the array is ordered, you should think of the double pointer technique. The solution of this problem is similar to binary search. The size of sum can be adjusted by adjusting left and right: 
 
@@ -190,4 +196,4 @@ void reverse(int[] nums) {
 
 This may be the highest level of the double pointer technique. If you master this algorithm, you can solve a large class of substring matching problems, but the "sliding window" is slightly more complex than the above algorithms.            
 
-Fortunately, there are framework templates for this kind of algorithm, and [this article] (sliding window technique. MD) explains the "sliding window" algorithm template, which helps you to kill several matching problems of leetcode substrings. 
+Fortunately, there are framework templates for this kind of algorithm, and [this article](https://github.com/labuladong/fucking-algorithm/blob/master/算法思维系列/滑动窗口技巧.md) explains the "sliding window" algorithm template, which helps you to kill several matching problems of leetcode substrings. 
