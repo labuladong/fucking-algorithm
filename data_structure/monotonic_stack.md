@@ -1,8 +1,8 @@
 ### How to solve problems with a monotonic stack
 
-Author: labuladong
+**Translator: [nettee](https://github.com/nettee)**
 
-Translator: [nettee](https://github.com/nettee)
+**Author: [labuladong](https://github.com/labuladong)**
 
 Stack is a very simple data structure, with a logical order of last-in-first-out (LIFO). Stack conform to the characteristics of some problems, such as function call stacks.
 
