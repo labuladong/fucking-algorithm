@@ -1,26 +1,26 @@
+# How to arrange candidates' seats
+
 **Translator: [SCUhzs](https://github.com/HuangZiSheng001)**
 
 **Author: [labuladong](https://github.com/labuladong)**
 
 
 
-# How to arrange candidates' seats
+This is no.885 question in LeetCode, interesting and skillful.  Solving such problems is not as IQ-cost as dynamic programming,  but rather depends on  understanding of common data structures and  capacity to write code. As far as I'm concerned, it deserves our attention and study.
 
-This is the number 885 question in LeetCode, which is interesting and skillful. Solving such problems is not as intellectually demanding as algorithms like dynamic programming, but rather depends on your understanding of common data structures and your ability to write code. As far as I'm concerned, it deserves our attention and study.
+By the way, I'd like to say something. Many readers ask me, how to sum up  framework of  algorithm. But  in fact, that's not really like that. The framework is slowly extracted from the details. I hope,  after you read our articles, you'd better take some time to try solving more similar problems by yourself.  As it said, "Practice goes deeper than theoretic knowledge."
 
-In addition, I'd like to add a digression. Many readers ask me that how the algorithm framework is summed up. In fact, the framework is slowly extracted from the details. I hope that,  you'd better take some time to try the relevant problems by yourself after you read our article. As the poem said, "Paper will sleep shallow, never know the matter want to practice."
+Let me first describe the subject: "suppose there is an examination room, with a row of `N` seats,  respectively, their indexes are  `[0.. n-1]`.  The Candidates, will  **successively** enter the room, will probably leave at **any time**."
 
-First of all, let me describe the topic: suppose there is an examination room, with a row of `N` seats, and the indexes are respectively '[0.. n-1]'.  Candidates will  **successively** enter the examination room and may leave at **any time**.
+As an examiner, you should arrange the seats for students,  so as to meet those requirements:  **whenever a student enters,  maximize the distance between him and the nearest other students; if there are more than one such seats, arrange him to the seat with the smallest index.** This is a real situation in life as we known.
 
-As an examiner, you should arrange the seats for the examinees to meet the following requirements:  **whenever a student enters, you need to maximize the distance between him and the nearest other persons; if there are multiple such seats, arrange him to the seat with the smallest index.** It's very realistic, right?
-
-In other words, please implement the following class:
+That is, you need to implement a class like this:
 
 ```java
 class ExamRoom {
-    // Construct a function, receive the N which means total number of seats  
+    // constructor, receive the N which means total number of seats  
     public ExamRoom(int N);
-    // when a candidate comes, return to the seat that you assigned him
+    // when a candidate comes, return to the seat assigned for him
     public int seat();
     // The candidate in the position P now left
     // It can be considered that there must be a candidate in the position P
@@ -28,54 +28,58 @@ class ExamRoom {
 }
 ```
 
-For example, there are five seats in the examination room, which are `[0..4]`:
+For example, there are five seats in the  room, which are `[0..4]`:
 
-When the candidate 1 enters  (call `seat()`), it is OK to sit in any position, but you need to arrange the lowest index position for him, that is, return position 0.
+When the candidate 1 enters  (call `seat()`), it is OK for him to sit in any position, but you should arrange the  position with lowest index for him, that is, return position 0.
 
-When the candidate 2 enters (call `seat()`), he should keep away from the person nearby as possible, that is, return to position 4.
+When the candidate 2 enters (call `seat()`), he should keep away from candidates nearby as possible, that is, return to position 4.
 
-When the candidate 3 enters, he should keep away from the person next to him as possible, so he need to sit in the middle, that is, seat 2.
+When the candidate 3 enters, he should keep away from candidates nearby as possible, so he need to sit in the middle, that is, seat 2.
 
-If another candidate enters, he can sit in seat 1 or seat 3. Take the smaller index 1.
+If another candidate enters, he can sit in seat 1 or seat 3. Take the smaller one, index 1.
 
 And so on.
 
-In the situation just mentioned, the function `leave`  is not called, but the readers can definitely find the regular:
+In the situation just mentioned, the function `leave`  doesn't be called. However, readers can definitely find the following regular:
 
-**If every two adjacent candidates are regarded as the two ends of the line segment, the new arrangement is to find the longest line segment,  then let the candidates  「dichotomy」 the line segment in the middle, and the middle point is the seat which assigned to him. `Leave (P) ` is actually to remove the end point `p`, so that two adjacent line segments are combined into one.**
+**If we regard every two adjacent candidates as the two endpoints of a line segment, the new arrangement is that, find the longest line segment,  let this candidate  「dichotomy」 the line segment in middle, and then the middle point is the seat  assigned to him.  Actually, `Leave (P) ` is  to remove the end point `p`, so as to merge two adjacent segments into one.**
 
-The core idea is very simple, right? So this question actually examines your understanding of data structure. What data structure do you use to implement the above logic?
+It's not hard to think about it, actually, this question wants to examine your understanding of data structure. To implement the above logic, which data structure should be selected ?
+
+
 
 ### 1. Thinking analysis
 
-According to the above ideas, first of all, we need to abstract the students sitting in the classroom into line segments, which can be simply represented by an array of size 2.
+According to the above idea, first of all, we need to abstract the students sitting in the classroom into line segments, which can be simply represented by an array of 2 size .
 
-In addition, the idea requires us to find the 「longest」 line segment,  and we also need to remove the line segment and add the line segment.
+In addition, the idea requires us to find the 「longest」 line segment,  removing or adding the line segment  both are needed.
 
-**If we meet the requirement of getting the most value in the dynamic process, we must use the ordered data structure.  Binary heap and balanced binary search tree is  what we use most often.** The time complexity to get the maximum value of the priority queue implemented with binary heap is O (logN), but only the maximum value can be deleted. The balanced binary tree can also take the maximum value, modify or delete any one value, and the time complexity is O (logN) too.
+**If we face with such a requirement that need to get the most value in the dynamic process, the ordered data structure should be used. Binary heap and balanced binary search tree is  what we use most often.** The priority queue, which implemented by binary heap,  its time complexity of getting most value  is O (logN), but only the maximum value can be deleted. Balanced binary tree can not only get the most value, but also modify or delete any value, and the time complexity of them both are O (logn).
 
-To sum up, binary heap can't satisfy the operation of `leave` , so balanced binary tree should be used. And here we will use a structure `TreeSet` which belongs to JAVA, which is an ordered data structure, and it's order at the bottom  is maintained by the red black tree.
+In summary, binary heap can't finish the operation of `leave` , so balanced binary tree should be chose. And  we will use a structure named `TreeSet`, which used in JAVA. It is an ordered data structure, and  its bottom layer  is implemented by red black tree.
 
-By the way, when it comes to Set or Map, some readers may take it for granted that it is a HashSet or a HashMap, which is something wrong with that.
+By the way, when it comes to Set or Map, some readers may take it for granted that it is a HashSet or a HashMap. There is something wrong with that.
 
-Because the bottom of hash Set/Map is implemented by the hash function and the array, it has the feature  that the traversal order is not fixed while the operation is efficient, and its time complexity is O (1).
+Because the bottom layer of Hash_Set/Map is implemented by the hash function and the array, it has the feature: its traversal order is not fixed while its operation efficiency is high, and its time complexity is O (1).
 
-Meanwhile, the Set/Map can also rely on other underlying data structures, The Red Black Tree (a balanced binary search tree) is the common one, which has a feature that maintaining the order of elements automatically and its efficiency is O (logn). This type is commonly referred to as 「ordered Set/Map」.
+Meanwhile, the Set/Map can also rely on other underlying data structures, The Red Black Tree (a balanced binary search tree) is the common one, which has a feature that maintaining the order of elements automatically and its efficiency is O (logn). This is commonly referred to 「ordered Set/Map」.
 
 The `TreeSet` we use just is an ordered set. Its purpose is to maintain the order of line length, quickly find the longest line, and quickly delete and insert.
 
+
+
 ### 2. Simplify the problem
 
-Firstly, if there are multiple optional seats, you need to choose the seat with the lowest index, right? **Let's simplify the problem first, Ignore this requirement for the moment** , and implement the above ideas.
+Firstly, if there are multiple optional seats, you should choose the seat with the lowest index. **Let's simplify the problem first, this is, ignore this requirement for the moment** , and put the implement of above idea ahead.
 
-Another common programming trick used in this problem is to use a 「virtual line segment」 to get the algorithm to start properly, which is a principle related to linked list algorithms that need a 「virtual header」.
+Another common programming trick used in this problem is to use a 「virtual line segment」, so as to let the algorithm start properly, the same as the reason why the algorithms which related to linked list algorithms need a 「virtual header」.     
 
 ```java
 // Map endpoint p to the segment with P as the left endpoint
 private Map<Integer, int[]> startMap;
 // Map endpoint p to the segment with P as the right endpoint
 private Map<Integer, int[]> endMap;
-// Store all line segments from small to large according to their length
+// According to their length, store all line segments from small to large 
 private TreeSet<int[]> pq;
 private int N;
 
@@ -163,19 +167,19 @@ public void leave(int p) {
 
 
 
-At this point, the algorithm is basically implemented. Although there are many codes, the idea is very simple: find the longest line segment, divide it into two segments from the middle, and the midpoint is the return value of `seat()`; find the Find  left and right line segments of `p`   and merge them into one segment, which is the logic of `leave (P)`.
+At this point, this algorithm is basically implemented. Although a lot of code, in fact it's not difficult to think: find the longest line segment, divide it into two segments from the middle, and the midpoint is the return value of `seat()`; find the left and right line segments of `p`  , merge them into one segment. Those is the logic of `leave (P)`.
 
 
 
 ### 3. Advanced problem
 
-However, when the topic requires multiple choices, choose the seat with the smallest index. We just ignored this problem. For example, the following situation may cause errors:![](../pictures/seat_scheduling/3.jpg)
+However, when the topic requires multiple choices, we should choose the seat with the smallest index. We just ignored that. For example, the following situation may cause errors:![](../pictures/seat_scheduling/3.jpg)
 
-Now there are lines `[0,4]` and  `[4,9]` in the ordered set. Then the longest line segment `longest` is the latter one. According to the logic of `seat`, it will split the `[4,9]`, that is, return to seat 6. But the correct answer should be seat 2, because both 2 and 6 meet the condition of maximizing the distance between adjacent candidates, and the smaller one should be taken.
+Now there are line segments `[0,4]` and  `[4,9]` in the ordered set, the longest line segment `longest` is the latter one. According to the logic of `seat`, it will split the `[4,9]`, that is, return to seat 6. However, the correct answer should be seat 2. Because both 2 and 6 meet the condition of maximizing the distance between adjacent candidates, and the smaller one should be taken.
 
 ![](../pictures/seat_scheduling/4.jpg)
 
-**The solution to this type of  requirement is to modify the sorting method of ordered data structure.** Specific to the problem, is that,  modify the logic of `treemap`'s comparison function:
+**The solution to such requirements is to modify the sorting method of ordered data structure.** In this problem, is that,  modify the logic of `treemap`'s comparison function:
 
 ```java
 pq = new TreeSet<>((a, b) -> {
@@ -188,7 +192,7 @@ pq = new TreeSet<>((a, b) -> {
 });
 ```
 
-Beside that, we also need to change the `distance` function. Instead of simply letting it calculate the length between two endpoints of a line segment, we need to let it calculate the length between the midpoint and endpoint of the line segment.
+Beside that, we also need to change the `distance` function. Instead of  calculating the length between two endpoints of a line segment, we need to let it calculate the length between the midpoint and endpoint of the line segment.
 
 ```java
 private int distance(int[] intv) {
@@ -203,20 +207,17 @@ private int distance(int[] intv) {
 
 ![](../pictures/seat_scheduling/5.jpg)
 
-In this way, the `distance` values of `[0,4]` and `[4,9]` are equal. The algorithm will compare the indexes of the two and take smaller line segments for segmentation. So far, this algorithm problem has been solved perfectly.
+In this way, the values of `distance` , `[0,4]` and `[4,9]` are equal. The algorithm will compare the indexes of the two, and take smaller line segments for segmentation. So far, this algorithm problem has been solved perfectly.
 
 ### 4. Final summary
 
-​	The problem I'm talking about in this article is not so hard, although it seems that there is a lot of code. The core issue is to review the understanding and use of ordered data structure to sort it out.
+​	The problem mentioned in this article is not so difficult, although it seems that there is a lot of code. The core issue is to examine the understanding and use of ordered data structures
 
-​	To deal with dynamic problems, we usually use ordered data structures, such as balanced binary search tree and binary heap, which have similar time complexity, but the former supports more operations.
+​	To deal with dynamic problems, we usually use ordered data structures, such as balanced binary search tree and binary heap, which have similar time complexity. But the former supports more operations.
 
-​	Since balanced binary search tree is so easy to use, why use binary heap? The reason is that, the bottom layer of binary heap is array, which is easy to implement. See the old article 「detailed explanation of binary heap」 to learn more detail.  Try to make a Red Black Tree, you? The operation is complex and consumes more space. To solve the specific problems, we should choose the appropriate data structure.
+​	Since balanced binary search tree is so easy to use, why use binary heap?  The reason given by me, is that, the bottom layer of binary heap is array, which is easier to implement. See the old article 「detailed explanation of binary heap」 to learn more detail.  Try to make a Red Black Tree? It not only has more complex operation, but also costs more space. Of course, to solve the specific problems, we should choose the appropriate data structure with specific analysis.
 
 ​	I hope this article can be helpful for you.
 
 
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
-
-![labuladong](../pictures/labuladong.jpg)
