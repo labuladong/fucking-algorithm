@@ -2,7 +2,7 @@
 
 > 原文地址：[https://github.com/labuladong/fucking-algorithm/blob/master/数据结构系列/单调栈.md](https://github.com/labuladong/fucking-algorithm/blob/master/数据结构系列/单调栈.md)
 
-**Translator: [YourName](Anything you want to link)**
+**Translator: [miaoxiaozui2017](https://github.com/miaoxiaozui2017)**
 
 **Author: [labuladong](https://github.com/labuladong)**
 
