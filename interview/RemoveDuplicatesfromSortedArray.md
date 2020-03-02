@@ -1,7 +1,8 @@
 ﻿# Remove Duplicates from Sorted Array
 
-Translator:[Hi_archer][1]
-Author:[labuladong][2]
+Translator: [Hi_archer][1]
+
+Author: [labuladong][2]
 
 We know that for arrays,it is efficient to insert and delete elements at the end,with a time complexity of O(1).However, if we insert and delete elements at the middle or the beginning,it will move many data, with a time complexity of O(N).
 

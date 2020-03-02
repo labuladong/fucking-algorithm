@@ -157,7 +157,7 @@ int left_bound(int[] nums,int target){
 
 >A2: Before this, let's think about what's meaning of `left border` is:
 
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/binarySearch1.png)
+![](../pictures/binarySearch/binarySearch1.png)
 
 For this array, the algorithm will get result `1`. The result `1` can be interpreted this way: there is 1 element in `nums` which element is less than 2.
 
@@ -243,7 +243,7 @@ int right_bound(int[] nums,int target){
         //Thinking this way: mid = left - 1
     }
 ```
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/binarySearch2.png)
+![](../pictures/binarySearch/binarySearch2.png)
 
 When we update the value of `left`, we must do it this way: `left = mid + 1`, which means when `while` is terminated, `nums[left]` must not equal to `target`, but `nums[left-1]` could be equal to `target`.
 
