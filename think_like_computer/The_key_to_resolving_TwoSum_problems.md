@@ -1,6 +1,6 @@
 # The key to resolving Two Sum problems
 
-**Translator**: [Fulin Li](fulinli.github.io)
+**Translator**: [Fulin Li](https://fulinli.github.io/)
 
 **Author**:[labuladong](https://github.com/labuladong)
 
@@ -8,9 +8,9 @@ There are a series of problems with Two Sum in LeetCode, and this article will p
 
 ### TwoSum I
 
-**The most basic form** of Two Sum problems is like this: Given an array of integers `nums`, and a specific integer `target`. You may assume that each input would have **exactly** one solution. return indices of the two numbers such that they add up to target.
+**The most basic form** of Two Sum problems is like this: Given an array of integers `nums`, and a specific integer `target`. Return indices of the two numbers such that they add up to `target`. You may assume that each input would have **exactly** one solution. 
 
-For example, given `nums = [3,1,3,6], target = 6`, the program should return an array `[0,2]` as 3 + 3 = 6.
+For example, given `nums = [3,1,3,6], target = 6`, the program should return an array `[0,2]` because 3 + 3 = 6.
 
 So, how to solve this problem? First, the simplest method, of course, is the exhaustive search.
 
@@ -27,7 +27,7 @@ int[] twoSum(int[] nums, int target) {
 }
 ```
 
-This method is straightforward. The time complexity is $O(n^2)$ and space complexity is $O(1)$.
+This method is straightforward. The time complexity is O(n^2)​ and space complexity is O(1)​.
 
 We can use a hash table to reduce the time complexity:
 
@@ -50,19 +50,19 @@ int[] twoSum(int[] nums, int target) {
 }
 ```
 
-In this way, because the query time of a hash table is O(1) and the time complexity of the algorithm is reduced to O(N). However, the space complexity is increased to O(N) for storing the hash table. Generally, it is more efficient than the exhaustive search method.
+In this way, because the query time of a hash table is O(1), the time complexity of the algorithm is reduced to O(N). However, the space complexity is increased to O(N) for storing the hash table. Generally, it is more efficient than the exhaustive search method.
 
 **I think the objective of the two sum problems is to tell us how to use the hash table.** Let's go on to the next.
 
 ### TwoSum II
 
-We can modify the last script slightly to design a class with two API:
+We can modify the last script slightly to design a class with two functions:
 
 ```java
 class TwoSum {
     // Add a 'number' to data structure
     public void add(int number);
-    // Find out whether there exists two numbers and their sum is equal to 'value'
+    // Find out whether there exist two numbers and their sum is equal to 'value'.
     public boolean find(int value);
 }
 ```
@@ -99,11 +99,11 @@ Situation 1: After `[3,3,2,5]` is inputted in `add` function, `find(6)` is execu
 
 Situation 2: After `[3,3,2,5]` is inputted in `add` function, `find(7)` is executed. Only when `key` is equal to 2 and `other` is equal to 5, it will return true.
 
-Except as the two situations mentioned above, `find` will only return false.
+Except for the two situations mentioned above, `find` function will only return false.
 
-What's the time complexity of this algorithm? The time complexity of `add` function is O(1), `find` function is O(N), and the space complexity is O(N), which is similar to the last problem.
+What's the time complexity of this algorithm? The time complexity of `add` function and `find` function is O(1) and O(N) respectively. The space complexity is O(N), which is similar to the last problem.
 
-**However, we should take realities of the situation into account in API design.** For example, in our class, the function `find` is used very frequently and each time it requires O(N) times. It is a huge waste of time. Can we optimize the algorithm given in this situation?
+**However, we should take realities of the situation into account in API design.** For example, in our class, the function `find` is used very frequently, and each time it requires O(N) times. It is a massive waste of time. Can we optimize the algorithm given in this situation?
 
 Of course, we can optimize the algorithm when `find` function is used frequently. We can refer to the brute force method in the last problem and utilize a hash set to optimize `find` function pertinently.
 
@@ -129,11 +129,11 @@ In this way, all possible sum of two numbers is stored in `sum`. Every time `fin
 
 ### Summary
 
-For TwoSum problems, one of the difficulties is that the given array is **unordered**. For an unordered array, it seems that we don't have any efficient methods and an exhaustive search method may be the only way.
+For TwoSum problems, one of the difficulties is that the given array is **unordered**. For an unordered array, it seems that we don't have any efficient methods, and an exhaustive search method may be the only way.
 
 **In ordinary circumstances, we will sort the unordered array first and then consider applying the dual-pointer method.**  TwoSum problems make us aware that HashMap or HashSet could help us to resolve unordered array problems.
 
-Besides, the core of algorithm design is a trade-off, using different data structures to improve the algorithm performance pertinently.
+Remarkably, the essence of such method is to trade time for space, using different data structures to improve the algorithm performance pertinently.
 
 Finally, if the given array in TwoSum I is ordered, how do we design the algorithm? It's very easy and you can refer to the previous article「Summary of usage of dual-pointer」:
 
