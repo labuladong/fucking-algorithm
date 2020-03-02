@@ -116,7 +116,7 @@ private int distance(int[] intv) {
 
 「Virtual line segment 」is to represent all seats as one line segment:
 
-![](../pictures/座位调度/9.png)
+![](../pictures/seat_scheduling/9.png)
 
 
 
@@ -159,7 +159,7 @@ public void leave(int p) {
 }
 ```
 
-![三种情况](../pictures/座位调度/8.png)
+![三种情况](../pictures/seat_scheduling/8.png)
 
 
 
@@ -169,11 +169,11 @@ At this point, the algorithm is basically implemented. Although there are many c
 
 ### 3. Advanced problem
 
-However, when the topic requires multiple choices, choose the seat with the smallest index. We just ignored this problem. For example, the following situation may cause errors:![](../pictures/座位调度/3.jpg)
+However, when the topic requires multiple choices, choose the seat with the smallest index. We just ignored this problem. For example, the following situation may cause errors:![](../pictures/seat_scheduling/3.jpg)
 
 Now there are lines `[0,4]` and  `[4,9]` in the ordered set. Then the longest line segment `longest` is the latter one. According to the logic of `seat`, it will split the `[4,9]`, that is, return to seat 6. But the correct answer should be seat 2, because both 2 and 6 meet the condition of maximizing the distance between adjacent candidates, and the smaller one should be taken.
 
-![](../pictures/座位调度/4.jpg)
+![](../pictures/seat_scheduling/4.jpg)
 
 **The solution to this type of  requirement is to modify the sorting method of ordered data structure.** Specific to the problem, is that,  modify the logic of `treemap`'s comparison function:
 
@@ -201,7 +201,7 @@ private int distance(int[] intv) {
 }
 ```
 
-![](../pictures/座位调度/5.jpg)
+![](../pictures/seat_scheduling/5.jpg)
 
 In this way, the `distance` values of `[0,4]` and `[4,9]` are equal. The algorithm will compare the indexes of the two and take smaller line segments for segmentation. So far, this algorithm problem has been solved perfectly.
 
