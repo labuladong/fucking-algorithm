@@ -14,7 +14,7 @@ Binary search is not easy. The mogul Knuth (the one who invented the KMP algorit
 
 If you don't understand these details correctly, writing dichotomy is definitely metaphysical programming, and if there is a bug, you can only rely on bodhisattva to bless it. **I deliberately wrote a poem to celebrate the algorithm, summarize the main content of this article, and suggest to save:**
 
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/poem.png)
+![](../pictures/DetailedBinarySearch/verse.jpg)
 
 This article explores some of the most commonly used binary search scenarios: finding a number, finding the left boundary, and finding the right boundary. Moreover, we are going to go into details, such as whether the inequality sign should be accompanied by an equal sign, whether mid should be increased by one, and so on. Analyze the differences in these details and the reasons for these differences to ensure that you can write the correct binary search algorithm flexibly and accurately.
 
@@ -156,7 +156,7 @@ Because the binary search for searching the left and right borders is more commo
 
 Answer: Because you have to go step by step, first understand what the special meaning of this "left side border" is:
 
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/1.jpg)
+![](../pictures/DetailedBinarySearch/1.jpg)
 
 For this array, the algorithm returns 1. The meaning of this 1 can be interpreted as follows: There is 1 element less than 2 in `nums`.
 
@@ -228,7 +228,7 @@ if (nums[mid] < target) {
 
 Since the exit condition of while is `left == right + 1`, when` target` is larger than all the elements in `nums`, the following conditions exist to make the index out of bounds:
 
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/2.jpg)
+![](../pictures/DetailedBinarySearch/2.jpg)
 
 Therefore, the code that finally returns the result should check for out of bounds:
 
@@ -312,7 +312,7 @@ if (nums[mid] == target) {
     // think it: mid = left - 1
 ```
 
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/3.jpg)
+![](../pictures/DetailedBinarySearch/3.jpg)
 
 Because our update to `left` must be` left = mid + 1`, which means that at the end of the while loop, `nums [left]` must not be equal to `target`, and` nums [left-1] `may be `target`.
 
@@ -357,7 +357,7 @@ int right_bound(int[] nums, int target) {
 
 When `target` is smaller than all elements,` right` will be reduced to -1, so you need to prevent it from going out of bounds at the end:
 
-![](../pictures/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/4.jpg)
+![](../pictures/DetailedBinarySearch/4.jpg)
 
 At this point, the two ways of searching for the binary search on the right side of the boundary have also been completed. In fact, it is easier to remember the unification of the "search interval" with both ends closed, right?
 
