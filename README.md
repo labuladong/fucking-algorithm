@@ -1,33 +1,187 @@
-感谢各位老铁前来参与翻译！
+### Summary of Double Pointer skills
 
-请查看最新的 `english` 分支，保证你准备翻译的文章暂时没有英文版本。
-
-翻译完成后，请删除文末的公众号二维码。对于第一个提交的翻译版本，你可以在文章开头的**一级标题下方**添加作者和翻译者：
-
-**Translator: [YourName](https://github.com/YourName)**
+**Translator: [lriy](https://github.com/lriy)**
 
 **Author: [labuladong](https://github.com/labuladong)**
 
-你的链接可以指向任何你希望的地方。
+I divided the double pointer technique into two categories, one is "fast and slow pointer" and the other is "left and right pointer". The former solution mainly solves the problems in the linked list, such as determining whether the linked list contains a ring; the latter mainly solves the problems in the array (or string), such as binary search.
 
-### 翻译约定
+### First, the common algorithm of fast and slow pointers
+The fast and slow pointers are usually initialized to point to the head node of the linked list. When moving forward, the fast pointer is fast first, and the slow pointer is slow.
 
-1、翻译尽可能表达中文原意，你对基本的专业术语应该做到正确地使用，诸如 Queue, stack, binary tree 等词语。这种词语用错会让人很迷惑。基本的语法不能出错，建议搜索一些英语语法检查的在线网站，**或者最简单的，翻译后将你的文本粘贴到 Word 中，查看是否有基本的语法错误**。
+**1. Determine whether the linked list contains a ring.**
 
-2、**所有内容应以 `master` 分支为准**，因为 `english` 分支仅作为翻译，不会更新文章。所以如果你发现 `master` 中的某一篇文章在 `english` 分支中不存在或有冲突，以 `master` 分支中的 md 文件为准进行翻译，别忘了把相关图片文件夹加入 `english` 分支。
+This should be the most basic operation of the linked list. If you already know this trick, you can skip it.
 
-3、**加粗等信息需要保留，同时鼓励扩展自己的知识**，增加参考文献，将重要知识点添加粗体或使用英语（或其他语言）特有的表达形式来表达某些思想。
+The characteristic of a single linked list is that each node only knows the next node, so if a pointer is used, it cannot be judged whether the linked list contains a ring.
 
-4、对于图片，很少包含汉字，如果不影响理解，比如图片右下角的公众号水印，就不必修改了。**如果汉字涉及算法理解，需要把图片一同修改了**，把汉字抹掉换成英文，或者汉字比较少的话，在汉字旁添加对应英文。**对于一些描述题目的图片**，都是我在中文版 LeetCode 上截的图，你可以去英文版 LeetCode 上寻找对应题目截图替换，如果不知道是哪一题，可以要求我给你找。
+If the linked list does not contain a ring, then this pointer will eventually encounter a null pointer null to indicate that the linked list is over. It is good to say that you can determine that the linked list does not contain a ring.
 
-5、**保持原有的目录结构，但文件和文件夹的名称应改为英文**，md 文件的名称根据具体文章内容修改成恰当的英文，文章引用的图片路径有时也会包含中文，需要你将装有该图片的文件夹改成适当的英文。
+```
+boolean hasCycle(ListNode head) {
+    while (head != null)
+        head = head.next;
+    return false;
+}
+```
+But if the linked list contains a ring, then the pointer will end up in an endless loop, because there is no null pointer in the circular array as the tail node.
 
-6、**只处理在 issue 中约定的文章（和相关的图片），不要动其他任何的内容**，否则后续你对主仓库提交成果的时候，容易出现冲突。如果出现冲突，你需要先想办法使用 Git 工具解决本地仓库和主仓库的版本冲突才能提交 pull request，练习 Git 的使用是非常重要的。
+The classic solution is to use two pointers, one running fast and one running slowly. If there is no ring, the pointer that runs fast will eventually encounter null, indicating that the linked list does not contain a ring; if it contains a ring, the fast pointer will eventually end up with a super slow pointer and meet the slow pointer, indicating that the linked list contains a ring.
 
-其实咱们刷的算法题都没有什么特别生僻的英文单词，而且很多歪果仁母语也不一定是英文。Google Translator 翻译带点术语（栈、队列这种）的文章效果很差，甚至代码都给你翻译，所以不要害怕，勇敢地翻就行了，我们会在一次次迭代中慢慢变好的～
+```
+boolean hasCycle(ListNode head) {
+    ListNode fast, slow;
+    fast = slow = head;
+    while (fast != null && fast.next != null) {
+        fast = fast.next.next;
+        slow = slow.next;
+        
+        if (fast == slow) return true;
+    }
+    return false;
+}
+```
+**2. Knowing that the linked list contains a ring, return to the starting position of the ring**
 
-Github 具体的协作方式我在仓库置顶的 [issue](https://github.com/labuladong/fucking-algorithm/issues/9) 中有写，很简单，如果你之前没有协作过，这次翻译工作更是你对新事物的尝试和学习机会。不要害怕，Git 仓库的一切都是可以恢复的，不会出现操作不熟练而搞砸，**放开手干就完事儿了**。
+![1](https://github.com/lriy/MarkdownPhotos/blob/master/11.png)
 
-PS：另外再强调一下，不要修改 issue 中约定的之外的文章，以便你的仓库后续合并进主仓库，提交你的分支也需要提交到 `english` 分支，翻译工作不要向 `master` 分支提交任何修改。
+This problem is not difficult at all, look directly at the code:
 
-**Become a contributor, 奥利给**！
+```
+ListNode detectCycle(ListNode head) {
+    ListNode fast, slow;
+    fast = slow = head;
+    while (fast != null && fast.next != null) {
+        fast = fast.next.next;
+        slow = slow.next;
+        if (fast == slow) break;
+    }
+    // The above code is similar to the hasCycle function
+    slow = head;
+    while (slow != fast) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    return slow;
+}
+```
+It can be seen that when the "fast" and "slow" pointers meet, let any one of them point to the head node, and then let them advance at the same speed, and the node position when they meet again is the position where the ring starts. Why is this?
+
+For the first encounter, suppose the slow pointer "slow" moves k steps, then the fast pointer "fast" must move 2k steps, which means that "fast" moves k steps more than "slow" （The length of the ring）
+
+Suppose the distance between the meeting point and the start point of the ring is m, then the distance between the start point of the ring and the head node "head" is k-m.
+
+Coincidentally, if we continue to k-m steps from the meeting point, we also reach the starting point of the loop.
+
+So, as long as we repoint one of the fast and slow pointers to "head", and then the two pointers move at the same speed, we will meet after k-m steps. The place where we meet is the beginning of the ring.
+
+**3.Find the midpoint of the linked list**
+
+Similar to the above idea, we can also make the fast pointer advance two steps at a time, and the slow pointer advance one step at a time. When the fast pointer reaches the end of the list, the slow pointer is in the middle of the list.
+
+```
+while (fast != null && fast.next != null) {
+    fast = fast.next.next;
+    slow = slow.next;
+}
+// "slow" is in the middle
+return slow;
+```
+When the length of the linked list is odd, "slow" happens to stop at the midpoint; if the length is even, the final position of "slow" is right to the middle:
+
+![2](https://github.com/lriy/MarkdownPhotos/blob/master/22.png)
+
+An important role in finding the midpoint of a linked list is to "merge sort" the linked list.
+
+Recall the "merge sort" of arrays: find the midpoint index recursively divide the array into two, and finally merge the two ordered arrays. For linked lists, merging two ordered linked lists is simple, and the difficulty is dichotomy.
+
+But now that you have learned to find the midpoint of the linked list, you can achieve the dichotomy of the linked list. The specific content of the "merge sort" is not described in this article, you can find it online by yourself.
+
+**4.Find the k-th element from the bottom of the linked list**
+
+Our idea is still to use the fast and slow pointers, so that the fast pointer take k steps first, and then the fast and slow pointers start moving at the same speed. In this way, when the fast pointer reaches null at the end of the linked list, the position of the slow pointer is the kth penultimate linked list node (for simplicity, it is assumed that k does not exceed the length of the linked list):
+
+```
+ListNode slow, fast;
+slow = fast = head;
+while (k-- > 0) 
+    fast = fast.next;
+
+while (fast != null) {
+    slow = slow.next;
+    fast = fast.next;
+}
+return slow;
+```
+
+### Second, the common algorithm of left and right pointer
+The left and right pointers actually refer to two index values in the array, and are generally initialized to left = 0, right = nums.length-1.
+
+**1.Binary Search**
+
+The previous "Binary Search" has been explained in detail, only the simplest binary algorithm is written here, in order to highlight its dual pointer characteristics:
+
+```
+int binarySearch(int[] nums, int target) {
+    int left = 0; 
+    int right = nums.length - 1;
+    while(left <= right) {
+        int mid = (right + left) / 2;
+        if(nums[mid] == target)
+            return mid; 
+        else if (nums[mid] < target)
+            left = mid + 1; 
+        else if (nums[mid] > target)
+            right = mid - 1;
+    }
+    return -1;
+}
+```
+**2.Two sum**
+
+Look directly at a LeetCode topic:
+
+![3](https://github.com/lriy/MarkdownPhotos/blob/master/33.png)
+
+
+As long as the array is ordered, you should think of the two pointer technique. The solution of this problem is similar to binary search. You can adjust the size of "sum" by adjusting "left" and "right":
+
+```
+int[] twoSum(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left < right) {
+        int sum = nums[left] + nums[right];
+        if (sum == target) {
+            //The index required for the question starts at 1
+            return new int[]{left + 1, right + 1};
+        } else if (sum < target) {
+            left++; //Make "sum" bigger
+        } else if (sum > target) {
+            right--; // Make "sum" smaller
+        }
+    }
+    return new int[]{-1, -1};
+}
+```
+**3.Reverse the array**
+
+```
+void reverse(int[] nums) {
+    int left = 0;
+    int right = nums.length - 1;
+    while (left < right) {
+        // swap(nums[left], nums[right])
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+        left++; right--;
+    }
+}
+```
+**4.Sliding window algorithm**
+
+This may be the highest state of the double pointer technique. If you master this algorithm, you can solve a large class of substring matching problems, but the "sliding window" is slightly more complicated than the above algorithms.
+
+Fortunately, this type of algorithm has a frame template, and this article explains the "sliding window" algorithm template to help everyone kill a few LeetCode substring matching problems.
+
+Thanks for reading!
