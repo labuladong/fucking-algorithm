@@ -1,119 +1,110 @@
-# How to find **The Longest Palindromic Substring**
+Author: [labuladong](https://github.com/labuladong)
 
-**Author: [labuladong](https://github.com/labuladong)**
+Translator: [joketion](https://github.com/jokertion)
+ 
+# Longest Palindrom Substring
 
-**Translator: [Lrc123](https://github.com/Lrc123)**
+The palindrom substring is a problem often encountered in interviews (although the question itself has no meaning), this article tells you the core idea of ​​the palindrom substring problem.
 
-Palindrome questions are very common in the interview, this article provides some insights about palindromic problem.
+First of all, make it clear: ** palindrom string is string that read the same when reading forward and backward **.
 
-To specific :
-> A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam, racecar. 
-[reference](https://en.wikipedia.org/wiki/Palindrome)
+For example, the strings `aba` and` abba` are both palindrom strings, because they are symmetrical, and in turn are the same as themselves. Conversely, the string `abac` is not a palindrom string.
 
-For example: `aba` and `abba` are both palindromic, because they are symetric strings, that you can read each of them in reversed order, and you can just get a same string.
-
-Notice: palindrome string could be in either odd length or even length, a good solution would be **double pointers**. Next, I'll show you how **doulbe pointers** work in a real leetcode problem.
-
-![](../pictures/palindrome/example.png)
+It can be seen that the length of the palindrom string may be odd or even, which adds to the difficulty of the palindrom problem. The core of solving this type of problem is the ** double pointer **. Let's figure out the palindrom problem through a question of the longest palindrom substring:
 
 ```cpp
 string longestPalindrome(string s) {}
 ```
 
-### 1. Thinking
+### 一、Thinking
 
-Given a string s, find the longest palindromic substring in s.
+The first thing we should think about this is, given a string `s`, how do we find a palindrome in` s`?
 
-A very interesting pespective: 1. Reversing s in to s' 2. Finding the longest common substring.
+There is an interesting idea: Since the palindrome is a string that reads the same in both directions, if we reverse the `s`, we call it` s'`, then in `s` and `s'`.Then find the ** longest common substring **, so you should be able to find the longest palindrome substring.
 
-For instance, a string `abacd`, a reversed version is `dcaba`, and the longest common string is `aba`, seemingly perfect.
+For example, the string `abacd`, which in turn is `dcaba`, and its longest common substring is `aba`, which is the longest palindrome substring.
 
-However, it would be wrong when we apply to `aacxycaa`, which a reversed version would be `aacyxcaa`, then the longest common substring turns out to be `aac`. But, what we need should be `aa`.
+However, this idea is wrong, for example, the string `aacxycaa`, which in turn is `aacyxcaa`, the longest common substring is `aac`, but the longest palindrome substring should be `aa`.
 
-Although this way has its faults, **we can still get some inspirations that we can transform a problem seemingly hard into another simpler problem that we can understand easier.**
+Although this idea is not correct, ** this kind of thinking that transforms the problem into other forms of thinking is very worth advocating **.
 
-Now, **the double pointers**
+Next, let's talk about the correct idea using double pointers.
 
-**Core idea: start a scanner from the mid point of the string** 
-we represent the idea into pseudo code:
+** The core idea of ​​the problem of finding palindrome string is: from the middle to the two sides to judge the palindrome string **. For the longest palindrome substring, this means:
 
 ```python
 for 0 <= i < len(s):
-    find a palindrome that set s[i] as its mid point
-    update the answer
+	Find a palindrome centered on s [i]
+    Updated answer
 ```
 
-When the length of string is even, for instance: `abba`, the code above would not work.
+However, we also said just now that the length of the palindrome string may be odd or even. If it is the case of `abba`, there is no center character, and the above algorithm is okay. So we can modify it:
 
-So, a better version here :
+
 ```python
 for 0 <= i < len(s):
-    find a palindrome that set s[i] as its mid point
-    find a palindrome that set s[i] and s[i + 1] as its mid point
-    update the answer
+	Find a palindrome centered on s [i]
+    Find palindrome strings centered on s [i] and s [i + 1]
+    Updated answer
 ```
 
-PS: you may encounter some problems like : outofIndex error. Don't worry, we'll fix them later.
+PS: The reader may find that the index here will be out of bounds and will be processed later.
 
-### 2. Implementation
+### Second, code implementation
 
-a function implementation:
+According to the above idea, we must first implement a function to find the longest palindrome string. This function is a bit tricky:
 
 ```cpp
-string palindrome(string& s, int l, int r) {
-    // avoid outOfIndex error
-    while (l >= 0 && r < s.size()
-            && s[l] == s[r]) {
-        // scanning toward both directions
-        l--; r++;
-    }
-    // return a palindrome that set s[l] and s[r] as mid point
-    return s.substr(l + 1, r - l - 1);
+string palindrome (string & s, int l, int r) {
+     // avoid outOfIndex error
+    while (l> = 0 && r <s.size ()
+            && s [l] == s [r]) {
+        // expand to both sides
+        l--; r ++;
+    }
+    // return the longest palindrome string centered on s [l] and s [r]
+    return s.substr (l + 1, r - l - 1);
 }
 ```
 
-Why we need both pointer `l` and pointer `r`? **In this way, we can handle palindrome strings in odd and even length**
+Why pass in two pointers `l` and` r`? ** Because this implementation can handle the case where the length of the palindrome is odd and even **:
+
 
 ```python
-for 0 <= i < len(s):
-    # find a palindrome that set s[i] as its mid 
-    palindrome(s, i, i)
-    # find a palindrome that set s[i] and s[i + 1] as its mid  
-    palindrome(s, i, i + 1)
-    update the answer
+for 0 <= i <len (s):
+    # Find a palindrome centered on s [i]
+    palindrome (s, i, i)
+    # Find palindromes centered on s [i] and s [i + 1]
+    palindrome (s, i, i + 1)
+    Updated answer
 ```
 
-Completed code solution:
+Take a look at the full code of `longestPalindrome`:
+
 
 ```cpp
-string longestPalindrome(string s) {
-    string res;
-    for (int i = 0; i < s.size(); i++) {
-        // find a palindrome that set s[i] as its mid 
-        string s1 = palindrome(s, i, i);
-        // find a palindrome that set s[i] and s[i + 1] as its mid  
-        string s2 = palindrome(s, i, i + 1);
-        // res = longest(res, s1, s2)
-        res = res.size() > s1.size() ? res : s1;
-        res = res.size() > s2.size() ? res : s2;
-    }
-    return res;
+string longestPalindrome (string s) {
+    string res;
+    for (int i = 0; i <s.size (); i ++) {
+        // longest palindrome subgroup centered on s [i]
+        string s1 = palindrome (s, i, i);
+        // Longest palindrome substring centered on s [i] and s [i + 1]
+        string s2 = palindrome (s, i, i + 1);
+        // res = longest (res, s1, s2)
+        res = res.size ()> s1.size ()? res: s1;
+        res = res.size ()> s2.size ()? res: s2;
+    }
+    return res;
 }
 ```
 
+At this point, the problem of this longest palindrome substring has been solved.
+with Time complexity is O(N^2) and Space complexity is O(1).
 
-Thus, this leetcode problem is solved. Now, we get:
+It is worth mentioning that this problem can be solved by dynamic programming method, the time complexity is the same, but we need at least O(N^2) Space complexity to store the DP table. Thus, in this problem, dp approach is not the best solution.
 
-Time complexity: O(N^2) 
+In addition, there is a clever solution to this problem. The time complexity only requires O(N), but the solution is more complicated. I personally don't think it is necessary to master it. The algorithm is called Manacher's Algorithm, and interested readers can search for it by themselves.
 
-Space complexity: O(1)
+Stick to original high-quality articles, and strive to make clear the algorithm problems. Welcome to follow my Wechat official account "labuladong" for the latest articles.
 
-
-By the way, a dynamic programming approach can also work in this problem in a same time complexity. However, we need at least O(N^2) spaces to store DP table. 
-Therefore, in this problem, dp approach is not the best solution.
-
-In addition, **Manacher's Algorithm** requires only O(N) time complexity. You readers can search it through the Internet by your own interests. It should be very interesting.
-
-
-**Stick to original high-quality articles, and strive to make clear the algorithm problems. Welcome to follow my Wechat official account "labuladong" for the latest articles.**
-
+! [labuladong] (../pictures/labuladong.png)
