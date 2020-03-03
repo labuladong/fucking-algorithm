@@ -1,8 +1,8 @@
 ﻿# Remove Duplicates from Sorted Array
 
-Translator: [Hi_archer][1]
+**Translator: [Hi_archer](https://hiarcher.top/)**
 
-Author: [labuladong][2]
+**Author: [labuladong](https://github.com/labuladong)**
 
 We know that for arrays,it is efficient to insert and delete elements at the end,with a time complexity of O(1).However, if we insert and delete elements at the middle or the beginning,it will move many data, with a time complexity of O(N).
 
@@ -67,5 +67,3 @@ ListNode deleteDuplicates(ListNode head) {
 ![](../pictures/Remove_Duplicates_from_Sorted_Array/2.gif)
 
 
-  [1]: https://hiarcher.top/
-  [2]: https://github.com/labuladong
