@@ -1,5 +1,9 @@
 # Interval Problem (II): Interval Merging
 
+**Translator: [GYHHAHA](https://github.com/GYHHAHA)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 In the "Interval Scheduling: Greedy Algorithm", we use greedy algorithm to solve the interval scheduling problem, which means, given a lot of intervals, finding out the maximum subset without any overlapping.
 
 Actually, there are many other relating problems about interval itself. Now, we will talk about the "Merge Interval Problem".
@@ -82,5 +86,3 @@ It will be illustrated more clearly by the follow gif.
 So far, the Interval Merging Problem have been solved.
 
 The End. Hope this article can help you!
-
-![labuladong](../pictures/labuladong.jpg)

@@ -1,5 +1,9 @@
 # Interval Problem (I): Interval Scheduling
 
+**Translator: [GYHHAHA](https://github.com/GYHHAHA)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 What is the greedy algorithm? It can be regarded as a special case of dynamic programming (DP). Compared with DP, using greedy algorithm need to meet more conditions, such as the greedy choosing property, but show more efficiency.
 
 For example, supposed that a certain algorithm using enumeration method needs exponential time, if the overlapping subproblems can be solved by DP, then polynomial time is available. Furthermore, if it meets the greedy choosing property, the time complexity can be reduced to a linear level.

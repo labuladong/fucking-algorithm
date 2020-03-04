@@ -1,5 +1,10 @@
 # Interval Problem (III): Interval Intersection
 
+
+**Translator: [GYHHAHA](https://github.com/GYHHAHA)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 This is the third article about the interval problem, and the last two articles respectively introduce the interval scheduling problem and the interval merging problem. Now, we will talk about the topic about how to find out interval intersection from two set of intervals efficiently.
 
 【Leetcode 986】Interval List Intersections
@@ -124,5 +129,3 @@ def intervalIntersection(A, B):
 ```
 
 To give a brief summary, although the problem concerning intervals seems to be complicated, we can still use simple code to finish the task by observe common features between different situation.
-
-![labuladong](../pictures/labuladong.jpg)

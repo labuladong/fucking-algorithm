@@ -69,13 +69,13 @@ It can be seen that when the "fast" and "slow" pointers meet, let any one of the
 
 For the first encounter, suppose the slow pointer "slow" moves k steps, then the fast pointer "fast" must move 2k steps, which means that "fast" moves k steps more than "slow" （The length of the ring）
 
-![4](../pictures/double_pointer/22.png)
+![4](../pictures/double_pointer/cyc1.png)
 
 Suppose the distance between the meeting point and the start point of the ring is m, then the distance between the start point of the ring and the head node "head" is k-m.
 
 Coincidentally, if we continue to k-m steps from the meeting point, we also reach the starting point of the loop.
 
-![5](../pictures/double_pointer/33.png)
+![5](../pictures/double_pointer/cyc2.png)
 
 So, as long as we repoint one of the fast and slow pointers to "head", and then the two pointers move at the same speed, we will meet after k-m steps. The place where we meet is the beginning of the ring.
 
@@ -93,7 +93,7 @@ return slow;
 ```
 When the length of the linked list is odd, "slow" happens to stop at the midpoint; if the length is even, the final position of "slow" is right to the middle:
 
-![2](../pictures/double_pointer/44.png)
+![2](../pictures/double_pointer/22.png)
 
 An important role in finding the midpoint of a linked list is to "merge sort" the linked list.
 
