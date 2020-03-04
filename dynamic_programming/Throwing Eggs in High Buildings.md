@@ -77,7 +77,7 @@ After we choose to throw a egg on the `i`-th floor, two situations could happen:
 
 **If the egg is not broken**, then the number of eggs `K` will not change, and the searched floor interval should be changed from`[1..N]`to`[i+1..N]`,`N-i` floors in total.
 
-![](../pictures/扔鸡蛋/1.jpg)
+![](../pictures/SuperEggDrop/1.jpg)
 
 PS: Attentive readers may ask, if throwing a egg on the i-th floor is not broken, the search range of the floor is narrowed down to the upper floors, should it include the i-th floor? No, because it is included. As I said at the beginning that F can be equal to 0, after recursing upwards, the i-th floor is actually equivalent to the 0th floor, so there is nothing wrong.
 
