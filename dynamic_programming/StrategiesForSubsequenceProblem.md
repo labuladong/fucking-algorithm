@@ -1,5 +1,9 @@
 # Problem-Solving Strategies for Subsequence Problem (Dynamic Programming)
 
+**Translator: [sunqiuming526](https://github.com/sunqiuming526)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 Subsequence Problem is one of the most common algorithm problem, which is not easy to figure out. 
 
 First of all, the subsequence problem itself is more difficult than those for substring and subarray, since the former needs to deal with discontinuous sequence, while the latter two are continuous. It is hard enough to simply enumerate the subsequences, let alone solve related algorithm problems.
