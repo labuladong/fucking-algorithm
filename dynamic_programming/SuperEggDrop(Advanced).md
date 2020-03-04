@@ -1,6 +1,7 @@
 # Super Egg Drop（Advanced）
 
 **Translator: [Jieyixia](https://github.com/Jieyixia)**
+
 **Author: [labuladong](https://github.com/labuladong)**
 
 The Super Egg Drop problem (Leetcode 887) has been discussed in the last article using the classic dynamic programming method. If you are not very familiar with this problem and the classic method, please read「Super Egg Drop」, which is the basic of following contents.
@@ -253,7 +254,7 @@ while (lo < hi) {
 ```
 In conclusion, the first optimization using binary search is based on the monotonicity of the `dp` function; the second optimization modifies the state transition function. For most of us, it is easier to understand the idea of binary search instead of different forms of `dp` array.
 
-If the you have grasp the basic methods well, the methods in the last section are good challenges for you.
+If you have grasped the basic methods well, the methods in the last section are good challenges for you.
 
 
 
