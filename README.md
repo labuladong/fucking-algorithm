@@ -22,7 +22,7 @@ English translation is processing on [english branch](https://github.com/labulad
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
 
-这些文章就是从公众号里整理出来的，目前主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
+本仓库的文章就是从公众号里整理出来的一部分内容，目前主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
 
 <img src="./pictures/qrcode.jpg" width = "250" height = "250" alt="brutal" align=center />
 
@@ -126,7 +126,32 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 
 按照昵称字典序排名：
 
-[ABCpril](https://github.com/ABCpril), [build2645](https://github.com/build2645), [CarrieOn](https://github.com/CarrieOn), [Hi_archer](https://hiarcher.top/), [Iruze](https://github.com/Iruze), [Justin](https://github.com/Justin-YGG), [Lrc123](https://github.com/Lrc123), [Master-cai](https://github.com/Master-cai), [miaoxiaozui2017](https://github.com/miaoxiaozui2017), [nettee](https://github.com/nettee), [PaperJets](https://github.com/PaperJets), [SCUhzs](https://github.com/HuangZiSheng001), [Seaworth](https://github.com/Seaworth), [sinjoywong](https://blog.csdn.net/SinjoyWong), [Tianhao Zhou](https://github.com/tianhaoz95), [wadegrc](https://github.com/wadegrc), [walsvid](https://github.com/walsvid), [warmingkkk](https://github.com/warmingkkk), [wsyzxxxx](https://github.com/wsyzxxxx), [youyun](https://github.com/youyun), [Zero](https://github.com/Mr2er0), [Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)
+[ABCpril](https://github.com/ABCpril), 
+[build2645](https://github.com/build2645), 
+[CarrieOn](https://github.com/CarrieOn), 
+[Hi_archer](https://hiarcher.top/), 
+[Iruze](https://github.com/Iruze), 
+[Jieyixia](https://github.com/Jieyixia), 
+[Justin](https://github.com/Justin-YGG), 
+[Kevin](https://github.com/Kevin-free), 
+[Lrc123](https://github.com/Lrc123), 
+[lriy](https://github.com/lriy), 
+[Master-cai](https://github.com/Master-cai), 
+[miaoxiaozui2017](https://github.com/miaoxiaozui2017), 
+[nettee](https://github.com/nettee), 
+[PaperJets](https://github.com/PaperJets), 
+[SCUhzs](https://github.com/HuangZiSheng001), 
+[Seaworth](https://github.com/Seaworth), 
+[sinjoywong](https://blog.csdn.net/SinjoyWong), 
+[Tianhao Zhou](https://github.com/tianhaoz95), 
+[timmmGZ](https://github.com/timmmGZ), 
+[wadegrc](https://github.com/wadegrc), 
+[walsvid](https://github.com/walsvid), 
+[warmingkkk](https://github.com/warmingkkk), 
+[wsyzxxxx](https://github.com/wsyzxxxx), 
+[youyun](https://github.com/youyun), 
+[Zero](https://github.com/Mr2er0), 
+[Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)
 
 
 # Donate
