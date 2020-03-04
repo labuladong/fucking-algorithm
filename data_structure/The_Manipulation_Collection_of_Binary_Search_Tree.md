@@ -4,7 +4,7 @@
 
 **Author**:[labuladong](https://github.com/labuladong)
 
-In the previous article about [framework thinking](../think_like_computer/学习数据结构和算法的高效方法.md), we introduced the traverse framework of the binary tree. There should be a deep impression of this framework left in your mind. In this article, we will put the framework into practice and illustrate how does it flexible resolve all issues about the binary tree.
+In the previous article about [framework thinking](../algorithmic_thinking/学习数据结构和算法的高效方法.md), we introduced the traverse framework of the binary tree. There should be a deep impression of this framework left in your mind. In this article, we will put the framework into practice and illustrate how does it flexible resolve all issues about the binary tree.
 
 The basic idea of binary tree algorithm design: Defining the manipulation in the current node and the last things are thrown to the framework.
 
