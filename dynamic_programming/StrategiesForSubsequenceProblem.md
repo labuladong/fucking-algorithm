@@ -73,7 +73,7 @@ Now let's talk about the Longest Palindrome Subsequence (LPS) problem to explain
 
 We have solve the "Longest Palindrome Substring" problem before. This time, the difficulty is increased by finding the length of the Longest Palindrome Subsequence instead of substring:
 
-![](../pictures/最长回文子序列/1.jpg)
+![](../pictures/subsequence/1.jpg)
 
 In this question, **we define `dp[i][j]` as the length of the longest palindrome subsequence within the substring `s[i..j]`**. Please remember this definition so as to understand the algorithm.
 
@@ -83,7 +83,7 @@ Specifically, if we want to find `dp[i][j]`, suppose you have already got the re
 
 
 
-![](../pictures/最长回文子序列/1.jpg)
+![](../pictures/subsequence/1.jpg)
 
 The answer is yes! It depends on the characters of `s[i]` and `s[j]`:
 
@@ -91,11 +91,11 @@ The answer is yes! It depends on the characters of `s[i]` and `s[j]`:
 
 
 
-![](../pictures/最长回文子序列/2.jpg)
+![](../pictures/subsequence/2.jpg)
 
 **If they are not equal**, it means that they **cannot appear at the same time** in the longest palindrome subsequence of `s[i..j]`. Therefore, we add them **separately** to `s[i+1..j-1] ` to see which substring produces a longer palindrome subsequence:
 
-![](../pictures/最长回文子序列/3.jpg)
+![](../pictures/subsequence/3.jpg)
 
 The code of the above two cases can be written like this:
 
@@ -118,9 +118,9 @@ Since `i`must be less than or equal to `j`, for those locations where `i > j`, t
 
 In addition, look at the state transition equation we just got. To find `dp[i][j]`, you need to know `dp[i+1][j-1]`, `dp[i+1][j]` and`dp[i][j -1]` these three values. And look at the base case we determined, this is how the DP array looks like after being filled:
 
-![](../pictures/最长回文子序列/4.jpg)
+![](../pictures/subsequence/4.jpg)
 
-**In order to guarantee that before each calculation of `dp[i][j]`, the values in the left, down and right direction have been calculated, we can only traverse it diagonally or reversely**:![](../pictures/最长回文子序列/5.jpg)
+**In order to guarantee that before each calculation of `dp[i][j]`, the values in the left, down and right direction have been calculated, we can only traverse it diagonally or reversely**:![](../pictures/subsequence/5.jpg)
 
 Here I choose to traverse reversely. The code is as follows:
 

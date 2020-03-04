@@ -1,10 +1,3 @@
-Englis translation is still processing... Some article are still Chinese, but most are completed, just enjoy.
-
-These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetCode problems, but NOT only the code of solution, but also **why** writing code this way, **how** we figure it out.
-
-I don't like one liner but confusing, I like clear and easy-understand.
-
-
 # Table of Content
 
 * I. High Frequency Interview Problem
