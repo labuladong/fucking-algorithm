@@ -1,4 +1,6 @@
-# Table of Content
+# Summary
+
+* [Introduction](README.md)
 
 * I. High Frequency Interview Problem
   * [How to Implement LRU Cache](interview/LRU_algorithm.md)
