@@ -1,4 +1,4 @@
-# Problem-Solving Strategies for Subsequence Problem (Dynamic Programming)
+# The Strategies of Subsequence Problem
 
 **Translator: [sunqiuming526](https://github.com/sunqiuming526)**
 
