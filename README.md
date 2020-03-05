@@ -1,6 +1,6 @@
-English translation is processing on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english)…… Gitbook will deploy as soon as possible. Star this repo and go back sonn：)
+English version is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english), Gitbook will deploy as soon as possible. Just enjoy：)
 
-没想到两天就火了，招募翻译组啦，有兴趣可查看这个置顶 [issue](https://github.com/labuladong/fucking-algorithm/issues/9)，成为本仓库的贡献者就是这么容易！
+没想到两天就火了，招募翻译组啦，成为本项目的贡献者非常简单，请 [点击这里](https://github.com/labuladong/fucking-algorithm/issues/9) 查看详情～
 
 # 前言
 
@@ -131,6 +131,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [build2645](https://github.com/build2645), 
 [CarrieOn](https://github.com/CarrieOn), 
 [Fulin Li](https://fulinli.github.io/), 
+[Funnyyanne](https://github.com/Funnyyanne), 
 [GYHHAHA](https://github.com/GYHHAHA), 
 [Hi_archer](https://hiarcher.top/), 
 [Iruze](https://github.com/Iruze), 
