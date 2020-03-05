@@ -1,8 +1,8 @@
-Englis translation is still processing... Some articles are still Chinese, but most are completed, just enjoy.
+English translation is still processing... Some articles are still in Chinese, but most are completed. Please **star** this repo, when you come back soon, translation will finish perfectly. Just enjoy.
 
-These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetCode problems, but **NOT only the code of solution, but also WHY writing code this way, HOW we figure it out.**
+These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetCode problems, but **NOT ONLY the code of solution, but also WHY writing code this way, HOW we figure it out.**
 
-I don't like one liner but confusing, I like clear and easy-understand.
+I don't like one liner and confusing, I like clear and easy-understanding.
 
 
 # Table of Content
