@@ -159,7 +159,7 @@ public int maxA(int N) {
 
 The `j` variable `minus 2` is used to save the number of operations available to `Ctrl-A`, `Ctrl-C`. See the description picture to understand:
 
-![](D:/RapidAccess/Documents/Algorithm/fucking-algorithm/pictures/4keyboard/1.jpg)
+![](../pictures/4keyboard/1.jpg)
 
 We have just completed this algorithm. The time complexity of the algorithm is *O(N^2)​* and the space complexity is ​*O(N)*​, so this solution seems to be very efficient.
 
