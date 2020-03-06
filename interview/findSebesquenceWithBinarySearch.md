@@ -75,7 +75,7 @@ In this way, we can directly get the index of next "c". The problem becomes how 
 
 ### 3. More about Binary Search
 
-In another article [Detailed Binary Search](../think_like_computer/Detailed%20Binary%20Search.md), we discussed in details how to implement binary search in 3 different ways. When we use binary search to return the index of target `val` to find __the left boundary__, there is a special property:
+In another article [Detailed Binary Search](../think_like_computer/DetailedBinarySearch.md), we discussed in details how to implement binary search in 3 different ways. When we use binary search to return the index of target `val` to find __the left boundary__, there is a special property:
 
 __When `val` does not exist, the index returned is the index of the smallest value which is greater than `val`__.
 
@@ -97,7 +97,7 @@ int left_bound(ArrayList<Integer> arr, int tar) {
 }
 ```
 
-The binary search above is to find the left boundary. Its details can be found in [Detailed Binary Search](../think_like_computer/Detailed%20Binary%20Search.md). Let's apply it.
+The binary search above is to find the left boundary. Its details can be found in [Detailed Binary Search](../think_like_computer/DetailedBinarySearch.md). Let's apply it.
 
 ### 4. Implementation
 
