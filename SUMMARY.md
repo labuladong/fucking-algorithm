@@ -64,13 +64,13 @@
   * [Regular Expression](dynamic_programming/RegularExpression.md)
   * [The Strategies of Subsequence Problem](dynamic_programming/StrategiesForSubsequenceProblem.md)
   * [Greedy: Interval Scheduling](dynamic_programming/IntervalScheduling.md)
+  * [4 Keys Keyboard](dynamic_programming/FourKeysKeyboard.md)
   * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
   * [动态规划答疑篇](dynamic_programming/最优子结构.md)
   * [动态规划设计：最长递增子序列](dynamic_programming/动态规划设计：最长递增子序列.md)
   * [动态规划之KMP字符匹配算法](dynamic_programming/动态规划之KMP字符匹配算法.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
   * [团灭 LeetCode 打家劫舍问题](dynamic_programming/抢房子.md)
-  * [动态规划之四键键盘](dynamic_programming/动态规划之四键键盘.md)
 
 * V. Common Knowledge
   * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
