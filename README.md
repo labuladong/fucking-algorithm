@@ -1,4 +1,4 @@
-English version is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english), Gitbook will deploy as soon as possible. Just enjoy：)
+English version repo is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english), English version Gitbook has deployed [here](https://labuladong.gitbook.io/algo-en/)! Just enjoy：)
 
 没想到两天就火了，招募翻译组啦，成为本项目的贡献者非常简单，请 [点击这里](https://github.com/labuladong/fucking-algorithm/issues/9) 查看详情～
 
