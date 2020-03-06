@@ -4,6 +4,14 @@ These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetC
 
 I don't like one liner and confusing, I like clear and easy-understanding.
 
+Gitbook has deployed, will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
+
+If you want to clone this repo, please use following command:
+
+```shell
+git clone --depth 1  --branch english https://github.com/labuladong/fucking-algorithm.git
+```
+This command specifies the `english` branch and limit the depth of clone, get rid of the Git commit history, which can be faster to clone.
 
 # Table of Content
 
