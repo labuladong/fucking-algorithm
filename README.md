@@ -63,7 +63,7 @@ I don't like one liner and confusing, I like clear and easy-understanding.
 * IV. Dynamic Programming
   * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
   * [Classic DP: Super Egg](dynamic_programming/ThrowingEggsinHighBuildings.md)
-  * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDrop(Advanced).md)
+  * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDropAdvanced.md)
   * [Class DP: Longest Common Subsequence](dynamic_programming/LongestCommonSubsequence.md)
   * [Classis DP: Game Problems](dynamic_programming/GameProblemsInDynamicProgramming.md)
   * [Regular Expression](dynamic_programming/RegularExpression.md)
