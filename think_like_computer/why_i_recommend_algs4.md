@@ -4,11 +4,11 @@
 
 **Author: [labuladong](https://github.com/labuladong)**
 
-My previous articles are mainly about hardcore algorithms, but I'll no more talk about them today. I have highly recommended _Algorithms, the 4th Edition_ (alias alg4) before in my previous articles but without explanation in details, so I'll introduce it to you.
+My previous articles are mainly about hardcore algorithms, but I'll no more talk about them today. I have highly recommended _Algorithms, the 4th Edition_ (alias algs4) before in my previous articles but without explanation in details, so I'll introduce it to you.
 
 I prefer to combine with applications rather than to throw out a pile of bibliography. I'll show you something fun and useful so you could learn something no matter you will read the book or not.
 
-**_Algorithms, the 4th Edition_ IS FRIENDLY WITH NEWBIES**. There are so many readers asking questions like can they read alg4 with only C programming basics, and what is the best programming language to learn algorithms.
+**_Algorithms, the 4th Edition_ IS FRIENDLY WITH NEWBIES**. There are so many readers asking questions like can they read algs4 with only C programming basics, and what is the best programming language to learn algorithms.
 
 
 Algorithms are patterns of thinking and it is nothing about what programming language you use. My codes in the articles are not in only one programming language, and it is more about by what programming language is easier for you to understand. Plus, you can get a digital copy (say, a PDF file) and then you will know it is suitable for you or not.
@@ -28,7 +28,7 @@ As we know what is a bipartite graph, what practical problems can it deal with? 
 
 ![](../pictures/algo4/title.png)
 
-If we regard every person as a node and use the edges represent if two persons hate with each other, we can make a graph. Thus,  according to the definition of the bipartite graph mentioned before, if the graph is bipartite, these persons can be split into two groups.
+If we regard every person as a node and use the edges represent if two persons hate with each other, we can make a graph. Thus, according to the definition of the bipartite graph mentioned before, if the graph is bipartite, these persons can be split into two groups.
 
 This is one application of algorithms in determining a bipartite graph, and bipartite graph can do more of this. bipartite graph, as a kind of data structure, also has its special application.
 
@@ -64,7 +64,7 @@ With help of the graph ADT, we found that the chance of arbitrage is a cycle, an
 
 There is a typical graph algorithm called **the Bellman-Ford algorithm**, which can be applied **to find cycles with negative weights**. To deal with the problem of arbitrage, we can substitute the weights of all edges w to -ln(w), then the target to find the cycle in which the multiples of weights is above 1 becomes to find the cycle in which the sum of the addition of weights, so we can apply the Bellman-Ford algorithm to find cycle including negative weights in O(EV) time, thus to find the chance of arbitrage.
 
-The explanation of contents of alg4 is over here. You can read the relevant content in alg4. 
+The explanation of contents of algs4 is over here. You can read the relevant content in algs4. 
 
 ### 3. The Final Word
 
