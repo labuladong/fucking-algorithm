@@ -39,7 +39,7 @@ You see, this is the nature of recursion. To summarize, the idea is:
 
 1. Find the largest of the `n` pancakes.
 2. Move this largest pancake to the bottom.
-3. Recursively call `pancakeSort (A, n-1)`.
+3. Recursively call `pancakeSort(A, n-1)`.
 
 Base case: When `n == 1`, there is no need to flip when sorting 1 pancake.
 
@@ -101,16 +101,16 @@ void reverse(int[] arr, int i, int j) {
 
 hrough the detailed explanation just now, this code should be very clear.
 
-The time complexity of the algorithm is easy to calculate, because the number of recursive calls is `n`, each recursive call requires a for loop, the time complexity is O (n), so the total complexity is O (n^2).
+The time complexity of the algorithm is easy to calculate, because the number of recursive calls is `n`, each recursive call requires a for loop, the time complexity is O(n), so the total complexity is O(n^2).
 
-**Finally, we can think about a problem.**: According to our thinking, the length of the operation sequence should be `2(n-1)`, because each recursion needs to perform 2 flips and record operations and there are always `n` layers of recursion, but since the base case returns the result directly without inversion, the length of the final operation sequence should be fixed` 2(n-1) `.
+**Finally, we can think about a problem.**: According to our thinking, the length of the operation sequence should be `2(n-1)`, because each recursion needs to perform 2 flips and record operations and there are always `n` layers of recursion, but since the base case returns the result directly without inversion, the length of the final operation sequence should be fixed `2(n-1) `.
 
-Obviously, this result is not optimal (shortest). For example, a bunch of pancakes `[3,2,4,1]`. The flip sequence obtained by our algorithm is `[3,4,2,3,1, 2] `, but the fastest way to flip should be` [2,3,4] `:
+Obviously, this result is not optimal (shortest). For example, a bunch of pancakes `[3,2,4,1]`. The flip sequence obtained by our algorithm is `[3,4,2,3,1,2]`, but the fastest way to flip should be ` [2,3,4] `:
 
-* Initial state: [3,2,4,1]
-* Turn over the first two: [2,3,4,1]
-* Turn over the first three: [4,3,2,1]
-* Turn over the first 4: [1,2,3,4]
+* Initial state: `[3,2,4,1]`
+* Turn over the first two: `[2,3,4,1]`
+* Turn over the first three: `[4,3,2,1]`
+* Turn over the first 4: `[1,2,3,4]`
 
 If your algorithm is required to calculate the **shortest** operation sequence for sorting biscuits, how do you calculate it? In other words, what is the core idea and what algorithm skills must be used to solve the problem of finding the optimal solution?
 
