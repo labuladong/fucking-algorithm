@@ -8,7 +8,7 @@ In what scenarios can binary search be used？
 
 The most common example is in textbook, that is, searching for the index of a given target value in **an ordered array**. Moreover, if the target values is duplicated, the modified binary search can return the left boundary or right boundary index of the target value.
 
-PS: The three binary search algorithms mentioned above are explained in detail in the previous *Binary Search Detailed Explanation*. It is strongly recommended if you haven't read it.
+PS: The three binary search algorithms mentioned above are explained in detail in the previous [Binary Search Detailed Explanation](../think_like_computer/BinarySearch.md). It is strongly recommended if you haven't read it.
 
 Putting aside the boring ordered array, how can binary search be applied to practical algorithm problems? When the search space is in order, you can perform *pruning* through binary search, greatly improving efficiency.
 
@@ -82,7 +82,7 @@ int minEatingSpeed(int[] piles, int H) {
 }
 ```
 
-PS: If you have questions about the details of this binary search algorithm, it is recommended to look at the algorithm template on the left boundary of the search for *Binary Search Detailed Explanation* in the previous article.
+PS: If you have questions about the details of this binary search algorithm, it is recommended to look at the algorithm template on the left boundary of the search for [Binary Search Detailed Explanation](../think_like_computer/BinarySearch.md) in the previous article.
 
 The remaining helper functions are also very simple and can be disassembled step by step.
 
