@@ -114,4 +114,4 @@ bool isPowerOfTwo(int n) {
 }
 ```
 
-The above are some interesting / common bit manipulation. In fact, there are many bit manipulation techniques. There is a foreign website called Bit Twiddling Hacks which collects almost all black technology gameplays of bit manipulation. Interested readers can click the [Read Original]button to view.
+The above are some interesting / common bit manipulation. In fact, there are many bit manipulation techniques. There is a foreign website called Bit Twiddling Hacks which collects almost all black technology gameplays of bit manipulation. Interested readers can search to view.
