@@ -148,13 +148,13 @@ string minWindow(string s, string t) {
     // Records the starting position and length of the shortest substring
     int start = 0, minLen = INT_MAX;
     int left = 0, right = 0;
-    
+
     unordered_map<char, int> window;
     unordered_map<char, int> needs;
     for (char c : t) needs[c]++;
-    
+
     int match = 0;
-    
+
     while (right < s.size()) {
         char c1 = s[right];
         if (needs.count(c1)) {
@@ -163,7 +163,7 @@ string minWindow(string s, string t) {
                 match++;
         }
         right++;
-        
+
         while (match == needs.size()) {
             if (right - left < minLen) {
                 // Updates the position and length of the smallest string
@@ -209,7 +209,7 @@ vector<int> findAnagrams(string s, string t) {
     for (char c : t) needs[c]++;
     // Maintain a counter to check whether match the target string.
     int match = 0;
-    
+
     while (right < s.size()) {
         char c1 = s[right];
         if (needs.count(c1)) {
@@ -282,7 +282,7 @@ int left = 0, right = 0;
 while (right < s.size()) {
     window.add(s[right]);
     right++;
-    
+
     while (valid) {
         window.remove(s[left]);
         left++;
