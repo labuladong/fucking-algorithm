@@ -1,35 +1,36 @@
-# 常用的位操作
+# Common Bit manipulation
 
-本文分两部分，第一部分列举几个有趣的位操作，第二部分讲解算法中常用的 n & (n - 1) 操作，顺便把用到这个技巧的算法题列出来讲解一下。因为位操作很简单，所以假设读者已经了解与、或、异或这三种基本操作。
+This article is divided into two parts. The first part lists a few interesting bitwise operations, second part explains n&(n-1) trick commonly used in algorithm. By the way, I’m going to show you the algorithm for this trick. Because Bit manipulation is simple, it is assumed that the reader already knows the three basic operations of AND, OR, XOR.
 
-位操作（Bit Manipulation）可以玩出很多奇技淫巧，但是这些技巧大部分都过于晦涩，没必要深究，读者只要记住一些有用的操作即可。
+Bit Manipulation can play a lot of fucking trick, but most of these tricks are too obscure, there is no need to dig in. We just need to remember some useful operations.
 
-### 一、几个有趣的位操作
+### Ⅰ.Interesting Bit manipulations
 
-1. 利用或操作 `|` 和空格将英文字符转换为小写
+
+1. Use OR '|' and space bar coverts English characters to lowercase
 
 ```c
 ('a' | ' ') = 'a'
 ('A' | ' ') = 'a'
 ```
 
-2. 利用与操作 `&` 和下划线将英文字符转换为大写
+2. Use AND '&' and underline coverts English to uppercase.
 
 ```c
 ('b' & '_') = 'B'
 ('B' & '_') = 'B'
 ```
 
-3. 利用异或操作 `^` 和空格进行英文字符大小写互换
+3. Use XOR '^' and space bar for English characters case exchange.  
 
 ```c
 ('d' ^ ' ') = 'D'
 ('D' ^ ' ') = 'd'
 ```
 
-PS：以上操作能够产生奇特效果的原因在于 ASCII 编码。字符其实就是数字，恰巧这些字符对应的数字通过位运算就能得到正确的结果，有兴趣的读者可以查 ASCII 码表自己算算，本文就不展开讲了。
+PS：The reason why the operation can produce strange effects is ASCII encoding. Characters are actually Numbers, it happens that the Numbers corresponding to these characters can get the correct result through bit manipulations, if you interested in it, you can check ASCII table, this article does not expand it.
 
-4. 判断两个数是否异号
+4. Determine if two numbers are different
 
 ```c
 int x = -1, y = 2;
@@ -39,9 +40,9 @@ int x = 3, y = 2;
 bool f = ((x ^ y) < 0); // false
 ```
 
-PS：这个技巧还是很实用的，利用的是补码编码的符号位。如果不用位运算来判断是否异号，需要使用 if else 分支，还挺麻烦的。读者可能想利用乘积或者商来判断两个数是否异号，但是这种处理方式可能造成溢出，从而出现错误。（关于补码编码和溢出，参见前文）
+PS：This technique is very practical, is the use of the sign bit complement encoding. If you don't use the bit operation to determine whether the sign is different, you need to use if else branch, which is quite troublesome. Readers may want to use products or quotients to determine whether two numbers have different signs, but this processing method may cause overflow and cause errors. (For complement coding and overflow, see the previous article.)
 
-5. 交换两个数
+5. Swap two Numbers
 
 ```c
 int a = 1, b = 2;
@@ -51,7 +52,7 @@ a ^= b;
 // 现在 a = 2, b = 1
 ```
 
-6. 加一
+6. Plus one
 
 ```c
 int n = 1;
@@ -59,7 +60,7 @@ n = -~n;
 // 现在 n = 2
 ```
 
-7. 减一
+7. Minus one
 
 ```c
 int n = 2;
@@ -67,21 +68,21 @@ n = ~-n;
 // 现在 n = 1
 ```
 
-PS：上面这三个操作就纯属装逼用的，没啥实际用处，大家了解了解乐呵一下就行。
+PS：These three operations just Show off, No practical use, we just know it.。
 
-### 二、算法常用操作 n&(n-1)
+### Ⅱ.Algorithm common operations n&(n-1)
 
-这个操作是算法中常见的，作用是消除数字 n 的二进制表示中的最后一个 1。
+This operation is the common algorithm, the function is eliminated the number n of the binary representation of the last 1.
 
-看个图就很容易理解了：
+It is easy to understand by looking at the picture：
 
-![n](../pictures/%E4%BD%8D%E6%93%8D%E4%BD%9C/1.png)
+![n](../pictures/BitManipulation/1.png)
 
-1. 计算汉明权重（Hamming Weight）
+1. Count Hamming Weight（Hamming Weight）
 
-![title](../pictures/%E4%BD%8D%E6%93%8D%E4%BD%9C/title.png)
+![title](../pictures/BitManipulation/title.png)
 
-就是让你返回 n 的二进制表示中有几个 1。因为 n & (n - 1) 可以消除最后一个 1，所以可以用一个循环不停地消除 1 同时计数，直到 n 变成 0 为止。
+Be to let you return several ones in the binary representation of n's one. Because n & (n-1) can eliminate the last one, you can use a loop to eliminate 1 and count at the same time until n becomes 0.
 
 ```cpp
 int hammingWeight(uint32_t n) {
@@ -94,9 +95,9 @@ int hammingWeight(uint32_t n) {
 }
 ```
 
-1. 判断一个数是不是 2 的指数
+1. Determine if a number is an exponent of 2
 
-一个数如果是 2 的指数，那么它的二进制表示一定只含有一个 1：
+If a number is an exponent of 2, its binary representation must contain only one 1:
 
 ```cpp
 2^0 = 1 = 0b0001
@@ -104,7 +105,7 @@ int hammingWeight(uint32_t n) {
 2^2 = 4 = 0b0100
 ```
 
-如果使用位运算技巧就很简单了（注意运算符优先级，括号不可以省略）：
+If you use the bit operation technique, it is very simple (note the precedence of the operator, the parentheses cannot be omitted) :
 
 ```cpp
 bool isPowerOfTwo(int n) {
@@ -113,8 +114,4 @@ bool isPowerOfTwo(int n) {
 }
 ```
 
-以上便是一些有趣/常用的位操作。其实位操作的技巧很多，有一个叫做 Bit Twiddling Hacks 的外国网站收集了几乎所有位操作的黑科技玩法，感兴趣的读者可以点击「阅读原文」按钮查看。
-
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
-
-![labuladong](../pictures/labuladong.jpg)
+The above are some interesting / common bit manipulation. In fact, there are many bit manipulation techniques. There is a foreign website called Bit Twiddling Hacks which collects almost all black technology gameplays of bit manipulation. Interested readers can click the [Read Original]button to view.
