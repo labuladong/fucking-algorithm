@@ -1,5 +1,9 @@
 # Pancakes Sorting
 
+**Translator: [Dong Wang](https://github.com/Coder2Programmer)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 The pancake sorting is a very interesting practical problem: assuming there are `n` pieces of pancakes of **different sizes** on the plate, how do you turn it several times with a spatula to make these pancakes in order(small up, big down)?
 
 ![](../pictures/pancakeSort/1.jpg)
