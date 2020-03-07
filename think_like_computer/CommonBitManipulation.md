@@ -1,5 +1,9 @@
 # Common Bit manipulation
 
+Translator: [Funnyyanne](https://github.com/Funnyyanne)
+
+Author: [labuladong](https://github.com/labuladong)
+
 This article is divided into two parts. The first part lists a few interesting bitwise operations, second part explains n&(n-1) trick commonly used in algorithm. By the way, I’m going to show you the algorithm for this trick. Because Bit manipulation is simple, it is assumed that the reader already knows the three basic operations of AND, OR, XOR.
 
 Bit Manipulation can play a lot of fucking trick, but most of these tricks are too obscure, there is no need to dig in. We just need to remember some useful operations.
