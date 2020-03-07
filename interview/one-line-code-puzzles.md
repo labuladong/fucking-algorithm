@@ -18,13 +18,13 @@ First of all, dynamic programming (DP) can be implemented into this problem, bec
 
 **We usually use contrarian thinking to find a solution of this kind of problems**：
 
-If I win the game, I need to take the remaining stones (1~3 stones) at once.
+If I win the game, I need to take the remaining stones (1\\~3 stones) at once.
 
-How to make this situation come into being? If there are 4 stones remaining when your opponent takes the chance to pick the stones, no matter how he takes the stones, you can always win the game because there will always be 1~3 stones remaining.
+How to make this situation come into being? If there are 4 stones remaining when your opponent takes the chance to pick the stones, no matter how he takes the stones, you can always win the game because there will always be 1\~3 stones remaining.
 
-And how to force your opponent to face the situation when there are 4 stones left? If there are 5~7 stones remaining by the time you take your turn, you can let your opponent face 4-stone situation.
+And how to force your opponent to face the situation when there are 4 stones left? If there are 5\~7 stones remaining by the time you take your turn, you can let your opponent face 4-stone situation.
 
-Then how to get into a 5~7 stones situation when you are picking? Let your opponent face 8 stones. No matter how he plans to take the stones, we can win the game because of the remaining 5~7 stones.
+Then how to get into a 5\~7 stones situation when you are picking? Let your opponent face 8 stones. No matter how he plans to take the stones, we can win the game because of the remaining 5\~7 stones.
 
 And so on, we can find out that if n is a multiple of 4, you will fall into the trap and can never win the game. The solution to this problem is very simple:
 
