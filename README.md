@@ -60,7 +60,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Interval Scheduling: Intersections of Intervals](think_like_computer/IntervalIntersection.md)
   * [String Multiplication](think_like_computer/string_multiplication.md)
   * [Pancake Soring Algorithm](think_like_computer/PancakesSorting.md)
-  * [滑动窗口技巧](think_like_computer/滑动窗口技巧.md)
+  * [Sliding Window Technique](think_like_computer/滑动窗口技巧.md)
   * [常用的位操作](think_like_computer/常用的位操作.md)
   * [信封嵌套问题](think_like_computer/信封嵌套问题.md)
   * [回溯算法团灭排列、组合、子集问题](interview/子集排列组合.md)
