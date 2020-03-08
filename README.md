@@ -32,7 +32,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Union-Find Application](think_like_computer/Union-Find-Application.md)
   * [Find Sebesquence With Binary Search](interview/findSebesquenceWithBinarySearch.md)
   * [Problems can be sloved by one line](interview/one-line-code-puzzles.md)
-  * [如何寻找缺失和重复的元素](interview/缺失和重复的元素.md)
+  * [How to Find Duplicate and Missing Element.md](interview/Find-Duplicate-and-Missing-Element.md.md)
   * [如何判断回文链表](interview/判断回文链表.md)
   
 * II. Data Structure
