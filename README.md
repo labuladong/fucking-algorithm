@@ -4,7 +4,7 @@ These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetC
 
 I don't like one liner and confusing, I like clear and easy-understanding.
 
-Gitbook has deployed, will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
+**Gitbook** has deployed, will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
 
 If you want to clone this repo, please use following command:
 
@@ -26,14 +26,14 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [How to Check the Validation of Parenthesis](interview/valid-parentheses.md)
   * [How to Find Missing Element](interview/missing_elements.md)
   * [How to Pick Elements From a Arbitrary Sequence](interview/ReservoirSampling.md)
+  * [How to use Binary Search](interview/UsingBinarySearchAlgorithm.md)
   * [How to Scheduling Seats](interview/Seatscheduling.md)
   * [Union-Find Algorithm in Detail](think_like_computer/Union-find-Explanation.md)
   * [Union-Find Application](think_like_computer/Union-Find-Application.md)
   * [Find Sebesquence With Binary Search](interview/findSebesquenceWithBinarySearch.md)
-  * [如何运用二分查找算法](interview/koko偷香蕉.md)
+  * [Problems can be sloved by one line](interview/one-line-code-puzzles.md)
   * [如何寻找缺失和重复的元素](interview/缺失和重复的元素.md)
   * [如何判断回文链表](interview/判断回文链表.md)
-  * [一行代码就能解决的算法题](interview/一行代码解决的智力题.md)
   
 * II. Data Structure
   * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
@@ -59,8 +59,8 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Interval Scheduling: Interval Merging](think_like_computer/IntervalMerging.md)
   * [Interval Scheduling: Intersections of Intervals](think_like_computer/IntervalIntersection.md)
   * [String Multiplication](think_like_computer/string_multiplication.md)
+  * [Pancake Soring Algorithm](think_like_computer/PancakesSorting.md)
   * [Sliding Window Technique](think_like_computer/滑动窗口技巧.md)
-  * [烧饼排序](think_like_computer/烧饼排序.md)
   * [常用的位操作](think_like_computer/常用的位操作.md)
   * [信封嵌套问题](think_like_computer/信封嵌套问题.md)
   * [回溯算法团灭排列、组合、子集问题](interview/子集排列组合.md)
@@ -77,13 +77,13 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Regular Expression](dynamic_programming/RegularExpression.md)
   * [The Strategies of Subsequence Problem](dynamic_programming/StrategiesForSubsequenceProblem.md)
   * [Greedy: Interval Scheduling](dynamic_programming/IntervalScheduling.md)
+  * [4 Keys Keyboard](dynamic_programming/FourKeysKeyboard.md)
   * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
   * [动态规划答疑篇](dynamic_programming/最优子结构.md)
   * [动态规划设计：最长递增子序列](dynamic_programming/动态规划设计：最长递增子序列.md)
   * [动态规划之KMP字符匹配算法](dynamic_programming/动态规划之KMP字符匹配算法.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
   * [团灭 LeetCode 打家劫舍问题](dynamic_programming/抢房子.md)
-  * [动态规划之四键键盘](dynamic_programming/动态规划之四键键盘.md)
 
 * V. Common Knowledge
   * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
