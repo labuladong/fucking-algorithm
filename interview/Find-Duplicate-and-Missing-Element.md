@@ -1,4 +1,4 @@
-#How to Find Duplicate and Missing Element
+# How to Find Duplicate and Missing Element
 
 **Translator: [bryceustc](https://github.com/bryceustc)**
 
@@ -8,7 +8,7 @@ Today we are going to talk about a simple but skillfull problem: find duplicate 
 
 Here is the detailed description of this problem(LeetCode 645: Set Mismatch)
 
-The set ``S``originally contains numbers from 1 to ``n``. But unfortunately, due to the data error, one of the numbers in the set got duplicate to **another** number in the set, which results in repetition of one number and loss of another number.
+The set ``S``originally contains numbers from `1` to ``n``. But unfortunately, due to the data error, one of the numbers in the set got duplicate to **another** number in the set, which results in repetition of one number and loss of another number.
 
 Given an array ``nums`` representing the data status of this set after the error. Your task is to firstly find the number occurs twice and then find the number that is missing. Return them in the form of an array.
 
@@ -25,7 +25,7 @@ But here's a problem.  This solution requires a HashMap that means the space com
 
 We must traverse over the whole `nums` array of size `n` for each of the numbers from `1` to `n`. That means the time complexity is O(n). So we can think how to save the space used to reduce the space complexity to O(1).
 
-### Analysis
+## Analysis
 
 The characteristic of this problem is that each element has a certain correspondence with the array index.
 
@@ -102,7 +102,7 @@ vector<int> findErrorNums(vector<int>& nums) {
 
 In fact, it makes sense for elements to start from `1`, and it must start with a non-zero number. If the element starts from  `0`, the opposite number of `0` is still itself. So when the number `0` is repeated or missing, we can't deal with this situation. Our previous assumption was just to simplify the problem and make it easier to understand.
 
-### Summary
+## Summary
 
 **The key point is that elements and indexes appear in pairs for this kind of problems.  Common methods include Sorting, XOR, and Map**
 
