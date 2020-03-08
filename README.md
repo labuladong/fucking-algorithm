@@ -1,33 +1,93 @@
-感谢各位老铁前来参与翻译！
+English translation is still processing... Some articles are still in Chinese, but most are completed. Please **star** this repo, when you come back soon, translation will finish perfectly. Just enjoy.
 
-请查看最新的 `english` 分支，保证你准备翻译的文章暂时没有英文版本。
+These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetCode problems, but **NOT ONLY the code of solution, but also WHY writing code this way, HOW we figure it out.**
 
-翻译完成后，请删除文末的公众号二维码。对于第一个提交的翻译版本，你可以在文章开头的**一级标题下方**添加作者和翻译者：
+I don't like one liner and confusing, I like clear and easy-understanding.
 
-**Translator: [YourName](https://github.com/YourName)**
+**Gitbook** has deployed, will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
 
-**Author: [labuladong](https://github.com/labuladong)**
+If you want to clone this repo, please use following command:
 
-你的链接可以指向任何你希望的地方。
+```shell
+git clone --depth 1  --branch english https://github.com/labuladong/fucking-algorithm.git
+```
+This command specifies the `english` branch and limit the depth of clone, get rid of the Git commit history, which can be faster to clone.
 
-### 翻译约定
+# Table of Content
 
-1、翻译尽可能表达中文原意，你对基本的专业术语应该做到正确地使用，诸如 Queue, stack, binary tree 等词语。这种词语用错会让人很迷惑。基本的语法不能出错，建议搜索一些英语语法检查的在线网站，**或者最简单的，翻译后将你的文本粘贴到 Word 中，查看是否有基本的语法错误**。
+* I. High Frequency Interview Problem
+  * [How to Implement LRU Cache](interview/LRU_algorithm.md)
+  * [How to Find Prime Number Efficiently](interview/Print_PrimeNumbers.md)
+  * [How to Calculate Minimium Edit Distance](dynamic_programming/EditDistance.md)
+  * [How to Solve Drop Water Problem](interview/Trapping_Rain_Water.md)
+  * [How to Remove Duplicate From Sorted Sequence](interview/RemoveDuplicatesfromSortedArray.md)
+  * [How to Find Longest Palindromic Substring](interview/TheLongestPalindromicSubstring.md)
+  * [How to Reverse Linked List in K Group](interview/reverse-nodes-in-k-group.md)
+  * [How to Check the Validation of Parenthesis](interview/valid-parentheses.md)
+  * [How to Find Missing Element](interview/missing_elements.md)
+  * [How to Pick Elements From a Arbitrary Sequence](interview/ReservoirSampling.md)
+  * [How to use Binary Search](interview/UsingBinarySearchAlgorithm.md)
+  * [How to Scheduling Seats](interview/Seatscheduling.md)
+  * [Union-Find Algorithm in Detail](think_like_computer/Union-find-Explanation.md)
+  * [Union-Find Application](think_like_computer/Union-Find-Application.md)
+  * [Find Sebesquence With Binary Search](interview/findSebesquenceWithBinarySearch.md)
+  * [Problems can be sloved by one line](interview/one-line-code-puzzles.md)
+  * [How to Find Dup and Missing Element](interview/Find-Duplicate-and-Missing-Element.md)
+  * [How to Check Palindrom LinkedList](interview/check_palindromic_linkedlist.md)
+  
+* II. Data Structure
+  * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
+  * [LRU Cache Strategy in Detial](interview/LRU_algorithm.md)
+  * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
+  * [Special Data Structure: Monotonic Stack](data_structure/MonotonicStack.md)
+  * [Special Data Structure: Monotonic Stack](data_structure/Monotonic_queue.md)
+  * [Design Twitter](data_structure/design_Twitter.md)
+  * [Reverse Part of Linked List via Recursion](data_structure/reverse_part_of_a_linked_list_via_recursion.md)
+  * [What's the Best Algo Book](think_like_computer/why_i_recommend_algs4.md)
+  * [Queue Implement Stack/Stack implement Queue](data_structure/ImplementQueueUsingStacksImplementStackUsingQueues.md)
+  * [学习算法和刷题的思路指南](think_like_computer/学习数据结构和算法的高效方法.md)
 
-2、**所有内容应以 `master` 分支为准**，因为 `english` 分支仅作为翻译，不会更新文章。所以如果你发现 `master` 中的某一篇文章在 `english` 分支中不存在或有冲突，以 `master` 分支中的 md 文件为准进行翻译，别忘了把相关图片文件夹加入 `english` 分支。
+* III. Algorithmic thinking
+  * [My Way to Learn Algorithm](think_like_computer/ThewaytoAlgorithmlearning.md)
+  * [The Framwork of Backtracking Algorithm](think_like_computer/DetailsaboutBacktracking.md)
+  * [Binary Search in Detial](think_like_computer/DetailedBinarySearch.md)
+  * [The Tech of Double Pointer](think_like_computer/double_pointer.md)
+  * [The Key Concept of TowSum Problems](think_like_computer/The_key_to_resolving_TwoSum_problems.md)
+  * [Divide Complicated Problem: Implement a Calculator](data_structure/Implementing_the_functions_of_a_calculator.md)
+  * [Prefix Sum Skill](think_like_computer/prefix_sum.md)
+  * [FloodFill Algorithm in Detail](think_like_computer/flood_fill.md)
+  * [Interval Scheduling: Interval Merging](think_like_computer/IntervalMerging.md)
+  * [Interval Scheduling: Intersections of Intervals](think_like_computer/IntervalIntersection.md)
+  * [String Multiplication](think_like_computer/string_multiplication.md)
+  * [Pancake Soring Algorithm](think_like_computer/PancakesSorting.md)
+  * [Sliding Window Algorithm](think_like_computer/SlidingWindowTechnique.md)
+  * [Some Useful Bit Manipulations](think_like_computer/CommonBitManipulation.md)
+  * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
+  * [回溯算法团灭排列、组合、子集问题](interview/子集排列组合.md)
+  * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
+  * [洗牌算法](think_like_computer/洗牌算法.md)
+  * [递归详解](think_like_computer/递归详解.md)
 
-3、**加粗等信息需要保留，同时鼓励扩展自己的知识**，增加参考文献，将重要知识点添加粗体或使用英语（或其他语言）特有的表达形式来表达某些思想。
+* IV. Dynamic Programming
+  * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
+  * [Classic DP: Super Egg](dynamic_programming/ThrowingEggsinHighBuildings.md)
+  * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDropAdvanced.md)
+  * [Class DP: Longest Common Subsequence](dynamic_programming/LongestCommonSubsequence.md)
+  * [Classis DP: Game Problems](dynamic_programming/GameProblemsInDynamicProgramming.md)
+  * [Regular Expression](dynamic_programming/RegularExpression.md)
+  * [The Strategies of Subsequence Problem](dynamic_programming/StrategiesForSubsequenceProblem.md)
+  * [Greedy: Interval Scheduling](dynamic_programming/IntervalScheduling.md)
+  * [4 Keys Keyboard](dynamic_programming/FourKeysKeyboard.md)
+  * [What is DP Optimal Substructure](dynamic_programming/OptimalSubstructure.md)
+  * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
+  * [动态规划设计：最长递增子序列](dynamic_programming/动态规划设计：最长递增子序列.md)
+  * [动态规划之KMP字符匹配算法](dynamic_programming/动态规划之KMP字符匹配算法.md)
+  * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
+  * [团灭 LeetCode 打家劫舍问题](dynamic_programming/抢房子.md)
 
-4、对于图片，很少包含汉字，如果不影响理解，比如图片右下角的公众号水印，就不必修改了。**如果汉字涉及算法理解，需要把图片一同修改了**，把汉字抹掉换成英文，或者汉字比较少的话，在汉字旁添加对应英文。**对于一些描述题目的图片**，都是我在中文版 LeetCode 上截的图，你可以去英文版 LeetCode 上寻找对应题目截图替换，如果不知道是哪一题，可以要求我给你找。
-
-5、**保持原有的目录结构，但文件和文件夹的名称应改为英文**，md 文件的名称根据具体文章内容修改成恰当的英文，文章引用的图片路径有时也会包含中文，需要你将装有该图片的文件夹改成适当的英文。
-
-6、**只处理在 issue 中约定的文章（和相关的图片），不要动其他任何的内容**，否则后续你对主仓库提交成果的时候，容易出现冲突。如果出现冲突，你需要先想办法使用 Git 工具解决本地仓库和主仓库的版本冲突才能提交 pull request，练习 Git 的使用是非常重要的。
-
-其实咱们刷的算法题都没有什么特别生僻的英文单词，而且很多歪果仁母语也不一定是英文。Google Translator 翻译带点术语（栈、队列这种）的文章效果很差，甚至代码都给你翻译，所以不要害怕，勇敢地翻就行了，我们会在一次次迭代中慢慢变好的～
-
-Github 具体的协作方式我在仓库置顶的 [issue](https://github.com/labuladong/fucking-algorithm/issues/9) 中有写，很简单，如果你之前没有协作过，这次翻译工作更是你对新事物的尝试和学习机会。不要害怕，Git 仓库的一切都是可以恢复的，不会出现操作不熟练而搞砸，**放开手干就完事儿了**。
-
-PS：另外再强调一下，不要修改 issue 中约定的之外的文章，以便你的仓库后续合并进主仓库，提交你的分支也需要提交到 `english` 分支，翻译工作不要向 `master` 分支提交任何修改。
-
-**Become a contributor, 奥利给**！
+* V. Common Knowledge
+  * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
+  * [You Must Know About Linux Shell](common_knowledge/linuxshell.md)
+  * [You Must Know About Cookie and Session](common_knowledge/SessionAndCookie.md)
+  * [Cryptology Algorithm](common_knowledge/Cryptology.md)
+  * [Some Good Online Pratice Platforms](common_knowledge/OnlinePraticePlatform.md)

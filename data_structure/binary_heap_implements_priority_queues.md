@@ -211,3 +211,5 @@ Binary heap operation is very simple, mainly floating up and down, to maintain t
 Priority queues are implemented based on binary heap, with the main operations being insert and delete. Insert is to insert to the end first and then float up to the correct position; Deletion is to reverse the position and then delete, and then sink to the correct position. The core code is only ten lines.
 
 Perhaps this is the power of data structure, simple operation can achieve clever functions, really admire the invention of binary heap algorithm people!
+
+Addition, here is an elegant implementation of Heap with python lambda from [vancanhuit](https://github.com/labuladong/fucking-algorithm/issues/157#issue-576237519).

@@ -1,8 +1,8 @@
+# Detailed Explanation of Union-Find
+
 **Translator: [Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)**
 
 **Author: [labuladong](https://github.com/labuladong)**
-
-# Detailed Explanation of Union-Find
 
 Today I will talk about the Union-Find algorithm, which is often referred to as the Disjoint-Set algorithm, mainly to solve the problem of "dynamic connectivity" in graph theory. Nouns look a little confusing, but they ’re really easy to understand. We will explain it later. Moreover, the application of this algorithm is also very interesting.
 
