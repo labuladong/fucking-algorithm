@@ -24,7 +24,7 @@ The first example is **bipartite Graph**. In brief, the bipartite graph is a spe
 
 ![](../pictures/algo4/1.jpg)
 
-As we know what is a bipartite graph, what practical problems can it deal with? **In algorithms, it is usual to determine a graph is a bipartite graph or not**. For example, here is a practice in LeetCode:
+As we know what is a bipartite graph, what practical problems can it deal with? **In algorithms, it is usual to check a graph is a bipartite graph or not**. For example, here is a practice in LeetCode:
 
 ![](../pictures/algo4/title.png)
 
