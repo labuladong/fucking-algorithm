@@ -4,7 +4,7 @@
 
 **Author: [labuladong](https://github.com/labuladong)**
 
-My previous articles are mainly about hardcore algorithms, but I'll no more talk about them today. I have highly recommended _Algorithms, the 4th Edition_ (alias algs4) before in my previous articles but without explanation in details, so I'll introduce it to you.
+My previous articles are mainly about hardcore algorithms, but I'll no more talk about them today. I have highly recommended _Algorithms, 4th Edition_ (alias algs4) before in my previous articles but without explanation in details, so I'll introduce it to you.
 
 I prefer to combine with applications rather than to throw out a pile of bibliography. I'll show you something fun and useful so you could learn something no matter you will read the book or not.
 
