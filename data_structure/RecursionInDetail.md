@@ -245,7 +245,7 @@ public class Merge {
 }
 ```
 
-LeetCode has a special exercise of the divide-and-conquer algorithm. Copy the link to web browser to have a try:
+LeetCode has a special exercise of the divide-and-conquer algorithm. Copy the link below to web browser and have a try:
 
 https://leetcode.com/tag/divide-and-conquer/
 
