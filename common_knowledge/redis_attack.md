@@ -2,7 +2,7 @@
 
 **Author: [labuladong](https://github.com/labuladong)**
 
-All right, now my article also becomes a clickbait. How can I have my server attackd since I'm always being cautious?
+All right, now my article also becomes a clickbait. How can I have my server attacked since I'm always being cautious?
 
 I talked to my friend yesterday. He said one day he found **ALL** of his data **IS LOST** with only the key pair left on one of his cloud servers which ran the Redis database, in which the value looks like a string of the RSA public key. He thought he has deleted the database, but fortunately, there is nothing important in his server so he doesn't pay attention to this.
 
