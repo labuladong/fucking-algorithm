@@ -66,7 +66,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [回溯算法团灭排列、组合、子集问题](interview/子集排列组合.md)
   * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
   * [洗牌算法](think_like_computer/洗牌算法.md)
-  * [递归详解](think_like_computer/递归详解.md)
+  * [Recursion In Detail](data_structure/RecursionInDetail.md)
 
 * IV. Dynamic Programming
   * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
