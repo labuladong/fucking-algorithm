@@ -132,6 +132,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [build2645](https://github.com/build2645), 
 [CarrieOn](https://github.com/CarrieOn), 
 [Dong Wang](https://github.com/Coder2Programmer), 
+[ExcaliburEX](https://github.com/ExcaliburEX), 
 [floatLig](https://github.com/floatLig), 
 [Fulin Li](https://fulinli.github.io/), 
 [Funnyyanne](https://github.com/Funnyyanne), 
@@ -143,6 +144,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [Kevin](https://github.com/Kevin-free), 
 [Lrc123](https://github.com/Lrc123), 
 [lriy](https://github.com/lriy), 
+[MasonShu](https://greenwichmt.github.io/), 
 [Master-cai](https://github.com/Master-cai), 
 [miaoxiaozui2017](https://github.com/miaoxiaozui2017), 
 [natsunoyoru97](https://github.com/natsunoyoru97), 
@@ -165,6 +167,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [wsyzxxxx](https://github.com/wsyzxxxx), 
 [xiaodp](https://github.com/xiaodp), 
 [youyun](https://github.com/youyun), 
+[yx-tan](https://github.com/yx-tan), 
 [Zero](https://github.com/Mr2er0), 
 [Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)
 
