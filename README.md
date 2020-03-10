@@ -81,7 +81,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [What is DP Optimal Substructure](dynamic_programming/OptimalSubstructure.md)
   * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
   * [动态规划设计：最长递增子序列](dynamic_programming/动态规划设计：最长递增子序列.md)
-  * [动态规划之KMP字符匹配算法](dynamic_programming/动态规划之KMP字符匹配算法.md)
+  * [KMP](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
   * [团灭 LeetCode 打家劫舍问题](dynamic_programming/抢房子.md)
 
