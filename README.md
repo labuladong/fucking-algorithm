@@ -63,7 +63,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Sliding Window Algorithm](think_like_computer/SlidingWindowTechnique.md)
   * [Some Useful Bit Manipulations](think_like_computer/CommonBitManipulation.md)
   * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
-  * [回溯算法团灭排列、组合、子集问题](interview/子集排列组合.md)
+  * [Solve Permutation, Combination, Subset Problems by Backtracking](interview/Subset_Permutation_Combination.md)
   * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
   * [洗牌算法](think_like_computer/洗牌算法.md)
   * [递归详解](think_like_computer/递归详解.md)
