@@ -1,5 +1,9 @@
 # KMP Character Matching Algorithm in Dynamic Programming
 
+**Translator: [ExcaliburEX](https://github.com/ExcaliburEX)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 The KMP algorithm (Knuth-Morris-Pratt algorithm) is a well-known string matching algorithm. It is very efficient, but it is a bit complicated.
 
 Many readers complain that the KMP algorithm is incomprehensible. This is normal. When I think about the KMP algorithm explained in university textbooks, I don't know how many future Knuth, Morris, Pratt will be dismissed in advance.  Some excellent students use the process of pushing the KMP algorithm to help understand the algorithm. This is a way, but this article will help the reader understand the principle of the algorithm from a logical level.  Between ten lines of code, KMP died.
