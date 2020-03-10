@@ -1,13 +1,17 @@
 # House Robber series
-Translator: [cooker](https://github.com/xiaochuhub)
-Author: [labuladong](https://github.com/labuladong)
+
+**Translator**: [cooker](https://github.com/xiaochuhub)
+
+**Author**: [labuladong](https://github.com/labuladong)
 
 I find that this series of problems are highly praised. They are representative and skillful dynamic planning problems.
 Today I will introduce an generalized method to solve all of these problems.
 
 House robber series includes three problems. The difficulty design is very reasonable and progressive.
 The first ([house robber](https://leetcode.com/problems/house-robber/)) is a standard dynamic programming problem.
+
 The second ([house robber ii](https://leetcode.com/problems/house-robber-ii/)) include incorporates the condition of a circular array.
+
 The third ([house robber iii](https://leetcode.com/problems/house-robber-iii/)) is quite amazing which combines the bottom-up and top-down solutions of dynamic programming with a binary tree. 
 If you haven't done it, I highly recommend this series of problems.
 
