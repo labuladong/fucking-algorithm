@@ -398,7 +398,7 @@ With its meaning clear, it is easy to write the code for the search function.
 
 For how to build this `dp` array, you need a secondary state `X`, which is always one state behind the current state `j`, with the same prefix as the longest `j`. We named it "Shadow State".
 
-When constructing the transition direction of the current state `j`, only the character `pat[j]` can advance the state (`dp[j][pat[j]] = j + 1`); for other characters only  State fallback, you should ask where the shadow state `X` should fall back (`dp[j][other] = dp[X][other]`, where `other` is other than `pat[j]`  all characters).
+When constructing the transition direction of the current state `j`, only the character `pat[j]` can advance the state (`dp[j][pat[j]] = j + 1`); for other characters only  State fallback, you should ask where the shadow state `X` should fall back (`dp[j][other] = dp[X][other]`, where `other` is other than `pat[j]`  all other characters).
 
 For the shadow state `X`, we initialize it to 0 and update it as `j` advances. The update method is very similar to the search process to update `j` (`X = dp[X][pat[j]]`).
 
