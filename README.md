@@ -83,7 +83,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
-  * [团灭 LeetCode 打家劫舍问题](dynamic_programming/抢房子.md)
+  * [House Robber series](dynamic_programming/HouseRobber.md)
 
 * V. Common Knowledge
   * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
