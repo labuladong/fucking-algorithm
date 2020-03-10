@@ -63,10 +63,10 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Sliding Window Algorithm](think_like_computer/SlidingWindowTechnique.md)
   * [Some Useful Bit Manipulations](think_like_computer/CommonBitManipulation.md)
   * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
-  * [Solve Permutation, Combination, Subset Problems by Backtracking](interview/Subset_Permutation_Combination.md)
+  * [Recursion In Detail](data_structure/RecursionInDetail.md)
+  * [Backtracking Solve Subset/Permutation/Combination](interview/Subset_Permutation_Combination.md)
   * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
   * [洗牌算法](think_like_computer/洗牌算法.md)
-  * [Recursion In Detail](data_structure/RecursionInDetail.md)
 
 * IV. Dynamic Programming
   * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
@@ -79,9 +79,9 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Greedy: Interval Scheduling](dynamic_programming/IntervalScheduling.md)
   * [4 Keys Keyboard](dynamic_programming/FourKeysKeyboard.md)
   * [What is DP Optimal Substructure](dynamic_programming/OptimalSubstructure.md)
+  * [Longest Increasing Subsequence](dynamic_programming/LongestIncreasingSubsequence.md)
+  * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
-  * [动态规划设计：最长递增子序列](dynamic_programming/动态规划设计：最长递增子序列.md)
-  * [KMP](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
   * [团灭 LeetCode 打家劫舍问题](dynamic_programming/抢房子.md)
 
