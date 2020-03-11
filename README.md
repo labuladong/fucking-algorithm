@@ -18,11 +18,11 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-2、可以在我的 gitbook 上直接查看所有文章，会和公众号同步持续更新文章，建议收藏。地址：https://labuladong.gitbook.io/algo
+2、可以在我的 gitbook 上直接查看所有文章，会和公众号和 [我的知乎](https://www.zhihu.com/people/fdl-72) 同步持续更新文章，建议收藏。地址：https://labuladong.gitbook.io/algo
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
 
-本仓库的文章就是从公众号里整理出来的一部分内容，目前主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
+本仓库的文章就是从公众号里整理出来的一部分内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
 
 <img src="./pictures/qrcode.jpg" width = "250" height = "250" alt="brutal" align=center />
 
@@ -131,6 +131,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [bryceustc](https://github.com/bryceustc), 
 [build2645](https://github.com/build2645), 
 [CarrieOn](https://github.com/CarrieOn), 
+[cooker](https://github.com/xiaochuhub), 
 [Dong Wang](https://github.com/Coder2Programmer), 
 [ExcaliburEX](https://github.com/ExcaliburEX), 
 [floatLig](https://github.com/floatLig), 
