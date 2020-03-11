@@ -52,7 +52,7 @@ For instance, `piles=[2, 1, 9, 5]`, you take first, you can choose 2 or 5 and yo
 
 Finally, your opponent has no choice but choosing 1.
 
-In summary, you get $2 + 9 = 11$ stones in total, your opponents gets $5 + 1 = 6$ stones. You win, the return value is true. 
+In summary, you get `2 + 9 = 11` stones in total, your opponents gets `5 + 1 = 6` stones. You win, the return value is true. 
 
 As you can see that it is not always correct to choose the one with larger number of stones. Why you should choose 2 rather than 5 at the first time? Because 9 is behind 5. You will lose the game for giving the pile of 9 stones to the opponent for chasing a moment's gain.
 
@@ -104,15 +104,15 @@ First, because the lights are always off at the beginning, a certain light must 
 
 Let's say we only have six lights, and we're only looking at the sixth light and it's going to take six turns, right? How many times is the switch going to be pressed for the sixth light? It's not difficult to see that its switch will be pressed at the 1st, 2nd, 3rd and 6th round.
 
-Why the light will be flipped at these rounds? Because $6=1\times6=2\times3$. In general, the factors come in pairs, which means that the number of times the switch is pressed is usually even, but in a special case, if there are 16 lights, how many times will the 16th light be flipped?
+Why the light will be flipped at these rounds? Because `6=1*6=2*3`. In general, the factors come in pairs, which means that the number of times the switch is pressed is usually even, but in a special case, if there are 16 lights, how many times will the 16th light be flipped?
 
-$16=1\times16=2\times8=4\times4$
+`16=1*16=2*8=4*4`
 
 The factor 4 repeats, so the 16th light will be flipped 5 times which is odd, and now you understand the relationships to the square root, right?
 
 But, we're going to figure out how many lights are on at the end, and what does that mean by square root? Just think about it a little bit.
 
-Suppose we have 16 lights, and we take the square root of 16, which is equal to 4, and that means we're going to end up with 4 lights on. The lights are $1\times1=1$, $2\times2=4$, $3\times3=9$, and $4\times4=16$.
+Suppose we have 16 lights, and we take the square root of 16, which is equal to 4, and that means we're going to end up with 4 lights on. The lights are `1*1=1`, `2*2=4`, `3*3=9`, and `4*4=16`.
 
 Some square root of n turns out to be a decimal. However, converting them to integers is the same thing as getting all the integers smaller than a certain integer upper bound, and the square roots of these numbers are the index of the lights on at last. so just turn the square root into an integer, that's the answer to the question.
 
