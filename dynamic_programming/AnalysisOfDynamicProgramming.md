@@ -339,7 +339,7 @@ Memo, DP table is in the pursuit of "how to intelligently exhaustive."With the i
 
 
 
-**work to make the algorithm clear! Welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles ** :
+**work to make the algorithm clear! Welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles  ** :
 Translator: Jian Ma
 
 Author: labuladong
