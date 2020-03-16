@@ -62,7 +62,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
   * [Recursion In Detail](data_structure/RecursionInDetail.md)
   * [Backtracking Solve Subset/Permutation/Combination](interview/Subset_Permutation_Combination.md)
-  * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
+  * [Several counter-intuitive Probability Problems](think_like_computer/several_counter_intuitive_probability_problems.md)
   * [洗牌算法](think_like_computer/洗牌算法.md)
 
 * IV. High Frequency Interview Problem
