@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 
 * I. Dynamic Programming
+  * [Dynamic Programming in Detials](dynamic_programming/AnalysisOfDynamicProgramming.md)
   * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
   * [Classic DP: Super Egg](dynamic_programming/ThrowingEggsinHighBuildings.md)
   * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDropAdvanced.md)
@@ -16,7 +17,6 @@
   * [Longest Increasing Subsequence](dynamic_programming/LongestIncreasingSubsequence.md)
   * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [House Robber Problems](dynamic_programming/HouseRobber.md)
-  * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
   
 * II. Data Structure
@@ -29,7 +29,7 @@
   * [Reverse Part of Linked List via Recursion](data_structure/reverse_part_of_a_linked_list_via_recursion.md)
   * [What's the Best Algo Book](think_like_computer/why_i_recommend_algs4.md)
   * [Queue Implement Stack/Stack implement Queue](data_structure/ImplementQueueUsingStacksImplementStackUsingQueues.md)
-  * [学习算法和刷题的思路指南](think_like_computer/学习数据结构和算法的高效方法.md)
+  * [Frameworkabout learning data structure and algorithm](think_like_computer/Framework%20and%20thoughts%20about%20learning%20data%20structure%20and%20algorithm.md)
 
 * III. Algorithmic thinking
   * [My Way to Learn Algorithm](think_like_computer/ThewaytoAlgorithmlearning.md)
@@ -49,8 +49,8 @@
   * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
   * [Recursion In Detail](data_structure/RecursionInDetail.md)
   * [Backtracking Solve Subset/Permutation/Combination](interview/Subset_Permutation_Combination.md)
-  * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
-  * [洗牌算法](think_like_computer/洗牌算法.md)
+  * [Several counter-intuitive Probability Problems](think_like_computer/several_counter_intuitive_probability_problems.md)
+  * [Shuffle Algorithm](think_like_computer/Shuffle_Algorithm.md)
 
 * IV. High Frequency Interview Problem
   * [How to Implement LRU Cache](interview/LRU_algorithm.md)
