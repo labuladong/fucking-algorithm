@@ -24,7 +24,12 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 本仓库的文章就是从公众号里整理出来的一部分内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
 
-<img src="./pictures/qrcode.jpg" width = "250" height = "250" alt="brutal" align=center />
+<img src="./pictures/qrcode.jpg" width = "200" align=center />
+
+4、可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机。如果群无法加入，可联系作者更新二维码：
+
+<img src="./pictures/group.jpg" width = "220" align=center />
+
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
@@ -135,6 +140,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [Dong Wang](https://github.com/Coder2Programmer), 
 [ExcaliburEX](https://github.com/ExcaliburEX), 
 [floatLig](https://github.com/floatLig), 
+[ForeverSolar](https://github.com/foreversolar), 
 [Fulin Li](https://fulinli.github.io/), 
 [Funnyyanne](https://github.com/Funnyyanne), 
 [GYHHAHA](https://github.com/GYHHAHA), 
@@ -145,6 +151,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [Kevin](https://github.com/Kevin-free), 
 [Lrc123](https://github.com/Lrc123), 
 [lriy](https://github.com/lriy), 
+[Lyjeeq](https://github.com/Lyjeeq), 
 [MasonShu](https://greenwichmt.github.io/), 
 [Master-cai](https://github.com/Master-cai), 
 [miaoxiaozui2017](https://github.com/miaoxiaozui2017), 
@@ -152,6 +159,7 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 [nettee](https://github.com/nettee), 
 [PaperJets](https://github.com/PaperJets), 
 [qy-yang](https://github.com/qy-yang), 
+[realism0331](https://github.com/realism0331), 
 [SCUhzs](https://github.com/HuangZiSheng001), 
 [Seaworth](https://github.com/Seaworth), 
 [shazi4399](https://github.com/shazi4399), 
@@ -177,4 +185,4 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 
 如果本仓库对你有帮助，可以请作者喝杯速溶咖啡
 
-<img src="pictures/pay.jpg" width = "216" height = "300" alt="brutal" align=center />
+<img src="pictures/pay.jpg" width = "216" align=center />
