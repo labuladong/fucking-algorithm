@@ -16,7 +16,7 @@
   * [Longest Increasing Subsequence](dynamic_programming/LongestIncreasingSubsequence.md)
   * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [House Robber Problems](dynamic_programming/HouseRobber.md)
-  * [动态规划详解](dynamic_programming/动态规划详解进阶.md)
+  * [Demystifying Dynamic Programming](dynamic_programming/DemystifyingDynamicProgramming.md)
   * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
   
 * II. Data Structure
