@@ -1,7 +1,5 @@
 English version repo and Gitbook is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english). Just enjoy：)
 
-没想到两天就火了，招募翻译组啦，成为本项目的贡献者非常简单，请 [点击这里](https://github.com/labuladong/fucking-algorithm/issues/9) 查看详情～
-
 # 前言
 
 本仓库总共 60 多篇原创文章，基本上都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
@@ -26,9 +24,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 <img src="./pictures/qrcode.jpg" width = "200" align=center />
 
-4、可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机。如果群无法加入，可联系作者更新二维码：
-
-<img src="./pictures/group.jpg" width = "220" align=center />
+4、公众号后台回复【**加群**】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机。
 
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
