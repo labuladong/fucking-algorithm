@@ -1,5 +1,9 @@
 # Demystifying Dynamic Programming
 
+**Translator: [freerambo](https://freerambo.github.io/portfolio/)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
 **Typically, all the problems that require to maximize or minimize certain quantity or counting problems that say to count the arrangements under certain condition or certain probability problems can be solved by using Dynamic Programming.**。
 In fact, Dynamic programming is one optimization method in Operations Research. How ever, it is widely utilized in computer applications. For examples, find **the longest** Ascending subsequence or **the minimum** edit distance, so on and so forth.
 
