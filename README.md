@@ -30,7 +30,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Longest Increasing Subsequence](dynamic_programming/LongestIncreasingSubsequence.md)
   * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [House Robber Problems](dynamic_programming/HouseRobber.md)
-  * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
+  * [Stock Buy and Sell Problems](dynamic_programming/BestTimeToBuyAndSellStock.md)
   
 * II. Data Structure
   * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
