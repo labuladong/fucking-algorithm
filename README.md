@@ -18,14 +18,6 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 2、可以在我的 gitbook 上直接查看所有文章，会和公众号和 [我的知乎](https://www.zhihu.com/people/fdl-72) 同步持续更新文章，建议收藏。地址：https://labuladong.gitbook.io/algo
 
-3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
-
-本仓库的文章就是从公众号里整理出来的一部分内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记：
-
-<img src="./pictures/qrcode.jpg" width = "200" align=center />
-
-4、公众号后台回复【**加群**】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机。
-
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
