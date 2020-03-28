@@ -16,7 +16,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-2、可以在我的 gitbook 上直接查看所有文章，会和公众号和 [我的知乎](https://www.zhihu.com/people/fdl-72) 同步持续更新文章，建议收藏。地址：https://labuladong.gitbook.io/algo
+2、可以在我的 gitbook 上直接查看所有文章，会和公众号和 [我的知乎](https://www.zhihu.com/people/fdl-72) 同步持续更新文章，建议收藏。地址：https://labuladong.github.io/ebook/
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
 
@@ -179,4 +179,4 @@ git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
 
 如果本仓库对你有帮助，可以请作者喝杯速溶咖啡
 
-<img src="pictures/pay.jpg" width = "216" align=center />
+<img src="pictures/pay.jpg" width = "200" align=center />
