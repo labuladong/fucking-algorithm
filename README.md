@@ -16,24 +16,21 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-2、可以在我的 gitbook 上直接查看所有文章，会和公众号和 [我的知乎](https://www.zhihu.com/people/fdl-72) 同步持续更新文章，建议收藏。地址：https://labuladong.github.io/ebook/
+2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章（之所以同时搞 Gitbook 和 GitHub pages，是因为有的地区的读者反映 Gitbook 经常加载不出来，你可以自行选择）：
+
+Gitbook 地址：https://labuladong.gitbook.io/algo/
+
+GitHub page 地址：https://labuladong.github.io/ebook/
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
 
-本仓库的文章就是从公众号里整理出来的一部分内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记；回复【**加群**】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
+本仓库的文章就是从公众号里整理出来的**一部分**内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记；回复【**加群**】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
 
 <img src="./pictures/qrcode.jpg" width = "200" align=center />
 
-
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
-**PS：如果仅是 clone 此仓库学习（不是参与翻译工作）的话，请使用如下 Git 命令**：
-
-```shell
-git clone --depth 1 https://github.com/labuladong/fucking-algorithm.git
-```
-
-这样会限制 clone 的深度，不会下载 Git 协作的历史记录，可以极大加快下载速度。
+**PS：如果想下载此仓库到本地学习，不要用 git 命令下载，点击 GitHub 网页上的下载按钮直接下载 zip 文件，这样就不会下载 git 历史，大大加快下载速度**。
 
 # 目录
 
