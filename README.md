@@ -16,7 +16,7 @@ This command specifies the `english` branch and will limit the depth of the clon
 # Table of Contents
 
 * I. Dynamic Programming
-  * [Dynamic Programming in Detials](dynamic_programming/AnalysisOfDynamicProgramming.md)
+  * [Dynamic Programming in Details](dynamic_programming/AnalysisOfDynamicProgramming.md)
   * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
   * [Classic DP: Super Egg](dynamic_programming/ThrowingEggsinHighBuildings.md)
   * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDropAdvanced.md)
