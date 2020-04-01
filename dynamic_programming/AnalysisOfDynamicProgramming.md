@@ -136,7 +136,7 @@ Why is it called "state transfer equation"? To sound high-end. You want f of n t
 
 You will find that all the operations in the above solutions, such as return f(n - 1) + f(n - 2), dp[i] = dp[i - 1] + dp[i - 2], and the initialization of the memo or dp table, all revolve around different representations of this equation. It is important to list the "state transfer equation", which is the core of the solution. It's easy to see that the equation of state transition directly represents the violent solution.
 
-** never look down upon the violent solution, the most difficult part of the dynamic programming problem is to write the state transfer equation **, that is, the violent solution. Optimization method is nothing more than the use of memorandum or DP table, no mystery at all.
+**never look down upon the violent solution, the most difficult part of the dynamic programming problem is to write the state transfer equation**, that is, the violent solution. Optimization method is nothing more than the use of memorandum or DP table, no mystery at all.
 
 At the end of this example, there's a little detail optimization. Careful readers will find that, according to the state transition equation of the Fibonacci sequence, the current state is only related to the previous two states. In fact, it is not necessary to have a long DP table to store all the states, just find a way to store the previous two states. Therefore, it can be further optimized to reduce the space complexity to O(1) :
 
@@ -158,7 +158,7 @@ Another important feature of dynamic programming, one might ask, is the optimal 
 
 ### 2. The problem of collecting change
 
-Here's the problem: here are the COINS in different denominations of 'k', c1, c2...Ck ', the number of each coin is unlimited, and then I give you a total amount 'amount', and I ask you ** at least ** how many COINS are needed to scrape up this amount, if it is impossible, the algorithm returns -1. The function signature of the algorithm is as follows:
+Here's the problem: here are the COINS in different denominations of 'k', c1, c2...Ck ', the number of each coin is unlimited, and then I give you a total amount 'amount', and I ask you **at least** how many COINS are needed to scrape up this amount, if it is impossible, the algorithm returns -1. The function signature of the algorithm is as follows:
 
 ```java
 // coins are the face value of the optional coin, is the target amount
@@ -172,7 +172,7 @@ How do you think computers should solve this problem?Obviously, it's a matter of
 **1. brute-force recursion**
 
 
-First, the problem is dynamic programming because it has an "optimal substructure." **to meet the optimal substructure, subproblems must be independent of each other **.What is independence?You don't want to see a mathematical proof, but let me give you an intuitive example.
+First, the problem is dynamic programming because it has an "optimal substructure." **to meet the optimal substructure, subproblems must be independent of each other**.What is independence?You don't want to see a mathematical proof, but let me give you an intuitive example.
 
 
 
@@ -198,15 +198,15 @@ So, now that you know that this is a dynamic programming problem, you have to th
 
 
 
-**first determine the "state" **, which is the variable that changes in the original problem and subproblems. Since the number of COINS is infinite, the only state is the target amount 'amount'.
+**first determine the "state"**, which is the variable that changes in the original problem and subproblems. Since the number of COINS is infinite, the only state is the target amount 'amount'.
 
 
 
-**then determine the definition of the 'dp' function ** : the current target amount is' n ', at least 'dp(n)' COINS are needed to make up the amount.
+**then determine the definition of the 'dp' function** : the current target amount is' n ', at least 'dp(n)' COINS are needed to make up the amount.
 
 
 
-**then determine the "choice" and choose the best **, that is, for each state, what choices can be made to change the current state. Specific to this problem, no matter what the target amount is, the choice is to choose a coin from the denomination list 'COINS', and then the target amount will be reduced:
+**then determine the "choice" and choose the best**, that is, for each state, what choices can be made to change the current state. Specific to this problem, no matter what the target amount is, the choice is to choose a coin from the denomination list 'COINS', and then the target amount will be reduced:
 
 ```python
 # Pseudocode framework
@@ -251,7 +251,7 @@ At this point, the problem is actually solved, but the overlapping subproblems n
 
 ![](../pictures/动态规划详解进阶/5.jpg)
 
-**time complexity analysis: total number of subproblems x time per subproblem **.
+**time complexity analysis: total number of subproblems x time per subproblem**.
 
 The total number of subproblems is the number of recursion tree nodes, which is hard to see, which is order n to the k, but it's exponential. Each subproblem contains a for loop of O(k).So the total time complexity is order k times n to the k, the exponential level.
 
@@ -288,7 +288,7 @@ Without drawing, it is obvious that "memorandum" greatly reduces the number of s
 
 Of course, we can also use dp table from the bottom up to eliminate overlapping subproblems. The definition of 'dp' array is similar to that of 'dp' function just now, and the definition is the same:
 
-**'dp[I] = x' means that when the target amount is' I ', at least 'x' COINS are needed **.
+**'dp[I] = x' means that when the target amount is' I ', at least 'x' COINS are needed**.
 
 ```cpp
 int coinChange(vector<int>& coins, int amount) {
@@ -339,7 +339,8 @@ Memo, DP table is in the pursuit of "how to intelligently exhaustive."With the i
 
 
 
-**work to make the algorithm clear! Welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles  ** :
+**work to make the algorithm clear! Welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles** :
+
 Translator: Jian Ma
 
 Author: labuladong
