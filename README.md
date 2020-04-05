@@ -18,7 +18,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章（之所以同时搞 Gitbook 和 GitHub pages，是因为有的地区的读者反映 Gitbook 经常加载不出来，你可以自行选择）：
 
-Gitbook 地址：https://labuladong.gitbook.io/algo/
+Gitbook 地址（推荐）：https://labuladong.gitbook.io/algo/
 
 GitHub page 地址：https://labuladong.github.io/ebook/
 
