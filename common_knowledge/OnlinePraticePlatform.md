@@ -78,7 +78,10 @@ RegExr URL：
 
 https://regexr.com/
 
-Another high quality regex testing site is: [https://regex101.com/](https://regex101.com/).
+If you want to learn more about regex, there is a good advanced learning resource: [https://www.regular-expressions.info/](https://www.regular-expressions.info/).
+![](../pictures/online/13.png)
+
+And another high quality regex testing site is: [https://regex101.com/](https://regex101.com/).
 ![](../pictures/online/12.png)
 
 ### 3. SQL exercises
