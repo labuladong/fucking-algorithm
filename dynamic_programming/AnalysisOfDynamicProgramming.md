@@ -2,9 +2,9 @@
 
 This article is an advanced version of our famous work [Analysis of Dynamic Programming] which gets more than 200 stars.
 
-By the way, our official account has at least a dozen of articles which disassemble the problem of dynamic programming, all of which I have merged into the [list of articles] , **they all mention the problem solving framework of dynamic programming， we systematically summarize that**. During this period, I have grown from a non class of computer science to who has completed more than half of the LeetCode, so what I summarize may not be suitable for every master, but for the public, after all I hustle all the way.
+By the way, our official account has at least a dozen of articles which disassemble the problem of dynamic programming, all of which I have merged into the list of articles. **They all mention the problem solving framework of dynamic programming, and we systematically summarize that.** During this short period, I have grown from a person without any formal training in computer science to who has completed more than half of the LeetCode, so what I summarize may not be suitable for every master, but for the public; after all, I have worked hard to get to where I am.
 
-There are a few set-pieces for algorithm skills, if you know, you will get a lot easier, this articles aims to see through dynamic programming and form a framework to solve this series of problems. Let's get into the straight point, here are the full contents.
+There are a few set-pieces for algorithm skills. If you know these, you will get a lot easier, this article aims to see through dynamic programming and form a framework to solve this series of problems. Let's get into the straight point. Here are the full contents.
 
 **The normal form of dynamic programming problem is to calculate the maximum or minimum**. Dynamic programming is, in fact, a method in optimization, which just has many applications in problems in computer science, such as the problem to calculate the **longest** increasing subsequence, and the problem to calculate **the smallest** distance of editing.
 
@@ -12,11 +12,11 @@ Since we are asked to calculate the maximum or minimum, what is the core problem
 
 Is dynamic programming so easy that only enumeration is OK? What I see about dynamic programming problems are all hard.
 
-Firstly, the enumeration of dynamic programming is a bit special, because there **exists [overlapped subproblems]** this kind of problems have extremely low efficiency, we need [memos] or [DP table] to optimize the process of enumeration to avoid unnecessary calculations.
+Firstly, the enumeration of dynamic programming is a bit special, because there **exist "overlapped subproblems"** this kind of problems have extremely low efficiency, we need a "memos" or "DP table" to optimize the process of enumeration to avoid unnecessary calculations.
 
-And that, the DP problems must **have [best substructure]** , only through the max or min of subproblems can we obtain the max or min of original problems.
+And that, the DP problems must **have the "best substructure"** , only through the max or min of subproblems can we obtain the max or min of original problems.
 
-Moreover, although the core idea of DP is to enumerate for max or min, the problem itself varies, to enumerate all feasible answers is not a easy thing, only when listing the **correct [state transition equation]** can we enumerate perfectly.
+Moreover, although the core idea of DP is to enumerate for max or min, the problem itself varies, to enumerate all feasible answers is not a easy thing, only when listing the **correct "state transition equation"** can we enumerate perfectly.
 
 The overlapped problems, best substructure and state transition equation are the three elements of DP. What that means will be told in detail, however, in the practical algorithm problems, **it is hardest to write out the state transition equation** , which is why many people consider DP hard, here I provide a thinking model researched on by myself, to support you to consider the state transition equation.
 
@@ -61,7 +61,7 @@ This is the first property in DP: **overlapped subproblem.** Next, we try to sol
 
 **2. recursive solution with memos**
 
-To know well the problem is to solve a half. Since the reason for wasting time is repeating calculation, then we can make a [memo], every time you obtain the answer of a subproblem , record it to the [memo] and then return; every time you meet a problem of [memo] check the [memo],  if you  find you have solved that before, just take the answer out for use, and do not waste time to calculate.
+To know well the problem is to solve a half. Since the reason for wasting time is repeating calculation, then we can make a memo, every time you obtain the answer of a subproblem , record it to the memo and then return; every time you meet a problem of memo check the memo,  if you  find you have solved that before, just take the answer out for use, and do not waste time to calculate.
 
 Generally an array is used as a memo, of course you can use hash table (dictionary), the thought is the same.
 
@@ -85,11 +85,11 @@ int helper(vector<int>& memo, int n) {
 }
 ```
 
-Now, draw the recursive tree, and you will know what [memo] does.
+Now, draw the recursive tree, and you will know what memo does.
 
 ![](../pictures/动态规划详解进阶/2.jpg)
 
-In fact, recursive algorithms together with [memos], put a recursive tree with abundant redundancy through [pruning], we change one recursive graph without redundancy, which intensely decreases the number of subproblems (namely the node in recursive graph)
+In fact, recursive algorithms together with memos, put a recursive tree with abundant redundancy through pruning, we change one recursive graph without redundancy, which intensely decreases the number of subproblems (namely the node in the recursive graph).
 
 ![](../pictures/动态规划详解进阶/3.jpg)
 
@@ -101,7 +101,7 @@ The number of total subproblems, namely the total number of nodes in graph, beca
 
 The time to solve a subproblem, as above, there is no loop, the time is O(1).
 
-Therefore, the time complexity of this algorithm is O(n).Instead of a brute-force algorithm, it's a dimension reduction attack.
+Therefore, the time complexity of this algorithm is O(n). Instead of a brute-force algorithm, it's a dimension reduction attack.
 
 So far, the efficiency of the recursive solution with memos is the same as that of the iterative dynamic programming solution. In fact, this approach is almost identical to iterative dynamic programming, except that it is called "top-down" and dynamic programming is called "bottom-up".
 
@@ -132,13 +132,13 @@ Here, we introduce the term "state transition equation", which is actually the m
 
 ![](../pictures/动态规划详解进阶/fib.png)
 
-Why is it called "state transfer equation"? To sound high-end. You want f of n to be a state n, and that state n is transferred from the sum of the states n minus 1 and n minus 2, that's called a state transfer, that's all.
+Why is it called the "state-transition equation"? To sound fancy. You want f of n to be a state n, and that state n is transferred from the sum of the states n minus 1 and n minus 2, that's called a state transfer – that's all.
 
-You will find that all the operations in the above solutions, such as return f(n - 1) + f(n - 2), dp[i] = dp[i - 1] + dp[i - 2], and the initialization of the memo or dp table, all revolve around different representations of this equation. It is important to list the "state transfer equation", which is the core of the solution. It's easy to see that the equation of state transition directly represents the violent solution.
+You will find that all the operations in the above solutions, such as return f(n - 1) + f(n - 2), dp[i] = dp[i - 1] + dp[i - 2], and the initialization of the memo or dp table, all revolve around different representations of this equation. It is important to list the "state transfer equation", which is the core of the solution. It's easy to see that the equation of state transition directly represents the brute-force solution.
 
-** never look down upon the violent solution, the most difficult part of the dynamic programming problem is to write the state transfer equation **, that is, the violent solution. Optimization method is nothing more than the use of memorandum or DP table, no mystery at all.
+**Never look down upon the brute-force solution. the most difficult part of the dynamic programming problem is to write the state transfer equation**, that is, the brute-force solution. The optimization method is nothing more than the use of the memo or DP table – no mystery at all.
 
-At the end of this example, there's a little detail optimization. Careful readers will find that, according to the state transition equation of the Fibonacci sequence, the current state is only related to the previous two states. In fact, it is not necessary to have a long DP table to store all the states, just find a way to store the previous two states. Therefore, it can be further optimized to reduce the space complexity to O(1) :
+At the end of this example, there's a little optimization detail. Observant readers will find that, according to the state transition equation of the Fibonacci sequence, the current state is only related to the previous two states. In fact, it is not necessary to have a long DP table to store all the states, just find a way to store the previous two states. Therefore, it can be further optimized to reduce the space complexity to O(1):
 
 ```cpp
 int fib(int n) {
@@ -176,7 +176,7 @@ First, the problem is dynamic programming because it has an "optimal substructur
 
 
 
-For example, your original problem is to get the highest total score, then your sub-problem is to get the highest Chinese test, mathematics test to the highest......In order to get the highest score in each subject, you need to get the highest multiple choice score for each subject and the highest fill-in-the-blank score...Of course, the end result is that you get full marks for each course, which is the highest total score.
+For example, your original problem is to get the highest total score, then your sub-problem is to get the highest Chinese test, mathematics test to the highest. In order to get the highest score in each subject, you need to get the highest multiple choice score for each subject and the highest fill-in-the-blank score. Of course, the end result is that you get full marks for each course, which is the highest total score.
 
 
 
@@ -192,21 +192,19 @@ Going back to the problem of making small change, why does it fit the optimal su
 
 
 
-So, now that you know that this is a dynamic programming problem, you have to think about 
-
-**how do you get the right transition equation**?
+So, now that you know that this is a dynamic programming problem, you have to think about **how to get the right transition equation**.
 
 
 
-**first determine the "state" **, which is the variable that changes in the original problem and subproblems. Since the number of COINS is infinite, the only state is the target amount 'amount'.
+**First determine the "state"**, which is the variable that changes in the original problem and subproblems. Since the number of COINS is infinite, the only state is the target amount `amount`.
 
 
 
-**then determine the definition of the 'dp' function ** : the current target amount is' n ', at least 'dp(n)' COINS are needed to make up the amount.
+**then determine the definition of the `dp` function ** : the current target amount is `n`, at least `dp(n)` COINS are needed to make up the amount.
 
 
 
-**then determine the "choice" and choose the best **, that is, for each state, what choices can be made to change the current state. Specific to this problem, no matter what the target amount is, the choice is to choose a coin from the denomination list 'COINS', and then the target amount will be reduced:
+**Then determine the "choice" and choose the best**, that is, for each state, what choices can be made to change the current state. Specific to this problem, no matter what the target amount is, the choice is to choose a coin from the denomination list 'COINS', and then the target amount will be reduced:
 
 ```python
 # Pseudocode framework
@@ -243,7 +241,7 @@ def coinChange(coins: List[int], amount: int):
     return dp(amount)
 ```
 
-So far, the state transfer equation has been completed, and the above algorithm is already a violent solution. The mathematical form of the above code is the state transfer equation:
+So far, the state transfer equation has been completed, and the above algorithm is already a brute-force solution. The mathematical form of the above code is the state transfer equation:
 
 ![](../pictures/动态规划详解进阶/coin.png)
 
@@ -282,7 +280,7 @@ def coinChange(coins: List[int], amount: int):
     return dp(amount)
 ```
 
-Without drawing, it is obvious that "memorandum" greatly reduces the number of subproblems and completely eliminates the redundancy of subproblems, so that the total number of subproblems will not exceed n, that is, the number of subproblems is O(n).The time to deal with a subproblem is still O(k), so the total time complexity is O(kn).
+Without drawing, it is obvious that the memo greatly reduces the number of subproblems and completely eliminates the redundancy of subproblems, so that the total number of subproblems will not exceed n, that is, the number of subproblems is O(n).The time to deal with a subproblem is still O(k), so the total time complexity is O(kn).
 
 **3. Iterative solution of dp array**
 
@@ -310,7 +308,7 @@ int coinChange(vector<int>& coins, int amount) {
 
 ![](../pictures/动态规划详解进阶/6.jpg)
 
-PS: why is the 'dp' array initialized to 'amount + 1'? Because the number of COINS that can be added to 'amount' can only be equal to 'amount' (all 1-dollar COINS) at most, initializing 'amount + 1' is the same as initializing 'amount + 1' to + infinity for subsequent minimization.
+PS: why is the `dp` array initialized to `amount + 1`? Because the number of COINS that can be added to `amount` can only be equal to `amount` (all one-dollar COINS) at most, initializing `amount + 1` is the same as initializing `amount + 1` to +∞ (infinity) for subsequent minimization.
 
 ### 3. Final conclusion
 
@@ -319,7 +317,7 @@ The first Fibonacci sequence problem explains how to optimize a recursion tree b
 
 
 
-The second coin problem shows how to streamline the process of determining the "state transfer equation", by which violent recursive solutions are written, the rest is to optimize the recursion tree and eliminate overlapping subproblems.
+The second coin problem shows how to streamline the process of determining the "state transfer equation", by which brute-force recursive solutions are written, the rest is to optimize the recursion tree and eliminate overlapping subproblems.
 
 
 
@@ -327,19 +325,19 @@ If you don't know much about dynamic programming, you can still see it here, and
 
 
 
-**there is nothing magical about a computer solving a problem. Its only solution is to exhaust all possibilities.** Algorithm design is nothing more than thinking "how to exhaustive" first, and then pursuing "how to exhaustive intelligently".
+**There is nothing magical about a computer solving a problem. Its only solution is to exhaust all possibilities.** Algorithm design is nothing more than thinking "how to be exhaustive" first, and then pursuing "how to be exhaustive intelligently".
 
 
 
-To write the dynamic transfer equation is to solve the "how to exhaustive" problem. The reason why it is difficult is that many exhaustive operations require recursive implementation, and the second reason is that the solution space of some problems is complex and not easy to exhaustive.
+To write the dynamic transfer equation is to solve the "how to be exhaustive" problem. The reason why it is difficult is that many exhaustive operations require recursive implementation, and the second reason is that the solution space of some problems is complex and not easy to exhaustive.
 
 
 
-Memo, DP table is in the pursuit of "how to intelligently exhaustive."With the idea of space for time, is the only way to reduce the complexity of time, in addition to, ask, also can play what flower work?
+The memo or DP table is in the pursuit of "how to intelligently be exhaustive." With the idea of space for time, is the only way to reduce the complexity of time, in addition to, ask, also can play what flower work?
 
 
 
-**work to make the algorithm clear! Welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles  ** :
+**Work to make the algorithm clear! You are welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles  ** :
 Translator: Jian Ma
 
 Author: labuladong
