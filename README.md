@@ -16,11 +16,10 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章（之所以同时搞 Gitbook 和 GitHub pages，是因为有的地区的读者反映 Gitbook 经常加载不出来，你可以自行选择）：
+2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章：
 
 Gitbook 地址（推荐）：https://labuladong.gitbook.io/algo/
 
-GitHub page 地址：https://labuladong.github.io/ebook/
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
 
