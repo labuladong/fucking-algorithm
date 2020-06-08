@@ -1,19 +1,19 @@
-English translation is still processing... Some articles are still in Chinese, but most are completed. Please **star** this repo, when you come back soon, translation will finish perfectly. Just enjoy.
+English translation is in progress... Some articles are still in Chinese, but most are completed. Please **star** this repo. The full translation will eventually be finished. Enjoy.
 
-These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetCode problems, but **NOT ONLY the code of solution, but also WHY writing code this way, HOW we figure it out.**
+These articles go over different kinds of **Algorithmic Thinking**. All are based on LeetCode problems. They are **not only the solution code for the problem, but also WHY the solution works and HOW we can figure it out**.
 
-I don't like one liner and confusing, I like clear and easy-understanding.
+I don't like one-liners. They can be confusing. I like clear, easily understandable code.
 
-**Gitbook** has deployed, will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
+The **Gitbook** has been deployed and will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
 
 If you want to clone this repo, please use following command:
 
 ```shell
 git clone --depth 1  --branch english https://github.com/labuladong/fucking-algorithm.git
 ```
-This command specifies the `english` branch and limit the depth of clone, get rid of the Git commit history, which can be faster to clone.
+This command specifies the `english` branch and will limit the depth of the clone and get rid of the Git commit history, which can be faster to clone.
 
-# Table of Content
+# Table of Contents
 
 * I. Dynamic Programming
   * [Dynamic Programming in Detials](dynamic_programming/AnalysisOfDynamicProgramming.md)
@@ -32,7 +32,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [House Robber Problems](dynamic_programming/HouseRobber.md)
   * [Stock Buy and Sell Problems](dynamic_programming/BestTimeToBuyAndSellStock.md)
   
-* II. Data Structure
+* II. Data Structures
   * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
   * [LRU Cache Strategy in Detial](interview/LRU_algorithm.md)
   * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
@@ -65,7 +65,7 @@ This command specifies the `english` branch and limit the depth of clone, get ri
   * [Several counter-intuitive Probability Problems](think_like_computer/several_counter_intuitive_probability_problems.md)
   * [Shuffle Algorithm](think_like_computer/Shuffle_Algorithm.md)
 
-* IV. High Frequency Interview Problem
+* IV. High Frequency Interview Problems
   * [How to Implement LRU Cache](interview/LRU_algorithm.md)
   * [How to Find Prime Number Efficiently](interview/Print_PrimeNumbers.md)
   * [How to Calculate Minimium Edit Distance](dynamic_programming/EditDistance.md)
