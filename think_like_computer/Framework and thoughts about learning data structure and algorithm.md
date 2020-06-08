@@ -6,7 +6,7 @@ Author: [labuladong](https://github.com/labuladong)
 
 This is a revision of a long time ago article "framework thinking of learning data structure and algorithm". This article will cover all the previous contents, and will give many code examples to teach you how to use framework thinking.
 
-First of all, we are talking about common data structures. I am not engaged in algorithm competitions, so I can only solve conventional problems. In addition, the following is a summary of my personal experience. No algorithm book can cover these things, so please try to understand my point of view and don't dwell on the details, because this article hopes to build a overview of framework thinking of data structure and algorithm.
+First of all, we are talking about common data structures. I am not engaged in algorithm competitions, so I can only solve conventional problems. In addition, the following is a summary of my personal experience. No algorithm book can cover these things, so please try to understand my point of view and don't dwell on the details, because this article hopes to build an overview of framework thinking of data structure and algorithm.
 
 The framework thinking that from the whole to the details, from the top to the bottom and from the abstract to the concrete is universal. We think in this way can be more effective not only in learning data structure and algorithm, but also in learning any other knowledge.
 
@@ -16,34 +16,34 @@ The framework thinking that from the whole to the details, from the top to the b
 
 Wait..what about other data structure such as hash table, stack, queue, heap, tree, graph and so on?
 
-When we analyze problems, we must have the idea of recursion, from top to bottom, from abstract to concrete. Those data structures  belong to the 「superstructure」, while arrays and lists are the 「structural basis」. Because those diversified data structures, the source of which are all special operations on linked lists or arrays, just have different APIs.
+When we analyze problems, we must have the idea of recursion, from top to bottom, from abstract to concrete. Those data structures belong to the 「superstructure」, while arrays and lists are the 「structural basis」. Because those diversified data structures, the source of which are all special operations on linked lists or arrays, just have different APIs.
 
 For example, 「queue」 and 「stack」 data structures can be implemented with both linked lists and arrays. Using array to realize, we need to deal with the problem of expanding and shrinking capacity; using linked list to realize, there is no such problem, but more memory space is needed to store node pointers.
 
-Graph can be implemented with both linked lists and arrays. An adjacency list is a linked list, and an adjacency matrix is a two-dimensional array. Adjacency matrix can judge the connectivity quickly and solve some problems by matrix operation, but if the graph is sparse, it is very time-consuming. Adjacency table is more space-saving, but the efficiency of many operations is certainly less than adjacency matrix.
+Graph can be implemented with both linked lists and arrays. An adjacency table is a linked list, and an adjacency matrix is a two-dimensional array. Adjacency matrix can judge the connectivity quickly and solve some problems by matrix operation, but if the graph is sparse, it is very time-consuming. Adjacency table is more space-saving, but the efficiency of many operations is certainly less than adjacency matrix.
 
-Hashtable maps keys to a large array through hash function. And to solve hash conflict, Chaining needs linked list feature, with simple operation, but needs extra space to store pointer; linear exploration method needs array feature, so as to address continuously, and does not need storage space of pointer, but the operation is slightly more complex.
+Hashtable maps keys to a large array through hash function. And to solve hash conflict, Chaining needs linked list feature, with simple operation, but needs extra space to store pointer; linear exploration method needs array feature, to address continuously, and does not need storage space of pointer, but the operation is slightly more complex.
 
-The implementation of "tree" with array is "heap", because "heap" is a complete binary tree, and the storage with array does not need node pointer, and the operation is relatively simple; the implementation with linked list is a very common kind of "tree", because it is not necessarily a complete binary tree, so it is not suitable to use array storage. For this reason, on the basis of the tree structure of the list, various ingenious designs are derived, such as binary search tree, AVL tree, red black tree, interval tree, B tree, etc., to deal with different problems.
+The implementation of "tree" with array is "heap", because "heap" is a complete binary tree, and the storage with array does not need node pointer, and the operation is relatively simple; the implementation with linked list is a very common kind of "tree", because it is not necessarily a complete binary tree, so it is not suitable to use array storage. For this reason, based on the tree structure of the list, various ingenious designs are derived, such as binary search tree, AVL tree, red black tree, interval tree, B tree, etc., to deal with different problems.
 
 Friends who know about redis database may also know that redis provides lists, strings, collections and other common data structures. However, for each data structure, there are at least two underlying storage methods to facilitate the use of appropriate storage methods according to the actual situation of data storage.
 
 In conclusion, there are many kinds of data structures. Even you can invent your own data structures, but the underlying storage is nothing but arrays or linked lists. **The advantages and disadvantages of the two are as follows:**
 
-**Array** is compact and continuous storage, which can be accessed randomly. It can find corresponding elements quickly through index, and save storage space relatively. But just because of the continuous storage, the memory space must be allocated enough at one time, so if the array is to be expanded, it needs to reallocate a larger space, and then copy all the data, the time complexity O (n); and if you want to insert and delete in the middle of the array, you must move all the data behind each time to maintain the continuity, the time complexity O (n).
+**Array** is compact and continuous storage, which can be accessed randomly. It can find corresponding elements quickly through index and save storage space relatively. But just because of the continuous storage, the memory space must be allocated enough at one time, so if the array is to be expanded, it needs to reallocate a larger space, and then copy all the data, the time complexity O (n); and if you want to insert and delete in the middle of the array, you must move all the data behind each time to maintain the continuity, the time complexity O (n).
 
-Because the elements of the **linked list** are not continuous, but the pointer points to the position of the next element, so there is no expansion of the array; if you know the precursor and the hind drive of an element, the operation pointer can delete the element or insert a new element, with a time complexity of O (1). But because the storage space is not continuous, you can't calculate the address of the corresponding element according to an index, so you can't access it randomly; and because each element must store a pointer to the location of the front and back elements, it will consume relatively more storage space.
+Because the elements of the **linked list** are not continuous, but the pointer points to the position of the next element, so there is no expansion of the array; if you know the precursor and the hind drive of an element, the operation pointer can delete the element or insert a new element, with time complexity of O (1). But because the storage space is not continuous, you can't calculate the address of the corresponding element according to an index, so you can't access it randomly; and because each element must store a pointer to the location of the front and back elements, it will consume relatively more storage space.
 
 
 ### 2.Basic operation of data structure
 
-For any data structure, its basic operation is no more than traversal + access, and more specific point are: add, delete, search and modify .
+For any data structure, its basic operation is no more than traversal + access, and more specific point are: add, delete, search and modify.
 
 **There are many kinds of data structures, but their purpose is to add, delete, search and modify them as efficiently as possible** in different application scenarios. Isn't that the mission of data structure?
 
 How to traverse + access? We still see from the highest level that traversal and access of various data structures are in two forms: linear and nonlinear.
 
-Linear is represented by for / while iteration, and nonlinear is represented by recursion. Further more, there are only the following frameworks:
+Linear is represented by for / while iteration, and nonlinear is represented by recursion. Furthermore, there are only the following frameworks:
 
 Array traversal framework, typical linear iterative structure：
 
@@ -108,7 +108,7 @@ void traverse(TreeNode root) {
 }
 ```
 
-N-tree traversal can be extended to graph traversal, because graph is a combination of several n-tree. Do you think it's possible for a circle to appear in a picture? This is very easy to do. Just mark it visited with a Boolean array.
+N-tree traversal can be extended to graph traversal, because graph is a combination of several n-tree. Do you think a circle can appear in a graph? This is very easy to do. Just mark it visited with a Boolean array.
 
 **The so-called framework is a trick. No matter add, delete, insert or modify, these codes are never separated from the structure. You can take this structure as the outline and add code on the framework according to specific problems. The following will give specific examples.**
 
@@ -116,9 +116,9 @@ N-tree traversal can be extended to graph traversal, because graph is a combinat
 
 First of all, it should be clear that **data structure is a tool, and algorithm is a method to solve specific problems through appropriate tools**. That is to say, before learning algorithms, at least we need to understand the common data structures and their characteristics and defects.
 
-So how to practice in leetcode? **Do binary tree exercises first! Do binary tree exercises first!Do binary tree exercises first!** Because binary tree exercises are the most easy to train framework thinking, and most of the algorithm skills are essentially tree traversal problems.
+So how to practice in leetcode? **Do binary tree exercises first! Do binary tree exercises first! Do binary tree exercises first!** Because binary tree exercises are the easiest to train framework thinking, and most of the algorithm skills are essentially tree traversal problems.
 
-According to many readers' questions, in fact, we are not without ideas to solve problems, but without understanding what we mean by "framework". **Don't look down on following lines of broken code, almost all the topics of binary trees are a set of this framework.**
+According to many readers' questions, we are not without ideas to solve problems, but without understanding what we mean by "framework". **Don't look down on following lines of broken code, almost all the topics of binary trees are a set of this framework.**
 
 ```java
 void traverse(TreeNode root) {
@@ -132,7 +132,7 @@ void traverse(TreeNode root) {
 
 For example, I can show the solution of a few problems at random, regardless of the specific code logic, just to see how the framework works in it.
 
-Leetcode No.124 , hard level. This exercise require to find the maximum sum of paths in the binary tree. The main code is as follows:
+Leetcode No.124 , hard level. This exercise requires to find the maximum sum of paths in the binary tree. The main code is as follows:
 
 ```cpp
 int ans = INT_MIN;
@@ -147,7 +147,7 @@ int oneSideMax(TreeNode* root) {
 
 You see, this is a post order traversal.
 
-Leetcode No.105, medium level. This exercise require to rebuild a binary tree according to the results of traversal in the pre order and middle order. It's a classic problem. The main code is as follows
+Leetcode No.105, medium level. This exercise requires to rebuild a binary tree according to the results of traversal in the pre order and middle order. It's a classic problem. The main code is as follows
 
 ```java
 TreeNode buildTree(int[] preorder, int preStart, int preEnd, 
@@ -169,7 +169,7 @@ TreeNode buildTree(int[] preorder, int preStart, int preEnd,
 
 Don't be scared by so many parameters of this function, just to control the array index. In essence, this algorithm is also a preorder traversal.
 
-Leetcode No.99 , hard level. This exercise require to recover a BST, the main code is as follows：
+Leetcode No.99 , hard level. This exercise requires to recover a BST, the main code is as follows：
 
 ```cpp
 void traverse(TreeNode* node) {
@@ -186,9 +186,9 @@ void traverse(TreeNode* node) {
 
 This is just a middle order traversal. There should be no need to explain what it means for a BST middle order traversal.
 
-As you can see, the problem of hard level is not much difficulty , but also so regular. Just write out the framework and add something to the corresponding position. That's the idea.
+As you can see, the problem of hard level is not much difficulty, but also so regular. Just write out the framework and add something to the corresponding position. That's the idea.
 
-For a person who understands binary trees, it won't take long to do exercises of a binary tree. So if you can't or are afraid of working out questions, you can start from the binary tree. The first 10 may be a little uncomfortable. If you do another 20 with the framework, you may have some understanding. If you finish a complete topic, and then do any retrospective dynamic divide and rule topic, you will find that a**s long as the problem of recursion is involved, it's all a tree problem.**
+For a person who understands binary trees, it won't take long to do exercises of a binary tree. So if you can't or are afraid of working out questions, you can start from the binary tree. The first 10 may be a little uncomfortable. If you do another 20 with the framework, you may have some understanding. If you finish that, and then do any backtracking, dynamic programming or divide-and-conquer topic, you will find that **as long as recursion is involved, it's all a tree problem.**
 
 More examples:
 
@@ -254,7 +254,7 @@ void backtrack(int[] nums, LinkedList<Integer> track) {
 
 **To sum up, for those who are afraid of algorithms, you can do the exercises of the relevant topics of the tree first, try to see the problems from the framework, rather than the details.**
 
-From the perspective of framework, we can extract and expand based on the framework, which can not only understand the core logic quickly when we look at other people's solutions, but also help us find the direction of thinking when we write our own solutions.
+From the perspective of framework, we can extract and expand based on the framework, which can not only understand the core logic quickly when we look at other people's solutions, but also help us find the direction of thinking when we write our solutions.
 
 Of course, if the details are wrong, you can't get the right answer, but as long as there is a framework, you can't be wrong too much, because your direction is right.
 
