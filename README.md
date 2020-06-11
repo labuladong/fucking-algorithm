@@ -1,5 +1,7 @@
 English version repo and Gitbook is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english). Just enjoy：)
+
 ![starHistory](./starHistory.jpg)
+
 # 前言
 
 本仓库总共 60 多篇原创文章，基本上都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
@@ -16,9 +18,9 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章：
+2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看文章，公众号的大部分文章都会更新到网页，**建议收藏**方便电脑端查看文章：
 
-Gitbook 地址（推荐）：https://labuladong.gitbook.io/algo/
+Gitbook 地址：https://labuladong.gitbook.io/algo/
 
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
@@ -31,7 +33,6 @@ Gitbook 地址（推荐）：https://labuladong.gitbook.io/algo/
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
-**PS：如果想下载此仓库到本地学习，不要用 git 命令下载，点击 GitHub 网页上的下载按钮直接下载 zip 文件，这样就不会下载 git 历史，大大加快下载速度**。
 
 # 目录
 
