@@ -1,5 +1,7 @@
 English version repo and Gitbook is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english). Just enjoy：)
 
+![starHistory](./starHistory.jpg)
+
 # 前言
 
 本仓库总共 60 多篇原创文章，基本上都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
@@ -16,21 +18,21 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章（之所以同时搞 Gitbook 和 GitHub pages，是因为有的地区的读者反映 Gitbook 经常加载不出来，你可以自行选择）：
+2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看文章，公众号的大部分文章都会更新到网页，**建议收藏**方便电脑端查看文章：
 
 Gitbook 地址：https://labuladong.gitbook.io/algo/
 
-GitHub page 地址：https://labuladong.github.io/ebook/
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
 
-本仓库的文章就是从公众号里整理出来的**一部分**内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，方便你做笔记；回复【**加群**】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
+本仓库的文章就是从公众号里整理出来的**一部分**内容，我主要发文平台是微信公众号，公众号后台回复关键词【电子书】可以获得这份小抄的电子书版本，最近准备出版，限时免费下载；回复【**加群**】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
 
 <img src="./pictures/qrcode.jpg" width = "200" align=center />
 
+我一直在写优质文章，但是后续的文章只发布到我的公众号/网站/知乎，不能开放到 GitHub。因为本仓库太火了，很多人直接拿我的文章去开付费专栏，价格还不便宜，我这免费写给您看，何必掏冤枉钱呢？所以多多关注本作者，多多宣传，谁也不希望劣币驱逐良币不是么？
+
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
 
-**PS：如果想下载此仓库到本地学习，不要用 git 命令下载，点击 GitHub 网页上的下载按钮直接下载 zip 文件，这样就不会下载 git 历史，大大加快下载速度**。
 
 # 目录
 
@@ -40,7 +42,7 @@ GitHub page 地址：https://labuladong.github.io/ebook/
   * [动态规划解题框架](动态规划系列/动态规划详解进阶.md)
   * [动态规划答疑篇](动态规划系列/最优子结构.md)
   * [回溯算法解题框架](算法思维系列/回溯算法详解修订版.md)
-  * [二分查找解题框架](算法思维系列/二分查找详解.md)
+  * [为了学会二分查找，我写了首诗](算法思维系列/二分查找详解.md)
   * [滑动窗口解题框架](算法思维系列/滑动窗口技巧.md)
   * [双指针技巧解题框架](算法思维系列/双指针技巧.md)
   * [Linux的进程、线程、文件描述符是什么](技术/linux进程.md)
