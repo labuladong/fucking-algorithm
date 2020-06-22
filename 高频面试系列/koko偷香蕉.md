@@ -141,6 +141,32 @@ for (int i = 0; i < n; i++)
 
 ![labuladong](../pictures/labuladong.jpg)
 
+[eric wang](https://www.github.com/eric496) 提供 Python3 代码
+
+```python
+def minEatingSpeed(self, piles: List[int], H: int) -> int:
+    left, right = 1, max(piles) + 1
+    
+    while left < right:
+        mid = left + (right - left >> 1)
+        
+        if self.can_finish(piles, mid, H):
+            right = mid
+        else:
+            left = mid + 1
+            
+    return left
+
+def can_finish(self, piles: List[int], speed: int, H: int) -> bool:
+    time = 0
+    
+    for pile in piles:
+        time += pile // speed + 1 if pile % speed else pile // speed
+    
+    return time <= H
+```
+
+
 
 [上一篇：如何计算编辑距离](../动态规划系列/编辑距离.md)
 
