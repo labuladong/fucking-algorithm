@@ -157,6 +157,83 @@ int[] twoSum(int[] nums, int target) {
 
 ![labuladong](../pictures/labuladong.jpg)
 
+[ruicore](https://github.com/ruicore) 提供 Python3 代码：
+
+* TwoSum I 暴力版本
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # 数组长度
+        length = len(nums)
+        for i in range(length):
+            for j in range(i + 1, length):
+                if nums[j] == target - nums[i]:
+                    return [i, j]
+        # 不存在这么两个数
+        return [-1, -1]
+```
+
+* TwoSum I 哈希表版本
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # 构建一个字典，键为 nums 中的数字，值为该数字在数组中的位置
+        # 使用 python 内置函数 enumerate
+        num_pos_dict = {num: pos for pos, num in enumerate(nums)}
+
+        # 遍历数组，同时获取 `位置` 和该 `位置的值`
+        for pos, num in enumerate(nums):
+            # 另一个数字
+            other = target - num
+            # 另一个数字可能在 num_pos_dict 中的值
+            other_pos = num_pos_dict.get(other, -1)
+            # 如果 other 存在并且不是 num 本身
+            if other in num_pos_dict and other_pos != pos:
+                return [pos, other_pos]
+        # 结果不存在
+        return [-1, -1]
+```
+
+* TwoSum II Api 设计
+```py
+class TwoSum:
+    def __init__(self):
+        self.sum = set()
+        self.nums = []
+
+    def add(self, number):
+        # number 与 self.nums 中所有数字可能组成的和
+        for num in self.nums:
+            self.sum.add(num + number)
+        # 更新 self.nums
+        self.nums.append(number)
+
+    def find(self, value) -> bool:
+        return value in self.sum
+```
+
+* TwoSum II 双指针版本
+```py
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        left, right = 0, len(nums) - 1
+        while left < right:
+            # sum 在 Python 中是关键字，基于 python 推荐的写法，在变量名后加 `_` 避免冲突
+            sum_ = nums[left] + nums[right]
+            if sum_ == target:
+                # 注意这里，LeetCode 的 TwoSum II 要求返回的索引从 1 开始
+                return [left + 1, right + 1]
+            elif sum_ < target:
+                # 当前的和小于 target ，需要让 sum_ 大一点
+                left += 1
+            else:
+                # 当前的和大于 target ，需要让 sum_ 小一点
+                right -= 1
+
+        return [-1, -1]
+
+```
 
 [上一篇：滑动窗口技巧](../算法思维系列/滑动窗口技巧.md)
 
