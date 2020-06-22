@@ -219,7 +219,7 @@ if (cap == cache.size()) {
 
 ![labuladong](../pictures/labuladong.png)
 
-![eric wang](https://www.github.com/eric496) 提供 Python3 代码
+[eric wang](https://www.github.com/eric496) 提供 Python3 代码
 
 ```python
 class ListNode:
