@@ -65,6 +65,8 @@ twitter.getNewsFeed(1);
 
 ### 二、面向对象设计
 
+[labuladong](https://github.com/labuladong) 提供Java解法代码：
+
 根据刚才的分析，我们需要一个 User 类，储存 user 信息，还需要一个 Tweet 类，储存推文信息，并且要作为链表的节点。所以我们先搭建一下整体的框架：
 
 ```java
@@ -100,6 +102,11 @@ class Tweet {
         this.next = null;
     }
 }
+```
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
+```C++
+
+
 ```
 
 ![tweet](../pictures/设计Twitter/tweet.jpg)
@@ -199,7 +206,119 @@ class Twitter {
     }
 }
 ```
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
+```C++
+int global_time = 0;                        // 全局时间
+/* 1 推文类 */
+class Tweet {
+    public:
+        int id;                             // 推文 id
+        int time;                           // 推文时间
+        Tweet* next;                        // 推文后继指针
 
+        Tweet(int id) {                     // 构造函数
+            this->id = id;                  // 推文 id
+            this->time = global_time++;     // 推文 时间
+            next = nullptr;                 // 推文 后继指针
+        }
+};
+/* 2 用户类 */
+class User {
+    public:
+        int id;                             // 用户 id
+        Tweet* tweet;                       // 推文链表 头指针
+        unordered_set<int> follows;         // 关注的用户集
+
+        User(int id) {                      // 用户构造函数
+            this->id = id;                  // 用户 id
+            tweet = nullptr;                // 用户推文链表 头结点指针
+        }
+
+        void follow(int followeeId) {
+            if(followeeId == id)            // 不能关注自己
+                return ;
+            follows.insert(followeeId);     // 插入 关注集
+        }
+
+        void unfollow(int followeeId) {     // 取关
+            if(!follows.count(followeeId) || followeeId == id)
+                return ;                    // 不能取关不在关注集中的用户和自己
+            follows.erase(followeeId);
+        }
+
+        void post(int tweetId) {            // 头插入推文链表
+            Tweet* newTweet = new Tweet(tweetId);
+            newTweet->next = tweet;
+            tweet = newTweet;
+        }
+        
+};
+class Twitter {
+private:
+    unordered_map<int,User*> Users_Map;     // {用户 id : 用户对象} 的映射
+
+    bool contain(int id) {
+        return Users_Map.find(id) != Users_Map.end();
+    }
+public:
+
+    Twitter() {
+        Users_Map.clear();
+    }
+    
+    void postTweet(int userId, int tweetId) {       // 发表推文
+        if(!contain(userId))                        // 若用户不在用户集内
+            Users_Map[userId] = new User(userId);   // 创建用户并插入用户集
+        Users_Map[userId]->post(tweetId);           // 面向对象：用户发表推文
+    }
+
+    vector<int> getNewsFeed(int userId) {
+        if(!contain(userId))    return {};
+        // 自定义仿函数：比较函数
+        struct MyLess {
+            bool operator() (const Tweet* a,const Tweet* b) {
+                return a->time < b->time;
+            }
+        };
+        // 大定堆：注意，优先队列的堆顶是容器的最后一个元素，堆底是容器的第一个元素。
+        priority_queue<Tweet*,vector<Tweet*>,MyLess> MaxHeap;
+        // 将自己的推文链表头指针加入大顶堆
+        if(Users_Map[userId]->tweet)
+            MaxHeap.push(Users_Map[userId]->tweet);
+        // 将被关注用户的推文链表头指针加入大顶堆
+        for(int followeeId : Users_Map[userId]->follows) {
+            if(!contain(followeeId))
+                continue;
+            Tweet* head = Users_Map[followeeId]->tweet;
+            if(!head)   continue;
+            MaxHeap.push(head);
+        }
+        // 链表的多路归并
+        vector<int> res;
+        while(!MaxHeap.empty()) {
+            Tweet* top = MaxHeap.top();
+            MaxHeap.pop();
+            res.push_back(top->id);
+            if(res.size() == 10)    return res;
+            if(top->next)
+                MaxHeap.push(top->next);
+        }
+        return res;
+    }
+    // 关注(前提条件，用户存在)
+    void follow(int followerId, int followeeId) {
+        if(!contain(followerId))
+            Users_Map[followerId] = new User(followerId);
+        Users_Map[followerId]->follow(followeeId);
+    }
+    // 取关(前提条件，用户存在)
+    void unfollow(int followerId, int followeeId) {
+        if(!contain(followerId))
+            return ;
+        Users_Map[followerId]->unfollow(followeeId);
+    }
+};
+```
 ### 三、算法设计
 
 实现合并 k 个有序链表的算法需要用到优先级队列（Priority Queue），这种数据结构是「二叉堆」最重要的应用，你可以理解为它可以对插入的元素自动排序。乱序的元素插入其中就被放到了正确的位置，可以按照从小到大（或从大到小）有序地取出元素。
