@@ -23,7 +23,7 @@ PS：以上提到的三种二分查找算法形式在前文「二分查找详解
 首先，算法要求的是「`H` 小时内吃完香蕉的最小速度」，我们不妨称为 `speed`，请问 `speed` 最大可能为多少，最少可能为多少呢？
 
 显然最少为 1，最大为 `max(piles)`，因为一小时最多只能吃一堆香蕉。那么暴力解法就很简单了，只要从 1 开始穷举到 `max(piles)`，一旦发现发现某个值可以在 `H` 小时内吃完所有香蕉，这个值就是最小速度：
-
+[labuladong](https://github.com/labuladong) 提供Java解法代码：
 ```java
 int minEatingSpeed(int[] piles, int H) {
 	// piles 数组的最大值
@@ -81,6 +81,34 @@ int getMax(int[] piles) {
     return max;
 }
 ```
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
+```C++
+class Solution {
+public:
+    int minEatingSpeed(vector<int>& piles, int H) {
+        int l = 1;
+        int r = *max_element(piles.begin(),piles.end()) + 1;
+        while(l < r) {  // 左侧为低速区，右侧为高速区
+            int LMid = l + (r - l - 1) / 2;     // 速度 K
+            if(!Enough(piles,LMid,H))           // 若 LMid 不属于高速区，即速度 LMid 不足
+                l = LMid + 1;                   // 低速区扩增
+            else                                // 若 LMid 属于高速区
+                r = LMid;
+        }
+        return r;
+    }
+private:
+    // 速度 K 是否足够
+    bool Enough(vector<int>& A,int K,int H) {
+        int h = 0;
+        for(const int& a : A) {
+            h += (a + K - 1) / K;       // 向上取整
+            if(h > H)   return false;
+        }
+        return true;
+    }
+};
+```
 
 至此，借助二分查找技巧，算法的时间复杂度为 O(NlogN)。
 
@@ -95,7 +123,7 @@ int getMax(int[] piles) {
 其实本质上和 Koko 吃香蕉的问题一样的，首先确定 `cap` 的最小值和最大值分别为 `max(weights)` 和 `sum(weights)`。
 
 我们要求**最小载重**，所以可以用搜索左侧边界的二分查找算法优化线性搜索：
-
+[labuladong](https://github.com/labuladong) 提供Java解法代码：
 ```java
 // 寻找左侧边界的二分查找
 int shipWithinDays(int[] weights, int D) {
@@ -127,6 +155,38 @@ boolean canFinish(int[] w, int D, int cap) {
     }
     return false;
 }
+```
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
+```C++
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int D) {
+        int l = *max_element(weights.begin(),weights.end());
+        int r = accumulate(weights.begin(),weights.end(),1);
+        while(l < r) {
+            int mid = l + (r - l) / 2;
+            if(canShip(weights,D,mid)) {
+                r = mid;
+            }
+            else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+private:
+    bool canShip(vector<int>& weights,int D,int K) {
+        int cur = K;
+        for(const int w : weights) {
+            if(cur < w) {
+                cur = K;
+                --D;
+            }
+            cur -= w;
+        }
+        return D > 0;
+    }
+};
 ```
 
 通过这两个例子，你是否明白了二分查找在实际问题中的应用？
