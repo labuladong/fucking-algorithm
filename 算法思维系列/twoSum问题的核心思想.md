@@ -157,6 +157,105 @@ int[] twoSum(int[] nums, int target) {
 
 ![labuladong](../pictures/labuladong.jpg)
 
+[labuladong](https://github.com/labuladong) 提供TwoSum I JAVA解法代码：
+
+```JAVA
+int[] twoSum(int[] nums, int target) {
+    int n = nums.length;
+    index<Integer, Integer> index = new HashMap<>();
+    // 构造一个哈希表：元素映射到相应的索引
+    for (int i = 0; i < n; i++)
+        index.put(nums[i], i);
+    
+    for (int i = 0; i < n; i++) {
+        int other = target - nums[i];
+        // 如果 other 存在且不是 nums[i] 本身
+        if (index.containsKey(other) && index.get(other) != i)
+            return new int[] {i, index.get(other)};
+    }
+    
+    return new int[] {-1, -1};
+}
+```
+
+[Jinglun Zhou](https://github.com/Jasper-Joe) 提供TwoSum I C++解法代码：
+
+```CPP
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        unordered_map<int,int> index;
+        // 构造一个哈希表： 元素映射到相应的索引
+        for(int i=0;i<n;i++) // 进行预处理
+            index[nums[i]]=i; // 当前的元素作为key, 当前的索引作为value
+        
+        for(int i=0;i<n;i++)
+        {
+            int other=target-nums[i];// 得到能与nums[i]相加凑成target的另外那个数
+            // 如果other存在且不是nums[i]本身
+            if(index.count(other) && index[other]!=i)
+                return {i,index[other]};
+        }
+        
+        return {-1,-1};// 如果不存在返回{-1,-1}, 当然根据题意必然存在解
+    }
+};
+```
+[labuladong](https://github.com/labuladong) 提供TwoSum II JAVA解法代码：
+
+```JAVA
+class TwoSum {
+    Map<Integer, Integer> freq = new HashMap<>();
+
+    public void add(int number) {
+        // 记录 number 出现的次数
+        freq.put(number, freq.getOrDefault(number, 0) + 1);
+    }
+    
+    public boolean find(int value) {
+        for (Integer key : freq.keySet()) {
+            int other = value - key;
+            // 情况一
+            if (other == key && freq.get(key) > 1)
+                return true;
+            // 情况二
+            if (other != key && freq.containsKey(other))
+                return true;
+        }
+        return false;
+    }
+}
+```
+[Jinglun Zhou](https://github.com/Jasper-Joe) 提供TwoSum II C++解法代码：
+
+```CPP
+class TwoSum {
+public:
+    unordered_map<int,int> freq; // key为当前加入的元素，value为当前加入元素一共出现的频率
+    TwoSum() {} // constructor
+
+    void add(int number) {
+        // 记录number出现的次数
+        freq[number]++;
+    }
+
+    bool find(int value) {
+        for(auto& cur:freq)
+        {
+            int other=value-cur.first;
+            // 情况一： other和当前这个元素一样大，所以需要两个这个的元素才能构成value
+            if(other==cur.first && cur.second>1)
+                return true;
+            // 情况二： other和当前这个元素不一样，other在freq中需要至少出现一次，与twoSum I道理一样
+            if(other!=cur.first && freq.count(other))
+                return true;
+        }
+        return false;
+    }
+};
+```
+
 
 [上一篇：滑动窗口技巧](../算法思维系列/滑动窗口技巧.md)
 
