@@ -218,16 +218,6 @@ class Solution:
         return newHead
 ```
 
-截图证明：
-
-![image-20200623123225523](C:\Users\Kristifler\AppData\Roaming\Typora\typora-user-images\image-20200623123225523.png)
-
-
-
-
-
-![image-20200623123309466](C:\Users\Kristifler\AppData\Roaming\Typora\typora-user-images\image-20200623123309466.png)
-
 [上一篇：如何寻找最长回文子串](../高频面试系列/最长回文子串.md)
 
 [下一篇：如何判定括号合法性](../高频面试系列/合法括号判定.md)
