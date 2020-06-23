@@ -256,6 +256,27 @@ public:
 };
 ```
 
+[蜗牛老湿]](https://github.com/shengxinjing) 提供TwoSum I Javascript解法代码：
+
+```javascript
+var twoSum = function (nums, target) {
+  // 哈希表
+  let map = {}
+  let i = nums.length-1
+  let offset
+  while (i>-1) {
+    // 差值作为key，临时存储
+    offset = target - nums[i]
+    if (offset in map) {
+      return [map[offset], i]
+    }
+    // 记录需要的数字和索引
+    map[nums[i]] = i
+    i--
+  }
+  return
+}
+```
 
 [上一篇：滑动窗口技巧](../算法思维系列/滑动窗口技巧.md)
 
