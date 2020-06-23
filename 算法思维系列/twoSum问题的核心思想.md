@@ -256,6 +256,24 @@ public:
 };
 ```
 
+[Ellen Tan](https://github.com/ellenxtan) 提供TwoSum II  Python3解法代码：
+
+```python
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        ## 方法：双指针
+        left = 0  # 左指针
+        right = len(numbers)-1  # 右指针
+        while left<=right:
+            twosum = numbers[left] + numbers[right]  # 定义左指针和右指针对应数字之和为twosum
+            if twosum == target:
+                return [left+1, right+1]
+            elif twosum < target:  # twosum比target小， 说明需要增加左指针
+                left += 1
+            else:  # twosum比target大，说明需要减小右指针
+                right -= 1                  
+```
+
 
 [上一篇：滑动窗口技巧](../算法思维系列/滑动窗口技巧.md)
 
