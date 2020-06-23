@@ -345,6 +345,36 @@ class LRUCache:
         nxt.prev = node
 ```
 
+[Shenmiu](https://github.com/Shenmiu) 提供 Java 代码
+
+```java
+class LRUCache extends LinkedHashMap<Integer, Integer> {
+    private int capacity;
+    public LRUCache(int capacity) {
+        // 利用 Java 已有的数据的数据结构，内部实现为双向链表 + 哈希表
+        // 初始容量为 capacity
+        // 负载因子为 0.75，决定在什么时候进行扩容
+        // true 表示在迭代元素的时候是以最近访问的顺序
+        super(capacity, 0.75f, true);
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        return super.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        super.put(key, value);
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        // 当缓存容量达到上限时，删除最久未使用的数据
+        return size() > capacity;
+    }
+}
+```
+
 [上一篇：二叉堆详解实现优先级队列](../数据结构系列/二叉堆详解实现优先级队列.md)
 
 [下一篇：二叉搜索树操作集锦](../数据结构系列/二叉搜索树操作集锦.md)
