@@ -175,6 +175,49 @@ private:
 ![labuladong](../pictures/labuladong.jpg)
 
 
+
+[KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
+
+```python
+# 反转区间 [a, b) 的元素
+def reverse(a, b):
+    pre = None
+    cur = a
+    while cur != b:
+        cur.next, pre, cur = pre, cur, cur.next
+        return pre
+```
+
+[KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
+
+```python
+class Solution:
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        if not head:
+            return
+        #  区间 [a, b) 包含 k 个待反转元素
+        a = b = head
+        for _ in range(k):
+            # 不足 k 个，不需要反转，base case
+            if not b:
+                return head
+            b = b.next
+
+        # 反转区间 [a, b) 的元素
+        def reverse(a, b):
+            pre = None
+            cur = a
+            while cur != b:
+                cur.next, pre, cur = pre, cur, cur.next
+            return pre
+
+        #  反转前 k 个元素
+        newHead = reverse(a, b)
+        # 递归反转后续链表并连接起来
+        a.next = self.reverseKGroup(b, k)
+        return newHead
+```
+
 [上一篇：如何寻找最长回文子串](../高频面试系列/最长回文子串.md)
 
 [下一篇：如何判定括号合法性](../高频面试系列/合法括号判定.md)
