@@ -222,7 +222,74 @@ boolean equationsPossible(String[] equations) {
 
 ![labuladong](../pictures/labuladong.jpg)
 
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：判定合法等式
 
+```C++
+class UnionFind {
+private:
+	int cnt = 0;
+    vector<int> parent;
+    vector<int> size;
+    int find(int x) {
+        while(x != parent[x]) {
+            parent[x] = parent[parent[x]];
+            x = parent[x];
+        }
+        return x;
+    }
+public:
+    UnionFind(int num) {
+        cnt = num;
+        for(int i = 0 ; i < num ; i++)
+            parent.push_back(i);
+        size.resize(num);
+    }
+    void unionSet(int x,int y) {
+        int rootx = find(x);
+        int rooty = find(y);
+
+        if(rootx == rooty) return;
+
+        if(size[rootx] > size[rooty])
+        {
+            parent[rooty] = rootx;
+            size[rootx] += size[rooty];
+        }
+        else
+        {
+            parent[rootx] = rooty;
+            size[rooty] += size[rootx];
+        }
+        cnt--;
+    }
+    bool connnected(int x,int y) {
+        return find(x) == find(y);
+    }
+	int count() {
+		return cnt;
+	}
+};
+
+class Solution {
+public:
+    bool equationsPossible(vector<string>& equations) {
+        UnionFind UF(26);
+
+        for(auto& e : equations)
+            if(e[1] == '=')
+                UF.unionSet(toInt(e[0]),toInt(e[3]));
+        
+        for(auto& e : equations)
+            if(e[1] == '!' && UF.connnected(toInt(e[0]),toInt(e[3])))
+                return false;
+        return true;
+    }
+private:
+    int toInt(char c) {
+        return c - 'a';
+    }
+};
+```
 [上一篇：Union-Find算法详解](../算法思维系列/UnionFind算法详解.md)
 
 [下一篇：一行代码就能解决的算法题](../高频面试系列/一行代码解决的智力题.md)
