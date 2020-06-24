@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 
 * I. Dynamic Programming
-  * [Dynamic Programming in Detials](dynamic_programming/AnalysisOfDynamicProgramming.md)
+  * [Dynamic Programming in Details](dynamic_programming/AnalysisOfDynamicProgramming.md)
   * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
   * [Classic DP: Super Egg](dynamic_programming/ThrowingEggsinHighBuildings.md)
   * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDropAdvanced.md)
@@ -18,10 +18,10 @@
   * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
   * [House Robber Problems](dynamic_programming/HouseRobber.md)
   * [Stock Buy and Sell Problems](dynamic_programming/BestTimeToBuyAndSellStock.md)
-  
+
 * II. Data Structure
   * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
-  * [LRU Cache Strategy in Detial](interview/LRU_algorithm.md)
+  * [LRU Cache Strategy in Detail](interview/LRU_algorithm.md)
   * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
   * [Special Data Structure: Monotonic Stack](data_structure/MonotonicStack.md)
   * [Special Data Structure: Monotonic Stack](data_structure/Monotonic_queue.md)
@@ -34,7 +34,7 @@
 * III. Algorithmic thinking
   * [My Way to Learn Algorithm](think_like_computer/ThewaytoAlgorithmlearning.md)
   * [The Framwork of Backtracking Algorithm](think_like_computer/DetailsaboutBacktracking.md)
-  * [Binary Search in Detial](think_like_computer/DetailedBinarySearch.md)
+  * [Binary Search in Detail](think_like_computer/DetailedBinarySearch.md)
   * [The Tech of Double Pointer](think_like_computer/double_pointer.md)
   * [The Key Concept of TowSum Problems](think_like_computer/The_key_to_resolving_TwoSum_problems.md)
   * [Divide Complicated Problem: Implement a Calculator](data_structure/Implementing_the_functions_of_a_calculator.md)
