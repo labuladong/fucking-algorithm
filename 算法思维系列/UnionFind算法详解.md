@@ -293,6 +293,75 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 
 ![labuladong](../pictures/labuladong.png)
 
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码(以 "LeetCode 990.等式方程的可满足性" 题为例)
+
+```C++
+class UnionFind {
+private:
+	int count = 0;
+    vector<int> parent;
+    vector<int> size;
+    int find(int x) {
+        while(x != parent[x]) {
+            parent[x] = parent[parent[x]];
+            x = parent[x];
+        }
+        return x;
+    }
+public:
+    UnionFind(int num) {
+        count = num;
+        for(int i = 0 ; i < num ; i++)
+            parent.push_back(i);
+        size.resize(num);
+    }
+    void unionSet(int x,int y) {
+        int rootx = find(x);
+        int rooty = find(y);
+
+        if(rootx == rooty) return;
+
+        if(size[rootx] > size[rooty])
+        {
+            parent[rooty] = rootx;
+            size[rootx] += size[rooty];
+        }
+        else
+        {
+            parent[rootx] = rooty;
+            size[rooty] += size[rootx];
+        }
+        count--;
+    }
+    bool connnected(int x,int y) {
+        return find(x) == find(y);
+    }
+	int count() {
+		return count;
+	}
+};
+
+class Solution {
+public:
+    bool equationsPossible(vector<string>& equations) {
+        UnionFind UF(26);
+
+        for(auto& e : equations)
+            if(e[1] == '=')
+                UF.unionSet(toInt(e[0]),toInt(e[3]));
+        
+        for(auto& e : equations)
+            if(e[1] == '!' && UF.connnected(toInt(e[0]),toInt(e[3])))
+                return false;
+        return true;
+    }
+private:
+    int toInt(char c) {
+        return c - 'a';
+    }
+};
+```
+
 [上一篇：如何调度考生的座位](../高频面试系列/座位调度.md)
 
 [下一篇：Union-Find算法应用](../算法思维系列/UnionFind算法应用.md)
