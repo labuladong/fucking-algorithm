@@ -166,8 +166,6 @@ def can_finish(self, piles: List[int], speed: int, H: int) -> bool:
     return time <= H
 ```
 
-
-
 [上一篇：如何计算编辑距离](../动态规划系列/编辑距离.md)
 
 [下一篇：如何高效解决接雨水问题](../高频面试系列/接雨水.md)
