@@ -403,6 +403,40 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 
 ![labuladong](../pictures/labuladong.png)
 
+[MoguCloud](https://github.com/MoguCloud) 提供 KMP 算法的 Python 完整代码：
+```py
+class KMP:
+    def __init__(self, pat):
+        self.pat = pat
+        M = len(pat)
+        # dp[状态][字符] = 下个状态
+        self.dp = [[0 for _ in range(256)] for _ in pat]
+        # base case
+        self.dp[0][ord(pat[0])] = 1
+        # 影子状态 X 初始化为 0
+        X = 0
+        for j in range(1, M):
+            for c in range(256):
+                self.dp[j][c] = self.dp[X][c]
+            self.dp[j][ord(pat[j])] = j + 1
+            # 更新影子状态
+            X = self.dp[X][ord(pat[j])]
+    
+    def search(self, txt):
+        M = len(self.pat)
+        N = len(txt)
+        # pat 初始状态为 0 
+        j = 0
+        for i in range(N):
+            # 计算 pat 的下一个状态
+            j = self.dp[j][ord(txt[i])]
+            # 到达终止态，返回结果
+            if j == M:
+                return i - M + 1
+        # 没到达终止态，匹配失败
+        return -1
+```
+
 [上一篇：贪心算法之区间调度问题](../动态规划系列/贪心算法之区间调度问题.md)
 
 [下一篇：团灭 LeetCode 股票买卖问题](../动态规划系列/团灭股票问题.md)
