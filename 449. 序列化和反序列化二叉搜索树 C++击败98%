@@ -1,0 +1,68 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        string res = "";
+        //使用队列 广度优先遍历各节点 若不为空则：值，为空则：NULL，
+        queue<TreeNode *> memo;
+        memo.push(root);
+        while(!memo.empty()){
+            int qSize = memo.size();
+            while(qSize--){
+                TreeNode *nowNode = memo.front();
+                memo.pop();
+                if(nowNode != NULL){
+                    res += (to_string(nowNode->val)+",");
+                    memo.push(nowNode->left);
+                    memo.push(nowNode->right);
+                }else{
+                    res+="NULL,";
+                }
+            }
+        }
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        if(data == "NULL,"){
+            return NULL;
+        }
+        istringstream ss(data);
+        string temp = "";
+        queue<TreeNode*> memo;
+        //还是利用广度优先遍历
+        //使用getline的特性 将，之前的字符串依次解出 给当前Node做左右子树 若不为空 则新建节点
+        getline(ss, temp, ',');
+        TreeNode *root = new TreeNode(stoi(temp));
+        memo.push(root);
+        while(getline(ss, temp, ',')){
+            if(temp != "NULL"){
+                memo.front()->left = new TreeNode(stoi(temp));
+                memo.push(memo.front()->left);
+            }
+            getline(ss, temp, ',');
+            if(temp != "NULL"){
+                memo.front()->right = new TreeNode(stoi(temp));
+                memo.push(memo.front()->right);
+            }
+            memo.pop();
+        }
+
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
