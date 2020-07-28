@@ -1,0 +1,100 @@
+c++代码片段
+---
+一.暴力递归
+```language
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        // 暴力递归
+        if (p.empty()) return s.empty();
+        bool first = !s.empty() && (p[0] == s[0] || p[0] == '.');
+        if (p.length() >= 2 && p[1] == '*') 
+        {
+            //             *匹配为空        ||     *匹配为非空  
+            return isMatch(s, p.substr(2)) || (first && isMatch(s.substr(1), p));
+        } 
+        else 
+        {
+            return first && isMatch(s.substr(1), p.substr(1));
+        }
+    }
+};
+```
+![暴力递归](https://github.com/jinghehehe/Study_Notes/blob/master/leetcode/%E6%9A%B4%E5%8A%9B%E9%80%92%E5%BD%92.png)
+
+二.备忘录递归
+```language
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        slen = s.size();
+        plen = p.size();
+        return dp(0, 0, s, p);
+    }
+    bool dp(int i, int j, const string &s, const string &p){
+	//备忘录递归
+        bool ans;
+        if(memo[i][j])
+            return memo[i][j];
+        if(j == plen)
+            return i == slen;
+        bool first = (i < slen) && (p[j] == s[i] || p[j] == '.');
+        if((j <= plen - 2) && p[j + 1] == '*')
+ 	    //             *匹配为空        ||     *匹配为非空  
+            ans = dp(i, j + 2, s, p) || first && dp(i + 1, j, s, p);
+        else
+            ans = first && dp(i + 1, j + 1, s, p);
+        memo[i][j] = ans;
+        return ans;
+    }
+private:
+    bool memo[1000][1000];//备忘录
+    int slen, plen;
+};
+
+```
+![备忘录递归](https://github.com/jinghehehe/Study_Notes/blob/master/leetcode/%E5%A4%87%E5%BF%98%E5%BD%95%E9%80%92%E5%BD%92.png)
+三.dp动态规划
+```language
+class Solution {
+public:
+    //dp动态规划
+    bool isMatch(string s, string p) {
+        int slen = s.size();
+        int plen = p.size();
+        // [&]以引用形式捕获所有外部变量，也就是外部变量均可用
+        auto first = [&](int i, int j)
+        {
+            if(i == 0)
+                return false;
+            if(p[j-1] == '.')
+                return true;
+            return s[i-1] == p[j-1];
+        };
+
+        vector<vector<int>> f(slen+1, vector<int>(plen+1));
+        f[0][0] = true;
+        for(int i = 0; i <= slen; ++i)
+        {
+            for(int j = 1; j <= plen; ++j)
+            {
+
+                if(p[j - 1] == '*')
+                {
+                    f[i][j] |= f[i][j-2];
+                    //判断s[i-1]和p[j-2]是否相同，即*号前字母判断
+                    if(first(i, j-1))
+                        f[i][j] |= f[i-1][j];
+                }
+                else
+                {
+                    if(first(i, j))
+                        f[i][j] |= f[i-1][j-1];
+                }
+            }
+        }
+        return f[slen][plen];
+    }
+};
+```
+![dp动态规划](https://github.com/jinghehehe/Study_Notes/blob/master/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.png)
