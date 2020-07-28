@@ -377,6 +377,7 @@ public class KMP {
 }
 ```
 
+
 经过之前的详细举例讲解，你应该可以理解这段代码的含义了，当然你也可以把 KMP 算法写成一个函数。核心代码也就是两个函数中 for 循环的部分，数一下有超过十行吗？
 
 ### 五、最后总结
@@ -402,6 +403,39 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 **致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
 
 ![labuladong](../pictures/labuladong.png)
+
+[daiyi-guizhou](https://github.com/daiyi-guizhou/) 提供 python 代码
+```py
+
+# -*- coding:utf-8 -*-
+# 寻找 str
+## 匹配 影子。
+def KMP(_raw_str, _pattern_str):
+    def _odr(_str):
+        return ord(_str) - 33
+    def search(pattern_str):
+        _p = pattern_str
+        dp = [[0 for _ in range(33, 128)] for _ in range(len(_p))]
+        dp[0][_odr(_p[0])] = 1
+        x = 0
+        for i in range(1,len(_p)):
+            for j in range(33, 128):
+                y = j - 33
+                dp[i][y] = dp[x][y]
+            dp[i][_odr(_p[i])] = i + 1
+            x = dp[x][_odr(_p[i])]
+        return dp
+    dp = search(_pattern_str)
+    j = 0
+    for i in range(len(_raw_str)):
+        j = dp[j][_odr(_raw_str[i])]
+        if j == len(_pattern_str): return i - j + 1
+    return -1
+
+_raw = "aaacaabaaabaaddc"
+_pat = "aaad"
+KMP(_raw, _pat)
+```
 
 [上一篇：贪心算法之区间调度问题](../动态规划系列/贪心算法之区间调度问题.md)
 
