@@ -416,21 +416,34 @@ def KMP(_raw_str, _pattern_str):
         _p = pattern_str
         dp = [[0 for _ in range(33, 128)] for _ in range(len(_p))]
         dp[0][_odr(_p[0])] = 1
+        for index, i in enumerate(_pattern_str):
+            for index2,j in enumerate(dp[index]):
+                if j:
+                    print "#### ", index, " : ", chr(index2 +33),dp[index][index2]
         x = 0
         for i in range(1,len(_p)):
             for j in range(33, 128):
                 y = j - 33
                 dp[i][y] = dp[x][y]
             dp[i][_odr(_p[i])] = i + 1
+                # if chr(j) == _p[i]:
+                #     dp[i][_odr(_p[i])] = i + 1
+                # else:
+                #     y = j - 33
+                #     dp[i][y] = dp[x][y]
             x = dp[x][_odr(_p[i])]
         return dp
     dp = search(_pattern_str)
+    for index, i in enumerate(_pattern_str):
+        for index2,j in enumerate(dp[index]):
+            if j:
+                print "## ", index, " : ", chr(index2 +33),dp[index][index2]
     j = 0
     for i in range(len(_raw_str)):
+        print '## ',_odr(_raw_str[i])
         j = dp[j][_odr(_raw_str[i])]
-        if j == len(_pattern_str): return i - j + 1
-    return -1
-
+        if j == len(_pattern_str): print "OK OK OK OK ";return
+    print "#### no"
 _raw = "aaacaabaaabaaddc"
 _pat = "aaad"
 KMP(_raw, _pat)
