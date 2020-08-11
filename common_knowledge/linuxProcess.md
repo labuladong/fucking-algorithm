@@ -20,7 +20,7 @@ User space holds the resources that the user process needs to use. For example, 
 
 We write a hello program in C language, compile it to get an executable file, run it on the command line to display Hello World on the screen, and then exit the program. At the operating system level, a new process is created, which reads the executable file into memory space, executes it, and finally exits.
 
-**The executable program you compiled is just a file**, not a process. The executable file must be loaded into memory and packed into a process to really run. Processes are created by the operating system. Each process has its inherent attributes, such as process ID (PID), process status, open files, etc. After the process is created, ti reads into your program and your program will be executed by the system.
+**The executable program you compiled is just a file**, not a process. The executable file must be loaded into memory and packed into a process to really run. Processes are created by the operating system. Each process has its inherent attributes, such as process ID (PID), process status, open files, etc. After the process is created, it reads into your program and your program will be executed by the system.
 
 So, how does the operating system create processes? **For the operating system, a process is a data structure**. Let's look directly at the Linux source code:
 
