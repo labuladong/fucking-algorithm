@@ -71,7 +71,7 @@ The principle of session is not difficult, but it is very skillful to implement 
 
 ![](../pictures/session/4.jpg)
 
-1.The browser requests the page resource of the path `/content` rom the server over the HTTP protocol, there is a Handler function on the corresponding path to receive the request, parses the cookie in the HTTP header, and gets the session ID stored in it,then send this ID to the  `Manager`.
+1.The browser requests the page resource of the path `/content` from the server over the HTTP protocol, there is a Handler function on the corresponding path to receive the request, parses the cookie in the HTTP header, and gets the session ID stored in it,then send this ID to the  `Manager`.
 
 2.`Manager`acts as a session manager, mainly storing some configuration information, such as the lifetime of the session, the name of the cookie, and so on. All sessions are stored in a `Provider` inside the `Manager`.So `Manager` passes the `Sid` (session ID) to the `Provider` to find out which session that ID corresponds to. 
 
