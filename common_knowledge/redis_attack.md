@@ -1,3 +1,5 @@
+# Redis attack
+
 **Translator: [natsunoyoru97](https://github.com/natsunoyoru97)**
 
 **Author: [labuladong](https://github.com/labuladong)**
@@ -10,11 +12,11 @@ I also know that he ran an open-source program which is too old to maintain. His
 
 P.S. Such an attack doesn't work anymore because the updated version of Redis adds the protect mode, which is safer. We can only simulate the attack on the local.
 
-### How Did It Go?
+## How Did It Go
 
 This attack was in 2015, in which Redis was poor in security. The security of the database only depended on SREs. There are thousands of nodes was attacked and the weird things happened like mentioned above. All data was emptied with only one key called `crackit` left, and the value looks like the string of the RSA public key.
 
-It came out that the hackers applied dynamic configuration and persistence, and write their RSA public keys into `/root/.ssh/authored_keys` in the victims' computers, so they can use the private key to log in the root of the servers then invade the systems. 
+It came out that the hackers applied dynamic configuration and persistence, and write their RSA public keys into `/root/.ssh/authored_keys` in the victims' computers, so they can use the private key to log in the root of the servers then invade the systems.
 
 The servers have been attacked are poor in security:
 
@@ -26,7 +28,7 @@ The servers have been attacked are poor in security:
 
 ANY of these points make the server vulnerable, and it is lethal when added on. Despite your system contains the public key of others, it is a big loss if your database were emptied by the malicious operation. So what are the steps to do such an attack? I'll show you on my local loopback address.
 
-### Performing on Local
+## Performing on Local
 
 The default port of Redis is 6379, and we set it receives the connection from NIC 127.0.0.1, so I can connect to Redis on local to simulate the scenario that Redis can be visited from the public internet.
 
@@ -62,7 +64,7 @@ Maybe the messy code is encoded in the GDB file, but the public key is completel
 
 Now I own the root privilege and can do anything I would like to do …
 
-### Lessons Learnt
+## Lessons Learnt
 
 It is nearly impossible to be the victim of such kind of attack (the updated version of Redis is not available when there is no password in default), but everyone is supposed to be vigilant about the system security.
 
@@ -82,7 +84,7 @@ Turn back to the usage of Redis, its official site has listed the advice to prot
 
 3. Disable commands in Redis or to rename them into an unguessable name, so that normal clients are limited to a specified set of commands.
 
-### See Also
+## Also See
 
 [Redis Security](https://redis.io/topics/security)
 

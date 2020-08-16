@@ -1,4 +1,4 @@
-# Things you must know about Linux Shell 
+# Things you must know about Linux Shell
 
 **Translator: [Tianhao Zhou](https://github.com/tianhaoz95)**
 
@@ -16,7 +16,7 @@ Although Windows has advantages over Linux in terms of graphical interfaces, due
 
 4. How does `sudo` make commands `not found`?
 
-### 1. The difference between standard input and variables
+## 1. The difference between standard input and variables
 
 The difference between standard input and variables boils down to the question of when to use pipe `|` and redirecting `>`, `<` vs. when to use variables `$`.
 
@@ -30,13 +30,13 @@ $ where connect.sh
 To remove the script with minimal effort, I tried:
 
 ```shell
-$ where connect.sh | rm
+where connect.sh | rm
 ```
 
 However, the command above is incorrect. The proper way is:
 
 ```shell
-$ rm $(where connect.sh)
+rm $(where connect.sh)
 ```
 
 The former attempts to pipe the output from `where` into the standard input of `rm`, whereas the latter passes it in as an variable.
@@ -60,7 +60,7 @@ hello world
 
 **If a command can clog the terminal, then it accepts standard input and vice versa.** For example, running "cat" without arguments will suspend (intentionally clog) the terminal to wait for user input and print back the same content.
 
-### 2. Why processes running on the background exit upon terminal termination?
+## 2. Why processes running on the background exit upon terminal termination
 
 For example, we want to spin up a Django web server on a remote server:
 
@@ -91,12 +91,12 @@ Nevertheless, commands like `(cmd &)` move the process under `systemd`, an OS gu
 An alternative approach to background execution is:
 
 ```shell
-$ nohub some_cmd &
+nohub some_cmd &
 ```
 
 `nohub` functions similarly, but with extensive testing, `(cmd &)` appears to be more stable.
 
-### 3. Single-quotes vs. double-quotes
+## 3. Single-quotes vs. double-quotes
 
 Shells with different flavors behave differently, but with one invariant: **for `$`，`(`，`)`, single-quote won't trigger evaluation, but double-quote will.**
 
@@ -108,7 +108,7 @@ As shown above, `echo $(cmd)` and `echo "$(cmd)"` differ slightly. Look closely,
 
 **As a result, if the literal value from `$` contains space, we should use double-quote to avoid errors.**
 
-### 4. How does `sudo` make commands `not found`?
+## 4. How does `sudo` make commands `not found`
 
 Under certain situations, a command that non-privileged users can execute becomes "not found" when privileged users try to run with `sudo`:
 
@@ -123,7 +123,7 @@ sudo: command not found
 The root cause is that the `connect.sh` script only exists in the user's environment variables.
 
 ```shell
-$ where connect.sh 
+$ where connect.sh
 /home/fdl/bin/connect.sh
 ```
 
@@ -132,5 +132,5 @@ $ where connect.sh
 The solution is to locate the script with a path instead of a name:
 
 ```shell
-$ sudo /home/fdl/bin/connect.sh
+sudo /home/fdl/bin/connect.sh
 ```
