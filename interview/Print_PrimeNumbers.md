@@ -16,7 +16,7 @@ int countPrimes(int n)
 // Because 2,3,5,7 is prime numbers
 ```
 
-How would you progrma this function? I think you maybe write like this:
+How would you program this function? I think you maybe write like this:
 
 ```java
 int countPrimes(int n) {
