@@ -56,7 +56,7 @@ This command specifies the `english` branch and will limit the depth of the clon
   * [Interval Scheduling: Interval Merging](think_like_computer/IntervalMerging.md)
   * [Interval Scheduling: Intersections of Intervals](think_like_computer/IntervalIntersection.md)
   * [String Multiplication](think_like_computer/string_multiplication.md)
-  * [Pancake Soring Algorithm](think_like_computer/PancakesSorting.md)
+  * [Pancake Sorting Algorithm](think_like_computer/PancakesSorting.md)
   * [Sliding Window Algorithm](think_like_computer/SlidingWindowTechnique.md)
   * [Some Useful Bit Manipulations](think_like_computer/CommonBitManipulation.md)
   * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
