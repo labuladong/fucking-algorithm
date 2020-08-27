@@ -91,10 +91,10 @@ Nevertheless, commands like `(cmd &)` move the process under `systemd`, an OS gu
 An alternative approach to background execution is:
 
 ```shell
-$ nohub some_cmd &
+$ nohup some_cmd &
 ```
 
-`nohub` functions similarly, but with extensive testing, `(cmd &)` appears to be more stable.
+`nohup` functions similarly, but with extensive testing, `(cmd &)` appears to be more stable.
 
 ### 3. Single-quotes vs. double-quotes
 
