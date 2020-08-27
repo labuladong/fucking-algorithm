@@ -69,7 +69,31 @@ class Solution:
         dfs(0) # 开启全排列递归
         return ','.join(res)  # 拼接所有数字字符串，使用逗号隔开，并返回
 
-
+```
+```py
+class Solution(object):
+    def printNumbers(self, n):
+        """
+        :type n: int
+        :rtype: List[int]
+        """
+        def dfs(x):
+            if x == n: 
+                a_num = [_ for _ in num]
+                while a_num and a_num[0] == '0' :
+                    a_num.remove('0')
+                res.append(''.join(a_num)) 
+                return
+            for i in range(10): 
+                num[x] = str(i)
+                dfs(x + 1)
+        
+        num = ['0'] * n 
+        res = [] 
+        dfs(0)
+        res_str = ','.join(res)
+        res_str = '[' + res_str + ']' 
+        return res_str
 
 ```
 在此方法下，各数字字符串被逗号隔开，共同组成长字符串。返回的数字集字符串如下所示：
