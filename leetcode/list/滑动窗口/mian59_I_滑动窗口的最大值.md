@@ -80,7 +80,7 @@ class Solution(object):
             _res.append(max(nums[j-k+1:j+1])) 
         return  _res
 ```
-作者：mu-xie-a
+作者：mu-xie-a 
 链接：https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/solution/hua-dong-chuang-kou-dui-lie-chang-wei-k-by-mu-xie-/
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
