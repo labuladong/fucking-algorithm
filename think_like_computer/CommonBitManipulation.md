@@ -34,7 +34,7 @@ Bit Manipulation can play a lot of fucking trick, but most of these tricks are t
 
 PS：The reason why the operation can produce strange effects is ASCII encoding. Characters are actually Numbers, it happens that the Numbers corresponding to these characters can get the correct result through bit manipulations, if you interested in it, you can check ASCII table, this article does not expand it.
 
-4. Determine if two numbers are different
+4. Determine if the sign of two numbers are different
 
 ```c
 int x = -1, y = 2;
@@ -44,7 +44,7 @@ int x = 3, y = 2;
 bool f = ((x ^ y) < 0); // false
 ```
 
-PS：This technique is very practical, is the use of the sign bit complement encoding. If you don't use the bit operation to determine whether the sign is different, you need to use if else branch, which is quite troublesome. Readers may want to use products or quotients to determine whether two numbers have different signs, but this processing method may cause overflow and cause errors. (For complement coding and overflow, see the previous article.)
+PS：This technique is very practical, and uses sign bit complement encoding. If you don't use the bit operation to determine whether the sign is different, you need to use if else branch, which is quite troublesome. Readers may want to try to use products or quotients to determine whether two numbers have different signs, but this processing method may cause overflow and cause errors. (For complement coding and overflow, see the previous article.)
 
 5. Swap two Numbers
 
