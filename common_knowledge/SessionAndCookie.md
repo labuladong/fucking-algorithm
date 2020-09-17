@@ -6,7 +6,7 @@
 
 Everyone should be familiar with cookies. For example after logging on the website, you will be asked to log in again. Or some guys play with python, but websites just block your crawlers. These are all related to cookies. If you understand the server backend's processing logic for cookies and sessions, you can explain these phenomena, and even drill some holes indefinitely, let me talk it slowly.
 
-### 1.Introduction to session and cookie
+## 1.Introduction to session and cookie
 
 The emergence of cookie because HTTP is a stateless protocol, In other words, the server can't remember you, and every time you refresh the web page, you have to re-enter your account password to log in. It's hard to accept. Cookie is like the server tagged you, and the server recognizes you every time you make a request to the server.
 
@@ -18,18 +18,18 @@ Cookie can be set on the sever through the “SetCookie” field of HTTP, such a
 
 ```go
 func cookie(w http.ResponseWriter, r *http.Request) {
-    // 设置了两个 cookie 
-	http.SetCookie(w, &http.Cookie{
-		Name:       "name1",
-		Value:      "value1",
-	})
+    // Set up two cookies
+ http.SetCookie(w, &http.Cookie{
+  Name:       "name1",
+  Value:      "value1",
+ })
 
-	http.SetCookie(w, &http.Cookie{
-		Name:  "name2",
-		Value: "value2",
-	})
-    // 将字符串写入网页
-	fmt.Fprintln(w, "页面内容")
+ http.SetCookie(w, &http.Cookie{
+  Name:  "name2",
+  Value: "value2",
+ })
+    // Write string back
+ fmt.Fprintln(w, "content")
 }
 ```
 
@@ -65,24 +65,23 @@ This type of plugin can read the browser's cookies on the current web page, open
 
 The above is a brief introduction to cookies and sessions. Cookie is a part of the HTTP protocol and are not complicated. So let's take a look at the code architecture to implement session management in detail.
 
-### 2.Implementation of session
+## 2.Implementation of session
 
 The principle of session is not difficult, but it is very skillful to implement it. Generally, three components are required to complete it. They respectively are`Manager`,`Provider` and  `Session` three classes (interface).
 
 ![](../pictures/session/4.jpg)
 
-1.The browser requests the page resource of the path `/content` rom the server over the HTTP protocol, there is a Handler function on the corresponding path to receive the request, parses the cookie in the HTTP header, and gets the session ID stored in it,then send this ID to the  `Manager`.
+1. The browser requests the page resource of the path `/content` rom the server over the HTTP protocol, there is a Handler function on the corresponding path to receive the request, parses the cookie in the HTTP header, and gets the session ID stored in it,then send this ID to the  `Manager`.
 
-2.`Manager`acts as a session manager, mainly storing some configuration information, such as the lifetime of the session, the name of the cookie, and so on. All sessions are stored in a `Provider` inside the `Manager`.So `Manager` passes the `Sid` (session ID) to the `Provider` to find out which session that ID corresponds to. 
+2. `Manager`acts as a session manager, mainly storing some configuration information, such as the lifetime of the session, the name of the cookie, and so on. All sessions are stored in a `Provider` inside the `Manager`.So `Manager` passes the `Sid` (session ID) to the `Provider` to find out which session that ID corresponds to.
 
-3.`Provider` is a container, most commonly a hash table that maps each `Sid` to its session. After receiving the `Sid` passed by the `Manager`, it finds the session structure corresponding to the `Sid`, which is the session structure, and returns it.
+3. `Provider` is a container, most commonly a hash table that maps each `Sid` to its session. After receiving the `Sid` passed by the `Manager`, it finds the session structure corresponding to the `Sid`, which is the session structure, and returns it.
 
-4.`Session` stores the user's specific information. The logic in the Handler function takes out this information, generates the user's HTML page, and returns it to the client.
+4. `Session` stores the user's specific information. The logic in the Handler function takes out this information, generates the user's HTML page, and returns it to the client.
 
 So you might ask, why make such a trouble, why not directly in the Handler function to get a hash table, and then store the `Sid` and `Session` structure mapping ?
 
 **That's the design trick!** Let's talk about why it is divided into `Manager`、`Provider` and  `Session`。
-
 
 Let's start with `Session` at the bottom. Since session is a key-value pair, why not use a hash table directly, but abstract such a data structure?
 
@@ -94,12 +93,12 @@ Therefore, `Session` structure provides a layer of abstraction to shield the dif
 
 ```go
 type Session interface {
-    // 设置键值对
+    // Set key-value pairs
     Set(key, val interface{})
-    // 获取 key 对应的值
+    // Get the value by key
     Get(key interface{}) interface{}
-    // 删除键 key
-	Delete(key interface{})
+    // Remove key
+ Delete(key interface{})
 }
 ```
 
@@ -111,25 +110,23 @@ Therefore, `Provider` as a container is to shield algorithm details and organize
 
 ```go
 type Provider interface {
-    // 新增并返回一个 session
+    // Add and return session
     SessionCreate(sid string) (Session, error)
-    // 删除一个 session
+    // Delete a session
     SessionDestroy(sid string)
-    // 查找一个 session
+    // Read a session
     SessionRead(sid string) (Session, error)
-    // 修改一个session
+    // Update a session
     SessionUpdate(sid string)
-    // 通过类似 LRU 的算法回收过期的 session
-	SessionGC(maxLifeTime int64)
+    // Recycle expired sessions through an algorithm similar to LRU
+ SessionGC(maxLifeTime int64)
 }
 ```
-
 
 Finally, `Manager`, most of the specific work is delegated to `Session` and the `Provider`, `Manager` is mainly a set of parameters, such as the survival time of the session, the strategy to clean up expired sessions, and the session's available storage methods. `Manager` blocks the specific details of the operation, and we can flexibly configure the session mechanism through `Manager`.
 
 In summary, the main reason for the session mechanism to be divided into several parts is decoupling and customization. I have seen several use Go to implement session services on Github, the source code is very simple, if you are interested you can learn：
 
-https://github.com/alexedwards/scs
+<https://github.com/alexedwards/scs>
 
-https://github.com/astaxie/build-web-application-with-golang
-
+<https://github.com/astaxie/build-web-application-with-golang>

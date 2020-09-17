@@ -1,3 +1,5 @@
+# Cryptology
+
 Speaking of cipher, the first thing that comes to our mind is the password to login, but from the point of cryptography， it is the unqualified cipher.
 
 Why? Because the password of our account depends on crypticity, that is I keep the password in my mind and do not let you know,so you can not login in with my account.
@@ -11,9 +13,9 @@ if the receiver know the way to decrypt,the eavesdropper should also know.
 
 In the following **we will introduce symmetric encryption algorithm、key exchange algorithm、asymmetrical encryption algorithm、digital signature、public-key certificate** to explain how we solve the problem of secure transmission.
 
-### First、Symmetric Encryption
+## First, Symmetric Encryption
 
-symmetric ciphers，also called shared key cipher，as the name suggests，it uses the same key to encrypt and decrypt.
+Symmetric ciphers，also called shared key cipher，as the name suggests，it uses the same key to encrypt and decrypt.
 
 First of all,we know information consists of 0/1 bits sequence and the xor of two identical bits sequence is 0.
 
@@ -30,7 +32,7 @@ invulnerable algorithm is broken.
 
 Therefore, the two most common algorithms to solve the key distribution problem are diffie-hellman key exchange algorithm and asymmetric encryption algorithm.
 
-### Second、Key exchange algorithm
+## Second、Key exchange algorithm
 
 The secret key as we say is a big number, the algorithm use this number to encrypt and decrypt. The problem is that transition is insecure and the data can be eavesdropped.In other words, is there a way that it can let two people exchange the key in the front of others?
 
@@ -73,14 +75,14 @@ Above is the basic flow, as for picking which number, it is exquisite and I won'
 Under the premise of the third party's eavesdropping, the algorithm can calculate a secret which can not be calculated by others as the key of symmetric encryption algorithm and start the communication of symmetric encryption.
 
 About this algorithm, Hack come up with a crack way, not to eavesdrop Alice and Bob's communication, but to pretend to be Alice and Bob at the same time, that is man-in-middle attack.
- 
+
 ![](../pictures/密码技术/6.jpg)
 
 In this way, both parties can't realize that they are sharing secrets with Hack. As a result, Hack can decrypt or even modify data.
 
 **So, key exchange algorithm can not perfectly resolve the distribution of the key, the weakness lies in not being able to verify the identity of the receiver**.So, before using exchange key algorithm, we must verify the identity. For example, using the digital signature.
 
-### Third、Asymmetrical encryption
+## Third、Asymmetrical encryption
 
 The thinking of the asymmetrical encryption is that don't sneak around with the transmission key. I separate the encryption key from the decryption key and use the public key to encrypt and the private to decrypt.Only send the public key to the receivers and they can send me encrypted data that I can use my private key to decrypt.About the eavesdropper，it is useless to get the data and the public key, because only the private key can be used to decrypt.
 
@@ -107,7 +109,7 @@ Digital signature takes the advantage of asymmetrical encryption,but reverses th
 
 You may ask what is the purpose? The public key can decrypt the data,but I still encrypt the data and release.Isn't that a superfluous act?
 
-Yes,but ** the digital signature is not used to ensure the confidentiality of the data,but is used to verify your identity,** to prove that the data comes from you.
+Yes,but **the digital signature is not used to ensure the confidentiality of the data,but is used to verify your identity,** to prove that the data comes from you.
 
 You can image the data encrypted by you private key can only be decrypted by you public key,so if the encrypted data can be decrypted by you public key,can't it prove that the data comes from yourself?
 
@@ -120,35 +122,36 @@ Of course,the encrypted data is just a signature that should be released with th
 3 Alice receives the data the the signature and needs to check does the data come from Bob.So he use the public key released by Bob to decrypt and compare the decrypted data with the received data.If they are the same,it proves that the data is origin and comes from Bob.
 
 Why Alice can conclude? After all,the data and the signature,either can be exchanged.The reason is as follows:
-1 If someone modify the data,Alice will know after he decrypt the data and find the difference. 
 
-2 If someone exchange the signature,Alice will get the wrong code after decryption and it is obviously different from the original data.
+1. If someone modify the data,Alice will know after he decrypt the data and find the difference.
 
-3 someone may tend to modify the data and regenerate the signature so that Alice can not find the difference;but he can not generate the signature because he do not have the private key of Bob.
+2. If someone exchange the signature,Alice will get the wrong code after decryption and it is obviously different from the original data.
+
+3. someone may tend to modify the data and regenerate the signature so that Alice can not find the difference;but he can not generate the signature because he do not have the private key of Bob.
 
 In Summary,**digital signature can verify the origin of the data to some degree**.The reason is that it can be cracked by man-in-middle attack. Once it comes to the distribution of the public key, the receiver may receive the fake public key and make the wrong verification, Which can not be avoided.
 
 Ridiculously, digital signature is a way verify the identity of others with the assumption that the identity of others is real.It seems like a dead cycle.**There must exist a trusted origin to verify the identity of others,Or no matter how many processes are used, they are just transferring problems, not really solving them.**
 
-### Fifth、Public-key certificate
+## Fifth, Public-key certificate
 
 **The public-key certificate is the public key plus the signature,issued by a trusted third party certification authority**。Introducing the trusted third part is one of the feasible solution of dependency cycle.
 
 The process of certificate is as follows:
 
-1 Bob goes to the trusted certification authority to verify the identity of himself and provide his public key.
+1. Bob goes to the trusted certification authority to verify the identity of himself and provide his public key.
 
-2 Alice who wants to communicate with Bob, request the public key of Bob from the certification authority and then certification authority will give the certificate of Bob(it contains Bob's public key and the signature of his public key) to Alice.
+2. Alice who wants to communicate with Bob, request the public key of Bob from the certification authority and then certification authority will give the certificate of Bob(it contains Bob's public key and the signature of his public key) to Alice.
 
-3 Alice check the signature adn verify that the public key comes from the certificate authority and not tampered in halfway.
+3. Alice check the signature adn verify that the public key comes from the certificate authority and not tampered in halfway.
 
-4 Alice encrypts the data through this public key and starts to communicate with Bob.
+4. Alice encrypts the data through this public key and starts to communicate with Bob.
 
-![图片来自《图解密码技术》](../pictures/密码技术/7.jpg)
+![llustrated Cryptographic Technology](../pictures/密码技术/7.jpg)
 
-PS: the above is for description.In real,certificate is only installed once instead of request from certificate authority every time and it is the server sends the certificate to client not the certificate authority.
+> PS: the above is for description.In real,certificate is only installed once instead of request from certificate authority every time and it is the server sends the certificate to client not the certificate authority.
 
-Some people may ask if Alice want to verify the validity of the certificate, he must have the public key of the authority.Isn't it the dead cycle mentioned just now? 
+Some people may ask if Alice want to verify the validity of the certificate, he must have the public key of the authority.Isn't it the dead cycle mentioned just now?
 
 The regular browser we pre-installed contains trusted certificate to verity the identity of certificate authority,so the certificate is credible.
 
@@ -158,7 +161,7 @@ Except for the trusted public key of Bob, the communication of Alice and Bob is 
 
 Most of the regular websites nowadays apply HTTPS protocol, that adds a SSL/TLS secure layer between the HTTP protocol and the TCP protocol. After the TCP handshake, SSL protocol layer also handshake to exchange secure information including the certificate of the website, so that the browser can verify the website. After SSL layer finish the verification, the data in the HTTP protocol is encrypted to guarantee secure transmission.
 
-### Sixth、Summary
+## Sixth, Summary
 
 Symmetric encryption algorithm use the same secret key to encrypt and decrypt, is hard to crack, encrypt quickly, but has the problem of secret key transmission.
 
@@ -174,4 +177,3 @@ The public-key certificate is the public key plus the signature,issued by a trus
 The SSL/TLS secure layer in HTTPS protocol includes these encryption methods above.**So do not install irregular browser and certificate of unknown source**.
 
 Cryptography is a little part of the security.Even though the HTTPS websites certified by a formal authority are not totally trusted,it only indicates the transition of the data is safe.Technology can not protect you.The most important thing is to improve personal safety awareness,pay more attention and handle sensitive data carefully.
-

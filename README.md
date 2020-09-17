@@ -1,19 +1,22 @@
+# Fucking algorithm
+
 English translation is in progress... Some articles are still in Chinese, but most are completed. Please **star** this repo. The full translation will eventually be finished. Enjoy.
 
 These articles go over different kinds of **Algorithmic Thinking**. All are based on LeetCode problems. They are **not only the solution code for the problem, but also WHY the solution works and HOW we can figure it out**.
 
 I don't like one-liners. They can be confusing. I like clear, easily understandable code.
 
-The **Gitbook** has been deployed and will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
+The **Gitbook** has been deployed and will sync with this branch of the repo: [https://labuladong.gitbook.io/algo-en/](https://labuladong.gitbook.io/algo-en/)
 
 If you want to clone this repo, please use following command:
 
 ```shell
 git clone --depth 1  --branch english https://github.com/labuladong/fucking-algorithm.git
 ```
+
 This command specifies the `english` branch and will limit the depth of the clone and get rid of the Git commit history, which can be faster to clone.
 
-# Table of Contents
+## Table of Contents
 
 * I. Dynamic Programming
   * [Dynamic Programming in Details](dynamic_programming/AnalysisOfDynamicProgramming.md)
