@@ -64,10 +64,11 @@ from collections import deque
 假设原始队列是[1,2]，那么先走的那一位是队列里面的1。我们的sort_que的头部理应为2，因为原始队列[1,2]的最大值是2。即使对原始队列[1,2]调用pop_front造成1的离开，最大值依然是2，此时，我们仍然需要保持sort_que的头部仍是2。
 
 这个要求，就衍生出了sort_que队列的怎么排序了，请看代码：
-
+```py
 while sort_que and sort_que[-1] < value:
-sort_que.pop()
+    sort_que.pop()
 self.sort_que.append(value)
+```
 这就是说，如果sort_que不为空，并且sort_que的最后一位元素小于当前入队元素value的话，直接把最后一位元素弹走，直到sort_que为空，或sort_que的最后一位元素大于等于value。这就保证了，sort_que的头部总是原始队列que的最大值~
 
 第二个问题：原始队列que发生pop_front时sort_que该怎么变动？
