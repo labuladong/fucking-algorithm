@@ -172,3 +172,7 @@ Gitbook 地址：https://labuladong.gitbook.io/algo/
 如果本仓库对你有帮助，可以请作者喝杯速溶咖啡
 
 <img src="pictures/pay.jpg" width = "200" align=center />
+
+
+
+ls|awk -F"_" '{print $2}'|awk -F"." '{print $1}'
