@@ -1,3 +1,15 @@
+**寻找从 1 到 n 的所有素数**
+`i` 不需要遍历到 `n`，而只需要到 `sqrt(n)`
+两个 for 循环。 第二个 从 `i**2` 开始， 标记 不是素数的数
+
+<!-- TOC -->
+
+- [如何高效寻找素数](#如何高效寻找素数)
+        - [高效实现 `countPrimes`](#高效实现-countprimes)
+        - [最终 code](#最终-code)
+
+<!-- /TOC -->
+
 # 如何高效寻找素数
 
 素数的定义看起来很简单，如果一个数如果只能被 1 和它本身整除，那么这个数就是素数。
@@ -152,6 +164,7 @@ int countPrimes(int n) {
 
 [ruicore](https://github.com/ruicore/algorithm) 提供 Python3 代码：
 
+### 最终 code
 ```py
 class Solution:
     def countPrimes(self, n: int):
