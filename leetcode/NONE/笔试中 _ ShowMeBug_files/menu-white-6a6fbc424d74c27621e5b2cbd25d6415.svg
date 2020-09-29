@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        stroke: #707070;
+        opacity: 0;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="组_3658" data-name="组 3658" transform="translate(-19 -1041)">
+    <g id="矩形_785" data-name="矩形 785" class="cls-1" transform="translate(19 1041)">
+      <rect class="cls-3" width="16" height="16"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="15" height="15"/>
+    </g>
+    <g id="组_3652" data-name="组 3652" transform="translate(0 -0.6)">
+      <circle id="椭圆_162" data-name="椭圆 162" class="cls-2" cx="0.6" cy="0.6" r="0.6" transform="translate(20 1054)"/>
+      <circle id="椭圆_163" data-name="椭圆 163" class="cls-2" cx="0.6" cy="0.6" r="0.6" transform="translate(20 1049)"/>
+      <circle id="椭圆_164" data-name="椭圆 164" class="cls-2" cx="0.6" cy="0.6" r="0.6" transform="translate(20 1044)"/>
+      <rect id="矩形_673" data-name="矩形 673" class="cls-2" width="11" height="1.2" rx="0.6" transform="translate(23 1054)"/>
+      <rect id="矩形_674" data-name="矩形 674" class="cls-2" width="11" height="1.2" rx="0.6" transform="translate(23 1049)"/>
+      <rect id="矩形_675" data-name="矩形 675" class="cls-2" width="11" height="1.2" rx="0.6" transform="translate(23 1044)"/>
+    </g>
+  </g>
+</svg>

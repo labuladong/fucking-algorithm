@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="组_3951" data-name="组 3951" transform="translate(-1708 -1040)">
+    <rect id="矩形_1" data-name="矩形 1" width="22" height="22" transform="translate(1708 1040)" fill="#fff" opacity="0"/>
+    <g id="组_3104" data-name="组 3104" transform="translate(1.385 1.385)">
+      <g id="矩形_684" data-name="矩形 684" transform="translate(1709.615 1041.615)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+        <rect width="16" height="16" stroke="none"/>
+        <rect x="0.5" y="0.5" width="15" height="15" fill="none"/>
+      </g>
+      <g id="组_3103" data-name="组 3103" transform="translate(1709.979 1041.978)">
+        <path id="路径_576" data-name="路径 576" d="M464.514,265.022h-2.8v-3.846a.465.465,0,0,0-.456-.521.5.5,0,0,0-.456.521v4.367a.446.446,0,0,0,.456.456h3.259a.465.465,0,0,0,.521-.456.561.561,0,0,0-.521-.521Z" transform="translate(-453.896 -256.673)" fill="#32cc8f" stroke="#32cc8f" stroke-width="1"/>
+        <path id="路径_577" data-name="路径 577" d="M7.547,0a7.547,7.547,0,1,0,7.547,7.547A7.525,7.525,0,0,0,7.547,0Zm0,14A6.449,6.449,0,1,1,14,7.547,6.441,6.441,0,0,1,7.547,14Z" transform="translate(0 0)" fill="#32cc8f" stroke="#32cc8f" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
