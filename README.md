@@ -1,13 +1,9 @@
 English version repo and Gitbook is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english). Just enjoy：)
 
-<p align='center'>
-<img src="https://gitee.com/labuladong/pictures/raw/master/starHistory.png" width = "600" />
-</p>
-
 # labuladong 的算法小抄
 
 <p align='center'>
-<a href="https://labuladong.gitbook.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=GitBook&style=flat-square&down_color=blue&down_message=online&up_color=blue&up_message=online&url=https%3A%2F%2Flabuladong.gitbook.io%2Falgo&logo=Gitea"></a>
+<a href="https://labuladong.gitbook.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitbook.io%2Falgo&logo=Gitea"></a>
 <a href="https://github.com/labuladong/fucking-algorithm" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 </p>
 
@@ -16,6 +12,10 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 <a href="https://www.zhihu.com/people/labuladong" target="_blank"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
 <a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg" target="_blank"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
 <a href="https://space.bilibili.com/14089380" target="_blank"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+<p align='center'>
+<img src="https://gitee.com/labuladong/pictures/raw/master/starHistory.png" width = "600" />
 </p>
 
 
