@@ -434,10 +434,12 @@ def KMP(_raw_str, _pattern_str):
             x = dp[x][_odr(_p[i])]
         return dp
     dp = search(_pattern_str)
-    for index, i in enumerate(_pattern_str):
-        for index2,j in enumerate(dp[index]):
-            if j:
-                print "## ", index, " : ", chr(index2 +33),dp[index][index2]
+
+    ## zhan'shi
+    # for index, i in enumerate(_pattern_str):
+    #     for index2,j in enumerate(dp[index]):
+    #         if j:
+    #             print "## ", index, " : ", chr(index2 +33),dp[index][index2]
     j = 0
     for i in range(len(_raw_str)):
         print '## ',_odr(_raw_str[i])
