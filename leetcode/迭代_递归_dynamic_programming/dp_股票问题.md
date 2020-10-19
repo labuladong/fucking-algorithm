@@ -2,12 +2,13 @@
 
 - [all](#all)
     - [conclusion](#conclusion)
-    - [这种是传地址 [[]*n]*m](#%E8%BF%99%E7%A7%8D%E6%98%AF%E4%BC%A0%E5%9C%B0%E5%9D%80-nm)
-    - [只交易一次](#%E5%8F%AA%E4%BA%A4%E6%98%93%E4%B8%80%E6%AC%A1)
-    - [交易 无数次](#%E4%BA%A4%E6%98%93-%E6%97%A0%E6%95%B0%E6%AC%A1)
-    - [交易两次](#%E4%BA%A4%E6%98%93%E4%B8%A4%E6%AC%A1)
-    - [交易 k 次](#%E4%BA%A4%E6%98%93-k-%E6%AC%A1)
-    - [冷冻期](#%E5%86%B7%E5%86%BB%E6%9C%9F)
+    - [这种是传地址 [[]*n]*m](#这种是传地址-nm)
+    - [只交易一次](#只交易一次)
+    - [交易 无数次](#交易-无数次)
+    - [交易两次](#交易两次)
+    - [交易 k 次](#交易-k-次)
+        - [my code](#my-code)
+    - [冷冻期](#冷冻期)
     - [Best Time to Buy and Sell Stock with Transaction Fee](#best-time-to-buy-and-sell-stock-with-transaction-fee)
 
 <!-- /TOC -->
@@ -113,13 +114,55 @@ three Dimensions
 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
-        _res, _max_record = 0, 0
-        for i in xrange(1, len(prices)):     
-            _max_record = max(_max_record, prices[-i])
-            if _max_record > prices[-i-1]:
-                _res = _res + _max_record - prices[-i-1]
-                _max_record = prices[-i-1]
-        return _res
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices) <=1: return 0
+        status_now = 0
+        status_nothing = 0 ##  to nothing, to sell
+        status_sell = 1  ##     
+        status_buy = -1  ##   to nothing, to sell
+        current_money = 0
+        
+        status_init = 0
+        stock_list = [[0,0,0] for _ in prices] ## nothing,buy, sell.
+        stock_list[0] = [0,-prices[0],0]
+        for i in range(1,len(prices)):
+            stock_list[i][0] = max(stock_list[i-1][2], stock_list[i-1][0])
+            stock_list[i][1] = max(stock_list[i][0] - prices[i], stock_list[i-1][1])
+            stock_list[i][2] = max(stock_list[i-1][1] + prices[i],stock_list[i-1][0])
+            # print "## ",stock_list[i]
+        return max(stock_list[-1])
+```
+
+优化后
+```py
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices) <=1: return 0
+        # status_now = 0
+        # status_nothing = 0 ##  to nothing, to sell
+        # status_sell = 1  ##     
+        # status_buy = -1  ##   to nothing, to sell
+        # current_money = 0
+        
+        status_init = 0
+        stock_list_last = [0,0] ## nothing,buy, sell.
+        stock_list_now = [0,0] ## nothing,buy, sell.
+        stock_list_last = [0,-prices[0]]
+        for i in range(1,len(prices)):
+            stock_list_now[0] = max(stock_list_last[1] + prices[i],stock_list_last[0])
+            stock_list_now[1] = max(stock_list_now[0] - prices[i], stock_list_last[1])
+            stock_list_last[:2] = stock_list_now[0:2]
+            # print "## ",stock_list_now
+        return max(stock_list_last)
 ```
 
 ## 交易两次
@@ -216,6 +259,55 @@ class Solution(object):
                 print i,dp[i]
             return dp[-1][-1][0]
 ```
+### my code
+
+```py
+class Solution(object):
+    def maxProfit(self, k, prices):
+        """
+        :type k: int
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices) <=1: return 0
+        status_now = 0
+        status_nothing = 0 ##  to nothing, to sell
+        status_buy = -1  ##   to nothing, to sell
+        current_money = 0
+
+        if k > len(prices)/2:
+            stock_list_last = [0,0] ## nothing,buy, sell.
+            stock_list_now = [0,0] ## nothing,buy, sell.
+            stock_list_last = [0,-prices[0]]
+            for i in range(1,len(prices)):
+                stock_list_now[0] = max(stock_list_last[1] + prices[i],stock_list_last[0])
+                stock_list_now[1] = max(stock_list_now[0] - prices[i], stock_list_last[1])
+                stock_list_last[:2] = stock_list_now[0:2]
+            return max(stock_list_last)
+        
+
+        stock_list_last = [[0,0] for _ in xrange(k+1)]
+        stock_list_now = [[0,0] for _ in xrange(k+1)]
+        stock_list_last[0] = [0,-prices[0]]
+        for i in xrange(1,len(prices)):
+            stock_list_now[0][0] = 0
+            stock_list_now[0][1] = max(stock_list_last[0][1],-prices[i])
+            for j in xrange(1,k+1):
+                if j <= (i/2+1) and j <= i:
+                # print "&& ",i,j
+                    if j < i:
+                        stock_list_now[j][0] = max(stock_list_last[j-1][1] + prices[i],stock_list_last[j][0])
+                        stock_list_now[j][1] = max(stock_list_last[j][0] - prices[i], stock_list_last[j][1])
+                    else:
+                        stock_list_now[j][0] = stock_list_last[j-1][1] + prices[i]
+                        stock_list_now[j][1] = max(stock_list_last[j-1][0] - prices[i], stock_list_last[j-1][1])
+            stock_list_last[:i+1] = stock_list_now[:i+1]
+        if k > len(prices)/2:
+            cc = len(prices)/2
+            return max(max(stock_list_last[:cc+1]))
+        return max(max(stock_list_last))
+```
+
 
 ## 冷冻期
 ```py
