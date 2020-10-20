@@ -71,7 +71,7 @@ ListNode reverse(ListNode a) {
 「反转以 `a` 为头结点的链表」其实就是「反转 `a` 到 null 之间的结点」，那么如果让你「反转 `a` 到 `b` 之间的结点」，你会不会？
 
 只要更改函数签名，并把上面的代码中 `null` 改成 `b` 即可：
-
+[labuladong](https://github.com/labuladong) 提供Java解法代码：
 ```java
 /** 反转区间 [a, b) 的元素，注意是左闭右开 */
 ListNode reverse(ListNode a, ListNode b) {
@@ -88,9 +88,23 @@ ListNode reverse(ListNode a, ListNode b) {
     return pre;
 }
 ```
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
+```C++
+ListNode* reverse(ListNode* begin,ListNode* end) {
+    ListNode* newHead = nullptr;
+    ListNode* cur = begin;
+    while(cur != end) {
+        ListNode* next = cur->next;
+        cur->next = newHead;
+        newHead = cur;
+        cur = next;
+    }
+    return newHead;
+}
+```
 
 现在我们迭代实现了反转部分链表的功能，接下来就按照之前的逻辑编写 `reverseKGroup` 函数即可：
-
+[labuladong](https://github.com/labuladong) 提供Java解法代码：
 ```java
 ListNode reverseKGroup(ListNode head, int k) {
     if (head == null) return null;
@@ -109,7 +123,37 @@ ListNode reverseKGroup(ListNode head, int k) {
     return newHead;
 }
 ```
-
+[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
+```C++
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(!head)   return head;
+        ListNode* begin = head;
+        ListNode* end = head;
+        for(int i = 0 ; i < k ; ++i) {
+            if(!end)
+                return head;
+            end = end->next;
+        }
+        ListNode* newHead = reverse(begin,end);
+        begin->next = reverseKGroup(end,k);
+        return newHead;
+    }
+private:
+    ListNode* reverse(ListNode* begin,ListNode* end) {
+        ListNode* newHead = nullptr;
+        ListNode* cur = begin;
+        while(cur != end) {
+            ListNode* next = cur->next;
+            cur->next = newHead;
+            newHead = cur;
+            cur = next;
+        }
+        return newHead;
+    }
+};
+```
 解释一下 `for` 循环之后的几句代码，注意 `reverse` 函数是反转区间 `[a, b)`，所以情形是这样的：
 
 ![](../pictures/kgroup/6.jpg)
@@ -130,6 +174,49 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 ![labuladong](../pictures/labuladong.jpg)
 
+
+
+[KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
+
+```python
+# 反转区间 [a, b) 的元素
+def reverse(a, b):
+    pre = None
+    cur = a
+    while cur != b:
+        cur.next, pre, cur = pre, cur, cur.next
+        return pre
+```
+
+[KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
+
+```python
+class Solution:
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        if not head:
+            return
+        #  区间 [a, b) 包含 k 个待反转元素
+        a = b = head
+        for _ in range(k):
+            # 不足 k 个，不需要反转，base case
+            if not b:
+                return head
+            b = b.next
+
+        # 反转区间 [a, b) 的元素
+        def reverse(a, b):
+            pre = None
+            cur = a
+            while cur != b:
+                cur.next, pre, cur = pre, cur, cur.next
+            return pre
+
+        #  反转前 k 个元素
+        newHead = reverse(a, b)
+        # 递归反转后续链表并连接起来
+        a.next = self.reverseKGroup(b, k)
+        return newHead
+```
 
 [上一篇：如何寻找最长回文子串](../高频面试系列/最长回文子串.md)
 
