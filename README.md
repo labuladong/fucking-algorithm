@@ -53,7 +53,7 @@ This command specifies the `english` branch and will limit the depth of the clon
   * [LRU Cache Strategy in Detail](interview/LRU_algorithm.md)
   * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
   * [Special Data Structure: Monotonic Stack](data_structure/MonotonicStack.md)
-  * [Special Data Structure: Monotonic Stack](data_structure/Monotonic_queue.md)
+  * [Special Data Structure: Monotonic Queue](data_structure/Monotonic_queue.md)
   * [Design Twitter](data_structure/design_Twitter.md)
   * [Reverse Part of Linked List via Recursion](data_structure/reverse_part_of_a_linked_list_via_recursion.md)
   * [Queue Implement Stack/Stack implement Queue](data_structure/ImplementQueueUsingStacksImplementStackUsingQueues.md)
