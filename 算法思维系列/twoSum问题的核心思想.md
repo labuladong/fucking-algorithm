@@ -1,5 +1,27 @@
 # twoSum问题的核心思想
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitbook.io/algo)
+  * [经典动态规划：完全背包问题](https://labuladong.gitbook.io/algo)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[1.两数之和](https://leetcode-cn.com/problems/two-sum)
+
+[170.两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+
+**-----------**
+
 Two Sum 系列问题在 LeetCode 上有好几道，这篇文章就挑出有代表性的几道，介绍一下这种问题怎么解决。
 
 ### TwoSum I
@@ -153,112 +175,12 @@ int[] twoSum(int[] nums, int target) {
 
 
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-![labuladong](../pictures/labuladong.jpg)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
 
-[labuladong](https://github.com/labuladong) 提供TwoSum I JAVA解法代码：
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
-```JAVA
-int[] twoSum(int[] nums, int target) {
-    int n = nums.length;
-    index<Integer, Integer> index = new HashMap<>();
-    // 构造一个哈希表：元素映射到相应的索引
-    for (int i = 0; i < n; i++)
-        index.put(nums[i], i);
-    
-    for (int i = 0; i < n; i++) {
-        int other = target - nums[i];
-        // 如果 other 存在且不是 nums[i] 本身
-        if (index.containsKey(other) && index.get(other) != i)
-            return new int[] {i, index.get(other)};
-    }
-    
-    return new int[] {-1, -1};
-}
-```
-
-[Jinglun Zhou](https://github.com/Jasper-Joe) 提供TwoSum I C++解法代码：
-
-```CPP
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        int n=nums.size();
-        unordered_map<int,int> index;
-        // 构造一个哈希表： 元素映射到相应的索引
-        for(int i=0;i<n;i++) // 进行预处理
-            index[nums[i]]=i; // 当前的元素作为key, 当前的索引作为value
-        
-        for(int i=0;i<n;i++)
-        {
-            int other=target-nums[i];// 得到能与nums[i]相加凑成target的另外那个数
-            // 如果other存在且不是nums[i]本身
-            if(index.count(other) && index[other]!=i)
-                return {i,index[other]};
-        }
-        
-        return {-1,-1};// 如果不存在返回{-1,-1}, 当然根据题意必然存在解
-    }
-};
-```
-[labuladong](https://github.com/labuladong) 提供TwoSum II JAVA解法代码：
-
-```JAVA
-class TwoSum {
-    Map<Integer, Integer> freq = new HashMap<>();
-
-    public void add(int number) {
-        // 记录 number 出现的次数
-        freq.put(number, freq.getOrDefault(number, 0) + 1);
-    }
-    
-    public boolean find(int value) {
-        for (Integer key : freq.keySet()) {
-            int other = value - key;
-            // 情况一
-            if (other == key && freq.get(key) > 1)
-                return true;
-            // 情况二
-            if (other != key && freq.containsKey(other))
-                return true;
-        }
-        return false;
-    }
-}
-```
-[Jinglun Zhou](https://github.com/Jasper-Joe) 提供TwoSum II C++解法代码：
-
-```CPP
-class TwoSum {
-public:
-    unordered_map<int,int> freq; // key为当前加入的元素，value为当前加入元素一共出现的频率
-    TwoSum() {} // constructor
-
-    void add(int number) {
-        // 记录number出现的次数
-        freq[number]++;
-    }
-
-    bool find(int value) {
-        for(auto& cur:freq)
-        {
-            int other=value-cur.first;
-            // 情况一： other和当前这个元素一样大，所以需要两个这个的元素才能构成value
-            if(other==cur.first && cur.second>1)
-                return true;
-            // 情况二： other和当前这个元素不一样，other在freq中需要至少出现一次，与twoSum I道理一样
-            if(other!=cur.first && freq.count(other))
-                return true;
-        }
-        return false;
-    }
-};
-```
-
-
-[上一篇：滑动窗口技巧](../算法思维系列/滑动窗口技巧.md)
-
-[下一篇：常用的位操作](../算法思维系列/常用的位操作.md)
-
-[目录](../README.md#目录)
+<p align='center'>
+<img src="../pictures/table_qr2.jpg" width=500 >
+</p>
