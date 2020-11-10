@@ -1,0 +1,31 @@
+解题思路
+遇到相同的就一直遍历到不同为止，期间一直累加遍历过的数，最后减去遍历过的数中的最大值
+
+代码
+class Solution {
+    public int minCost(String s, int[] cost) {
+        char ch[]=s.toCharArray();
+        int max=0;
+        int sum=0;
+        for(int i=0;i<ch.length-1;i++){
+            if(ch[i]==ch[i+1])
+            {
+                int j=i+1;
+            max=cost[i];
+            while(j<ch.length&&ch[i]==ch[j]){
+                sum+=cost[j-1];
+                max=Math.max(max,cost[j]);
+                j++;
+            }
+            sum+=cost[j-1];
+            sum-=max;
+            max=0;
+            if(j==ch.length-1)break;
+            i=j-1;
+            }
+        }
+        return sum;
+    }
+}
+
+
