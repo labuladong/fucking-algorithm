@@ -157,3 +157,68 @@ ListNode reverseKGroup(ListNode head, int k) {
 </p>
 
 ======其他语言代码======
+public ListNode reverseKGroup(ListNode head, int k) {
+        // 设立哨兵pre节点
+        ListNode pre = new ListNode(Integer.MIN_VALUE);
+        pre.next = head;
+        // 用于记录头节点来返回
+        ListNode hair = pre;
+
+        // 初始化tail，代表每个切分链表的末尾
+        ListNode tail = pre;
+        ListNode start,next;
+
+        // 遍历链表
+        while (tail.next!=null){
+            // 移动tail到各小段链表末尾
+            for(int i=0;i<k&&tail!=null;i++){
+                tail = tail.next;
+            }
+            if (tail == null){
+                break;
+            }
+            // 设置next
+            next = tail.next;
+            // 设置start为起始
+            start = pre.next;
+            // 断开链表
+            tail.next = null;
+            // 反转链表（head，tail）
+            pre.next = reverse(start);
+            // 接上链表末尾,此时start为反转后链表末尾
+            start.next = next;
+            // 移动指针寻找下一段链表
+            // 此时start已经是当前逆序链表的末尾
+            pre = start;
+            // 移动末尾为pre下一次继续根据k移动tail
+            tail = pre; 
+
+
+        }
+
+        return hair.next;
+    }
+
+    /**
+    * 反转链表
+    * @param head 头节点
+    * @return
+    */
+    private ListNode reverse(ListNode head){
+        // pre是指向前一个节点的指针，初始头节点前面的null
+        ListNode pre = null;
+        // curr是当前节点
+        ListNode curr = head;
+        while (curr!=null){
+            // 记录下一个节点的指针
+            ListNode next = curr.next;
+            // 将指向下一个节点的指针反转指向前一个节点
+            curr.next = pre;
+            // 更新前一个节点（后移
+            pre = curr;
+            // 后移当前节点
+            curr = next;
+        }
+        // 最后pre会移动到最后，但此时由于链表反转pre正好是反转后的头
+        return pre;
+    }
