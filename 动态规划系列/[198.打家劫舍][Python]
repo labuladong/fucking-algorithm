@@ -1,0 +1,22 @@
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # 初始化
+        if len(nums) == 0:
+            return 0
+        if len(nums) == 1:
+            return nums[0]
+
+        f = [0] * len(nums)
+        
+        f[0] = nums[0]
+        f[1] = max(nums[0], nums[1])
+        
+        for i in range(2, len(nums)):
+            f[i] = max(nums[i] + f[i-2], f[i-1]) # 抢或者不抢，选最大值
+        
+        return f[-1]
+        
