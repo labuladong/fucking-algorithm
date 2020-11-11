@@ -1,0 +1,25 @@
+class Solution {
+    //单调栈解法
+    public int largestRectangleArea(int[] heights) {
+        int len=heights.length;
+        if(len==0)return 0;
+        if(len==1)return heights[0];
+        int[] newheights = new int[len+2]; //第一个和最后一个位置设置哨兵，确保所有元素能够弹出
+        
+        System.arraycopy(heights, 0, newheights, 1, len);
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        
+        heights=newheights;
+        int max=0;
+        for (int i = 1; i < heights.length; i++) {
+            while(heights[stack.peek()]>heights[i]){ //向左遍历，找到第一个比当前元素矮的柱子H,则H到当前元素i之间的矩形面积可以确定
+                int curHeight =heights[stack.pop()]; //位置H的高度
+                int curWidth = i-stack.peek()-1;     //H到i的距离
+                max=Math.max(max,curHeight*curWidth); //不断更新最大面积
+            }
+            stack.push(i);
+        }
+        return max;
+    }
+}
