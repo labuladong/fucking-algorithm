@@ -1,0 +1,15 @@
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        if(head == None):
+            return False
+        i = head
+        j = head.next
+        
+        while (j != None and j.next != None): ## i指针每次1步， j指针每次2步
+            if(i == j):    
+                return True
+            i = i.next
+            j = j.next.next
+        return False
+    
+    
