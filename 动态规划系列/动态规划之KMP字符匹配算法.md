@@ -432,3 +432,51 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 </p>
 
 ======其他语言代码======
+#### [shiluwu](https://github.com/shiluwu23) 提供 Java 代码, 方法: Rabin Karp （hashcode）
+      Linear scan Time: O(n) Space: O(1)  通过计算字符串的hashcode来进行匹配
+      
+```java
+class Solution {
+    public int strStr(String source, String target) {
+        if(source == null) return -1;
+        if(target == null || target.length() == 0) return 0;
+
+        int n = source.length();
+        int m = target.length();
+        final int BASE = 1000000;
+
+        // 31 ^ m
+        int power = 1;
+        for(int i = 0; i < m; i++){
+            power = (power * 31) % BASE;
+        }
+
+        // calculate the target hashcode
+        int targetCode = 0;
+        for(int i = 0; i < m; i++){
+            targetCode = (targetCode * 31 + target.charAt(i)) % BASE; 
+        }
+
+        // calculate hashCode for source string: abc + d - a
+        int hashCode = 0;
+        for(int i = 0; i < n; i++){
+            hashCode = (hashCode * 31 + source.charAt(i)) % BASE;  // abc + d
+
+            if(i < m - 1){ // doesn't reach the length of target yet, keep expanding
+                continue;
+            }
+
+            if(i >= m){ // reach the length of target string, delete the frst char
+                hashCode = hashCode - (source.charAt(i - m) * power) % BASE;
+                if(hashCode < 0){
+                    hashCode += BASE;
+                }
+            }
+
+            if(hashCode == targetCode )  return i - m + 1;
+        }
+
+        return -1;
+    }
+}
+```
