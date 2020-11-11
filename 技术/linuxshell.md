@@ -1,3 +1,21 @@
+# 关于 Linux shell 你必须知道的技巧
+
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [状态压缩：对动态规划进行降维打击](https://labuladong.gitbook.io/algo)
+  * [我用四个命令概括了 Git 的所有套路](https://labuladong.gitbook.io/algo)
+
+**-----------**
+
 我个人很喜欢使用 Linux 系统，虽然说 Windows 的图形化界面做的确实比 Linux 好，但是对脚本的支持太差了。一开始有点不习惯命令行操作，但是熟悉了之后反而发现移动鼠标点点点才是浪费时间的罪魁祸首。。。
 
 **那么对于 Linux 命令行，本文不是介绍某些命令的用法，而是说明一些简单却特别容易让人迷惑的细节问题**。
@@ -104,7 +122,7 @@ shell 的行为可以测试，使用`set -x`命令，会开启 shell 的命令�
 
 ### 四、sudo 找不到命令
 
-有时候我们普通用户可以用的命令，用`sudo`加权限之后却报错 command not found：
+有时候我们普通用户可以用的命令，用 `sudo` 加权限之后却报错 command not found：
 
 ```shell
 $ connect.sh
@@ -114,14 +132,14 @@ $ sudo connect.sh
 sudo: command not found
 ```
 
-原因在于，`connect.sh`这个脚本仅存在于该用户的环境变量中：
+原因在于，`connect.sh` 这个脚本仅存在于该用户的环境变量中：
 
 ```shell
 $ where connect.sh 
 /home/fdl/bin/connect.sh
 ```
 
-**当使用`sudo`时，系统认为是 root 用户在执行命令，所以会去搜索 root 用户的环境变量**，而这个脚本在 root 的环境变量目录中当然是找不到的。
+**当使用 `sudo` 时，系统会使用 `/etc/sudoers` 这个文件中规定的该用户的权限和环境变量**，而这个脚本在 `/etc/sudoers` 环境变量目录中当然是找不到的。
 
 解决方法是使用脚本文件的路径，而不是仅仅通过脚本名称：
 
@@ -129,13 +147,14 @@ $ where connect.sh
 $ sudo /home/fdl/bin/connect.sh
 ```
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-![labuladong](../pictures/labuladong.jpg)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
 
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
-[上一篇：一文看懂 session 和 cookie](../技术/session和cookie.md)
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
 
-[下一篇：加密算法的前身今世](../技术/密码技术.md)
-
-[目录](../README.md#目录)
+======其他语言代码======
