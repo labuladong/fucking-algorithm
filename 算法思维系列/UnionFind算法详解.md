@@ -314,5 +314,7 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
 <p align='center'>
-<img src="../pictures/table_qr2.jpg" width=500 >
+<img src="../pictures/qrcode.jpg" width=200 >
 </p>
+
+======其他语言代码======
