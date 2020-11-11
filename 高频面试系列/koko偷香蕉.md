@@ -170,6 +170,8 @@ for (int i = 0; i < n; i++)
 </p>
 
 ======其他语言代码======
+
+[tonytang731](https://https://github.com/tonytang731) 提供 Python3 代码：
 ```python
 import math
 
