@@ -171,7 +171,7 @@ for (int i = 0; i < n; i++)
 
 ======其他语言代码======
 
-C++ 代码：
+[cchroot](https://github.com/cchroot) 提供 C++ 代码：
 
 ```c++
 class Solution {
