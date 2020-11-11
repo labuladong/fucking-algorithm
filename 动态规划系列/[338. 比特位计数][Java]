@@ -1,0 +1,15 @@
+
+public int[] countBits(int num) {
+        if(num==0)return new int[]{0};
+        int []dp=new int[num+1]; //dp[i] 表示数i 的二进制表示有多少位的1，如果是偶数，最后一位必然是0，则当前数所含有的1等于它整体右移一位的数所含有的1
+//如果奇数，则相当于数i-1 的中1的个数再加一个 1 
+        dp[0]=0;
+        for(int i =1;i<=num;i++){
+            if(i%2==0){ //
+                dp[i]=dp[i/2]; //整体右移
+            }else{
+                dp[i]=dp[i-1]+1; //前一个数的1的个数再加一
+            }
+        }
+        return dp;
+    }
