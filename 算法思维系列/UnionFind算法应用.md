@@ -317,7 +317,7 @@ class Solution {
     public boolean validTree(int n, int[][] edges) {
         // 树的特性：节点数 = 边数 + 1
         if (edges.length != n - 1) return false;
-        graph_261.Solution.DisjointSet djs = new graph_261.Solution.DisjointSet(n);
+        DisjointSet djs = new DisjointSet(n);
         for (int[] edg : edges) {
             // 判断连通情况（如果合并的两个点在一个连通分量里，说明有环）
             if (!djs.union(edg[0], edg[1])) return false;
