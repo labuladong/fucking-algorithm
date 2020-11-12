@@ -211,3 +211,6 @@ class Solution:
                 return [i, hashTable[other_num]]
             # 如果不存在的话继续处理剩余的数
             hashTable[n] = i
+
+
+'''
