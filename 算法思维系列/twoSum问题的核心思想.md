@@ -191,8 +191,7 @@ int[] twoSum(int[] nums, int target) {
 
 ;; 只用一个哈希表
 
-'''Python
-
+```Python3
 class Solution:
     def twoSum(self, nums, target):
         """
@@ -211,6 +210,4 @@ class Solution:
                 return [i, hashTable[other_num]]
             # 如果不存在的话继续处理剩余的数
             hashTable[n] = i
-
-
-'''
+```
