@@ -157,3 +157,57 @@ ListNode reverseKGroup(ListNode head, int k) {
 </p>
 
 ======其他语言代码======
+//25.K个一组翻转链表 【C++】
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* pre = dummy;
+
+        while (head) {
+            ListNode* tail = pre;
+            // 查看剩余部分长度是否大于等于 k
+            for (int i = 0; i < k; ++i) {
+                tail = tail->next;
+                if (!tail) {
+                    return dummy->next;
+                }
+            }
+            ListNode* nex = tail->next;
+            pair<ListNode*, ListNode*> result = reverseList(head, tail);
+            head = result.first;//翻转后的子链表表头节点
+            tail = result.second;//翻转后的子链表表尾节点
+            // 把子链表重新接回原链表
+            pre->next = head;
+            tail->next = nex;
+
+            pre = tail;
+            head = tail->next;
+        }
+
+        return dummy->next;
+    }
+
+    //翻转链表，并返回翻转后的表头节点和表尾节点
+    pair<ListNode*, ListNode*> reverseList(ListNode* headNode, ListNode* tailNode)
+    {
+        ListNode* prev = tailNode->next;
+        ListNode* p = headNode;
+        while (prev != tailNode) {
+            ListNode* next = p->next;
+            p->next = prev;
+            prev = p;
+            p = next;
+        }
+        return {tailNode, headNode};
+    }
+};
