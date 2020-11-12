@@ -187,7 +187,7 @@ int[] twoSum(int[] nums, int target) {
 
 ======其他语言代码======
 
-由[JodyZ203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
+由[JodyZ0203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
 
 ;; 只用一个哈希表
 
