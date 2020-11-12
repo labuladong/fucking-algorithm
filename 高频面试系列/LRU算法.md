@@ -334,6 +334,39 @@ class LRUCache {
 }
 ```
 
+还有更简洁的基于LinkedHashMap实现LRU。继承LinkedHashMap,覆写removeEldestEntry方法
+
+```java
+class LRUCache {
+    class LRU<K, V> extends LinkedHashMap<K, V> implements Map<K, V> {
+        private static final long serialVersionUID = 1L;
+        private int LURSize;
+        public LRU(int capacity, float loadFactor, boolean accessOrder) {
+            super(capacity, loadFactor, accessOrder);
+            this.LURSize = capacity;
+        }
+        @Override
+        protected boolean removeEldestEntry(java.util.Map.Entry<K, V> eldest) {
+            if (size() > this.LURSize) {
+                return true;
+            }
+            return false;
+        }
+    }
+    private LRU<Integer, Integer> lru;
+    public LRUCache(int capacity) {
+        lru = new LRU(capacity, 0.75f, true);
+    }
+    public int get(int key) {
+        return lru.getOrDefault(key, -1);
+    }
+    public void put(int key, int value) {
+        lru.put(key, value);
+    }
+}
+```
+
+
 至此，LRU 算法就没有什么神秘的了，**敬请期待下文：LFU 算法拆解与实现**。
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
