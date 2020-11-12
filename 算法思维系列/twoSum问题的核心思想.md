@@ -191,7 +191,7 @@ int[] twoSum(int[] nums, int target) {
 
 ;; 只用一个哈希表
 
-```Python3
+```Python
 class Solution:
     def twoSum(self, nums, target):
         """
