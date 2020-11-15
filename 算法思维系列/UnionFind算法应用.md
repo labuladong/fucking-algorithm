@@ -18,7 +18,7 @@
 
 [130.被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
 
-[990.等式方程的可满足性](https://leetcode-cn.com/problems/surrounded-regions)
+[990.等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations)
 
 **-----------**
 
