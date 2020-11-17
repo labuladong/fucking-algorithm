@@ -14,6 +14,8 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 <a href="https://space.bilibili.com/14089380" target="_blank"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
+![](pictures/souyisou.png)
+
 <p align='center'>
 <img src="https://gitee.com/labuladong/pictures/raw/master/starHistory.png" width = "600" />
 </p>
