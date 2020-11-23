@@ -20,7 +20,7 @@ Give you an array `[2,1,2,4,3]`,and you return an array `[4,2,4,-1,-1]`.
 
 The number that is larger than `2` after `the first 2` is `4`.The number that is larger than `1` after `the first 1` is `2`. The number that is larger than `2` after `the second 2` is `4`.There is no number that is larger than `4` after `the fourth`,so  fill in `-1`.There is no number that is larger than `3` after `the third`,so fill in `-1`.   
 
-It's a good idea for the violent solution of this problem.It scans the back of each element to find the first larger element. But the time complexity of the violent solution is `O (n^2)`.         
+It's a good idea for the brute-force solution of this problem.It scans the back of each element to find the first larger element. But the time complexity of the brute-force solution is `O (n^2)`.         
 
 This problem can be thought abstractly: think of the elements in the array as people standing side by side, and the size of the elements as the height of an adult. These people stand in line before you. How to find the `Next Greater Number` of element `"2"`? Very simply, if you can see the element `"2"`, then the first person you can see behind him is the `Next Greater Number` of `"2"`. Because the element smaller than `"2"` is not tall enough and it is blocked by `"2"`,the first one not being blocked is the answer. 
 
