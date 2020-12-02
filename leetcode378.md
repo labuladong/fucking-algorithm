@@ -1,5 +1,3 @@
-
-
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
