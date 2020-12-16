@@ -6,7 +6,7 @@
 
 few days ago, I saw an interview paper of Tencent. In this paper, most of the algorithm problems are Dynamic programming. The last question is that writing a function to calculate the shortest editing Distance. Today I wrote an article specifically to discuss this problem.
 
-I personally like this problem because it looks very hard, the solution is Surprisingly simple and beautiful and it`s a rare algorithm which is not very useful.(yech, I recognized that many algorithm problems are not very useful.)Following is the problem:
+I personally like this problem because it looks very hard, the solution is Surprisingly simple and beautiful and it`s a rare algorithm which is very useful.(yech, I recognized that many algorithm problems are not very useful.)Following is the problem:
 
 ![](../pictures/editDistance/title.png)
 
