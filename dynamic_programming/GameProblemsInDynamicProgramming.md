@@ -33,7 +33,7 @@ Before we introduce what a dp array means,let's take a look at what it ultimatel
 
 ![1](../pictures/GameProblems/1.png)
 
-As explained below,tupels are considered to be a calss containing first and second atrributes,And to save space,these two atrributes are abbreviated to fir and sec.As shown in the figure above,we think `dp[1][3].fir = 10`，`dp[0][1].sec = 3`.
+As explained below,tuples are considered to be a object containing first and second atrributes,And to save space,these two atrributes are abbreviated to fir and sec. As shown in the figure above,we think `dp[1][3].fir = 10`，`dp[0][1].sec = 3`.
 
 Start by answering a few questions that readers might ask:
 
