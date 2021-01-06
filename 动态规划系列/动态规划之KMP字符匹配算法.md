@@ -430,5 +430,82 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
+
+### javascript实现
+
+```js
+class KMP {
+  constructor(pat) {
+    this.pat = pat;
+    let m = pat.length;
+
+    // dp[状态][字符] = 下个状态  初始化一个m*256的整数矩阵
+    this.dp = new Array(m);
+    for (let i = 0; i < m; i++) {
+      this.dp[i] = new Array(256);
+      this.dp[i].fill(0, 0, 256);
+    }
+
+    // base case
+    this.dp[0][this.pat[0].charCodeAt()] = 1;
+
+    // 影子状态X 初始为0
+    let x = 0;
+
+    // 构建状态转移图
+    for (let j = 1; j < m; j++) {
+      for (let c = 0; c < 256; c++) {
+        this.dp[j][c] = this.dp[x][c];
+      }
+
+      // dp[][对应的ASCII码]
+      this.dp[j][this.pat[j].charCodeAt()] = j + 1;
+
+      // 更新影子状态
+      x = this.dp[x][this.pat[j].charCodeAt()]
+    }
+  }
+
+  search(txt) {
+
+    let m = this.pat.length;
+    let n = txt.length;
+
+    // pat的初始态为0
+    let j = 0;
+    for (let i = 0; i < n; i++) {
+      // 计算pat的下一个状态
+      j = this.dp[j][txt[i].charCodeAt()];
+
+      // 到达终止态 返回结果
+      if (j === m) return i - m + 1;
+    }
+
+    // 没到终止态 匹配失败
+    return -1;
+  }
+
+}
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function(haystack, needle) { 
+  if(haystack === ""){
+    if(needle !== ""){
+      return -1;
+    }
+    return 0;
+  }
+
+  if(needle === ""){
+    return 0;
+  }
+  let kmp = new KMP(needle);
+  return kmp.search(haystack)
+};
+```
+
