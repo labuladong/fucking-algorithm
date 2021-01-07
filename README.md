@@ -3,7 +3,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 # labuladong 的算法小抄
 
 <p align='center'>
-<a href="https://labuladong.gitbook.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitbook.io%2Falgo&logo=Gitea"></a>
+<a href="https://labuladong.gitee.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitee.io%2Falgo&logo=Gitea"></a>
 <a href="https://github.com/labuladong/fucking-algorithm" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 </p>
 
@@ -43,7 +43,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 Gitbook 地址：https://labuladong.gitbook.io/algo
 
-有部分读者反映 GitBook 访问速度较慢，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
+GitBook 在国内访问速度很慢，且常被攻击，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
 
 GitHub Pages 地址：https://labuladong.github.io/algo
 
