@@ -43,7 +43,11 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 Gitbook 地址：https://labuladong.gitbook.io/algo
 
+<<<<<<< master
 有部分读者反映 GitBook 访问速度较慢，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
+=======
+GitBook 在国内访问速度很慢，且常被攻击，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
+>>>>>>> master
 
 GitHub Pages 地址：https://labuladong.github.io/algo
 
