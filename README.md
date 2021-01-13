@@ -190,7 +190,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo
 [Tianhao Zhou](https://github.com/tianhaoz95), 
 [timmmGZ](https://github.com/timmmGZ), 
 [tommytim0515](https://github.com/tommytim0515), 
-[upbin](https://github.com/upbin), 
+[ucsk](https://github.com/ucsk), 
 [wadegrc](https://github.com/wadegrc), 
 [walsvid](https://github.com/walsvid), 
 [warmingkkk](https://github.com/warmingkkk), 
