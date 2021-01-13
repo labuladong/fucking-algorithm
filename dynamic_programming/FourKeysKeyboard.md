@@ -1,6 +1,6 @@
 # 4 Keys Keyboard
 
-**Translator: [upbin](https://github.com/upbin)**
+**Translator: [ucsk](https://github.com/ucsk)**
 
 **Author: [labuladong](https://github.com/labuladong)**
 
@@ -10,25 +10,25 @@ We can't wait to solve this problem:
 
 ![](../pictures/4keyboard/title.png)
 
-After reading the question, think about how to get the maximum number of characters 'A' after typing `N` times on the keyboard? We are more familiar with trying questions using enumeration. Whenever we want to press the keyboard (and can press it), there are `4 buttons` for us to choose from, we can enumerate every possible operation It is obvious that this is a dynamic programming problem.
+After reading the question, think about how to get the maximum number of characters 'A' after typing `N` times of the keyboard? We are more familiar with trying questions using enumeration. Whenever we want to press the keyboard (and can press it), there are `4 buttons` for us to choose from, we can enumerate every possible operation It is obvious that this is a dynamic programming problem.
 
 ### Discuss the first method
 
-This kind of problem-solving idea is easy to understand, but the efficiency is not high. We follow the routine directly: **for dynamic programming problems, we must first understand which are [ states ] and which are [ choices ].**
+This kind of problem-solving idea is easy to understand, but the efficiency is not high. We follow the routine directly: **for dynamic programming problems, we must first understand which are [ states ] and which is [ choices ].**
 
 Specific to this problem, what **choices** are obvious for each keystroke: four types are the **4** keys mentioned in the title, which are `A`, `Ctrl-A`, `Ctrl-C`, and `Ctrl-V`.
 
-Next, let's think about what are the **states** of this problem? **In other words, what information do we need to know to break down the original problem into smaller subproblems?**
+Next, let's think about what is the **states** of this problem? **In other words, what information did we need to know to break for the original problem with smaller sub-problems?**
 
 Now you think about it, Is it correct for me to define the status of this problem as follows?
 
 -   The first state is the remaining number of times the key can be pressed, we use `n` to represent it.
--   The second state is the number of characters 'A' on the current screen, we use `a_num`.
--   The third state is the number of characters 'A' still in the clipboard, represented by `copy`.
+-   The second state are the number of characters 'A' on the current screen, we use `a_num`.
+-   The third state are the number of characters 'A' still in the clipboard, represented by `copy`.
 
 By defining **state** in this way, we can know the *base case*: when the number of remaining `n` is `0`, `a_num` is the answer we want.
 
-Combining the four **choices** just mentioned, we can express these kinds of choices through state transitions:
+Combining the four **choices** just mentioned, we can express these kinds of choices of state transitions:
 
 ```python
 dp(n - 1, a_num + 1, copy)        # [ A ]
@@ -99,7 +99,7 @@ dp[n][a_num][copy]
 // is the volume of this three-dimensional array.
 ```
 
-We know that the maximum value of the variable `n` is `N`, but it is difficult to calculate the maximum number of `a_num` and `copy`. The lowest complexity is *O(N^3)​*. So the algorithm just now is not good, the complexity is too high, and it can no longer be optimized.
+We know that the maximum value of the variable `n` are `N`, but it is difficult to calculate the maximum number of `a_num` and `copy`. The lowest complexity is *O(N^3)​*. So the algorithm just now is not good, the complexity is too high, and it can no longer be optimized.
 
 The more embarrassing thing is that this also shows that I used to define **state** as it is not very good. Let's change the idea of defining this dp problem.
 
@@ -111,12 +111,12 @@ Continue to follow our routine, **choice** has been defined before, or the `4`. 
 
 This algorithm is based on the following fact. There must be only two cases of the key sequence corresponding to the optimal answer:
 
--   Either keep pressing A: `A`, ` A`, ... , `A` (more when `N` is smaller).
+-   Either keeps pressing A: `A`, ` A`, ... , `A` (more when `N` is smaller).
 -   Either this is the form: `A`, `A`, ..., `Ctrl-A`, `Ctrl-C`, `Ctrl-V`, `Ctrl-V`, ..., `Ctrl-V` (mostly when `N` is larger). *(Here you can find some mathematical rules, you can study if you are interested)*
 
-Because when the number of characters to be printed is relatively small (`N` is small), "`Ctrl-A`, `Ctrl-C`, `Ctrl-V`" consumes a relatively high number of operations, so we might as well keep pressing `A`. When `N` is relatively large, the gain of `Ctrl-V` in the later period is definitely relatively large. In this case, the entire operation sequence is roughly like this: at the beginning, press several 'A's, then `Ctrl-A`, `Ctrl-C`, and finally several `Ctrl-V`, and then continue `Ctrl-A -> Ctrl-C -> Ctrl-V` Such a loop operation.
+Because when the number of characters to be printed is relatively small (`N` is small), "`Ctrl-A`, `Ctrl-C`, `Ctrl-V`" consumes a relatively high number of operations, so we might as well keep pressing `A`. When `N` is relatively large, the gain of `Ctrl-V` in the later period is definitely relatively large. In this case, the entire operation sequence is roughly like this: at the beginning, press several 'A's, then `Ctrl-A`s, `Ctrl-C`, and finally several `Ctrl-V`s, and then continue `Ctrl-A -> Ctrl-C -> Ctrl-V` Such a loop operation.
 
-In other words, the last keystroke was either `A` or `Ctrl-V`. As long as we are clear on this, we can design the algorithm through these **two situations**:
+In other words, the last keystroke was either `A` or `Ctrl-V`. As long as we are clear about this, we can design the algorithm through these **two situations**:
 
 ```java
 int[] dp = new int[N + 1];
@@ -165,7 +165,7 @@ We have just completed this algorithm. The time complexity of the algorithm is *
 
 ### Review our algorithmic ideas
 
-Dynamic programming is difficult to find the state transition. The different definitions we set will produce different state transition logic. Although we can all get the correct results in the end, the efficiency of the program may have amazing differences.
+Dynamic programming is difficult to find the state transition. The different definitions we set will produce different state transition logic. Although we can all get the correct results in the end, the efficiency of the program may have amazed differences.
 
 Let's review the method we tried for the first time. Although the overlapping sub-problem has been eliminated, the efficiency of the program is still low, but where is the low? Let's abstract the recursive framework to find out:
 
