@@ -345,9 +345,11 @@ class LRUCache {
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
-```python3
+
+### python
+
+```python
 """
 所谓LRU缓存，根本的难点在于记录最久被使用的键值对，这就设计到排序的问题，
 在python中，天生具备排序功能的字典就是OrderDict。
@@ -377,3 +379,244 @@ class LRUCache:
         self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
 
 ```
+
+
+
+参考本文，由双向链表+dict实现的LRU。
+
+```python
+class Node:
+    def __init__(self, key, val, next=None, prev=None):
+        self.key = key
+        self.val = val
+        self.next = next
+        self.prev = prev
+
+
+class DoubleList:
+    def __init__(self):
+        # self.head和self.tail都充当dummy节点（哨兵节点）
+        self.head = Node(-1, -1)
+        self.tail = Node(-1, -1)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        self.size = 0
+
+    def addFirst(self, x):
+        """在最前面加个节点x，注意语句顺序，很经典！"""
+        x.next = self.head.next
+        x.prev = self.head
+        self.head.next.prev = x
+        self.head.next = x
+        self.size += 1
+
+    def remove(self, x):
+        """删除节点x，调用这个函数说明x一定存在"""
+        x.prev.next = x.next  # 像一个顺时针
+        x.next.prev = x.prev
+        self.size -= 1
+
+    def removeLast(self):
+        """
+        删除链表中最后一个节点，并返回该节点
+        注意双向链表的删除时间复杂度是O(1)的，因为立刻能找到该删除节点的前驱
+        """
+        if self.size == 0:
+            return None
+        last_node = self.tail.prev
+        self.remove(last_node)
+        return last_node
+
+    def getSize(self):
+        return self.size
+
+
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.map = {}
+        self.cache = DoubleList()
+
+    def get(self, key: int) -> int:
+        if key not in self.map:
+            return -1
+        val = self.map[key].val
+        self.put(key, val)
+        return val
+
+    def put(self, key: int, value: int) -> None:
+        new_item = Node(key, value)
+        if key in self.map:
+            self.cache.remove(self.map[key])
+            self.cache.addFirst(new_item)
+            self.map[key] = new_item
+        else:
+            if self.capacity == self.cache.getSize():
+                last_node = self.cache.removeLast()
+                self.map.pop(last_node.key)
+            self.cache.addFirst(new_item)
+            self.map[key] = new_item
+```
+
+
+
+### javascript
+
+没啥好说的，es6的哈希表Map + 双向链表。
+
+这里先使用es5的语法实现一遍，看完后相信你一定能用es6的class语法实现，这里的map用的是es6中的map()，这题是研究LRU的，就不用在{}和map()上过于深究了，直接用`new Map()`比较方便。
+
+```js
+// 双向链表节点
+var LinkNode = function (key, val) {
+    if (!(this instanceof LinkNode)) {
+        return new LinkNode(key, val)
+    }
+    this.key = key;
+    this.val = val;
+}
+
+// 双向链表
+var DoubleLink = function () {
+    // 初始化双向链表的数据
+    this.head = new LinkNode(0, 0);
+    this.tail = new LinkNode(0, 0);
+
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+
+    // 链表元素数
+    this.size = 0;
+}
+
+// // 在链表尾部添加节点 x，时间 O(1)
+DoubleLink.prototype.addLast = function (node) {
+    node.prev = this.tail.prev;
+    node.next = this.tail;
+    this.tail.prev.next = node;
+    this.tail.prev = node;
+
+    ++this.size;
+}
+
+// 删除链表中的 x 节点（x 一定存在）
+// 由于是双链表且给的是目标 Node 节点，时间 O(1)
+DoubleLink.prototype.remove = function (node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+    --this.size;
+}
+
+
+// 删除链表中第一个节点，并返回该节点，时间 O(1)
+DoubleLink.prototype.removeFirst = function () {
+    if (this.head.next === this.tail)
+        return null;
+
+    let first = this.head.next;
+    this.remove(first);
+    return first;
+}
+
+
+// 返回链表长度，时间 O(1)
+DoubleLink.prototype.getSize = function () {
+    return this.size;
+}
+
+
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function (capacity) {
+    this.map = new Map();
+    this.cache = new DoubleLink();
+    this.cap = capacity;
+};
+
+/**
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function (key) {
+    if (!this.map.has(key)) {
+        return -1;
+    }
+    // 将该数据提升为最近使用的
+    this.makeRecently(key);
+    return this.map.get(key).val;
+};
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function (key, value) {
+    if (this.map.has(key)) {
+        // 删除旧的数据
+        this.deleteKey(key);
+        // 新插入的数据为最近使用的数据
+        this.addRecently(key, value);
+        return;
+    }
+
+    if (this.cap === this.cache.getSize()) {
+        // 删除最久未使用的元素
+        this.removeLeastRecently();
+    }
+    // 添加为最近使用的元素
+    this.addRecently(key, value);
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+
+/* 将某个 key 提升为最近使用的 */
+LRUCache.prototype.makeRecently = function (key) {
+    let x = this.map.get(key);
+
+    // 先从链表中删除这个节点
+    this.cache.remove(x);
+
+    // 重新插入到队尾
+    this.cache.addLast(x);
+}
+
+/* 添加最近使用的元素 */
+LRUCache.prototype.addRecently = function (key, val) {
+    let x = new LinkNode(key, val);
+
+    // 链表尾部就是最近使用的元素
+    this.cache.addLast(x);
+    // 别忘了在 map 中添加 key 的映射
+    this.map.set(key, x);
+}
+
+/* 删除某一个 key */
+LRUCache.prototype.deleteKey = function (key) {
+    let x = this.map.get(key);
+    // 从链表中删除
+    this.cache.remove(x);
+    // 从 map 中删除
+    this.map.delete(key);
+   
+}
+
+/* 删除最久未使用的元素 */
+LRUCache.prototype.removeLeastRecently = function () {
+    // 链表头部的第一个元素就是最久未使用的
+    let deletedNode = this.cache.removeFirst();
+
+    // 同时别忘了从 map 中删除它的 key
+    let deletedKey = deletedNode.key;
+    this.map.delete(deletedKey);
+}
+
+```
+
