@@ -377,3 +377,50 @@ class LRUCache:
         self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
 
 ```
+
+//利用STL的双向链表list和unordered_map实现LRU缓存算法
+class LRUCache {
+public:
+    std::unordered_map<int, list<pair<int, int>>::iterator> m;
+    list<pair<int, int>> lis;
+
+    int cap;
+
+    LRUCache(int capacity) {
+        cap = capacity;
+    }
+
+    int get(int key) {
+        int ret = -1;
+        if (m.find(key) != m.end())
+        {
+            auto iter = m[key];
+            ret = iter->second;
+
+            lis.erase(iter);
+            lis.push_front(make_pair(key, ret));
+            m[key] = lis.begin();
+        }
+        return ret;
+    }
+
+    void put(int key, int val) {
+        auto iter = m.find(key);
+        if (iter != m.end())
+        {
+            lis.erase(iter->second);
+        }
+        else if (lis.size() < cap)
+        {
+        }
+        else
+        {
+            int key = lis.back().first;
+            lis.pop_back();
+            m.erase(key);
+        }
+
+        lis.push_front(make_pair(key, val));
+        m[key] = lis.begin();
+    }
+};
