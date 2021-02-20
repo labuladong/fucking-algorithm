@@ -432,7 +432,7 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 </p>
 ======其他语言代码======
 
-### javascript实现
+### javascript
 
 ```js
 class KMP {
