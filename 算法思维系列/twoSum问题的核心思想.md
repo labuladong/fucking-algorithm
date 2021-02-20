@@ -186,3 +186,73 @@ int[] twoSum(int[] nums, int target) {
 </p>
 
 ======其他语言代码======
+```c++ Ksum，通用模板，解决leetcode 3sum 4sum
+
+vector<vector<int>> fourSum(vector<int>& nums, int target) 
+{
+    sort(begin(nums), end(nums));
+    return kSum(nums, target, 0, 4);
+}
+
+vector<vector<int>> threeSum(vector<int>& nums, int target) 
+{
+    sort(begin(nums), end(nums));
+    return kSum(nums, target, 0, 3);
+}
+
+vector<vector<int>> twoSum(vector<int>& nums, int target, int start)
+{
+    sort(nums.begin(), nums.end());
+    int left = start, right = nums.size() - 1;
+    vector< vector<int> > res;
+    while (left < right)
+    {
+        int lval = nums[left], rval = nums[right];
+        int sum = lval + rval;
+        if (sum < target)
+        {
+            while (left < right && nums[left] == lval) left++;
+        }
+        else if (sum > target)
+        {
+            while (left < right && nums[right] == rval) right--;
+        }
+        else
+        {
+            res.push_back({ lval, rval });
+            while (left < right && nums[right] == rval) right--;
+            while (left < right && nums[left] == lval) left++;
+        }
+    }
+
+    return res;
+}
+
+vector<vector<int>> kSum(vector<int>& nums, int target, int start, int k)
+{
+    vector< vector<int> > res;
+    if (start == nums.size() || nums[start] * k > target || nums[nums.size() - 1] * k < target)
+    {
+        return res;
+    }
+    if (k == 2)
+    {
+        return twoSum(nums, target, start);
+    }
+    else
+    {
+        for (int i = start; i < nums.size(); ++i)
+        {
+            if (i == start || nums[i - 1] != nums[i])
+            {
+                for (auto &set : kSum(nums, target - nums[i], i + 1, k -1))
+                {
+                    res.push_back({ nums[i] });
+                    res.back().insert(end(res.back()), begin(set), end(set));
+                }
+            }
+        }
+    }
+    return res;
+}
+```
