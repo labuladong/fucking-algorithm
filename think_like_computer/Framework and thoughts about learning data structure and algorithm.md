@@ -192,7 +192,7 @@ For a person who understands binary trees, it won't take long to do exercises of
 
 More examples:
 
-[Dynamic programming](../动态规划系列/动态规划详解进阶.md) said that the problem of collecting changes, the violent solution is to traverse an n-tree:
+[Dynamic programming](../动态规划系列/动态规划详解进阶.md) said that the problem of collecting changes, the brute-force solution is to traverse an n-tree:
 
 ![](../pictures/动态规划详解进阶/5.jpg)
 
