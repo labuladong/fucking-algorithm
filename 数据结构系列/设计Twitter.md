@@ -303,3 +303,120 @@ PS：本文前两张图片和 GIF 是我第一次尝试用平板的绘图软件�
 </p>
 
 ======其他语言代码======
+
+[happy-yuxuan](https://github.com/happy-yuxuan) 提供 C++ 代码：
+
+```c++
+static int timestamp = 0;
+class Tweet {
+private:
+    int id;
+    int time;
+public:
+    Tweet *next;
+    // id为推文内容，time为发文时间
+    Tweet(int id, int time) {
+        this->id = id;
+        this->time = time;
+        next = nullptr;
+    }
+    int getId() const {
+        return this->id;
+    }
+    int getTime() const {
+        return this->time;
+    }
+};
+class User {
+private:
+    int id;
+public:
+    Tweet *head;  // 发布的Twitter，用链表表示
+    unordered_set<int> followed;  // 用户关注了那些人
+    User(int userId) {
+        this->id = userId;
+        head = nullptr;
+        // 要先把自己关注了
+        followed.insert(id);
+    }
+    void follow(int userId) {
+        followed.insert(userId);
+    }
+    void unfollow(int userId) {
+        // 不可以取关自己
+        if (userId != this->id)
+            followed.erase(userId);
+    }
+    void post(int contentId) {
+        Tweet *twt = new Tweet(contentId, timestamp);
+        timestamp++;
+        // 将新建的推文插入链表头
+        // 越靠前的推文 timestamp 值越大
+        twt->next = head;
+        head = twt;
+    }
+};
+class Twitter {
+private:
+    // 映射将 userId 和 User 对象对应起来
+    unordered_map<int, User*> userMap;
+    // 判断该用户存不存在系统中,即userMap中存不存在id
+    inline bool contain(int id) {
+        return userMap.find(id) != userMap.end();
+    }
+public:
+    Twitter() {
+        userMap.clear();
+    }
+    /* user 发表一条 tweet 动态 */
+    void postTweet(int userId, int tweetId) {
+        if (!contain(userId))
+            userMap[userId] = new User(userId);
+        userMap[userId]->post(tweetId);
+    }
+    /* 返回该 user 关注的人（包括他自己）最近的动态 id，
+    最多 10 条，而且这些动态必须按从新到旧的时间线顺序排列。*/
+    vector<int> getNewsFeed(int userId) {
+        vector<int> ret;
+        if (!contain(userId)) return ret;
+        // 构造一个自动通过Tweet发布的time属性从大到小排序的二叉堆
+        typedef function<bool(const Tweet*, const Tweet*)> Compare;
+        Compare cmp = [](const Tweet *a, const Tweet *b) {
+            return a->getTime() < b->getTime();
+        };
+        priority_queue<Tweet*, vector<Tweet*>, Compare> q(cmp);
+        // 关注列表的用户Id
+        unordered_set<int> &users = userMap[userId]->followed;
+        // 先将所有链表头节点插入优先级队列
+        for (int id : users) {
+            if (!contain(id)) continue;
+            Tweet *twt = userMap[id]->head;
+            if (twt == nullptr) continue;
+            q.push(twt);
+        }
+        while (!q.empty()) {
+            Tweet *t = q.top(); q.pop();
+            ret.push_back(t->getId());
+            if (ret.size() == 10) return ret;  // 最多返回 10 条就够了
+            if (t->next)
+                q.push(t->next);
+        }
+        return ret;
+    }
+    /* follower 关注 followee */
+    void follow(int followerId, int followeeId) {
+        // 若 follower 不存在，则新建
+        if (!contain(followerId))
+            userMap[followerId] = new User(followerId);
+        // 若 followee 不存在，则新建
+        if (!contain(followeeId))
+            userMap[followeeId] = new User(followeeId);
+        userMap[followerId]->follow(followeeId);
+    }
+    /* follower 取关 followee，如果 Id 不存在则什么都不做 */
+    void unfollow(int followerId, int followeeId) {
+        if (contain(followerId))
+            userMap[followerId]->unfollow(followeeId);
+    }
+};
+```
