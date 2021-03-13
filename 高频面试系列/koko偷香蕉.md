@@ -171,6 +171,7 @@ for (int i = 0; i < n; i++)
 
 ======其他语言代码======
 
+#### c++
 [cchroot](https://github.com/cchroot) 提供 C++ 代码：
 
 ```c++
@@ -202,4 +203,47 @@ public:
         return time <= H; // time 小于等于 H 说明能在 H 小时吃完返回 true, 否则返回 false
     }
 };
+```
+
+### python
+[tonytang731](https://https://github.com/tonytang731) 提供 Python3 代码：
+
+```python
+import math
+
+class Solution:
+    def minEatingSpeed(self, piles, H):
+        # 初始化起点和终点， 最快的速度可以一次拿完最大的一堆
+        start = 1
+        end = max(piles)
+        
+        # while loop进行二分查找
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            
+            # 如果中点所需时间大于H, 我们需要加速， 将起点设为中点
+            if self.timeH(piles, mid) > H:
+                start = mid
+            # 如果中点所需时间小于H, 我们需要减速， 将终点设为中点
+            else:
+                end = mid
+                
+        # 提交前确认起点是否满足条件，我们要尽量慢拿
+        if self.timeH(piles, start) <= H:
+            return start
+        
+        # 若起点不符合， 则中点是答案
+        return end
+            
+        
+        
+    def timeH(self, piles, K):
+        # 初始化时间
+        H = 0
+        
+        #求拿每一堆需要多长时间
+        for pile in piles:
+            H += math.ceil(pile / K)
+            
+        return H
 ```
