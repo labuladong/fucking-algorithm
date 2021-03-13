@@ -432,3 +432,39 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 </p>
 
 ======其他语言代码======
+[MoguCloud](https://github.com/MoguCloud) 提供 实现 strStr() 的 Python 完整代码：
+```py
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        # 边界条件判断
+        if not needle:
+            return 0
+        pat = needle
+        txt = haystack
+
+        M = len(pat)
+        # dp[状态][字符] = 下个状态
+        dp = [[0 for _ in range(256)] for _ in pat]
+        # base case
+        dp[0][ord(pat[0])] = 1
+        # 影子状态 X 初始化为 0
+        X = 0
+        for j in range(1, M):
+            for c in range(256):
+                dp[j][c] = dp[X][c]
+            dp[j][ord(pat[j])] = j + 1
+            # 更新影子状态
+            X = dp[X][ord(pat[j])]
+    
+        N = len(txt)
+        # pat 初始状态为 0 
+        j = 0
+        for i in range(N):
+            # 计算 pat 的下一个状态
+            j = dp[j][ord(txt[i])]
+            # 到达终止态，返回结果
+            if j == M:
+                return i - M + 1
+        # 没到达终止态，匹配失败
+        return -1
+```
