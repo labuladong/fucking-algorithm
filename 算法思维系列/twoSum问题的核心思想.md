@@ -186,3 +186,28 @@ int[] twoSum(int[] nums, int target) {
 </p>
 
 ======其他语言代码======
+
+由[JodyZ0203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
+
+;; 只用一个哈希表
+
+```Python
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        # 提前构造一个哈希表
+        hashTable = {}
+        # 寻找两个目标数值
+        for i, n in enumerate(nums):
+            other_num = target - n
+            # 如果存在这个余数 other_num
+            if other_num in hashTable.keys():
+                # 查看是否存在哈希表里，如果存在的话就返回数组
+                return [i, hashTable[other_num]]
+            # 如果不存在的话继续处理剩余的数
+            hashTable[n] = i
+```
