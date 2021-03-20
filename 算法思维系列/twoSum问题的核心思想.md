@@ -184,14 +184,21 @@ int[] twoSum(int[] nums, int target) {
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
+
+[1.两数之和](https://leetcode-cn.com/problems/two-sum)
+
+[170.两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+
+
+
+### python
 
 由[JodyZ0203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
 
-;; 只用一个哈希表
+只用一个哈希表
 
-```Python
+```python
 class Solution:
     def twoSum(self, nums, target):
         """
@@ -211,3 +218,85 @@ class Solution:
             # 如果不存在的话继续处理剩余的数
             hashTable[n] = i
 ```
+
+
+
+### javascript
+
+[1.两数之和](https://leetcode-cn.com/problems/two-sum)
+
+穷举
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    for (let i = 0; i < nums.length; i++)
+        for (let j = i + 1; j < nums.length; j++)
+            if (nums[j] === target - nums[i])
+                return [i, j];
+
+    // 不存在这么两个数
+    return [-1, -1];
+};
+```
+
+备忘录
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    let n = nums.length;
+    let index = new Map();
+    // 构造一个哈希表：元素映射到相应的索引
+    for (let i = 0; i < n; i++)
+        index.set(nums[i], i);
+
+    for (let i = 0; i < n; i++) {
+        let other = target - nums[i];
+        // 如果 other 存在且不是 nums[i] 本身
+        if (index.has(other) && index.get(other) !== i)
+            return [i, index.get(other)];
+    }
+
+    // 不存在这么两个数
+    return [-1, -1];
+};
+```
+
+
+
+[170.两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+
+哈希集合优化。
+
+```js
+class TwoSum {
+    constructor() {
+        this.sum = new Set();
+        this.nums = [];
+    }
+
+    // 向数据结构中添加一个数 number
+    add(number) {
+        // 记录所有可能组成的和
+        for (let n of this.nums) {
+            this.sum.push(n + number)
+        }
+        this.nums.add(number);
+    }
+
+    // 寻找当前数据结构中是否存在两个数的和为 value
+    find(value) {
+        return this.sum.has(value);
+    }
+}
+```
+
