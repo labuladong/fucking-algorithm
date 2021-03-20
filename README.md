@@ -181,7 +181,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo
 [PaperJets](https://github.com/PaperJets), 
 [qy-yang](https://github.com/qy-yang), 
 [realism0331](https://github.com/realism0331), 
-[SCUhzs](https://github.com/HuangZiSheng001), 
+[SCUhzs](https://github.com/brucecat), 
 [Seaworth](https://github.com/Seaworth), 
 [shazi4399](https://github.com/shazi4399), 
 [ShuozheLi](https://github.com/ShuoZheLi/), 
