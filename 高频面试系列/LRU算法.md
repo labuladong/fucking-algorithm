@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [25 张图解：键入网址后，到网页显示，其间发生了什么](https://labuladong.gitbook.io/algo)
-  * [如何在无限序列中随机抽取元素](https://labuladong.gitbook.io/algo)
+  * [25 张图解：键入网址后，到网页显示，其间发生了什么](https://labuladong.gitbook.io/algo/)
+  * [如何在无限序列中随机抽取元素](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -338,7 +338,7 @@ class LRUCache {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -347,3 +347,120 @@ class LRUCache {
 </p>
 
 ======其他语言代码======
+
+[gowufang](https://github.com/gowufang)提供第146题C++代码：
+```cpp
+class LRUCache {
+        public:
+        struct node {
+            int val;
+            int key;
+            node* pre;//当前节点的前一个节点
+            node* next;//当前节点的后一个节点
+            node(){}
+            node(int key, int val):key(key), val(val), pre(NULL), next(NULL){}
+        };
+
+        LRUCache(int size) {
+            this->size = size;
+            head = new node();
+            tail = new node();
+            head->next = tail;
+            tail->pre = head;
+        }
+
+
+        void movetohead(node* cur)//相当于一个insert操作，在head 和 head的next之间插入一个节点
+        {
+            node* next = head->next;//head的next先保存起来
+            head->next = cur;//将当前节点移动到head的后面
+            cur->pre = head;//当前节点cur的pre指向head
+            next->pre = cur;
+            cur->next = next;
+        }
+
+        node* deletecurrentnode(node* cur)//移除当前节点
+        {
+            cur->pre->next = cur->next;
+            cur->next->pre = cur->pre;
+            return cur;
+        }
+        void makerecently(node* cur)
+        {
+            node* temp = deletecurrentnode(cur);// 删除 cur，要重新插入到对头
+            movetohead(temp);//cur放到队头去
+        }
+        int get(int key)
+        {
+            int ret = -1;
+            if ( map.count(key))
+            {
+                node* temp = map[key];
+                makerecently(temp);// 将 key 变为最近使用
+                ret = temp->val;
+            }
+            return ret;
+        }
+
+        void put(int key, int value) {
+            if ( map.count(key))
+            {
+                // 修改 key 的值
+                node* temp = map[key];
+                temp->val = value;
+                // 将 key 变为最近使用
+                makerecently(temp);
+            }
+            else
+            {
+                node* cur = new node(key, value);
+                if( map.size()== size )
+                {
+                    // 链表头部就是最久未使用的 key
+                    node *temp = deletecurrentnode(tail->pre);
+                    map.erase(temp->key);
+                }
+                movetohead(cur);
+                map[key] = cur;
+
+            }
+        
+        }
+
+        unordered_map<int, node*> map;
+        int size;
+        node* head, *tail;
+
+    };
+```
+
+```python3
+"""
+所谓LRU缓存，根本的难点在于记录最久被使用的键值对，这就设计到排序的问题，
+在python中，天生具备排序功能的字典就是OrderDict。
+注意到，记录最久未被使用的键值对的充要条件是将每一次put/get的键值对都定义为
+最近访问，那么最久未被使用的键值对自然就会排到最后。
+如果你深入python OrderDict的底层实现，就会知道它的本质是个双向链表+字典。
+它内置支持了
+1. move_to_end来重排链表顺序，它可以让我们将最近访问的键值对放到最后面
+2. popitem来弹出键值对，它既可以弹出最近的，也可以弹出最远的，弹出最远的就是我们要的操作。
+"""
+from collections import OrderedDict
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.capacity = capacity  # cache的容量
+        self.visited = OrderedDict()  # python内置的OrderDict具备排序的功能
+    def get(self, key: int) -> int:
+        if key not in self.visited:
+             return -1
+        self.visited.move_to_end(key)  # 最近访问的放到链表最后，维护好顺序
+        return self.visited[key]
+    def put(self, key: int, value: int) -> None:
+        if key not in self.visited and len(self.visited) == self.capacity:
+              # last=False时，按照FIFO顺序弹出键值对
+              # 因为我们将最近访问的放到最后，所以最远访问的就是最前的，也就是最first的，故要用FIFO顺序
+            self.visited.popitem(last=False)
+        self.visited[key]=value
+        self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
+
+```
