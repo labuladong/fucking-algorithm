@@ -168,10 +168,15 @@ for (int i = 0; i < n; i++)
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
 
-#### c++
+[875.爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
+
+[1011.在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
+
+
+
+### c++
 [cchroot](https://github.com/cchroot) 提供 C++ 代码：
 
 ```c++
@@ -247,3 +252,124 @@ class Solution:
             
         return H
 ```
+
+
+
+### javascript
+
+用js写二分的时候，一定要注意使用`Math.floor((right - left) / 2)`或者`paserInt()`将结果整数化！由于js不声明变量类型，很多时候就很难发现自己浮点数、整数使用的问题。
+
+[875.爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
+
+```js
+/**
+ * @param {number[]} piles
+ * @param {number} H
+ * @return {number}
+ */
+var minEatingSpeed = function (piles, H) {
+    // 套用搜索左侧边界的算法框架
+    let left = 1, right = getMax(piles) + 1;
+
+    while (left < right) {
+        // 防止溢出
+        let mid = left + Math.floor((right - left) / 2);
+        if (canFinish(piles, mid, H)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
+
+// 时间复杂度 O(N)
+let canFinish = (piles, speed, H) => {
+    let time = 0;
+    for (let n of piles) {
+        time += timeOf(n, speed);
+    }
+    return time <= H;
+}
+
+// 计算所需时间
+let timeOf = (n, speed) => {
+    return Math.floor(
+        (n / speed) + ((n % speed > 0) ? 1 : 0)
+    );
+}
+
+let getMax = (piles) => {
+    let max = 0;
+    for (let n of piles) {
+        max = Math.max(n, max);
+    }
+    return max;
+}
+
+```
+
+
+
+[传送门：1011.在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
+
+```js
+// 第1011题
+/**
+ * @param {number[]} weights
+ * @param {number} D
+ * @return {number}
+ */
+// 寻找左侧边界的二分查找
+var shipWithinDays = function (weights, D) {
+    // 载重可能的最小值
+    let left = getMax(weights);
+    
+    // 载重可能的最大值 + 1
+    let right = getSum(weights) + 1;
+
+    while (left < right) {
+        let mid = left + Math.floor((right - left) / 2);
+        if (canFinish(weights, D, mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+
+// 如果载重为 cap，是否能在 D 天内运完货物？
+let canFinish = (w, D, cap) => {
+    let i = 0;
+    for (let day = 0; day < D; day++) {
+        let maxCap = cap;
+        while ((maxCap -= w[i]) >= 0) {
+            i++;
+            if (i === w.length)
+                return true;
+        }
+    }
+    return false;
+}
+
+let getMax = (piles) => {
+    let max = 0;
+    for (let n of piles) {
+        max = Math.max(n, max);
+    }
+    return max;
+}
+
+/**
+ * @param {number[]} weights
+ // 获取货物总重量
+ */
+let getSum = (weights) => {
+    return weights.reduce((total, cur) => {
+        total += cur;
+        return total
+    }, 0)
+}
+```
+
