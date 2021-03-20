@@ -6,7 +6,7 @@
 
 First, let me tell you a joke cheerful:
 
-One day Adong went to the library and borrowed N books. When he went out of the library, the alarm went off, so the security guard stopped Adong to check which books were not registered for loan. ADong is going to go through each book under the alarm to find the book that caused the alarm, but the security guard's disdainful look: Can't you even do a binary search? Then the security divided the books into two piles, let the first pile pass the alarm, the alarm sounded; then divided the pile into two piles ... Finally, after checking logN times, the security successfully found the one that caused the alarm The book showed a smug and ridiculous smile. So Adong left with the remaining books.
+One day Adong went to the library and borrowed N books. When he went out of the library, the alarm went off, so the security guard stopped Adong to check which books were not registered for loan. ADong is going to go through each book under the alarm to find the book that caused the alarm, but the security guard's disdainful look: Can't you even do a binary search? Then the security divided the books into two piles, let the first pile pass the alarm, the alarm sounded; then divided the pile into two piles ... Finally, after checking logN times, the security successfully found the one that caused the alarm The guard showed a smug and ridiculous smile. So Adong left with the remaining books.
 
 Since then, the library has lost N-1 books.
 
