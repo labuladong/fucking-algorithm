@@ -11,14 +11,16 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [手把手带你刷二叉树（第一期）](https://labuladong.gitbook.io/algo)
-  * [二分查找详解](https://labuladong.gitbook.io/algo)
+  * [手把手带你刷二叉树（第一期）](https://labuladong.gitbook.io/algo/)
+  * [二分查找详解](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
 [130.被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
 
 [990.等式方程的可满足性](https://leetcode-cn.com/problems/surrounded-regions)
+
+[261.以图判树](https://leetcode-cn.com/problems/graph-valid-tree/)
 
 **-----------**
 
@@ -242,7 +244,7 @@ boolean equationsPossible(String[] equations) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -251,3 +253,77 @@ boolean equationsPossible(String[] equations) {
 </p>
 
 ======其他语言代码======
+
+第261题的Java代码（提供：[LEODPEN](https://github.com/LEODPEN)）
+
+```java
+class Solution {
+
+    class DisjointSet {
+
+        int count; // 连通分量的总个数
+        int[] parent; // 每个节点的头节点（不一定是连通分量的最终头节点）
+        int[] size; // 每个连通分量的大小
+
+        public DisjointSet(int n) {
+            parent = new int[n];
+            size = new int[n];
+            // 初为n个连通分量，期望最后为1
+            count = n;
+            for (int i = 0; i < n; i++) {
+                // 初始的连通分量只有该节点本身
+                parent[i] = i;
+                size[i] = 1;
+            }
+        }
+
+        /**
+         * @param first  节点1
+         * @param second 节点2
+         * @return 未连通 && 连通成功
+         */
+        public boolean union(int first, int second) {
+            // 分别找到包含first 和 second 的最终根节点
+            int firstParent = findRootParent(first), secondParent = findRootParent(second);
+            // 相等说明已经处于一个连通分量，即说明有环
+            if (firstParent == secondParent) return false;
+            // 将较小的连通分量融入较大的连通分量
+            if (size[firstParent] >= size[secondParent]) {
+                parent[secondParent] = firstParent;
+                size[firstParent] += size[secondParent];
+            } else {
+                parent[firstParent] = secondParent;
+                size[secondParent] += size[firstParent];
+            }
+            // 连通分量已合并，count减少
+            count--;
+            return true;
+        }
+
+        /**
+         * @param node 某节点
+         * @return 包含该节点的连通分量的最终根节点
+         */
+        private int findRootParent(int node) {
+            while (node != parent[node]) {
+                // 压缩路径
+                parent[node] = parent[parent[node]];
+                node = parent[node];
+            }
+            return node;
+        }
+    }
+
+    public boolean validTree(int n, int[][] edges) {
+        // 树的特性：节点数 = 边数 + 1
+        if (edges.length != n - 1) return false;
+        DisjointSet djs = new DisjointSet(n);
+        for (int[] edg : edges) {
+            // 判断连通情况（如果合并的两个点在一个连通分量里，说明有环）
+            if (!djs.union(edg[0], edg[1])) return false;
+        }
+        // 是否全部节点均已相连
+        return djs.count == 1;
+    }
+}
+```

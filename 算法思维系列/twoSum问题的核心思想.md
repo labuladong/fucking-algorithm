@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitbook.io/algo)
-  * [经典动态规划：完全背包问题](https://labuladong.gitbook.io/algo)
+  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitbook.io/algo/)
+  * [经典动态规划：完全背包问题](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -177,7 +177,7 @@ int[] twoSum(int[] nums, int target) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -186,3 +186,28 @@ int[] twoSum(int[] nums, int target) {
 </p>
 
 ======其他语言代码======
+
+由[JodyZ0203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
+
+;; 只用一个哈希表
+
+```Python
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        # 提前构造一个哈希表
+        hashTable = {}
+        # 寻找两个目标数值
+        for i, n in enumerate(nums):
+            other_num = target - n
+            # 如果存在这个余数 other_num
+            if other_num in hashTable.keys():
+                # 查看是否存在哈希表里，如果存在的话就返回数组
+                return [i, hashTable[other_num]]
+            # 如果不存在的话继续处理剩余的数
+            hashTable[n] = i
+```
