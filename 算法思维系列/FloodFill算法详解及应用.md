@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [如何高效进行模幂运算](https://labuladong.gitbook.io/algo)
-  * [经典动态规划：0-1 背包问题](https://labuladong.gitbook.io/algo)
+  * [如何高效进行模幂运算](https://labuladong.gitbook.io/algo/)
+  * [经典动态规划：0-1 背包问题](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -126,7 +126,7 @@ image[x][y] = newColor;
 
 完全 OK，这也是处理「图」的一种常用手段。不过对于此题，不用开数组，我们有一种更好的方法，那就是回溯算法。
 
-前文 [回溯算法框架套路](https://labuladong.gitbook.io/algo)讲过，这里不再赘述，直接套回溯算法框架：
+前文 [回溯算法框架套路](https://labuladong.gitbook.io/algo/)讲过，这里不再赘述，直接套回溯算法框架：
 
 ```java
 void fill(int[][] image, int x, int y,
@@ -231,7 +231,7 @@ int fill(int[][] image, int x, int y,
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -240,3 +240,88 @@ int fill(int[][] image, int x, int y,
 </p>
 
 ======其他语言代码======
+
+[733.图像渲染](https://leetcode-cn.com/problems/flood-fill)
+
+
+
+### javascript
+
+**BFS**
+从起始像素向上下左右扩散，只要相邻的点存在并和起始点颜色相同，就染成新的颜色，并继续扩散。
+
+借助一个队列去遍历节点，考察出列的节点，带出满足条件的节点入列。已经染成新色的节点不会入列，避免重复访问节点。
+
+时间复杂度：O(n)。空间复杂度：O(n)
+
+```js
+const floodFill = (image, sr, sc, newColor) => {
+  const m = image.length;
+  const n = image[0].length;
+  const oldColor = image[sr][sc];
+  if (oldColor == newColor) return image;
+
+  const fill = (i, j) => {
+    if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oldColor) {
+      return;
+    }
+    image[i][j] = newColor; 
+    fill(i - 1, j);
+    fill(i + 1, j);
+    fill(i, j - 1);
+    fill(i, j + 1);
+  };
+
+  fill(sr, sc);
+  return image;
+};
+```
+
+
+
+**DFS**
+
+思路与上文相同。
+
+```js
+/**
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} newColor
+ * @return {number[][]}
+ */
+let floodFill = function (image, sr, sc, newColor) {
+    let origColor = image[sr][sc];
+    fill(image, sr, sc, origColor, newColor);
+    return image;
+}
+
+let fill = function (image, x, y, origColor, newColor) {
+    // 出界：超出边界索引
+    if (!inArea(image, x, y)) return;
+
+    // 碰壁：遇到其他颜色，超出 origColor 区域
+    if (image[x][y] !== origColor) return;
+
+    // 已探索过的 origColor 区域
+    if (image[x][y] === -1) return;
+
+    // 打标记 避免重复
+    image[x][y] = -1;
+
+    fill(image, x, y + 1, origColor, newColor);
+    fill(image, x, y - 1, origColor, newColor);
+    fill(image, x - 1, y, origColor, newColor);
+    fill(image, x + 1, y, origColor, newColor);
+
+    // un choose：将标记替换为 newColor
+    image[x][y] = newColor;
+}
+
+let inArea = function (image, x, y) {
+    return x >= 0 && x < image.length
+        && y >= 0 && y < image[0].length;
+}
+```
+

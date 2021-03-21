@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitbook.io/algo)
-  * [经典动态规划：完全背包问题](https://labuladong.gitbook.io/algo)
+  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitbook.io/algo/)
+  * [经典动态规划：完全背包问题](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -177,12 +177,126 @@ int[] twoSum(int[] nums, int target) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
+
+[1.两数之和](https://leetcode-cn.com/problems/two-sum)
+
+[170.两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+
+
+
+### python
+
+由[JodyZ0203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
+
+只用一个哈希表
+
+```python
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        # 提前构造一个哈希表
+        hashTable = {}
+        # 寻找两个目标数值
+        for i, n in enumerate(nums):
+            other_num = target - n
+            # 如果存在这个余数 other_num
+            if other_num in hashTable.keys():
+                # 查看是否存在哈希表里，如果存在的话就返回数组
+                return [i, hashTable[other_num]]
+            # 如果不存在的话继续处理剩余的数
+            hashTable[n] = i
+```
+
+
+
+### javascript
+
+[1.两数之和](https://leetcode-cn.com/problems/two-sum)
+
+穷举
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    for (let i = 0; i < nums.length; i++)
+        for (let j = i + 1; j < nums.length; j++)
+            if (nums[j] === target - nums[i])
+                return [i, j];
+
+    // 不存在这么两个数
+    return [-1, -1];
+};
+```
+
+备忘录
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    let n = nums.length;
+    let index = new Map();
+    // 构造一个哈希表：元素映射到相应的索引
+    for (let i = 0; i < n; i++)
+        index.set(nums[i], i);
+
+    for (let i = 0; i < n; i++) {
+        let other = target - nums[i];
+        // 如果 other 存在且不是 nums[i] 本身
+        if (index.has(other) && index.get(other) !== i)
+            return [i, index.get(other)];
+    }
+
+    // 不存在这么两个数
+    return [-1, -1];
+};
+```
+
+
+
+[170.两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+
+哈希集合优化。
+
+```js
+class TwoSum {
+    constructor() {
+        this.sum = new Set();
+        this.nums = [];
+    }
+
+    // 向数据结构中添加一个数 number
+    add(number) {
+        // 记录所有可能组成的和
+        for (let n of this.nums) {
+            this.sum.push(n + number)
+        }
+        this.nums.add(number);
+    }
+
+    // 寻找当前数据结构中是否存在两个数的和为 value
+    find(value) {
+        return this.sum.has(value);
+    }
+}
+```
+

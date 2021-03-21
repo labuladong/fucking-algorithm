@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [一文秒杀四道原地修改数组的算法题](https://labuladong.gitbook.io/algo)
-  * [学习算法和数据结构的思路指南](https://labuladong.gitbook.io/algo)
+  * [一文秒杀四道原地修改数组的算法题](https://labuladong.gitbook.io/algo/)
+  * [学习算法和数据结构的思路指南](https://labuladong.gitbook.io/algo/)
 
 **-----------**
 
@@ -309,7 +309,7 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -318,3 +318,137 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 </p>
 
 ======其他语言代码======
+
+### javascript
+
+```js
+class UF {
+    // 记录连通分量
+    count;
+
+    // 节点 x 的根节点是 parent[x]
+    parent;
+
+    constructor(n) {
+
+        // 一开始互不连通
+        this.count = n;
+
+        // 父节点指针初始指向自己
+        this.parent = new Array(n);
+
+        for (let i = 0; i < n; i++)
+            this.parent[i] = i;
+    }
+
+    /* 返回某个节点 x 的根节点 */
+    find(x) {
+        // 根节点的 parent[x] == x
+        while (this.parent[x] !== x)
+            x = this.parent[x];
+        return x;
+    }
+
+    /* 将 p 和 q 连接 */
+    union(p, q) {
+        // 如果某两个节点被连通，则让其中的（任意）
+        // 一个节点的根节点接到另一个节点的根节点上
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        if (rootP === rootQ) return;
+
+        // 将两棵树合并为一棵
+        parent[rootP] = rootQ;
+
+        // parent[rootQ] = rootP 也一样
+        count--; // 两个分量合二为一
+    }
+
+    /* 判断 p 和 q 是否连通 */
+    connected(p, q) {
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        return rootP === rootQ;
+    };
+
+    /* 返回图中有多少个连通分量 */
+    getCount() {
+        return this.count;
+    };
+}
+```
+
+引入size属性，更好地平衡森林。
+
+```js
+class UF {
+    // 记录连通分量
+    count;
+
+    // 节点 x 的根节点是 parent[x]
+    parent;
+
+    // 记录树的“重量”
+    size;
+
+    constructor(n) {
+
+        // 一开始互不连通
+        this.count = n;
+
+        // 父节点指针初始指向自己
+        this.parent = new Array(n);
+
+        this.size = new Array(n);
+
+        for (let i = 0; i < n; i++) {
+            this.parent[i] = i;
+            this.size[i] = 1;
+        }
+    }
+
+    /* 返回某个节点 x 的根节点 */
+    find(x) {
+        // 根节点的 parent[x] == x
+        while (this.parent[x] !== x) {
+            // 进行路径压缩
+            this.parent[x] = this.parent[this.parent[x]];
+            x = this.parent[x];
+        }
+        return x;
+    }
+
+    /* 将 p 和 q 连接 */
+    union(p, q) {
+        // 如果某两个节点被连通，则让其中的（任意）
+        // 一个节点的根节点接到另一个节点的根节点上
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        if (rootP === rootQ) return;
+
+        // 小树接到大树下面，较平衡
+        if (this.size[rootP] > this.size[rootQ]) {
+            this.parent[rootQ] = rootP;
+            this.size[rootP] += this.size[rootQ];
+        } else {
+            this.parent[rootP] = rootQ;
+            this.size[rootQ] += this.size[rootP];
+        }
+
+        this.count--; // 两个分量合二为一
+    }
+
+    /* 判断 p 和 q 是否连通 */
+    connected(p, q) {
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        return rootP === rootQ;
+    };
+
+    /* 返回图中有多少个连通分量 */
+    getCount() {
+        return this.count;
+    };
+}
+```
+

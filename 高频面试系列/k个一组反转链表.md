@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [区间调度之区间交集问题](https://labuladong.gitbook.io/algo)
-  * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.gitbook.io/algo)
+  * [区间调度之区间交集问题](https://labuladong.gitbook.io/algo/)
+  * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -32,7 +32,7 @@
 
 ### 一、分析问题
 
-首先，前文[学习数据结构的框架思维](https://labuladong.gitbook.io/algo)提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
+首先，前文[学习数据结构的框架思维](https://labuladong.gitbook.io/algo/)提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
 
 什么叫递归性质？直接上图理解，比如说我们对这个链表调用 `reverseKGroup(head, 2)`，即以 2 个节点为一组反转链表：
 
@@ -148,7 +148,7 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -157,3 +157,79 @@ ListNode reverseKGroup(ListNode head, int k) {
 </p>
 
 ======其他语言代码======
+
+[25.K个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)
+
+### javascript
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+
+
+// 示例一：反转以a为头结点的链表
+let reverse = function (a) {
+    let pre, cur, nxt;
+    pre = null;
+    cur = a;
+    nxt = a;
+    while (cur != null) {
+        nxt = cur.next;
+        // 逐个结点反转
+        cur.next = pre;
+        // 更新指针位置
+        pre = cur;
+        cur = nxt;
+    }
+    // 返回反转后的头结点
+    return pre;
+}
+
+/** 反转区间 [a, b) 的元素，注意是左闭右开 */
+let reverse = (a, b) => {
+    let pre, cur, nxt;
+    pre = null;
+    cur = a;
+    nxt = a;
+    // while 终止的条件改一下就行了
+    while (cur !== b) {
+        nxt = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = nxt;
+    }
+    // 返回反转后的头结点
+    return pre;
+}
+
+
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+let reverseKGroup = (head, k) => {
+    if (head == null) return null;
+    // 区间 [a, b) 包含 k 个待反转元素
+    let a, b;
+    a = b = head;
+    for (let i = 0; i < k; i++) {
+        // 不足k个，不需反转，base case
+        if(b==null) return head;
+        b = b.next;
+    }
+
+    // 反转前k个元素
+    let newHead = reverse(a,b);
+
+    // 递归反转后续链表并连接起来
+    a.next = reverseKGroup(b,k);
+    return newHead;
+}
+```
+

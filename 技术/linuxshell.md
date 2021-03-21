@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [状态压缩：对动态规划进行降维打击](https://labuladong.gitbook.io/algo)
-  * [我用四个命令概括了 Git 的所有套路](https://labuladong.gitbook.io/algo)
+  * [状态压缩：对动态规划进行降维打击](https://labuladong.gitbook.io/algo/)
+  * [我用四个命令概括了 Git 的所有套路](https://labuladong.gitbook.io/algo/)
 
 **-----------**
 
@@ -103,10 +103,10 @@ $ logout
 类似的，还有一种后台运行常用的做法是这样：
 
 ```shell
-$ nohub some_cmd &
+$ nohup some_cmd &
 ```
 
-`nohub`命令也是类似的原理，不过通过我的测试，还是`(cmd &)`这种形式更加稳定。
+`nohup`命令也是类似的原理，不过通过我的测试，还是`(cmd &)`这种形式更加稳定。
 
 ### 三、单引号和双引号的区别
 
@@ -149,7 +149,7 @@ $ sudo /home/fdl/bin/connect.sh
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
