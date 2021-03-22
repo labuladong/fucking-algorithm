@@ -1,5 +1,25 @@
 # FloodFill算法详解及应用
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [如何高效进行模幂运算](https://labuladong.gitbook.io/algo/)
+  * [经典动态规划：0-1 背包问题](https://labuladong.gitbook.io/algo/)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[733.图像渲染](https://leetcode-cn.com/problems/flood-fill)
+
+**-----------**
+
 啥是 FloodFill 算法呢，最直接的一个应用就是「颜色填充」，就是 Windows 绘画本中那个小油漆桶的标志，可以把一块被圈起来的区域全部染色。
 
 ![floodfill](../pictures/floodfill/floodfill.gif)
@@ -106,7 +126,7 @@ image[x][y] = newColor;
 
 完全 OK，这也是处理「图」的一种常用手段。不过对于此题，不用开数组，我们有一种更好的方法，那就是回溯算法。
 
-前文「回溯算法详解」讲过，这里不再赘述，直接套回溯算法框架：
+前文 [回溯算法框架套路](https://labuladong.gitbook.io/algo/)讲过，这里不再赘述，直接套回溯算法框架：
 
 ```java
 void fill(int[][] image, int x, int y,
@@ -209,20 +229,99 @@ int fill(int[][] image, int x, int y,
 
 以上详细讲解了 FloodFill 算法的框架设计，**二维矩阵中的搜索问题，都逃不出这个算法框架**。
 
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
+
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
+
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
+
+======其他语言代码======
+
+[733.图像渲染](https://leetcode-cn.com/problems/flood-fill)
 
 
 
+### javascript
+
+**BFS**
+从起始像素向上下左右扩散，只要相邻的点存在并和起始点颜色相同，就染成新的颜色，并继续扩散。
+
+借助一个队列去遍历节点，考察出列的节点，带出满足条件的节点入列。已经染成新色的节点不会入列，避免重复访问节点。
+
+时间复杂度：O(n)。空间复杂度：O(n)
+
+```js
+const floodFill = (image, sr, sc, newColor) => {
+  const m = image.length;
+  const n = image[0].length;
+  const oldColor = image[sr][sc];
+  if (oldColor == newColor) return image;
+
+  const fill = (i, j) => {
+    if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oldColor) {
+      return;
+    }
+    image[i][j] = newColor; 
+    fill(i - 1, j);
+    fill(i + 1, j);
+    fill(i, j - 1);
+    fill(i, j + 1);
+  };
+
+  fill(sr, sc);
+  return image;
+};
+```
 
 
 
+**DFS**
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+思路与上文相同。
 
-![labuladong](../pictures/labuladong.jpg)
+```js
+/**
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} newColor
+ * @return {number[][]}
+ */
+let floodFill = function (image, sr, sc, newColor) {
+    let origColor = image[sr][sc];
+    fill(image, sr, sc, origColor, newColor);
+    return image;
+}
 
+let fill = function (image, x, y, origColor, newColor) {
+    // 出界：超出边界索引
+    if (!inArea(image, x, y)) return;
 
-[上一篇：字符串乘法](../算法思维系列/字符串乘法.md)
+    // 碰壁：遇到其他颜色，超出 origColor 区域
+    if (image[x][y] !== origColor) return;
 
-[下一篇：区间调度之区间合并问题](../算法思维系列/区间调度问题之区间合并.md)
+    // 已探索过的 origColor 区域
+    if (image[x][y] === -1) return;
 
-[目录](../README.md#目录)
+    // 打标记 避免重复
+    image[x][y] = -1;
+
+    fill(image, x, y + 1, origColor, newColor);
+    fill(image, x, y - 1, origColor, newColor);
+    fill(image, x - 1, y, origColor, newColor);
+    fill(image, x + 1, y, origColor, newColor);
+
+    // un choose：将标记替换为 newColor
+    image[x][y] = newColor;
+}
+
+let inArea = function (image, x, y) {
+    return x >= 0 && x < image.length
+        && y >= 0 && y < image[0].length;
+}
+```
+
