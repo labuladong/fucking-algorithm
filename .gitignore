@@ -1,5 +1,6 @@
 <<<<<<< Updated upstream
 .DS_store
+<<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -1007,10 +1008,21 @@ pictures/LRU算法/put.jpg
 pictures/souyisou.png
 pictures/table_qr2.jpg
 pictures/概率问题/p.png
+=======
+pictures/LRU算法/put.jpg
+pictures/souyisou.png
+pictures/table.jpg
+pictures/table_qr2.jpg
+pictures/tableqr.jpg
+pictures/开源社区做贡献/已添加作者.png
+pictures/开源社区做贡献/未添加作者.png
+pictures/开源社区做贡献/达克效应.jpg
+>>>>>>> Stashed changes
 pictures/正则/1.jpeg
 pictures/正则/2.jpeg
 pictures/正则/3.jpeg
 pictures/正则/4.jpeg
+<<<<<<< Updated upstream
 README.md
 starHistory.png
 出版推广1.jpeg
@@ -1799,3 +1811,7 @@ README.md
 高频面试系列/缺失和重复的元素.md
 技术/linuxshell.md
 Camera Roll/单调队列.md
+=======
+出版推广1.jpeg
+技术/linuxsell.md
+>>>>>>> Stashed changes
