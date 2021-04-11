@@ -1,25 +1,138 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 English version repo and Gitbook is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english). Just enjoy：)
+<<<<<<< Updated upstream
 ![starHistory](./starHistory.jpg)
 # 前言
 
 本仓库总共 60 多篇原创文章，基本上都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
+=======
+
+# labuladong 的算法小抄
+=======
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+English version repo and Gitbook is on [english branch](https://github.com/labuladong/fucking-algorithm/tree/english). Just enjoy：)
+
+# labuladong 的算法小抄
+
+<p align='center'>
+<a href="https://labuladong.gitee.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitee.io%2Falgo&logo=Gitea"></a>
+<a href="https://github.com/labuladong/fucking-algorithm" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+</p>
+
+<p align='center'>
+<a href="https://www.github.com/labuladong" target="_blank"><img src="https://img.shields.io/badge/作者-@labuladong-000000.svg?style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong" target="_blank"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg" target="_blank"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380" target="_blank"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](pictures/souyisou.png)
+
+好消息，《labuladong 的算法小抄》纸质书出版啦！关注公众号查看详情👆
+
+<p align='center'>
+<img src="https://gitee.com/labuladong/pictures/raw/master/starHistory.png" width = "600" />
+</p>
+
+
+本仓库总共 60 多篇原创文章，都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
+>>>>>>> Stashed changes
+
+<p align='center'>
+<a href="https://labuladong.gitee.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitee.io%2Falgo&logo=Gitea"></a>
+<a href="https://github.com/labuladong/fucking-algorithm" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+</p>
+
+<p align='center'>
+<a href="https://www.github.com/labuladong" target="_blank"><img src="https://img.shields.io/badge/作者-@labuladong-000000.svg?style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong" target="_blank"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg" target="_blank"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380" target="_blank"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](pictures/souyisou.png)
+
+好消息，《labuladong 的算法小抄》纸质书出版啦！关注公众号查看详情👆
+
+<p align='center'>
+<img src="https://gitee.com/labuladong/pictures/raw/master/starHistory.png" width = "600" />
+</p>
+
+
+<<<<<<< Updated upstream
+本仓库总共 60 多篇原创文章，都是基于 LeetCode 的题目，涵盖了所有题型和技巧，而且一定要做到**举一反三，通俗易懂**，绝不是简单的代码堆砌，后面有目录。
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 
 我先吐槽几句。**刷题刷题，刷的是题，培养的是思维，本仓库的目的就是传递这种算法思维**。我要是只写一个包含 LeetCode 题目代码的仓库，有个锤子用？没有思路解释，没有思维框架，顶多写个时间复杂度，那玩意一眼就能看出来。
 
 只想要答案的话很容易，题目评论区五花八门的答案，动不动就秀 python 一行代码解决，有那么多人点赞。问题是，你去做算法题，是去学习编程语言的奇技淫巧的，还是学习算法思维的呢？你的快乐，到底源自复制别人的一行代码通过测试，已完成题目 +1，还是源自自己通过逻辑推理和算法框架不看答案写出解法？
 
+<<<<<<< Updated upstream
 网上总有大佬喷我，说我写这玩意太基础了，根本没必要啰嗦。我只能说大家刷算法就是找工作吃饭的，不是打竞赛的，我也是一路摸爬滚打过来的，我们要的是清楚明白有所得，不是故弄玄虚无所指。不想办法做到通俗易懂，难道要上来先把《算法导论》吹上天，然后把人家都心怀敬仰地劝退？别的不说，公众号几万读者，PDF 版本上万次下载，联系我的出版社都好几家，说明质量还过得去吧？
+=======
+网上总有大佬喷我，说我写的东西太基础，要么说不能借助框架思维来学习算法。我只能说大家刷算法就是找工作吃饭的，不是打竞赛的，我也是一路摸爬滚打过来的，我们要的是清楚明白有所得，不是故弄玄虚无所指。
+
+不想办法做到通俗易懂，难道要上来先把《算法导论》吹上天，然后把人家都心怀敬仰地劝退？
+>>>>>>> Stashed changes
 
 **做啥事情做多了，都能发现套路的，我把各种算法套路框架总结出来，相信可以帮助其他人少走弯路**。我这个纯靠自学的小童鞋，花了一年时间刷题和总结，自己写了一份算法小抄，后面有目录，这里就不废话了。
+=======
+=======
+只想要答案的话很容易，题目评论区五花八门的答案，动不动就秀 python 一行代码解决，有那么多人点赞。问题是，你去做算法题，是去学习编程语言的奇技淫巧的，还是学习算法思维的呢？你的快乐，到底源自复制别人的一行代码通过测试，已完成题目 +1，还是源自自己通过逻辑推理和算法框架不看答案写出解法？
+
+网上总有大佬喷我，说我写的东西太基础，要么说不能借助框架思维来学习算法。我只能说大家刷算法就是找工作吃饭的，不是打竞赛的，我也是一路摸爬滚打过来的，我们要的是清楚明白有所得，不是故弄玄虚无所指。
+
+不想办法做到通俗易懂，难道要上来先把《算法导论》吹上天，然后把人家都心怀敬仰地劝退？
+
+**做啥事情做多了，都能发现套路的，我把各种算法套路框架总结出来，相信可以帮助其他人少走弯路**。我这个纯靠自学的小童鞋，花了一年时间刷题和总结，自己写了一份算法小抄，后面有目录，这里就不废话了。
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ### 使用方法
 
-1、**先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
+**1、先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2、可以在我的 Gitbook 或者 GitHub pages 或者 [我的知乎](https://www.zhihu.com/people/fdl-72) 上查看所有文章，公众号更新后会尽快更新网页，建议收藏方便电脑端查看文章（之所以同时搞 Gitbook 和 GitHub pages，是因为有的地区的读者反映 Gitbook 经常加载不出来，你可以自行选择）：
+=======
+**2、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题**：
+=======
+**2、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题**：
+
+Gitbook 地址：https://labuladong.gitbook.io/algo
+
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+
+Gitbook 地址：https://labuladong.gitbook.io/algo
+
+GitBook 在国内访问速度很慢，且常被攻击，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
+
+GitHub Pages 地址：https://labuladong.github.io/algo
+
+Gitee Pages 地址：https://labuladong.gitee.io/algo
+
+
+**3、建议关注我的公众号 labuladong，坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。本仓库的文章就是从公众号里整理出来的**一部分**内容，公众号可以查看更多内容；公众号后台回复关键词【加群】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
+
+<p align='center'>
+<img src="https://gitee.com/labuladong/pictures/raw/master/qrcode.jpg" width = "200" />
+</p>
+>>>>>>> Stashed changes
 
 Gitbook 地址（推荐）：https://labuladong.gitbook.io/algo/
 
+<<<<<<< Updated upstream
 GitHub page 地址：https://labuladong.github.io/ebook/
 
 3、可以关注我的公众号 **labuladong** 及时获取更新。我不喜欢转载乱七八糟的低质文章，**坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。
@@ -31,8 +144,33 @@ GitHub page 地址：https://labuladong.github.io/ebook/
 我一直在写优质文章，但是后续的文章只发布到我的公众号/网站/知乎，不能开放到 GitHub。因为本仓库太火了，很多人直接拿我的文章去开付费专栏，价格还不便宜，我这免费写给您看，何必掏冤枉钱呢？所以多多关注本作者，多多宣传，谁也不希望劣币驱逐良币不是么？
 
 其他的先不多说了，直接上干货吧，我们一起日穿 LeetCode，感受一下支配算法的乐趣。
+=======
+GitBook 在国内访问速度很慢，且常被攻击，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
+
+GitHub Pages 地址：https://labuladong.github.io/algo
+
+Gitee Pages 地址：https://labuladong.gitee.io/algo
+
+
+**3、建议关注我的公众号 labuladong，坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。本仓库的文章就是从公众号里整理出来的**一部分**内容，公众号可以查看更多内容；公众号后台回复关键词【加群】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
+
+<p align='center'>
+<img src="https://gitee.com/labuladong/pictures/raw/master/qrcode.jpg" width = "200" />
+</p>
+
+**4、欢迎关注 [我的知乎](https://www.zhihu.com/people/labuladong)**。
+
+我一直在写优质文章，但是后续的文章只发布到公众号/网站/知乎，不能开放到 GitHub。因为本仓库太火了，很多人直接拿我的文章去开付费专栏，价格还不便宜，我这免费写给您看，何必掏冤枉钱呢？所以多多关注本作者，多多宣传，谁也不希望劣币驱逐良币不是么？
+
+其他的先不多说了，直接上干货吧，我们一起搞定 LeetCode，感受一下支配算法的乐趣。
+>>>>>>> Stashed changes
 
 **PS：如果想下载此仓库到本地学习，不要用 git 命令下载，点击 GitHub 网页上的下载按钮直接下载 zip 文件，这样就不会下载 git 历史，大大加快下载速度**。
+=======
+我一直在写优质文章，但是后续的文章只发布到公众号/网站/知乎，不能开放到 GitHub。因为本仓库太火了，很多人直接拿我的文章去开付费专栏，价格还不便宜，我这免费写给您看，何必掏冤枉钱呢？所以多多关注本作者，多多宣传，谁也不希望劣币驱逐良币不是么？
+
+其他的先不多说了，直接上干货吧，我们一起搞定 LeetCode，感受一下支配算法的乐趣。
+>>>>>>> Stashed changes
 
 # 目录
 
@@ -179,3 +317,183 @@ GitHub page 地址：https://labuladong.github.io/ebook/
 如果本仓库对你有帮助，可以请作者喝杯速溶咖啡
 
 <img src="pictures/pay.jpg" width = "200" align=center />
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+=======
+English translation is in progress... Some articles are still in Chinese, but most are completed. Please **star** this repo. The full translation will eventually be finished. Enjoy.
+
+These articles go over different kinds of **Algorithmic Thinking**. All are based on LeetCode problems. They are **not only the solution code for the problem, but also WHY the solution works and HOW we can figure it out**.
+
+I don't like one-liners. They can be confusing. I like clear, easily understandable code.
+
+The **Gitbook** has been deployed and will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
+<<<<<<< Updated upstream
+=======
+English translation is still processing... Some articles are still in Chinese, but most are completed. Please **star** this repo, when you come back soon, translation will finish perfectly. Just enjoy.
+
+These articles are somehow kinds of **Algorithmic Thinking**. All based on LeetCode problems, but **NOT ONLY the code of solution, but also WHY writing code this way, HOW we figure it out.**
+
+I don't like one liner and confusing, I like clear and easy-understanding.
+
+**Gitbook** has deployed, will sync with this branch of the repo: https://labuladong.gitbook.io/algo-en/
+>>>>>>> origin/english
+=======
+>>>>>>> Stashed changes
+
+If you want to clone this repo, please use following command:
+
+```shell
+git clone --depth 1  --branch english https://github.com/labuladong/fucking-algorithm.git
+```
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+This command specifies the `english` branch and will limit the depth of the clone and get rid of the Git commit history, which can be faster to clone.
+
+# Table of Contents
+
+* I. Dynamic Programming
+  * [Dynamic Programming in Details](dynamic_programming/AnalysisOfDynamicProgramming.md)
+<<<<<<< Updated upstream
+=======
+This command specifies the `english` branch and limit the depth of clone, get rid of the Git commit history, which can be faster to clone.
+
+# Table of Content
+
+* I. Dynamic Programming
+  * [Dynamic Programming in Detials](dynamic_programming/AnalysisOfDynamicProgramming.md)
+>>>>>>> origin/english
+=======
+>>>>>>> Stashed changes
+  * [Classic DP: Edit Distance](dynamic_programming/EditDistance.md)
+  * [Classic DP: Super Egg](dynamic_programming/ThrowingEggsinHighBuildings.md)
+  * [Classic DP: Super Egg(Advanced Solution)](dynamic_programming/SuperEggDropAdvanced.md)
+  * [Class DP: Longest Common Subsequence](dynamic_programming/LongestCommonSubsequence.md)
+  * [Classis DP: Game Problems](dynamic_programming/GameProblemsInDynamicProgramming.md)
+  * [Regular Expression](dynamic_programming/RegularExpression.md)
+  * [The Strategies of Subsequence Problem](dynamic_programming/StrategiesForSubsequenceProblem.md)
+  * [Greedy: Interval Scheduling](dynamic_programming/IntervalScheduling.md)
+  * [4 Keys Keyboard](dynamic_programming/FourKeysKeyboard.md)
+  * [What is DP Optimal Substructure](dynamic_programming/OptimalSubstructure.md)
+  * [Longest Increasing Subsequence](dynamic_programming/LongestIncreasingSubsequence.md)
+  * [KMP Algorithm In Detail](dynamic_programming/KMPCharacterMatchingAlgorithmInDynamicProgramming.md)
+  * [House Robber Problems](dynamic_programming/HouseRobber.md)
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+  * [Stock Buy and Sell Problems](dynamic_programming/BestTimeToBuyAndSellStock.md)
+
+* II. Data Structures
+  * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
+  * [LRU Cache Strategy in Detail](interview/LRU_algorithm.md)
+<<<<<<< Updated upstream
+=======
+  * [团灭 LeetCode 股票买卖问题](dynamic_programming/团灭股票问题.md)
+  
+* II. Data Structure
+  * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
+  * [LRU Cache Strategy in Detial](interview/LRU_algorithm.md)
+>>>>>>> origin/english
+=======
+>>>>>>> Stashed changes
+  * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
+  * [Special Data Structure: Monotonic Stack](data_structure/MonotonicStack.md)
+  * [Special Data Structure: Monotonic Stack](data_structure/Monotonic_queue.md)
+  * [Design Twitter](data_structure/design_Twitter.md)
+  * [Reverse Part of Linked List via Recursion](data_structure/reverse_part_of_a_linked_list_via_recursion.md)
+  * [What's the Best Algo Book](think_like_computer/why_i_recommend_algs4.md)
+  * [Queue Implement Stack/Stack implement Queue](data_structure/ImplementQueueUsingStacksImplementStackUsingQueues.md)
+  * [Frameworkabout learning data structure and algorithm](think_like_computer/Framework%20and%20thoughts%20about%20learning%20data%20structure%20and%20algorithm.md)
+
+* III. Algorithmic thinking
+  * [My Way to Learn Algorithm](think_like_computer/ThewaytoAlgorithmlearning.md)
+  * [The Framwork of Backtracking Algorithm](think_like_computer/DetailsaboutBacktracking.md)
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+  * [Binary Search in Detail](think_like_computer/DetailedBinarySearch.md)
+=======
+  * [Binary Search in Detial](think_like_computer/DetailedBinarySearch.md)
+>>>>>>> origin/english
+=======
+  * [Binary Search in Detail](think_like_computer/DetailedBinarySearch.md)
+>>>>>>> Stashed changes
+  * [The Tech of Double Pointer](think_like_computer/double_pointer.md)
+  * [The Key Concept of TowSum Problems](think_like_computer/The_key_to_resolving_TwoSum_problems.md)
+  * [Divide Complicated Problem: Implement a Calculator](data_structure/Implementing_the_functions_of_a_calculator.md)
+  * [Prefix Sum Skill](think_like_computer/prefix_sum.md)
+  * [FloodFill Algorithm in Detail](think_like_computer/flood_fill.md)
+  * [Interval Scheduling: Interval Merging](think_like_computer/IntervalMerging.md)
+  * [Interval Scheduling: Intersections of Intervals](think_like_computer/IntervalIntersection.md)
+  * [String Multiplication](think_like_computer/string_multiplication.md)
+  * [Pancake Soring Algorithm](think_like_computer/PancakesSorting.md)
+  * [Sliding Window Algorithm](think_like_computer/SlidingWindowTechnique.md)
+  * [Some Useful Bit Manipulations](think_like_computer/CommonBitManipulation.md)
+  * [Russian Doll Envelopes Problem](think_like_computer/RussianDollEnvelopes.md)
+  * [Recursion In Detail](data_structure/RecursionInDetail.md)
+  * [Backtracking Solve Subset/Permutation/Combination](interview/Subset_Permutation_Combination.md)
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+  * [Several counter-intuitive Probability Problems](think_like_computer/several_counter_intuitive_probability_problems.md)
+  * [Shuffle Algorithm](think_like_computer/Shuffle_Algorithm.md)
+
+* IV. High Frequency Interview Problems
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  * [Several counter-intuitive Probability Problems](think_like_computer/several_counter_intuitive_probability_problems.md)
+  * [Shuffle Algorithm](think_like_computer/Shuffle_Algorithm.md)
+=======
+  * [几个反直觉的概率问题](think_like_computer/几个反直觉的概率问题.md)
+  * [洗牌算法](think_like_computer/洗牌算法.md)
+>>>>>>> parent of 64a9fae... Merge pull request #213 from Lyjeeq/english
+
+* IV. High Frequency Interview Problem
+>>>>>>> origin/english
+=======
+>>>>>>> Stashed changes
+  * [How to Implement LRU Cache](interview/LRU_algorithm.md)
+  * [How to Find Prime Number Efficiently](interview/Print_PrimeNumbers.md)
+  * [How to Calculate Minimium Edit Distance](dynamic_programming/EditDistance.md)
+  * [How to Solve Drop Water Problem](interview/Trapping_Rain_Water.md)
+  * [How to Remove Duplicate From Sorted Sequence](interview/RemoveDuplicatesfromSortedArray.md)
+  * [How to Find Longest Palindromic Substring](interview/TheLongestPalindromicSubstring.md)
+  * [How to Reverse Linked List in K Group](interview/reverse-nodes-in-k-group.md)
+  * [How to Check the Validation of Parenthesis](interview/valid-parentheses.md)
+  * [How to Find Missing Element](interview/missing_elements.md)
+  * [How to Pick Elements From a Arbitrary Sequence](interview/ReservoirSampling.md)
+  * [How to use Binary Search](interview/UsingBinarySearchAlgorithm.md)
+  * [How to Scheduling Seats](interview/Seatscheduling.md)
+  * [Union-Find Algorithm in Detail](think_like_computer/Union-find-Explanation.md)
+  * [Union-Find Application](think_like_computer/Union-Find-Application.md)
+  * [Find Sebesquence With Binary Search](interview/findSebesquenceWithBinarySearch.md)
+  * [Problems can be sloved by one line](interview/one-line-code-puzzles.md)
+  * [How to Find Dup and Missing Element](interview/Find-Duplicate-and-Missing-Element.md)
+  * [How to Check Palindrom LinkedList](interview/check_palindromic_linkedlist.md)
+
+* V. Common Knowledge
+  * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
+  * [You Must Know About Linux Shell](common_knowledge/linuxshell.md)
+  * [You Must Know About Cookie and Session](common_knowledge/SessionAndCookie.md)
+  * [Cryptology Algorithm](common_knowledge/Cryptology.md)
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+  * [Some Good Online Pratice Platforms](common_knowledge/OnlinePraticePlatform.md)
+>>>>>>> Stashed changes
+=======
+  * [Some Good Online Pratice Platforms](common_knowledge/OnlinePraticePlatform.md)
+>>>>>>> origin/english
+=======
+  * [Some Good Online Pratice Platforms](common_knowledge/OnlinePraticePlatform.md)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

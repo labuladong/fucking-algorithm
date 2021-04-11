@@ -1,5 +1,25 @@
 # FloodFill算法详解及应用
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [如何高效进行模幂运算](https://labuladong.gitbook.io/algo)
+  * [经典动态规划：0-1 背包问题](https://labuladong.gitbook.io/algo)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[733.图像渲染](https://leetcode-cn.com/problems/flood-fill)
+
+**-----------**
+
 啥是 FloodFill 算法呢，最直接的一个应用就是「颜色填充」，就是 Windows 绘画本中那个小油漆桶的标志，可以把一块被圈起来的区域全部染色。
 
 ![floodfill](../pictures/floodfill/floodfill.gif)
@@ -106,7 +126,7 @@ image[x][y] = newColor;
 
 完全 OK，这也是处理「图」的一种常用手段。不过对于此题，不用开数组，我们有一种更好的方法，那就是回溯算法。
 
-前文「回溯算法详解」讲过，这里不再赘述，直接套回溯算法框架：
+前文 [回溯算法框架套路](https://labuladong.gitbook.io/algo)讲过，这里不再赘述，直接套回溯算法框架：
 
 ```java
 void fill(int[][] image, int x, int y,
@@ -209,20 +229,14 @@ int fill(int[][] image, int x, int y,
 
 以上详细讲解了 FloodFill 算法的框架设计，**二维矩阵中的搜索问题，都逃不出这个算法框架**。
 
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
 
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
 
-
-
-
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
-
-![labuladong](../pictures/labuladong.jpg)
-
-
-[上一篇：字符串乘法](../算法思维系列/字符串乘法.md)
-
-[下一篇：区间调度之区间合并问题](../算法思维系列/区间调度问题之区间合并.md)
-
-[目录](../README.md#目录)
+======其他语言代码======

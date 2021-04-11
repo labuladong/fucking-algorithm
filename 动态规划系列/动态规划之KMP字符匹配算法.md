@@ -1,5 +1,25 @@
 # 动态规划之KMP字符匹配算法
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [经典动态规划：最长公共子序列](https://labuladong.gitbook.io/algo)
+  * [特殊数据结构：单调栈](https://labuladong.gitbook.io/algo)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[28.实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
+
+**-----------**
+
 KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法，效率很高，但是确实有点复杂。
 
 很多读者抱怨 KMP 算法无法理解，这很正常，想到大学教材上关于 KMP 算法的讲解，也不知道有多少未来的 Knuth、Morris、Pratt 被提前劝退了。有一些优秀的同学通过手推 KMP 算法的过程来辅助理解该算法，这是一种办法，不过本文要从逻辑层面帮助读者理解算法的原理。十行代码之间，KMP 灰飞烟灭。
@@ -37,7 +57,7 @@ int search(String pat, String txt) {
 }
 ```
 
-对于暴力算法，如果出现不匹配字符，同时回退 `txt` 和 `pat` 的指针，嵌套 for 循环，时间复杂度 $O(MN)$，空间复杂度$O(1)$。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。
+对于暴力算法，如果出现不匹配字符，同时回退 `txt` 和 `pat` 的指针，嵌套 for 循环，时间复杂度 `O(MN)`，空间复杂度`O(1)`。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。
 
 比如 txt = "aaacaaab" pat = "aaab"：
 
@@ -399,12 +419,16 @@ public class KMP {
 
 KMP 算法也就是动态规划那点事，我们的公众号文章目录有一系列专门讲动态规划的，而且都是按照一套框架来的，无非就是描述问题逻辑，明确 `dp` 数组含义，定义 base case 这点破事。希望这篇文章能让大家对动态规划有更深的理解。
 
-**致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
 
-![labuladong](../pictures/labuladong.png)
 
-[上一篇：贪心算法之区间调度问题](../动态规划系列/贪心算法之区间调度问题.md)
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-[下一篇：团灭 LeetCode 股票买卖问题](../动态规划系列/团灭股票问题.md)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
 
-[目录](../README.md#目录)
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
+
+======其他语言代码======

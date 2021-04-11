@@ -1,5 +1,21 @@
 # Union-Find算法详解
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [一文秒杀四道原地修改数组的算法题](https://labuladong.gitbook.io/algo)
+  * [学习算法和数据结构的思路指南](https://labuladong.gitbook.io/algo)
+
+**-----------**
+
 今天讲讲 Union-Find 算法，也就是常说的并查集算法，主要是解决图论中「动态连通性」问题的。名词很高端，其实特别好理解，等会解释，另外这个算法的应用都非常有趣。
 
 说起这个 Union-Find，应该算是我的「启蒙算法」了，因为《算法4》的开头就介绍了这款算法，可是把我秀翻了，感觉好精妙啊！后来刷了 LeetCode，并查集相关的算法题目都非常有意思，而且《算法4》给的解法竟然还可以进一步优化，只要加一个微小的修改就可以把时间复杂度降到 O(1)。
@@ -289,12 +305,16 @@ class UF {
 
 Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结构需要 O(N) 的时间和空间复杂度；连通两个节点`union`、判断两个节点的连通性`connected`、计算连通分量`count`所需的时间复杂度均为 O(1)。
 
-**致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
 
-![labuladong](../pictures/labuladong.png)
 
-[上一篇：如何调度考生的座位](../高频面试系列/座位调度.md)
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-[下一篇：Union-Find算法应用](../算法思维系列/UnionFind算法应用.md)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo) 持续更新最新文章**。
 
-[目录](../README.md#目录)
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
+
+======其他语言代码======
