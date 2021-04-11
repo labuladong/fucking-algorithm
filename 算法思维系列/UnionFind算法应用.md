@@ -1,5 +1,29 @@
 # Union-Find算法应用
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [手把手带你刷二叉树（第一期）](https://labuladong.gitbook.io/algo/)
+  * [二分查找详解](https://labuladong.gitbook.io/algo/)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[130.被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
+
+[990.等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations)
+
+[261.以图判树](https://leetcode-cn.com/problems/graph-valid-tree/)
+
+**-----------**
+
 上篇文章很多读者对于 Union-Find 算法的应用表示很感兴趣，这篇文章就拿几道 LeetCode 题目来讲讲这个算法的巧妙用法。
 
 首先，复习一下，Union-Find 算法解决的是图的动态连通性问题，这个算法本身不难，能不能应用出来主要是看你抽象问题的能力，是否能够把原始问题抽象成一个有关图论的问题。
@@ -218,13 +242,331 @@ boolean equationsPossible(String[] equations) {
 
 
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-![labuladong](../pictures/labuladong.jpg)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
+
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
+======其他语言代码======
+
+[130.被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
+
+[990.等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations)
+
+[261.以图判树](https://leetcode-cn.com/problems/graph-valid-tree/)
 
 
-[上一篇：Union-Find算法详解](../算法思维系列/UnionFind算法详解.md)
 
-[下一篇：一行代码就能解决的算法题](../高频面试系列/一行代码解决的智力题.md)
+### java
 
-[目录](../README.md#目录)
+第261题的Java代码（提供：[LEODPEN](https://github.com/LEODPEN)）
+
+```java
+class Solution {
+
+    class DisjointSet {
+
+        int count; // 连通分量的总个数
+        int[] parent; // 每个节点的头节点（不一定是连通分量的最终头节点）
+        int[] size; // 每个连通分量的大小
+
+        public DisjointSet(int n) {
+            parent = new int[n];
+            size = new int[n];
+            // 初为n个连通分量，期望最后为1
+            count = n;
+            for (int i = 0; i < n; i++) {
+                // 初始的连通分量只有该节点本身
+                parent[i] = i;
+                size[i] = 1;
+            }
+        }
+
+        /**
+         * @param first  节点1
+         * @param second 节点2
+         * @return 未连通 && 连通成功
+         */
+        public boolean union(int first, int second) {
+            // 分别找到包含first 和 second 的最终根节点
+            int firstParent = findRootParent(first), secondParent = findRootParent(second);
+            // 相等说明已经处于一个连通分量，即说明有环
+            if (firstParent == secondParent) return false;
+            // 将较小的连通分量融入较大的连通分量
+            if (size[firstParent] >= size[secondParent]) {
+                parent[secondParent] = firstParent;
+                size[firstParent] += size[secondParent];
+            } else {
+                parent[firstParent] = secondParent;
+                size[secondParent] += size[firstParent];
+            }
+            // 连通分量已合并，count减少
+            count--;
+            return true;
+        }
+
+        /**
+         * @param node 某节点
+         * @return 包含该节点的连通分量的最终根节点
+         */
+        private int findRootParent(int node) {
+            while (node != parent[node]) {
+                // 压缩路径
+                parent[node] = parent[parent[node]];
+                node = parent[node];
+            }
+            return node;
+        }
+    }
+
+    public boolean validTree(int n, int[][] edges) {
+        // 树的特性：节点数 = 边数 + 1
+        if (edges.length != n - 1) return false;
+        DisjointSet djs = new DisjointSet(n);
+        for (int[] edg : edges) {
+            // 判断连通情况（如果合并的两个点在一个连通分量里，说明有环）
+            if (!djs.union(edg[0], edg[1])) return false;
+        }
+        // 是否全部节点均已相连
+        return djs.count == 1;
+    }
+}
+```
+
+
+
+### javascript
+
+[130.被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
+
+```js
+class UF {
+    // 记录连通分量
+    count;
+
+    // 节点 x 的根节点是 parent[x]
+    parent;
+
+    // 记录树的“重量”
+    size;
+
+    constructor(n) {
+
+        // 一开始互不连通
+        this.count = n;
+
+        // 父节点指针初始指向自己
+        this.parent = new Array(n);
+
+        this.size = new Array(n);
+
+        for (let i = 0; i < n; i++) {
+            this.parent[i] = i;
+            this.size[i] = 1;
+        }
+    }
+
+    /* 返回某个节点 x 的根节点 */
+    find(x) {
+        // 根节点的 parent[x] == x
+        while (this.parent[x] !== x) {
+            // 进行路径压缩
+            this.parent[x] = this.parent[this.parent[x]];
+            x = this.parent[x];
+        }
+        return x;
+    }
+
+    /* 将 p 和 q 连接 */
+    union(p, q) {
+        // 如果某两个节点被连通，则让其中的（任意）
+        // 一个节点的根节点接到另一个节点的根节点上
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        if (rootP === rootQ) return;
+
+        // 小树接到大树下面，较平衡
+        if (this.size[rootP] > this.size[rootQ]) {
+            this.parent[rootQ] = rootP;
+            this.size[rootP] += this.size[rootQ];
+        } else {
+            this.parent[rootP] = rootQ;
+            this.size[rootQ] += this.size[rootP];
+        }
+
+        this.count--; // 两个分量合二为一
+    }
+
+    /* 判断 p 和 q 是否连通 */
+    connected(p, q) {
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        return rootP === rootQ;
+    };
+
+    /* 返回图中有多少个连通分量 */
+    getCount() {
+        return this.count;
+    };
+}
+
+/**
+ * @param {[][]} board
+ * @return {void} Do not return anything, modify board in-place instead.
+ */
+let solve = function (board) {
+    if (board.length === 0) return;
+
+    let m = board.length;
+    let n = board[0].length;
+
+    // 给 dummy 留一个额外位置
+    let uf = new UF(m * n + 1);
+    let dummy = m * n;
+    // 将首列和末列的 O 与 dummy 连通
+    for (let i = 0; i < m; i++) {
+        if (board[i][0] === 'O')
+            uf.union(i * n, dummy);
+        if (board[i][n - 1] === 'O')
+            uf.union(i * n + n - 1, dummy);
+    }
+    // 将首行和末行的 O 与 dummy 连通
+    for (let j = 0; j < n; j++) {
+        if (board[0][j] === 'O')
+            uf.union(j, dummy);
+        if (board[m - 1][j] === 'O')
+            uf.union(n * (m - 1) + j, dummy);
+    }
+    // 方向数组 d 是上下左右搜索的常用手法
+    let d = [[1, 0], [0, 1], [0, -1], [-1, 0]];
+    for (let i = 1; i < m - 1; i++)
+        for (let j = 1; j < n - 1; j++)
+            if (board[i][j] === 'O')
+                // 将此 O 与上下左右的 O 连通
+                for (let k = 0; k < 4; k++) {
+                    let x = i + d[k][0];
+                    let y = j + d[k][1];
+                    if (board[x][y] === 'O')
+                        uf.union(x * n + y, i * n + j);
+                }
+    // 所有不和 dummy 连通的 O，都要被替换
+    for (let i = 1; i < m - 1; i++)
+        for (let j = 1; j < n - 1; j++)
+            if (!uf.connected(dummy, i * n + j))
+                board[i][j] = 'X';
+}
+```
+
+
+
+[990.等式方程的可满足性](https://leetcode-cn.com/problems/surrounded-regions)
+
+需要注意的点主要为js字符与ASCII码互转。
+
+在java、c这些语言中，字符串直接相减，得到的是ASCII码的差值，结果为整数；而js中`"a" - "b"`的结果为NaN，所以需要使用`charCodeAt(index)`方法来获取字符的ASCII码，index不填时，默认结果为第一个字符的ASCII码。
+
+```js
+class UF {
+    // 记录连通分量
+    count;
+
+    // 节点 x 的根节点是 parent[x]
+    parent;
+
+    // 记录树的“重量”
+    size;
+
+    constructor(n) {
+
+        // 一开始互不连通
+        this.count = n;
+
+        // 父节点指针初始指向自己
+        this.parent = new Array(n);
+
+        this.size = new Array(n);
+
+        for (let i = 0; i < n; i++) {
+            this.parent[i] = i;
+            this.size[i] = 1;
+        }
+    }
+
+    /* 返回某个节点 x 的根节点 */
+    find(x) {
+        // 根节点的 parent[x] == x
+        while (this.parent[x] !== x) {
+            // 进行路径压缩
+            this.parent[x] = this.parent[this.parent[x]];
+            x = this.parent[x];
+        }
+        return x;
+    }
+
+    /* 将 p 和 q 连接 */
+    union(p, q) {
+        // 如果某两个节点被连通，则让其中的（任意）
+        // 一个节点的根节点接到另一个节点的根节点上
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        if (rootP === rootQ) return;
+
+        // 小树接到大树下面，较平衡
+        if (this.size[rootP] > this.size[rootQ]) {
+            this.parent[rootQ] = rootP;
+            this.size[rootP] += this.size[rootQ];
+        } else {
+            this.parent[rootP] = rootQ;
+            this.size[rootQ] += this.size[rootP];
+        }
+
+        this.count--; // 两个分量合二为一
+    }
+
+    /* 判断 p 和 q 是否连通 */
+    connected(p, q) {
+        let rootP = this.find(p);
+        let rootQ = this.find(q);
+        return rootP === rootQ;
+    };
+
+    /* 返回图中有多少个连通分量 */
+    getCount() {
+        return this.count;
+    };
+}
+/**
+ * @param {string[]} equations
+ * @return {boolean}
+ */
+let equationsPossible = function (equations) {
+    // 26 个英文字母
+    let uf = new UF(26);
+    // 先让相等的字母形成连通分量
+    for (let eq of equations) {
+        if (eq[1] === '=') {
+            let x = eq[0];
+            let y = eq[3];
+
+            // 'a'.charCodeAt() 为 97
+            uf.union(x.charCodeAt(0) - 97, y.charCodeAt(0) - 97);
+        }
+    }
+    // 检查不等关系是否打破相等关系的连通性
+    for (let eq of equations) {
+        if (eq[1] === '!') {
+            let x = eq[0];
+            let y = eq[3];
+            // 如果相等关系成立，就是逻辑冲突
+            if (uf.connected(x.charCodeAt(0) - 97, y.charCodeAt(0) - 97))
+                return false;
+        }
+    }
+    return true;
+};
+```
+

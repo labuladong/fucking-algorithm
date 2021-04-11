@@ -1,5 +1,25 @@
 # 如何k个一组反转链表
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [区间调度之区间交集问题](https://labuladong.gitbook.io/algo/)
+  * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.gitbook.io/algo/)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[25.K个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)
+
+**-----------**
+
 之前的文章「递归反转链表的一部分」讲了如何递归地反转一部分链表，有读者就问如何迭代地反转链表，这篇文章解决的问题也需要反转链表的函数，我们不妨就用迭代方式来解决。
 
 本文要解决「K 个一组反转链表」，不难理解：
@@ -12,7 +32,7 @@
 
 ### 一、分析问题
 
-首先，前文[学习数据结构的框架思维](../算法思维系列/学习数据结构和算法的框架思维.md)提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
+首先，前文[学习数据结构的框架思维](https://labuladong.gitbook.io/algo/)提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
 
 什么叫递归性质？直接上图理解，比如说我们对这个链表调用 `reverseKGroup(head, 2)`，即以 2 个节点为一组反转链表：
 
@@ -71,7 +91,7 @@ ListNode reverse(ListNode a) {
 「反转以 `a` 为头结点的链表」其实就是「反转 `a` 到 null 之间的结点」，那么如果让你「反转 `a` 到 `b` 之间的结点」，你会不会？
 
 只要更改函数签名，并把上面的代码中 `null` 改成 `b` 即可：
-[labuladong](https://github.com/labuladong) 提供Java解法代码：
+
 ```java
 /** 反转区间 [a, b) 的元素，注意是左闭右开 */
 ListNode reverse(ListNode a, ListNode b) {
@@ -88,23 +108,9 @@ ListNode reverse(ListNode a, ListNode b) {
     return pre;
 }
 ```
-[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
-```C++
-ListNode* reverse(ListNode* begin,ListNode* end) {
-    ListNode* newHead = nullptr;
-    ListNode* cur = begin;
-    while(cur != end) {
-        ListNode* next = cur->next;
-        cur->next = newHead;
-        newHead = cur;
-        cur = next;
-    }
-    return newHead;
-}
-```
 
 现在我们迭代实现了反转部分链表的功能，接下来就按照之前的逻辑编写 `reverseKGroup` 函数即可：
-[labuladong](https://github.com/labuladong) 提供Java解法代码：
+
 ```java
 ListNode reverseKGroup(ListNode head, int k) {
     if (head == null) return null;
@@ -123,37 +129,7 @@ ListNode reverseKGroup(ListNode head, int k) {
     return newHead;
 }
 ```
-[renxiaoyao](https://github.com/tianzhongwei) 提供C++解法代码：
-```C++
-class Solution {
-public:
-    ListNode* reverseKGroup(ListNode* head, int k) {
-        if(!head)   return head;
-        ListNode* begin = head;
-        ListNode* end = head;
-        for(int i = 0 ; i < k ; ++i) {
-            if(!end)
-                return head;
-            end = end->next;
-        }
-        ListNode* newHead = reverse(begin,end);
-        begin->next = reverseKGroup(end,k);
-        return newHead;
-    }
-private:
-    ListNode* reverse(ListNode* begin,ListNode* end) {
-        ListNode* newHead = nullptr;
-        ListNode* cur = begin;
-        while(cur != end) {
-            ListNode* next = cur->next;
-            cur->next = newHead;
-            newHead = cur;
-            cur = next;
-        }
-        return newHead;
-    }
-};
-```
+
 解释一下 `for` 循环之后的几句代码，注意 `reverse` 函数是反转区间 `[a, b)`，所以情形是这样的：
 
 ![](../pictures/kgroup/6.jpg)
@@ -170,11 +146,15 @@ private:
 
 那么如何分解问题、发现递归性质呢？这个只能多练习，也许后续可以专门写一篇文章来探讨一下，本文就到此为止吧，希望对大家有帮助！
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-![labuladong](../pictures/labuladong.jpg)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 
 [KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
 
@@ -218,8 +198,94 @@ class Solution:
         return newHead
 ```
 
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
+=======
+>>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
 [上一篇：如何寻找最长回文子串](../高频面试系列/最长回文子串.md)
+=======
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
 
-[下一篇：如何判定括号合法性](../高频面试系列/合法括号判定.md)
+======其他语言代码======
 
-[目录](../README.md#目录)
+[25.K个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)
+
+### javascript
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+
+>>>>>>> Stashed changes
+
+// 示例一：反转以a为头结点的链表
+let reverse = function (a) {
+    let pre, cur, nxt;
+    pre = null;
+    cur = a;
+    nxt = a;
+    while (cur != null) {
+        nxt = cur.next;
+        // 逐个结点反转
+        cur.next = pre;
+        // 更新指针位置
+        pre = cur;
+        cur = nxt;
+    }
+    // 返回反转后的头结点
+    return pre;
+}
+
+/** 反转区间 [a, b) 的元素，注意是左闭右开 */
+let reverse = (a, b) => {
+    let pre, cur, nxt;
+    pre = null;
+    cur = a;
+    nxt = a;
+    // while 终止的条件改一下就行了
+    while (cur !== b) {
+        nxt = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = nxt;
+    }
+    // 返回反转后的头结点
+    return pre;
+}
+
+
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+let reverseKGroup = (head, k) => {
+    if (head == null) return null;
+    // 区间 [a, b) 包含 k 个待反转元素
+    let a, b;
+    a = b = head;
+    for (let i = 0; i < k; i++) {
+        // 不足k个，不需反转，base case
+        if(b==null) return head;
+        b = b.next;
+    }
+
+    // 反转前k个元素
+    let newHead = reverse(a,b);
+
+    // 递归反转后续链表并连接起来
+    a.next = reverseKGroup(b,k);
+    return newHead;
+}
+```
+
