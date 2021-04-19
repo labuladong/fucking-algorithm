@@ -430,41 +430,128 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
-[MoguCloud](https://github.com/MoguCloud) 提供 实现 strStr() 的 Python 完整代码：
-```py
-class Solution:
-    def strStr(self, haystack: str, needle: str) -> int:
-        # 边界条件判断
-        if not needle:
-            return 0
-        pat = needle
-        txt = haystack
 
-        M = len(pat)
-        # dp[状态][字符] = 下个状态
-        dp = [[0 for _ in range(256)] for _ in pat]
-        # base case
-        dp[0][ord(pat[0])] = 1
-        # 影子状态 X 初始化为 0
-        X = 0
-        for j in range(1, M):
-            for c in range(256):
-                dp[j][c] = dp[X][c]
-            dp[j][ord(pat[j])] = j + 1
-            # 更新影子状态
-            X = dp[X][ord(pat[j])]
-    
+[28.实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
+
+### python
+
+[MoguCloud](https://github.com/MoguCloud) 提供 实现 strStr() 的 Python 完整代码：
+
+```python
+class Solution:
+  def strStr(self, haystack: str, needle: str) -> int:
+    # 边界条件判断
+    if not needle:
+      return 0
+    pat = needle
+    txt = haystack
+
+    M = len(pat)
+    # dp[状态][字符] = 下个状态
+    dp = [[0 for _ in range(256)] for _ in pat]
+    # base case
+    dp[0][ord(pat[0])] = 1
+    # 影子状态 X 初始化为 0
+    X = 0
+    for j in range(1, M):
+      for c in range(256):
+        dp[j][c] = dp[X][c]
+        dp[j][ord(pat[j])] = j + 1
+        # 更新影子状态
+        X = dp[X][ord(pat[j])]
+
         N = len(txt)
         # pat 初始状态为 0 
         j = 0
         for i in range(N):
-            # 计算 pat 的下一个状态
-            j = dp[j][ord(txt[i])]
-            # 到达终止态，返回结果
-            if j == M:
-                return i - M + 1
-        # 没到达终止态，匹配失败
-        return -1
+          # 计算 pat 的下一个状态
+          j = dp[j][ord(txt[i])]
+          # 到达终止态，返回结果
+          if j == M:
+            return i - M + 1
+          # 没到达终止态，匹配失败
+          return -1
 ```
+
+
+
+### javascript
+
+```js
+class KMP {
+  constructor(pat) {
+    this.pat = pat;
+    let m = pat.length;
+
+    // dp[状态][字符] = 下个状态  初始化一个m*256的整数矩阵
+    this.dp = new Array(m);
+    for (let i = 0; i < m; i++) {
+      this.dp[i] = new Array(256);
+      this.dp[i].fill(0, 0, 256);
+    }
+
+    // base case
+    this.dp[0][this.pat[0].charCodeAt()] = 1;
+
+    // 影子状态X 初始为0
+    let x = 0;
+
+    // 构建状态转移图
+    for (let j = 1; j < m; j++) {
+      for (let c = 0; c < 256; c++) {
+        this.dp[j][c] = this.dp[x][c];
+      }
+
+      // dp[][对应的ASCII码]
+      this.dp[j][this.pat[j].charCodeAt()] = j + 1;
+
+      // 更新影子状态
+      x = this.dp[x][this.pat[j].charCodeAt()]
+    }
+  }
+
+  search(txt) {
+
+    let m = this.pat.length;
+    let n = txt.length;
+
+    // pat的初始态为0
+    let j = 0;
+    for (let i = 0; i < n; i++) {
+      // 计算pat的下一个状态
+      j = this.dp[j][txt[i].charCodeAt()];
+
+      // 到达终止态 返回结果
+      if (j === m) return i - m + 1;
+    }
+
+    // 没到终止态 匹配失败
+    return -1;
+  }
+
+}
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function(haystack, needle) { 
+  if(haystack === ""){
+    if(needle !== ""){
+      return -1;
+    }
+    return 0;
+  }
+
+  if(needle === ""){
+    return 0;
+  }
+  let kmp = new KMP(needle);
+  return kmp.search(haystack)
+};
+```
+
+
+

@@ -240,3 +240,88 @@ int fill(int[][] image, int x, int y,
 </p>
 
 ======其他语言代码======
+
+[733.图像渲染](https://leetcode-cn.com/problems/flood-fill)
+
+
+
+### javascript
+
+**BFS**
+从起始像素向上下左右扩散，只要相邻的点存在并和起始点颜色相同，就染成新的颜色，并继续扩散。
+
+借助一个队列去遍历节点，考察出列的节点，带出满足条件的节点入列。已经染成新色的节点不会入列，避免重复访问节点。
+
+时间复杂度：O(n)。空间复杂度：O(n)
+
+```js
+const floodFill = (image, sr, sc, newColor) => {
+  const m = image.length;
+  const n = image[0].length;
+  const oldColor = image[sr][sc];
+  if (oldColor == newColor) return image;
+
+  const fill = (i, j) => {
+    if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oldColor) {
+      return;
+    }
+    image[i][j] = newColor; 
+    fill(i - 1, j);
+    fill(i + 1, j);
+    fill(i, j - 1);
+    fill(i, j + 1);
+  };
+
+  fill(sr, sc);
+  return image;
+};
+```
+
+
+
+**DFS**
+
+思路与上文相同。
+
+```js
+/**
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} newColor
+ * @return {number[][]}
+ */
+let floodFill = function (image, sr, sc, newColor) {
+    let origColor = image[sr][sc];
+    fill(image, sr, sc, origColor, newColor);
+    return image;
+}
+
+let fill = function (image, x, y, origColor, newColor) {
+    // 出界：超出边界索引
+    if (!inArea(image, x, y)) return;
+
+    // 碰壁：遇到其他颜色，超出 origColor 区域
+    if (image[x][y] !== origColor) return;
+
+    // 已探索过的 origColor 区域
+    if (image[x][y] === -1) return;
+
+    // 打标记 避免重复
+    image[x][y] = -1;
+
+    fill(image, x, y + 1, origColor, newColor);
+    fill(image, x, y - 1, origColor, newColor);
+    fill(image, x - 1, y, origColor, newColor);
+    fill(image, x + 1, y, origColor, newColor);
+
+    // un choose：将标记替换为 newColor
+    image[x][y] = newColor;
+}
+
+let inArea = function (image, x, y) {
+    return x >= 0 && x < image.length
+        && y >= 0 && y < image[0].length;
+}
+```
+

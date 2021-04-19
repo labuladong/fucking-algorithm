@@ -345,8 +345,11 @@ class LRUCache {
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
+
+[146.LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/)
+
+### c++
 
 [gowufang](https://github.com/gowufang)提供第146题C++代码：
 ```cpp
@@ -434,7 +437,11 @@ class LRUCache {
     };
 ```
 
-```python3
+
+
+### python
+
+```python
 """
 所谓LRU缓存，根本的难点在于记录最久被使用的键值对，这就设计到排序的问题，
 在python中，天生具备排序功能的字典就是OrderDict。
@@ -447,20 +454,185 @@ class LRUCache {
 """
 from collections import OrderedDict
 class LRUCache:
-    def __init__(self, capacity: int):
-        self.capacity = capacity  # cache的容量
-        self.visited = OrderedDict()  # python内置的OrderDict具备排序的功能
-    def get(self, key: int) -> int:
-        if key not in self.visited:
-             return -1
-        self.visited.move_to_end(key)  # 最近访问的放到链表最后，维护好顺序
-        return self.visited[key]
-    def put(self, key: int, value: int) -> None:
-        if key not in self.visited and len(self.visited) == self.capacity:
-              # last=False时，按照FIFO顺序弹出键值对
-              # 因为我们将最近访问的放到最后，所以最远访问的就是最前的，也就是最first的，故要用FIFO顺序
-            self.visited.popitem(last=False)
-        self.visited[key]=value
-        self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
+  def __init__(self, capacity: int):
+    self.capacity = capacity  # cache的容量
+    self.visited = OrderedDict()  # python内置的OrderDict具备排序的功能
+    
+  def get(self, key: int) -> int:
+    if key not in self.visited:
+      return -1
+    self.visited.move_to_end(key)  # 最近访问的放到链表最后，维护好顺序
+    return self.visited[key]
+
+  def put(self, key: int, value: int) -> None:
+    if key not in self.visited and len(self.visited) == self.capacity:
+      # last=False时，按照FIFO顺序弹出键值对
+      # 因为我们将最近访问的放到最后，所以最远访问的就是最前的，也就是最first的，故要用FIFO顺序
+      self.visited.popitem(last=False)
+      self.visited[key]=value
+      self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
+
 
 ```
+
+
+
+### javascript
+
+没啥好说的，es6的哈希表Map + 双向链表。
+
+这里先使用es5的语法实现一遍，看完后相信你一定能用es6的class语法实现，这里的map用的是es6中的map()，这题是研究LRU的，就不用在{}和map()上过于深究了，直接用`new Map()`比较方便。
+
+```js
+// 双向链表节点
+var LinkNode = function (key, val) {
+    if (!(this instanceof LinkNode)) {
+        return new LinkNode(key, val)
+    }
+    this.key = key;
+    this.val = val;
+}
+
+// 双向链表
+var DoubleLink = function () {
+    // 初始化双向链表的数据
+    this.head = new LinkNode(0, 0);
+    this.tail = new LinkNode(0, 0);
+
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+
+    // 链表元素数
+    this.size = 0;
+}
+
+// // 在链表尾部添加节点 x，时间 O(1)
+DoubleLink.prototype.addLast = function (node) {
+    node.prev = this.tail.prev;
+    node.next = this.tail;
+    this.tail.prev.next = node;
+    this.tail.prev = node;
+
+    ++this.size;
+}
+
+// 删除链表中的 x 节点（x 一定存在）
+// 由于是双链表且给的是目标 Node 节点，时间 O(1)
+DoubleLink.prototype.remove = function (node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+    --this.size;
+}
+
+
+// 删除链表中第一个节点，并返回该节点，时间 O(1)
+DoubleLink.prototype.removeFirst = function () {
+    if (this.head.next === this.tail)
+        return null;
+
+    let first = this.head.next;
+    this.remove(first);
+    return first;
+}
+
+
+// 返回链表长度，时间 O(1)
+DoubleLink.prototype.getSize = function () {
+    return this.size;
+}
+
+
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function (capacity) {
+    this.map = new Map();
+    this.cache = new DoubleLink();
+    this.cap = capacity;
+};
+
+/**
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function (key) {
+    if (!this.map.has(key)) {
+        return -1;
+    }
+    // 将该数据提升为最近使用的
+    this.makeRecently(key);
+    return this.map.get(key).val;
+};
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function (key, value) {
+    if (this.map.has(key)) {
+        // 删除旧的数据
+        this.deleteKey(key);
+        // 新插入的数据为最近使用的数据
+        this.addRecently(key, value);
+        return;
+    }
+
+    if (this.cap === this.cache.getSize()) {
+        // 删除最久未使用的元素
+        this.removeLeastRecently();
+    }
+    // 添加为最近使用的元素
+    this.addRecently(key, value);
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+
+/* 将某个 key 提升为最近使用的 */
+LRUCache.prototype.makeRecently = function (key) {
+    let x = this.map.get(key);
+
+    // 先从链表中删除这个节点
+    this.cache.remove(x);
+
+    // 重新插入到队尾
+    this.cache.addLast(x);
+}
+
+/* 添加最近使用的元素 */
+LRUCache.prototype.addRecently = function (key, val) {
+    let x = new LinkNode(key, val);
+
+    // 链表尾部就是最近使用的元素
+    this.cache.addLast(x);
+    // 别忘了在 map 中添加 key 的映射
+    this.map.set(key, x);
+}
+
+/* 删除某一个 key */
+LRUCache.prototype.deleteKey = function (key) {
+    let x = this.map.get(key);
+    // 从链表中删除
+    this.cache.remove(x);
+    // 从 map 中删除
+    this.map.delete(key);
+   
+}
+
+/* 删除最久未使用的元素 */
+LRUCache.prototype.removeLeastRecently = function () {
+    // 链表头部的第一个元素就是最久未使用的
+    let deletedNode = this.cache.removeFirst();
+
+    // 同时别忘了从 map 中删除它的 key
+    let deletedKey = deletedNode.key;
+    this.map.delete(deletedKey);
+}
+
+```
+

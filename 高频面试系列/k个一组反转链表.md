@@ -157,3 +157,79 @@ ListNode reverseKGroup(ListNode head, int k) {
 </p>
 
 ======其他语言代码======
+
+[25.K个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)
+
+### javascript
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+
+
+// 示例一：反转以a为头结点的链表
+let reverse = function (a) {
+    let pre, cur, nxt;
+    pre = null;
+    cur = a;
+    nxt = a;
+    while (cur != null) {
+        nxt = cur.next;
+        // 逐个结点反转
+        cur.next = pre;
+        // 更新指针位置
+        pre = cur;
+        cur = nxt;
+    }
+    // 返回反转后的头结点
+    return pre;
+}
+
+/** 反转区间 [a, b) 的元素，注意是左闭右开 */
+let reverse = (a, b) => {
+    let pre, cur, nxt;
+    pre = null;
+    cur = a;
+    nxt = a;
+    // while 终止的条件改一下就行了
+    while (cur !== b) {
+        nxt = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = nxt;
+    }
+    // 返回反转后的头结点
+    return pre;
+}
+
+
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+let reverseKGroup = (head, k) => {
+    if (head == null) return null;
+    // 区间 [a, b) 包含 k 个待反转元素
+    let a, b;
+    a = b = head;
+    for (let i = 0; i < k; i++) {
+        // 不足k个，不需反转，base case
+        if(b==null) return head;
+        b = b.next;
+    }
+
+    // 反转前k个元素
+    let newHead = reverse(a,b);
+
+    // 递归反转后续链表并连接起来
+    a.next = reverseKGroup(b,k);
+    return newHead;
+}
+```
+

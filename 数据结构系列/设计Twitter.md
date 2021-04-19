@@ -301,8 +301,11 @@ PS：本文前两张图片和 GIF 是我第一次尝试用平板的绘图软件�
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
-
 ======其他语言代码======
+
+[355.设计推特](https://leetcode-cn.com/problems/design-twitter)
+
+### c++
 
 [happy-yuxuan](https://github.com/happy-yuxuan) 提供 C++ 代码：
 
@@ -420,3 +423,177 @@ public:
     }
 };
 ```
+
+
+
+### javascript
+
+由于js没有大小堆相关的内置库，所以可以考虑使用其它的方式类似实现链表+优先级队列的功能。
+
+
+followMap：用户关注列表， 用 Set 数据类型不需要去处理重复数据，取消关注（从列表删除）也会更方便；
+
+postMap：用户推文列表；
+
+latestPostId：推文的自增id，用于后续获取推文列表时排序；
+
+- 在 postTweet 函数中，将新增的 推文 { tweetId, postTime } 放到列表的最前面，并确保 latestPostId 自增；
+- 在 follow 函数中，先检查 followMap 是否已存在 followerId 数据，若已存在，直接 add(followeeId), 若不存在，新增 new Set([followeeId])；
+- 在 unfollow 函数中，直接检查是否存在 followMap[followerId] 列表，若存在直接delete(followeeId)；
+- 在 getNewsFeed 函数中，因为要取用户和用户关注的用户的最新 10 条推文，所以只需要把这些用户的前10条推文取出来，再根据postTime去排序，然后取最新10条推文。
+
+```js
+/**
+ * Initialize your data structure here.
+ */
+var Twitter = function() {
+    this.followMap = {}
+    this.postMap = new Map()
+    this.latestPostId = 0
+}
+
+/**
+ * Compose a new tweet.
+ * @param {number} userId
+ * @param {number} tweetId
+ * @return {void}
+ */
+Twitter.prototype.postTweet = function(userId, tweetId) {
+    const postTime = this.latestPostId++
+    let tweeList = [{ tweetId, postTime }]
+    if (this.postMap.has(userId)) {
+        tweeList = tweeList.concat(this.postMap.get(userId))
+    }
+    this.postMap.set(userId, tweeList)
+}
+
+/**
+ * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+ * @param {number} userId
+ * @return {number[]}
+ */
+Twitter.prototype.getNewsFeed = function(userId) {
+    const followeeIdList = this.followMap[userId] ? [...this.followMap[userId]] : []
+    const tweeList = []
+    const userIds = [...new Set(followeeIdList.concat([userId]))]
+    userIds.forEach(uid => {
+        if (this.postMap.has(uid)) {
+            tweeList.push(...this.postMap.get(uid).slice(0, 10))
+        }
+    })
+    tweeList.sort((a, b) => b.postTime - a.postTime)
+
+    return tweeList.slice(0, 10).map(item => item.tweetId)
+}
+
+/**
+ * Follower follows a followee. If the operation is invalid, it should be a no-op.
+ * @param {number} followerId
+ * @param {number} followeeId
+ * @return {void}
+ */
+Twitter.prototype.follow = function(followerId, followeeId) {
+    if (this.followMap[followerId]) {
+        this.followMap[followerId].add(followeeId)
+    } else {
+        this.followMap[followerId] = new Set([followeeId])
+    }
+}
+
+/**
+ * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+ * @param {number} followerId
+ * @param {number} followeeId
+ * @return {void}
+ */
+Twitter.prototype.unfollow = function(followerId, followeeId) {
+    if (this.followMap[followerId]) {
+        this.followMap[followerId].delete(followeeId)
+    }
+}
+```
+
+### python
+
+```python
+import heapq
+
+class Tweet:
+    def __init__(self, tid: int, time: int) -> None:
+        self.tid = tid
+        self.time = time
+        self.next = None
+
+class User:
+    def __init__(self, uid: int):
+        self.uid = uid
+        self.following = set()
+        self.tweetlst = None
+        self.follow(uid)
+
+    def post(self, tid: int, time: int) -> None:
+        tweet = Tweet(tid, time)
+        tweet.next = self.tweetlst
+        self.tweetlst = tweet
+
+    def follow(self, uid: int) -> None:
+        if uid not in self.following:
+            self.following.add(uid)
+
+    def unfollow(self, uid: int) -> None:
+        # one cannot unfollow itself
+        if uid != self.uid and uid in self.following:
+            self.following.remove(uid)
+
+class Twitter:
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.id2user = {}
+        self.timestamp = 0
+
+    def postTweet(self, userId: int, tweetId: int) -> None:
+        """
+        Compose a new tweet.
+        """
+        if userId not in self.id2user: self.id2user[userId] = User(userId)
+        user = self.id2user[userId]
+        user.post(tweetId, self.timestamp)
+        self.timestamp += 1
+
+    def getNewsFeed(self, userId: int) -> List[int]:
+        """
+        Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+        """
+        heap, user = [], self.id2user.get(userId)
+
+        if user:
+            for uid in user.following:
+                tweets = self.id2user[uid].tweetlst
+                while tweets:
+                    heap.append(tweets)
+                    tweets = tweets.next
+            return [twt.tid for twt in heapq.nlargest(10, heap, key= lambda twt: twt.time)]
+        else: return []
+
+    def follow(self, followerId: int, followeeId: int) -> None:
+        """
+        Follower follows a followee. If the operation is invalid, it should be a no-op.
+        """
+        if followerId not in self.id2user:
+            self.id2user[followerId] = User(followerId)
+        if followeeId not in self.id2user:
+            self.id2user[followeeId] = User(followeeId)
+        self.id2user[followerId].follow(followeeId)
+
+    def unfollow(self, followerId: int, followeeId: int) -> None:
+        """
+        Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+        """
+        if followerId in self.id2user:
+            self.id2user[followerId].unfollow(followeeId)
+```
+
+
+
