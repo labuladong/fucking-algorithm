@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [25 张图解：键入网址后，到网页显示，其间发生了什么](https://labuladong.gitbook.io/algo/)
-  * [如何在无限序列中随机抽取元素](https://labuladong.gitbook.io/algo/)
+  * [25 张图解：键入网址后，到网页显示，其间发生了什么](https://labuladong.gitee.io/algo/)
+  * [如何在无限序列中随机抽取元素](https://labuladong.gitee.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -338,7 +338,7 @@ class LRUCache {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
