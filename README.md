@@ -41,13 +41,13 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 **2、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题**：
 
-Gitbook 地址：https://labuladong.gitee.io/algo/
+Gitbook 地址：https://labuladong.gitbook.io/algo/
 
 GitBook 在国内访问速度很慢，且常被攻击，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
 
-GitHub Pages 地址：https://labuladong.github.io/algo
+Gitee Pages 地址：https://labuladong.gitee.io/algo/ （推荐）
 
-Gitee Pages 地址：https://labuladong.gitee.io/algo
+GitHub Pages 地址：https://labuladong.github.io/algo/
 
 
 **3、建议关注我的公众号 labuladong，坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。本仓库的文章就是从公众号里整理出来的**一部分**内容，公众号可以查看更多内容；公众号后台回复关键词【加群】可以加入我们的刷题群，和大家一起讨论算法问题，分享内推机会：
