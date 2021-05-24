@@ -1,5 +1,25 @@
 # 设计Twitter
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [面试官：你说对MySQL事务很熟？那我问你10个问题](https://labuladong.gitee.io/algo/)
+  * [一行代码就能解决的算法题](https://labuladong.gitee.io/algo/)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[355.设计推特](https://leetcode-cn.com/problems/design-twitter)
+
+**-----------**
+
 「design Twitter」是 LeetCode 上第 355 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
 
 至于 Twitter 的什么功能跟算法有关系，等我们描述一下题目要求就知道了。
@@ -268,17 +288,312 @@ public List<Integer> getNewsFeed(int userId) {
 
 我们解决的问题应该只能算 Timeline Service 模块的一小部分，功能越多，系统的复杂性可能是指数级增长的。所以说合理的顶层设计十分重要，其作用是远超某一个算法的。
 
-最后，Github 上有一个优秀的开源项目叫 [system-design-primer](https://github.com/donnemartin/system-design-primer)，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击链接查看。
+最后，Github 上有一个优秀的开源项目，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击 [这里](https://github.com/donnemartin/system-design-primer) 查看。
 
 PS：本文前两张图片和 GIF 是我第一次尝试用平板的绘图软件制作的，花了很多时间，尤其是 GIF 图，需要一帧一帧制作。如果本文内容对你有帮助，点个赞分个享，鼓励一下我呗！
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-![labuladong](../pictures/labuladong.jpg)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
+======其他语言代码======
+
+[355.设计推特](https://leetcode-cn.com/problems/design-twitter)
+
+### c++
+
+[happy-yuxuan](https://github.com/happy-yuxuan) 提供 C++ 代码：
+
+```c++
+static int timestamp = 0;
+class Tweet {
+private:
+    int id;
+    int time;
+public:
+    Tweet *next;
+    // id为推文内容，time为发文时间
+    Tweet(int id, int time) {
+        this->id = id;
+        this->time = time;
+        next = nullptr;
+    }
+    int getId() const {
+        return this->id;
+    }
+    int getTime() const {
+        return this->time;
+    }
+};
+class User {
+private:
+    int id;
+public:
+    Tweet *head;  // 发布的Twitter，用链表表示
+    unordered_set<int> followed;  // 用户关注了那些人
+    User(int userId) {
+        this->id = userId;
+        head = nullptr;
+        // 要先把自己关注了
+        followed.insert(id);
+    }
+    void follow(int userId) {
+        followed.insert(userId);
+    }
+    void unfollow(int userId) {
+        // 不可以取关自己
+        if (userId != this->id)
+            followed.erase(userId);
+    }
+    void post(int contentId) {
+        Tweet *twt = new Tweet(contentId, timestamp);
+        timestamp++;
+        // 将新建的推文插入链表头
+        // 越靠前的推文 timestamp 值越大
+        twt->next = head;
+        head = twt;
+    }
+};
+class Twitter {
+private:
+    // 映射将 userId 和 User 对象对应起来
+    unordered_map<int, User*> userMap;
+    // 判断该用户存不存在系统中,即userMap中存不存在id
+    inline bool contain(int id) {
+        return userMap.find(id) != userMap.end();
+    }
+public:
+    Twitter() {
+        userMap.clear();
+    }
+    /* user 发表一条 tweet 动态 */
+    void postTweet(int userId, int tweetId) {
+        if (!contain(userId))
+            userMap[userId] = new User(userId);
+        userMap[userId]->post(tweetId);
+    }
+    /* 返回该 user 关注的人（包括他自己）最近的动态 id，
+    最多 10 条，而且这些动态必须按从新到旧的时间线顺序排列。*/
+    vector<int> getNewsFeed(int userId) {
+        vector<int> ret;
+        if (!contain(userId)) return ret;
+        // 构造一个自动通过Tweet发布的time属性从大到小排序的二叉堆
+        typedef function<bool(const Tweet*, const Tweet*)> Compare;
+        Compare cmp = [](const Tweet *a, const Tweet *b) {
+            return a->getTime() < b->getTime();
+        };
+        priority_queue<Tweet*, vector<Tweet*>, Compare> q(cmp);
+        // 关注列表的用户Id
+        unordered_set<int> &users = userMap[userId]->followed;
+        // 先将所有链表头节点插入优先级队列
+        for (int id : users) {
+            if (!contain(id)) continue;
+            Tweet *twt = userMap[id]->head;
+            if (twt == nullptr) continue;
+            q.push(twt);
+        }
+        while (!q.empty()) {
+            Tweet *t = q.top(); q.pop();
+            ret.push_back(t->getId());
+            if (ret.size() == 10) return ret;  // 最多返回 10 条就够了
+            if (t->next)
+                q.push(t->next);
+        }
+        return ret;
+    }
+    /* follower 关注 followee */
+    void follow(int followerId, int followeeId) {
+        // 若 follower 不存在，则新建
+        if (!contain(followerId))
+            userMap[followerId] = new User(followerId);
+        // 若 followee 不存在，则新建
+        if (!contain(followeeId))
+            userMap[followeeId] = new User(followeeId);
+        userMap[followerId]->follow(followeeId);
+    }
+    /* follower 取关 followee，如果 Id 不存在则什么都不做 */
+    void unfollow(int followerId, int followeeId) {
+        if (contain(followerId))
+            userMap[followerId]->unfollow(followeeId);
+    }
+};
+```
 
 
-[上一篇：特殊数据结构：单调队列](../数据结构系列/单调队列.md)
 
-[下一篇：递归反转链表的一部分](../数据结构系列/递归反转链表的一部分.md)
+### javascript
 
-[目录](../README.md#目录)
+由于js没有大小堆相关的内置库，所以可以考虑使用其它的方式类似实现链表+优先级队列的功能。
+
+
+followMap：用户关注列表， 用 Set 数据类型不需要去处理重复数据，取消关注（从列表删除）也会更方便；
+
+postMap：用户推文列表；
+
+latestPostId：推文的自增id，用于后续获取推文列表时排序；
+
+- 在 postTweet 函数中，将新增的 推文 { tweetId, postTime } 放到列表的最前面，并确保 latestPostId 自增；
+- 在 follow 函数中，先检查 followMap 是否已存在 followerId 数据，若已存在，直接 add(followeeId), 若不存在，新增 new Set([followeeId])；
+- 在 unfollow 函数中，直接检查是否存在 followMap[followerId] 列表，若存在直接delete(followeeId)；
+- 在 getNewsFeed 函数中，因为要取用户和用户关注的用户的最新 10 条推文，所以只需要把这些用户的前10条推文取出来，再根据postTime去排序，然后取最新10条推文。
+
+```js
+/**
+ * Initialize your data structure here.
+ */
+var Twitter = function() {
+    this.followMap = {}
+    this.postMap = new Map()
+    this.latestPostId = 0
+}
+
+/**
+ * Compose a new tweet.
+ * @param {number} userId
+ * @param {number} tweetId
+ * @return {void}
+ */
+Twitter.prototype.postTweet = function(userId, tweetId) {
+    const postTime = this.latestPostId++
+    let tweeList = [{ tweetId, postTime }]
+    if (this.postMap.has(userId)) {
+        tweeList = tweeList.concat(this.postMap.get(userId))
+    }
+    this.postMap.set(userId, tweeList)
+}
+
+/**
+ * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+ * @param {number} userId
+ * @return {number[]}
+ */
+Twitter.prototype.getNewsFeed = function(userId) {
+    const followeeIdList = this.followMap[userId] ? [...this.followMap[userId]] : []
+    const tweeList = []
+    const userIds = [...new Set(followeeIdList.concat([userId]))]
+    userIds.forEach(uid => {
+        if (this.postMap.has(uid)) {
+            tweeList.push(...this.postMap.get(uid).slice(0, 10))
+        }
+    })
+    tweeList.sort((a, b) => b.postTime - a.postTime)
+
+    return tweeList.slice(0, 10).map(item => item.tweetId)
+}
+
+/**
+ * Follower follows a followee. If the operation is invalid, it should be a no-op.
+ * @param {number} followerId
+ * @param {number} followeeId
+ * @return {void}
+ */
+Twitter.prototype.follow = function(followerId, followeeId) {
+    if (this.followMap[followerId]) {
+        this.followMap[followerId].add(followeeId)
+    } else {
+        this.followMap[followerId] = new Set([followeeId])
+    }
+}
+
+/**
+ * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+ * @param {number} followerId
+ * @param {number} followeeId
+ * @return {void}
+ */
+Twitter.prototype.unfollow = function(followerId, followeeId) {
+    if (this.followMap[followerId]) {
+        this.followMap[followerId].delete(followeeId)
+    }
+}
+```
+
+### python
+
+```python
+import heapq
+
+class Tweet:
+    def __init__(self, tid: int, time: int) -> None:
+        self.tid = tid
+        self.time = time
+        self.next = None
+
+class User:
+    def __init__(self, uid: int):
+        self.uid = uid
+        self.following = set()
+        self.tweetlst = None
+        self.follow(uid)
+
+    def post(self, tid: int, time: int) -> None:
+        tweet = Tweet(tid, time)
+        tweet.next = self.tweetlst
+        self.tweetlst = tweet
+
+    def follow(self, uid: int) -> None:
+        if uid not in self.following:
+            self.following.add(uid)
+
+    def unfollow(self, uid: int) -> None:
+        # one cannot unfollow itself
+        if uid != self.uid and uid in self.following:
+            self.following.remove(uid)
+
+class Twitter:
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.id2user = {}
+        self.timestamp = 0
+
+    def postTweet(self, userId: int, tweetId: int) -> None:
+        """
+        Compose a new tweet.
+        """
+        if userId not in self.id2user: self.id2user[userId] = User(userId)
+        user = self.id2user[userId]
+        user.post(tweetId, self.timestamp)
+        self.timestamp += 1
+
+    def getNewsFeed(self, userId: int) -> List[int]:
+        """
+        Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+        """
+        heap, user = [], self.id2user.get(userId)
+
+        if user:
+            for uid in user.following:
+                tweets = self.id2user[uid].tweetlst
+                while tweets:
+                    heap.append(tweets)
+                    tweets = tweets.next
+            return [twt.tid for twt in heapq.nlargest(10, heap, key= lambda twt: twt.time)]
+        else: return []
+
+    def follow(self, followerId: int, followeeId: int) -> None:
+        """
+        Follower follows a followee. If the operation is invalid, it should be a no-op.
+        """
+        if followerId not in self.id2user:
+            self.id2user[followerId] = User(followerId)
+        if followeeId not in self.id2user:
+            self.id2user[followeeId] = User(followeeId)
+        self.id2user[followerId].follow(followeeId)
+
+    def unfollow(self, followerId: int, followeeId: int) -> None:
+        """
+        Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+        """
+        if followerId in self.id2user:
+            self.id2user[followerId].unfollow(followeeId)
+```
+
+
+
