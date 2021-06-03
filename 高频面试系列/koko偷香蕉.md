@@ -1,5 +1,27 @@
 # 如何运用二分查找算法
 
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](../pictures/souyisou.png)
+
+相关推荐：
+  * [如何运用贪心思想玩跳跃游戏](https://labuladong.gitee.io/algo/)
+  * [如何寻找最长回文子串](https://labuladong.gitee.io/algo/)
+
+读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
+
+[875.爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
+
+[1011.在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
+
+**-----------**
+
 二分查找到底有能运用在哪里？
 
 最常见的就是教科书上的例子，在**有序数组**中搜索给定的某个目标值的索引。再推广一点，如果目标值存在重复，修改版的二分查找可以返回目标值的左侧边界索引或者右侧边界索引。
@@ -137,13 +159,217 @@ for (int i = 0; i < n; i++)
         return ans;
 ```
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-![labuladong](../pictures/labuladong.jpg)
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+
+**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+
+<p align='center'>
+<img src="../pictures/qrcode.jpg" width=200 >
+</p>
+======其他语言代码======
+
+[875.爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
+
+[1011.在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
 
 
-[上一篇：如何计算编辑距离](../动态规划系列/编辑距离.md)
 
-[下一篇：如何高效解决接雨水问题](../高频面试系列/接雨水.md)
+### c++
+[cchroot](https://github.com/cchroot) 提供 C++ 代码：
 
-[目录](../README.md#目录)
+```c++
+class Solution {
+public:
+    int minEatingSpeed(vector<int>& piles, int H) {
+        // 二分法查找最小速度
+        // 初始化最小速度为 1，最大速度为题目设定的最大值 10^9
+        // 这里也可以遍历 piles 数组，获取数组中的最大值，设置 right 为数组中的最大值即可(因为每堆香蕉1小时吃完是最快的)
+        // log2(10^9) 约等于30，次数不多，所以这里暂时就不采取遍历获取最大值了
+        int left = 1, right = pow(10, 9);
+        while (left < right) { // 二分法基本的防止溢出
+            int mid = left + (right - left) / 2;
+            // 以 mid 的速度吃香蕉，是否能在 H 小时内吃完香蕉
+            if (!canFinish(piles, mid, H))
+                left = mid + 1;
+            else
+                right = mid;
+        }
+        return left;
+    }
+
+    // 以 speed 的速度是否能把香蕉吃完
+    bool canFinish(vector<int>& piles, int speed, int H) {
+        int time = 0;
+        // 遍历累加时间 time
+        for (int p: piles)
+            time += (p - 1) / speed + 1;
+        return time <= H; // time 小于等于 H 说明能在 H 小时吃完返回 true, 否则返回 false
+    }
+};
+```
+
+### python
+[tonytang731](https://https://github.com/tonytang731) 提供 Python3 代码：
+
+```python
+import math
+
+class Solution:
+    def minEatingSpeed(self, piles, H):
+        # 初始化起点和终点， 最快的速度可以一次拿完最大的一堆
+        start = 1
+        end = max(piles)
+        
+        # while loop进行二分查找
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            
+            # 如果中点所需时间大于H, 我们需要加速， 将起点设为中点
+            if self.timeH(piles, mid) > H:
+                start = mid
+            # 如果中点所需时间小于H, 我们需要减速， 将终点设为中点
+            else:
+                end = mid
+                
+        # 提交前确认起点是否满足条件，我们要尽量慢拿
+        if self.timeH(piles, start) <= H:
+            return start
+        
+        # 若起点不符合， 则中点是答案
+        return end
+            
+        
+        
+    def timeH(self, piles, K):
+        # 初始化时间
+        H = 0
+        
+        #求拿每一堆需要多长时间
+        for pile in piles:
+            H += math.ceil(pile / K)
+            
+        return H
+```
+
+
+
+### javascript
+
+用js写二分的时候，一定要注意使用`Math.floor((right - left) / 2)`或者`paserInt()`将结果整数化！由于js不声明变量类型，很多时候就很难发现自己浮点数、整数使用的问题。
+
+[875.爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
+
+```js
+/**
+ * @param {number[]} piles
+ * @param {number} H
+ * @return {number}
+ */
+var minEatingSpeed = function (piles, H) {
+    // 套用搜索左侧边界的算法框架
+    let left = 1, right = getMax(piles) + 1;
+
+    while (left < right) {
+        // 防止溢出
+        let mid = left + Math.floor((right - left) / 2);
+        if (canFinish(piles, mid, H)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
+
+// 时间复杂度 O(N)
+let canFinish = (piles, speed, H) => {
+    let time = 0;
+    for (let n of piles) {
+        time += timeOf(n, speed);
+    }
+    return time <= H;
+}
+
+// 计算所需时间
+let timeOf = (n, speed) => {
+    return Math.floor(
+        (n / speed) + ((n % speed > 0) ? 1 : 0)
+    );
+}
+
+let getMax = (piles) => {
+    let max = 0;
+    for (let n of piles) {
+        max = Math.max(n, max);
+    }
+    return max;
+}
+
+```
+
+
+
+[传送门：1011.在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
+
+```js
+// 第1011题
+/**
+ * @param {number[]} weights
+ * @param {number} D
+ * @return {number}
+ */
+// 寻找左侧边界的二分查找
+var shipWithinDays = function (weights, D) {
+    // 载重可能的最小值
+    let left = getMax(weights);
+    
+    // 载重可能的最大值 + 1
+    let right = getSum(weights) + 1;
+
+    while (left < right) {
+        let mid = left + Math.floor((right - left) / 2);
+        if (canFinish(weights, D, mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+
+// 如果载重为 cap，是否能在 D 天内运完货物？
+let canFinish = (w, D, cap) => {
+    let i = 0;
+    for (let day = 0; day < D; day++) {
+        let maxCap = cap;
+        while ((maxCap -= w[i]) >= 0) {
+            i++;
+            if (i === w.length)
+                return true;
+        }
+    }
+    return false;
+}
+
+let getMax = (piles) => {
+    let max = 0;
+    for (let n of piles) {
+        max = Math.max(n, max);
+    }
+    return max;
+}
+
+/**
+ * @param {number[]} weights
+ // 获取货物总重量
+ */
+let getSum = (weights) => {
+    return weights.reduce((total, cur) => {
+        total += cur;
+        return total
+    }, 0)
+}
+```
+
