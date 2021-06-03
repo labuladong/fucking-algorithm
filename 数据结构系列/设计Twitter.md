@@ -1,5 +1,13 @@
 # 设计Twitter
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+「design Twitter」是 LeetCode 上第 355 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
+=======
+<<<<<<< Updated upstream
+「design Twitter」是 LeetCode 上第 335 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
+=======
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
@@ -11,8 +19,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [面试官：你说对MySQL事务很熟？那我问你10个问题](https://labuladong.gitee.io/algo/)
-  * [一行代码就能解决的算法题](https://labuladong.gitee.io/algo/)
+  * [面试官：你说对MySQL事务很熟？那我问你10个问题](https://labuladong.gitbook.io/algo/)
+  * [一行代码就能解决的算法题](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -21,6 +29,14 @@
 **-----------**
 
 「design Twitter」是 LeetCode 上第 355 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
+「design Twitter」是 LeetCode 上第 335 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
+>>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
+=======
+「design Twitter」是 LeetCode 上第 335 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
+>>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
 
 至于 Twitter 的什么功能跟算法有关系，等我们描述一下题目要求就知道了。
 
@@ -294,7 +310,7 @@ PS：本文前两张图片和 GIF 是我第一次尝试用平板的绘图软件�
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 

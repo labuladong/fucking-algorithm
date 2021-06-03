@@ -11,8 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-  * [区间调度之区间交集问题](https://labuladong.gitee.io/algo/)
-  * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.gitee.io/algo/)
+  * [区间调度之区间交集问题](https://labuladong.gitbook.io/algo/)
+  * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.gitbook.io/algo/)
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -32,7 +32,7 @@
 
 ### 一、分析问题
 
-首先，前文[学习数据结构的框架思维](https://labuladong.gitee.io/algo/)提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
+首先，前文[学习数据结构的框架思维](https://labuladong.gitbook.io/algo/)提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
 
 什么叫递归性质？直接上图理解，比如说我们对这个链表调用 `reverseKGroup(head, 2)`，即以 2 个节点为一组反转链表：
 
@@ -148,10 +148,65 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+
+[KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
+
+```python
+# 反转区间 [a, b) 的元素
+def reverse(a, b):
+    pre = None
+    cur = a
+    while cur != b:
+        cur.next, pre, cur = pre, cur, cur.next
+        return pre
+```
+
+[KAGAWA317](https://github.com/KAGAWA317) 提供Python3解法代码：
+
+```python
+class Solution:
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        if not head:
+            return
+        #  区间 [a, b) 包含 k 个待反转元素
+        a = b = head
+        for _ in range(k):
+            # 不足 k 个，不需要反转，base case
+            if not b:
+                return head
+            b = b.next
+
+        # 反转区间 [a, b) 的元素
+        def reverse(a, b):
+            pre = None
+            cur = a
+            while cur != b:
+                cur.next, pre, cur = pre, cur, cur.next
+            return pre
+
+        #  反转前 k 个元素
+        newHead = reverse(a, b)
+        # 递归反转后续链表并连接起来
+        a.next = self.reverseKGroup(b, k)
+        return newHead
+```
+
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
+=======
+>>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
+[上一篇：如何寻找最长回文子串](../高频面试系列/最长回文子串.md)
+=======
 <p align='center'>
 <img src="../pictures/qrcode.jpg" width=200 >
 </p>
@@ -171,6 +226,7 @@ ListNode reverseKGroup(ListNode head, int k) {
  * }
  */
 
+>>>>>>> Stashed changes
 
 // 示例一：反转以a为头结点的链表
 let reverse = function (a) {
