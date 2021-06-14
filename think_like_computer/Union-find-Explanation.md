@@ -298,6 +298,6 @@ The complexity of the Union-Find algorithm can be analyzed as follows: the const
 
 [Previous: How to schedule candidates' seats](../高频面试系列/座位调度.md)
 
-[Next：Application of Union-Find algorithm](../算法思维系列/UnionFind算法应用.md)
+[Next：Application of Union-Find algorithm](../think_like_computer/Union-Find-Application.md)
 
 [Contents](../README.md#目录)
