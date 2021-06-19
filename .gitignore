@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 .DS_store
 <<<<<<< Updated upstream
@@ -101,6 +102,10 @@ NanoVNA-F/
 dynamic_programming/AnalysisOfDynamicProgramming.md
 pictures/backtrack/nqueens.png
 动态规划系列/AnalysisOfDynamicProgramming.md
+=======
+.DS_store
+.github/ISSUE_TEMPLATE/bug_report.md
+>>>>>>> Stashed changes
 .github/ISSUE_TEMPLATE/others.md
 common_knowledge/Cryptology.md
 common_knowledge/linuxProcess.md
@@ -118,6 +123,7 @@ data_structure/MonotonicStack.md
 data_structure/RecursionInDetail.md
 data_structure/reverse_part_of_a_linked_list_via_recursion.md
 data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md
+<<<<<<< Updated upstream
 dynamic_programming/Best Time to Buy and Sell Stock.md
 dynamic_programming/DemystifyingDynamicProgramming.md
 dynamic_programming/EditDistance.md
@@ -480,6 +486,11 @@ data_structure/MonotonicStack.md
 data_structure/RecursionInDetail.md
 data_structure/reverse_part_of_a_linked_list_via_recursion.md
 data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> $$
 dynamic_programming/AnalysisOfDynamicProgramming.md
 dynamic_programming/BestTimeToBuyAndSellStock.md
 dynamic_programming/DemystifyingDynamicProgramming.md
@@ -512,6 +523,10 @@ interview/TheLongestPalindromicSubstring.md
 interview/Trapping_Rain_Water.md
 interview/UsingBinarySearchAlgorithm.md
 interview/valid-parentheses.md
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> $$
 pictures/4keyboard/title.png
 pictures/algo4/1.jpg
 pictures/algo4/2.jpg
@@ -541,6 +556,17 @@ pictures/backtracking/4en.jpg
 pictures/backtracking/5.jpg
 pictures/backtracking/5en.jpg
 pictures/backtracking/6.jpg
+<<<<<<< HEAD
+=======
+=======
+pictures/backtracking/1en.jpg
+pictures/backtracking/2en.jpg
+pictures/backtracking/3en.jpg
+pictures/backtracking/3en.png
+pictures/backtracking/4en.jpg
+pictures/backtracking/5en.jpg
+>>>>>>> Stashed changes
+>>>>>>> $$
 pictures/backtracking/6en.jpg
 pictures/backtracking/7.jpg
 pictures/backtracking/7en.jpg
@@ -575,6 +601,13 @@ pictures/editDistance/3.jpg
 pictures/editDistance/4.jpg
 pictures/editDistance/5.jpg
 pictures/editDistance/6.jpg
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+pictures/editDistance/delete.gif
+>>>>>>> Stashed changes
+>>>>>>> $$
 pictures/editDistance/title.png
 pictures/floodfill/cutout.jpeg
 pictures/floodfill/cutout.jpg
@@ -742,6 +775,17 @@ pictures/trapping_rain_water/title.jpg
 pictures/unionfind-application/1.jpg
 pictures/unionfind-application/2.jpg
 pictures/unionfind-application/3.jpg
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+pictures/二分查找/1.jpg
+pictures/二分查找/2.jpg
+pictures/二分查找/3.jpg
+pictures/二分查找/4.jpg
+pictures/二分查找/poem.png
+>>>>>>> Stashed changes
+>>>>>>> $$
 pictures/前缀和/2.jpg
 pictures/单调队列/title.png
 pictures/反转链表/title.png
