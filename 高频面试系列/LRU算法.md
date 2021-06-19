@@ -469,8 +469,8 @@ class LRUCache:
       # last=False时，按照FIFO顺序弹出键值对
       # 因为我们将最近访问的放到最后，所以最远访问的就是最前的，也就是最first的，故要用FIFO顺序
       self.visited.popitem(last=False)
-      self.visited[key]=value
-      self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
+     self.visited[key]=value
+     self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
 
 
 ```
