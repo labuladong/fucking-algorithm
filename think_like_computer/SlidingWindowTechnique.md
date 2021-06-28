@@ -1,22 +1,18 @@
 # Sliding Window Technique
 
-**Translator: [floatLig](https://github.com/floatLig)**
+This article shows you the magic template for "sliding window" with two pointers: the left and right of the window. Armed with this, you can easily solve several difficult substring matching problems.
 
-**Author: [labuladong](https://github.com/labuladong)**
+There are at least 9 problems in LeetCode that can be solved efficiently using this method. In this article, we choose three problems with the most votes on LeetCode, which are more classical questions to aid in understanding. The first question will be explained in length for the reader to master the algorithm template/framework, the last two questions will be much faster thanks to applying to the template.
 
-This article shows you the magic template for "sliding window" with two pointers: the left and right of the window. With this, you can easily solve several difficult substring matching problems.
-
-There are at least 9 problems in LeetCode that can be solved efficiently using this method. In this article, we choose three problems with the most votes, more classical to explain. The first question, in order for the reader to master the algorithm template, the last two questions are easy to answer according to the template.
-
-This article code for C++ implementation, will not use any programming quirks, but still briefly introduce some of the data structure used, in case some readers because of the language details of the problem hindering the understanding of the algorithm idea:
+This article code for C++ implementation, we will not use any programming quirks, but will still briefly introduce some of the data structure used, to avoid readers from having challenges in understanding the algorithm due to the intricacies of each language.
 
 `unordered_map` is `hashmap`, one of its methods, `count(key)`, corresponds to `containsKey(key)` to determine whether the key exists or not.
 
 `Map [key]` can be used to access the corresponding `value` of the `key`. Note that if the key does not exist, C++ automatically creates the key and assigns the `map[key]` value to 0.
 
-`map[key]++`, which appears many times in the code, is equivalent to `map.put(key, map.getordefault (key, 0) + 1)` in Java.
+`map[key]++`, which appears multiple times in the code, is equivalent to `map.put(key, map.getOrDefaultKey(key, 0) + 1)` in Java.
 
-Now let's get to the point.
+This article has quite a few illustrations, feel free to zoom in to study them. More importantly, is being able to compare and diff each code snippet. Let's get down to business.
 
 ### 1. Minimum Window Substring
 
@@ -37,17 +33,17 @@ Although the idea is very straightforward, but the *time complexity* of this alg
 
 We can solve it with sliding window. The sliding window algorithm idea is like this:
 
-1. We start with two pointers, *left and right* initially pointing to the first element of the string S.
+1. We start with two pointers, *left and right* initially pointing to the first element of the string S,  where left = right = 0, denoting the index-closed area [left, right] as a "window".
 
 2. We use the right pointer to expand the window [left, right] until we get a desirable window that contains all of the characters of T.
 
-3. Once we have a window with all the characters, we can move the left pointer ahead one by one. If the window is still a desirable one we keep on updating the minimum window size.
+3. Once we have a window with all the characters, we stop expanding right, we can move the left pointer ahead one by one to shrink the window. If the window is still a desirable one we keep on updating the minimum window size. We do this until the window no longer fits our requirement (contains all characters in `T`).
 
-4. If the window is not desirable any more, we repeat step 2 onwards.
+4. Repeat step 2 and 3 until `right` reaches the end index of `S`.
 
-This idea actually not difficult. **Move right pointer to find a valid window. When a valid window is found, move left pointer to find a smaller window (optimal solution)**.
+This idea actually not difficult. **Step 2 moves the right pointer first to find a window (valid solution). When a valid window is found, Step 3 moves left pointer to find a smaller window (optimal solution)**.
 
-Now let's graph it. `needs` and `window` act as counters. `needs` record the number of occurrences of characters in T, and `window` record the number of occurrences of the corresponding character.
+Now let's draw this out. `needs` and `window` act as counters. `needs` record the number of occurrences of characters in T, and `window` records the number of occurrences of the corresponding character.
 
 Initial State:
 
@@ -64,6 +60,8 @@ Now move the left pointer. Notice the window is still desirable and smaller than
 After moving left pointer again, the window is no more desirable. 
 
 ![0](../pictures/Sliding_window/3.png)
+
+
 
 We need to increment the right pointer and left pointer to look for another desirable window until the right pointer reaches the end of the string S (the algorithm ends).
 
@@ -93,7 +91,7 @@ return res;
 
 If you can understand the code above, you are one step closer to solving the problem. Now comes the tricky question: how do you tell if the window (substring s[left...right]) meets the requirements (contains all characters of t)?
 
-A general way is to use two hashmap as counters. To check if a window is valid, we use a map `needs` to store `(char, count)` for chars in t. And use counter `window` for the number of chars of t to be found in s. If `window` contains all the keys in `needs`, and the value of these keys is greater than or equal to the value in `needs`, we know that `window` meets the requirements and can start moving the left pointer.
+A general way is to use two hashmap as counters. To check if a window is valid, we use a map `needs` to store `(char, count)` for chars in `t`. And use counter `window` for the number of chars of `t` to be found in s. If `window` contains all the keys in `needs`, and the value of these keys is greater than or equal to the value in `needs`, we know that `window` meets the requirements and can begin moving the left pointer.
 
 Refinement pseudocode above.
 
@@ -139,9 +137,7 @@ while (right < s.size()) {
 return res;
 ```
 
-The above code already has complete logic, only a pseudo-code, that is, update `res`, but this problem is too easy to solve, directly see the solution!
-
-The code of solving this problem is below.
+The above code already has complete logic, only a pseudo-code, that is, update `res`, but this problem is too easy to solve, let's directly view the solution!
 
 ```cpp
 string minWindow(string s, string t) {
@@ -186,17 +182,19 @@ string minWindow(string s, string t) {
 
 I think it would be hard for you to understand if you were presented with a large piece of code, but can you understand the logic of the algorithm by following up? Can you see clearly the structure of the algorithm?
 
-**Time Complexity**: O(|S| + |T|) where |S| and |T| represent the lengths of strings S and T. In the worst case we might end up visiting every element of string S twice, once by left pointer and once by right pointer. ∣T∣ represents the length of string T.
+**Time Complexity**: `O(|S| + |T|)` where `|S|` and `|T|` represent the lengths of strings S and T. In the worst case we might end up visiting every element of string S twice, once by left pointer and once by right pointer. `∣T∣` represents the length of string `T`. As such the time complexity is `O(T)` in first initializing the `needs` map, and then 2 `while`-loops result in `2S` times, hence `O(2S)`.
 
-The reader might think that the nested while loop complexity should be a square, but you can think of it this way, the number of while executions is the total distance that the double pointer left and right traveled, which is at most 2 meters.
+The reader might think that the nested while loop complexity should be a square, but you can think of it this way, the number of `while` executions is the total distance that the double pointer `left` and `right` traveled, which is at most 2M.
 
 ### 2. Find All Anagrams in a String
 
 ![description](../pictures/Sliding_window/title2.jpg)
 
-The difficulty of this problem is medium, but using the above template, it should be easy.
+The difficulty of this problem was classified as easy, but in the discussion section we see: 
 
-If you update the res of the original code, you can get the answer to this problem.
+> How can this problem be marked as easy ???
+
+Realistically, the problem is medium, but using the above template, it should be easy. If you update the `res` portion of the original code, you can get the answer to this problem.
 
 ```cpp
 vector<int> findAnagrams(string s, string t) {
@@ -220,7 +218,8 @@ vector<int> findAnagrams(string s, string t) {
         right++;
 
         while (match == needs.size()) {
-            // Update the result if find a target
+            // Update the result with 'left' if a target is found
+            // (the window size is valid)
             if (right - left == t.size()) {
                 res.push_back(left);
             }
@@ -243,7 +242,7 @@ Since this problem is similar to the previous one, the `window` also needs to co
 
 ![description](../pictures/Sliding_window/title3.jpg)
 
-When you encounter substring problems, the first thing that comes to mind is the sliding window technique.
+When you encounter substring problems, the first thing that should come to your mind is the sliding window technique.
 
 Similar to the previous idea, use `window` as a counter to record the number of occurrences of characters in the window. Then move the right pointer to scan through the string. If the character is already in `window`, move the left pointer to the right of the same character last found.
 
@@ -270,9 +269,9 @@ int lengthOfLongestSubstring(string s) {
 }
 ```
 
-One thing needs to be mentioned is that when asked to find maximum substring, we should update maximum after the inner while loop to guarantee that the substring is valid. On the other hand, when asked to find minimum substring, we should update minimum inside the inner while loop.
+One thing needs to be mentioned is that when asked to find maximum substring, we should update maximum after the inner while loop (everytime we move `right`) to guarantee that the substring is valid. On the other hand, when asked to find minimum substring, we should update minimum (moving `left`) inside the inner while loop.
 
-### Summarize
+### Summary
 
 Through the above three questions, we can summarize the abstract idea of sliding window algorithm:
 
@@ -292,4 +291,52 @@ while (right < s.size()) {
 
 The data type of the window can vary depending on the situation, such as using the hash table as the counter, or you can use an array to do the same, since we only deal with English letters.
 
-The slightly tricky part is the `valid` condition, and we might have to write a lot of code to get this updated in real time. For example, the first two problems, it seems that the solution is so long, in fact, the idea is still very simple, but most of the code is dealing with this problem.
+The slightly tricky part is the `valid` condition, and we might have to write a lot of code to get this updated in real time. For example, the first two problems, it seems that the solution is so long, in fact, the idea is still very simple, but most of the code is dealing with the problem of checking validity.
+
+
+**Translator: [floatLig](https://github.com/floatLig)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
+**[Jiajun](https://github.com/liujiajun) provides the minimum sliding window solution in Python3**
+
+[Previous: Binary Search in Detail (I wrote a Poem)](../think_like_computer/DetailedBinarySearch.md)
+[Next: Difference Between Process and Thread in Linux](../common_knowledge/linuxProcess.md)
+[Table of Contents](../README.md#table-of-contents)
+
+```python
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        # Shortest length initialization
+        start, min_len = 0, float('Inf')
+        left, right = 0, 0
+        res = s
+        
+        # Create 2 counters 
+        needs = Counter(t)
+        window = collections.defaultdict(int) 
+        # defaultdict defaults to 0 if the key does not exist, reducing one extra step of handling this case.    
+        match = 0
+        
+        while right < len(s):
+            c1 = s[right]
+            if needs[c1] > 0:
+                window[c1] += 1
+                if window[c1] == needs[c1]:
+                    match += 1
+            right += 1
+            
+            while match == len(needs):
+                if right - left < min_len:
+                    # Update shortest length
+                    min_len = right - left
+                    start = left
+                c2 = s[left]
+                if needs[c2] > 0:
+                    window[c2] -= 1
+                    if window[c2] < needs[c2]:
+                        match -= 1
+                left += 1
+        
+        return s[start:start+min_len] if min_len != float("Inf") else ""
+```
