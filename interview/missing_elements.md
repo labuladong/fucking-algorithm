@@ -12,7 +12,7 @@ The question is simple:
 
 Given an arry of length n, the index should be in `[0, n)`. Since we have to put `n+1` number of elements from set `[0, n]`, there must be one element which can't fit. Find the missing element.
 
-This question is not hard. It's easy to think aabout traversing after sorting. Alternatively, using a `HashSet` to store all the existing elements, and then go through elements in `[0, n]` and loop up in the `HashSet`. Both ways can find the correct answer.
+This question is not hard. It's easy to think about traversing after sorting. Alternatively, using a `HashSet` to store all the existing elements, and then go through elements in `[0, n]` and loop up in the `HashSet`. Both ways can find the correct answer.
 
 However, the time complexity for the sorting solution is O(NlogN). The `HashSet` solution has O(N) for time complexity, but requires O(N) space complexity to store the data.
 
