@@ -45,6 +45,7 @@ This command specifies the `english` branch and will limit the depth of the clon
   * [4 Keys Keyboard](dynamic_programming/FourKeysKeyboard.md)
   * [Regular Expression](dynamic_programming/RegularExpression.md)
   * [Longest Increasing Subsequence](dynamic_programming/LongestIncreasingSubsequence.md)
+  * [Triangle](dynamic_programming/triangle.md)
   
 * II. Data Structures Series
   * [The Framework for Learning Algorithms and intense problem solving exercises](think_like_computer/Framework%20and%20thoughts%20about%20learning%20data%20structure%20and%20algorithm.md)
