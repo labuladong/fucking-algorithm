@@ -2,6 +2,7 @@
 
 First, let me tell you a joke to cheer things up:
 
+
 One day Adong went to the library and borrowed N books. When he went out of the library, the alarm went off, so the security guard stopped Adong to check which books were not correctly checked out for loan. ADong is going to go through each book under the alarm to find the book that caused the alarm, but the security guard's gave a disdainful look: Don't you know how to do binary search? Then the security divided the books into two piles, let the first pile pass through the alarm, the alarm sounded; then divided the pile into two piles ... Finally, after checking `logN` times, the security successfully found the one that caused the alarm, displaying his satisfied and smug smile. Only then did Adong leave with the remaining books.
 
 Since then, the library has lost N-1 books.

@@ -20,7 +20,7 @@
   * [Stock Buy and Sell Problems](dynamic_programming/BestTimeToBuyAndSellStock.md)
 
 * II. Data Structure
-  * [Binary Head and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
+  * [Binary Heap and Priority Queue](data_structure/binary_heap_implements_priority_queues.md)
   * [LRU Cache Strategy in Detail](interview/LRU_algorithm.md)
   * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
   * [Special Data Structure: Monotonic Stack](data_structure/MonotonicStack.md)

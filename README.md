@@ -53,7 +53,7 @@ This command specifies the `english` branch and will limit the depth of the clon
   * [LRU Cache Strategy in Detail](interview/LRU_algorithm.md)
   * [Collections of Binary Search Operations](data_structure/The_Manipulation_Collection_of_Binary_Search_Tree.md)
   * [Special Data Structure: Monotonic Stack](data_structure/MonotonicStack.md)
-  * [Special Data Structure: Monotonic Stack](data_structure/Monotonic_queue.md)
+  * [Special Data Structure: Monotonic Queue](data_structure/Monotonic_queue.md)
   * [Design Twitter](data_structure/design_Twitter.md)
   * [Reverse Part of Linked List via Recursion](data_structure/reverse_part_of_a_linked_list_via_recursion.md)
   * [Queue Implement Stack/Stack implement Queue](data_structure/ImplementQueueUsingStacksImplementStackUsingQueues.md)
@@ -101,7 +101,7 @@ This command specifies the `english` branch and will limit the depth of the clon
 
 * V. Common Knowledge
   * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
-  * [You Must Know About Linux Shell](common_knowledge/linuxshell.md)
-  * [You Must Know About Cookie and Session](common_knowledge/SessionAndCookie.md)
+  * [This is the only article you need to understand `session` and `cookie`](common_knowledge/SessionAndCookie.md)
+  * [Knowledge about Linux Shell that you should know](common_knowledge/linuxshell.md)
   * [Cryptology Algorithm](common_knowledge/Cryptology.md)
-  * [Some Good Online Practice Platforms](common_knowledge/OnlinePraticePlatform.md)
+  * [Git/SQL/Good Online Practice Platforms](common_knowledge/OnlinePraticePlatform.md)
