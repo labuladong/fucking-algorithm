@@ -252,6 +252,26 @@ class Solution:
             
         return H
 ```
+简洁版本
+```python
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        left = max(sum(piles) // h, 1)
+        right = max(piles)
+        if len(piles) > h:
+            return None
+        while left < right: 
+            mid = (left + right) // 2
+            if self.can_finished(piles, h, mid):
+                right = mid
+            else:
+                left = mid + 1
+        return right
+
+    def can_finished(self, piles, h, k):
+        f = lambda x, k: x // k + (0 if  x % k == 0 else 1 )
+        return sum([f(i, k) for i in piles]) <= h
+```
 
 
 
