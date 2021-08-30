@@ -245,6 +245,7 @@ void backtrack(int[] nums, LinkedList<Integer> track) {
         track.removeLast();
     }
 }
+
 /* extract n-tree traverse framework */
 void backtrack(int[] nums, LinkedList<Integer> track) {
     for (int i = 0; i < nums.length; i++) {
