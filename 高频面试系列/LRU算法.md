@@ -334,6 +334,32 @@ class LRUCache {
 }
 ```
 
+LinkedHashMap 的 accessOrder  默认值为 false，代表按照插入顺序排序。现在按照读取顺序排序，将accessOrder 的值设置为 true，更简洁地实现代码如下：
+
+```java
+class LRUCache {
+    int capacity;
+    Map<Integer, Integer> cache;
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        map = new LinkedHashMap<>(capacity, 0.75f, true);
+    }
+
+    public int get(int key){
+        Integer value = cache.get(key);
+        if (value == null) {return -1;}
+        return value;
+    }
+
+    public void put(int key, int value) {
+        cache.put(key, value);
+        if (cache.size() > capacity) {
+            cache.remove(cache.entrySet().iterator().next().getKey());
+        }
+    }
+}
+```
+
 至此，LRU 算法就没有什么神秘的了，**敬请期待下文：LFU 算法拆解与实现**。
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
