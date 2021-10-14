@@ -173,13 +173,13 @@ def dp(K, N):
 This for loop is the code implementation of the following state transition equation:
 
 <!-- $$dp(K, N) = \min_{0 <= i <= N}\{\max\{dp(K - 1, i - 1), dp(K, N - i)\} + 1\}$$ -->
-![equation](http://latex.codecogs.com/gif.latex?%24%24%20dp%28K%2C%20N%29%20%3D%20%5Cmin_%7B0%20%3C%3D%20i%20%3C%3D%20N%7D%5C%7B%5Cmax%5C%7Bdp%28K%20-%201%2C%20i%20-%201%29%2C%20dp%28K%2C%20N%20-%20i%29%5C%7D%20&plus;%201%5C%7D%24%24)
+![equation](https://latex.codecogs.com/svg.image?dp(K,%20N)%20=%20%5Cmin_%7B0%20%3C=%20i%20%3C=%20N%7D%5C%7B%5Cmax%5C%7Bdp(K%20-%201,%20i%20-%201),%20dp(K,%20N%20-%20i)%5C%7D%20&plus;%201%5C%7D)
 
 First of all, according to the definition of the `dp(K, N)` array (there are `K` eggs and `N` floors, how many times at least do we need to throw the eggs?). **It is easy to know that when `K` is fixed, this function must be It is a monotonically increasing**, no matter how smart your strategy is, the number of tests must increase if the number of floors increases.
 
 Then notice the two functions `dp(K-1, i-1)` and `dp(K, N-i)`, where `i` is increasing from 1 to `N`, if we fix `K`and `N`, **treat these two functions as function with only one variable `i`, the former function should also increase monotonically with the increase of `i`, and the latter function should decrease monotonically with the increase of `i`**:
 
-![](../pictures/扔鸡蛋/2.jpg)
+![](../pictures/SuperEggDrop/2.jpg)
 
 Now find the larger value of these two functions, and then find the minimum of these larger values, it is actually to find the intersection as above figure, readers who are familiar with binary search must have already noticed that this is equivalent to finding the Valley value, we can use binary search to quickly find this point.
 
