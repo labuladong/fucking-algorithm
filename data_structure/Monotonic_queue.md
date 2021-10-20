@@ -12,7 +12,7 @@ See a LeetCode title, 239 question，difficulty is hard：
 
 ![](../pictures/monotonic_queue/title.png)
 
-### 1, build a problem solving framewor
+### 1, build a problem solving framework
 
 This problem is not complicated. The difficulty is how to calculate the maximum value in each "window" at O(1) time, so that the entire algorithm is completed in linear time.We discussed similar scenarios before and came to a conclusion:
 
