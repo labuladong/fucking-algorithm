@@ -4,23 +4,23 @@
 
 **Translator:[warmingkkk](https://github.com/warmingkkk)**
 
-The previous article talked about a special data structure "monotonic stack"a type of problem "Next Greater Number" is solved. This article writes a similar data structure "monotonic queue".
+In the previous article, we talked about a special data structure "_monotonic stack_", a type of problem "_Next Greater Number_" is solved. This article digs into a similar data structure "monotonic queue".
 
-Maybe you haven't heard of the name of this data structure. In fact, it is not difficult. It is a "queue", but it uses a clever method to make the elements in the queue monotonically increase (or decrease). What's the use of this data structure? Can solve a series of problems with sliding windows.
+Maybe you haven't heard of the name of this data structure. In fact, it is not difficult. It is a "_Queue_", but it uses a clever method to make the elements in the queue monotonically increase (or decrease). What's the use of this data structure? Can solve a series of problems with sliding windows.
 
-See a LeetCode title, 239 question，difficulty is hard：
+See LeetCode #239, the difficulty is hard：
 
-![](../pictures/monotonic_queue/title.png)
+![Leetcode 239](../pictures/monotonic_queue/title.png)
 
-### 1, build a problem solving framewor
+### 1. build a problem-solving framework
 
-This problem is not complicated. The difficulty is how to calculate the maximum value in each "window" at O(1) time, so that the entire algorithm is completed in linear time.We discussed similar scenarios before and came to a conclusion:
+This problem is not complicated. The difficulty is how to calculate the maximum value in each "window" at O(1) time so that the entire algorithm is performed in linear time. We discussed similar scenarios before and came to a conclusion:
 
-In a bunch of numbers,the best value is known,If you add a number to this bunch of numbers,you can quickly calculate the most value by comparing them,but if you reduce one number,you may not get the maximum vaue quickly,but you can have to go through all the numbers and find the maximum value again.
+In a bunch of numbers, the largest value is known. If you add a new number to this bunch of numbers, you can quickly calculate the maximum value by comparing them. However, if you reduce one number, you may not get the biggest value quickly, you have to go through all numbers and find the maximum value again.
 
-Back to the scenario of this problem,as each window advances,you need to add a number and decrease one number,so if you want to get a new maximum value in O(1) time,you need a special "monotonic queue" data structure to assist.
+Back to the scenario of this problem, as each window advances, you need to add a number and remove one number, so if you want to get a new maximum value in O(1) time, you need a special "_**monotonic queue**_" data structure to assist.
 
-An ordinary queue must have these two operations:
+An ordinary queue has these two operations:
 
 ```java
 class Queue {
@@ -31,7 +31,7 @@ class Queue {
 }
 ```
 
-The operation of a "monotonic queue" is similar:
+The API of a "monotonic queue" is similar:
 
 ```java
 class MonotonicQueue {
@@ -43,7 +43,8 @@ class MonotonicQueue {
     void pop(int n);
 }
 ```
-Of course, the implementation methods of these APIs are definitely different from the general Queue, but we leave them alone, and think that the time complexity of these operations is O (1), first answer this "sliding window" problem Frame out:
+
+Of course, the implementation of these APIs are different from the general Queue, but we leave them there this time and keep in mind that the time complexity of these operations is O(1), the answer to this "sliding window" problem is framed out:
 
 ```cpp
 vector<int> maxSlidingWindow(vector<int>& nums, int k) {
@@ -65,11 +66,10 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 
 ![图示](../pictures/monotonic_queue/1.png)
 
-The idea is simple, understand? Below we start the highlight, the implementation of monotonic queues.
+The idea is simple, right? Next, we implement the Monotonic Queue.
 
-### 2, Implementing a monotonic queue data structure
-
-First we need to know another data structure: deque, which is a double-ended queue. It's simple:
+### 2. Implementing a Monotonic Queue
+First, we need to know another data structure: `deque` or _double-ended queue_. It's simple:
 
 ```java
 class deque {
@@ -88,9 +88,9 @@ class deque {
 }
 ```
 
-Moreover, the complexity of these operations is O (1). This is actually not a rare data structure. If you use a linked list as the underlying structure, it is easy to implement these functions.
+Moreover, the complexity of these operations is O(1). This is not a rare data structure. If you use a linked list as the underlying data structure, it is easy to implement these functions.
 
-The core idea of "monotonic queue" is similar to "monotonic stack". The push method of the monotonic queue still adds elements to the end of the queue, but deletes the previous elements smaller than the new element:
+The core idea of "monotonic queue" is similar to "monotonic stack". The `push` method of the monotonic queue still adds elements to the end of the queue, and deletes all previous elements that are smaller than the new element:
 
 ```cpp
 class MonotonicQueue {
@@ -98,7 +98,7 @@ private:
     deque<int> data;
 public:
     void push(int n) {
-        while (!data.empty() && data.back() < n) 
+        while (!data.empty() && data.back() < n)
             data.pop_back();
         data.push_back(n);
     }
@@ -109,7 +109,7 @@ As you can imagine, adding the size of the number represents the weight of the p
 
 ![](../pictures/monotonic_queue/2.png)
 
-If every element is added like this, the size of the elements in the monotonic queue will eventually decrease in a monotonic order, so our max () API can be written like this:
+If every element is added like this, the size of the elements in the monotonic queue will eventually decrease in a monotonic order, so our `max()` API can be written like this:
 
 ```cpp
 int max() {
@@ -117,7 +117,7 @@ int max() {
 }
 ```
 
-The pop () API deletes element n at the head of the queue, which is also very easy to write:
+The `pop()` API deletes element n at the head of the queue, which is also very easy to write:
 
 ```cpp
 void pop(int n) {
@@ -126,11 +126,11 @@ void pop(int n) {
 }
 ```
 
-The reason to judge `data.front () == n` is because the queue head element n we want to delete may have been" squashed ", so we don't need to delete it at this time:
+The reason to check `data.front() == n` is because the queue's head element n we want to delete may have been "squashed ", so we don't need to delete it at this time:
 
 ![](../pictures/monotonic_queue/3.png)
 
-At this point, the monotonous queue design is complete, look at the complete problem-solving code:
+At this point, the monotonous queue design is complete, look at the full solution code:
 
 ```cpp
 class MonotonicQueue {
@@ -138,13 +138,13 @@ private:
     deque<int> data;
 public:
     void push(int n) {
-        while (!data.empty() && data.back() < n) 
+        while (!data.empty() && data.back() < n)
             data.pop_back();
         data.push_back(n);
     }
-    
+
     int max() { return data.front(); }
-    
+
     void pop(int n) {
         if (!data.empty() && data.front() == n)
             data.pop_front();
@@ -167,15 +167,15 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 }
 ```
 
-### 3, Algorithm complexity analysis
+### 3. Algorithm complexity analysis
 
 Readers may be wondering, while the push operation contains a while loop, the time complexity is not O (1), so the time complexity of this algorithm should not be linear time, right?
 
-The complexity of the push operation alone is not O (1), but the overall complexity of the algorithm is still O (N) linear time. To think of it this way, each element in nums is pushed_back and pop_back at most once, without any redundant operations, so the overall complexity is still O (N).
+The complexity of the push operation alone is not O (1), but the overall complexity of the algorithm is still O(N) linear time. To think of it this way, each element in nums is `pushed_back` and `pop_back` at most once, without any redundant operations, so the overall complexity is still O(N).
 
-The space complexity is very simple, which is the size of the window O (k).
+The space complexity is very simple, which is the size of the window O(k).
 
-### 4, Final conclusion
+### 4. Final conclusion
 
 Some readers may think that "monotonic queues" and "priority queues" are more similar, but they are actually very different.
 
