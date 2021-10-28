@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [如何计算完全二叉树的节点数](https://labuladong.gitee.io/algo/)
-  * [Linux的进程、线程、文件描述符是什么](https://labuladong.gitee.io/algo/)
+**labuladong 刷题辅助插件上线，欢迎大家使用，[下载地址](https://github.com/labuladong/fucking-algorithm/releases/tag/1.0)，别忘了点个 star**~
 
 **-----------**
 

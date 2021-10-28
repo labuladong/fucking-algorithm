@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [面试官：你说对MySQL事务很熟？那我问你10个问题](https://labuladong.gitee.io/algo/)
-  * [一行代码就能解决的算法题](https://labuladong.gitee.io/algo/)
+**labuladong 刷题辅助插件上线，欢迎大家使用，[下载地址](https://github.com/labuladong/fucking-algorithm/releases/tag/1.0)，别忘了点个 star**~
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 

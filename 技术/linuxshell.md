@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [状态压缩：对动态规划进行降维打击](https://labuladong.gitee.io/algo/)
-  * [我用四个命令概括了 Git 的所有套路](https://labuladong.gitee.io/algo/)
+**labuladong 刷题辅助插件上线，欢迎大家使用，[下载地址](https://github.com/labuladong/fucking-algorithm/releases/tag/1.0)，别忘了点个 star**~
 
 **-----------**
 

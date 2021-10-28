@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [一文秒杀四道原地修改数组的算法题](https://labuladong.gitee.io/algo/)
-  * [学习算法和数据结构的思路指南](https://labuladong.gitee.io/algo/)
+**labuladong 刷题辅助插件上线，欢迎大家使用，[下载地址](https://github.com/labuladong/fucking-algorithm/releases/tag/1.0)，别忘了点个 star**~
 
 **-----------**
 

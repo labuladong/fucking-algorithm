@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [烧饼排序](https://labuladong.gitee.io/algo/)
-  * [动态规划之正则表达](https://labuladong.gitee.io/algo/)
+**labuladong 刷题辅助插件上线，欢迎大家使用，[下载地址](https://github.com/labuladong/fucking-algorithm/releases/tag/1.0)，别忘了点个 star**~
 
 **-----------**
 

@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitee.io/algo/)
-  * [经典动态规划：完全背包问题](https://labuladong.gitee.io/algo/)
+**labuladong 刷题辅助插件上线，欢迎大家使用，[下载地址](https://github.com/labuladong/fucking-algorithm/releases/tag/1.0)，别忘了点个 star**~
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
