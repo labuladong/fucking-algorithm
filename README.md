@@ -47,10 +47,6 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 **3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题**：
 
-Gitbook 地址：https://labuladong.gitbook.io/algo/
-
-GitBook 在国内访问速度很慢，且常被攻击，我特意部署了两个镜像站点，大家可根据网络情况自行选择：
-
 Gitee Pages 地址：https://labuladong.gitee.io/algo/ （推荐）
 
 GitHub Pages 地址：https://labuladong.github.io/algo/
