@@ -11,8 +11,13 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
+<<<<<<< Updated upstream
   * [25 张图解：键入网址后，到网页显示，其间发生了什么](https://labuladong.gitbook.io/algo/)
   * [如何在无限序列中随机抽取元素](https://labuladong.gitbook.io/algo/)
+=======
+  * [25 张图解：键入网址后，到网页显示，其间发生了什么](https://labuladong.gitee.io/algo/)
+  * [如何在无限序列中随机抽取元素](https://labuladong.gitee.io/algo/)
+>>>>>>> Stashed changes
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -334,11 +339,44 @@ class LRUCache {
 }
 ```
 
+<<<<<<< Updated upstream
+=======
+LinkedHashMap 的 accessOrder  默认值为 false，代表按照插入顺序排序。现在按照读取顺序排序，将accessOrder 的值设置为 true，更简洁地实现代码如下：
+
+```java
+class LRUCache {
+    int capacity;
+    Map<Integer, Integer> cache;
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        map = new LinkedHashMap<>(capacity, 0.75f, true);
+    }
+
+    public int get(int key){
+        Integer value = cache.get(key);
+        if (value == null) {return -1;}
+        return value;
+    }
+
+    public void put(int key, int value) {
+        cache.put(key, value);
+        if (cache.size() > capacity) {
+            cache.remove(cache.entrySet().iterator().next().getKey());
+        }
+    }
+}
+```
+
+>>>>>>> Stashed changes
 至此，LRU 算法就没有什么神秘的了，**敬请期待下文：LFU 算法拆解与实现**。
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
+<<<<<<< Updated upstream
 **刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
+=======
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+>>>>>>> Stashed changes
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
@@ -349,6 +387,7 @@ class LRUCache {
 
 [146.LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/)
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -487,6 +526,8 @@ class LRUCache:
 >>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
 [上一篇：二叉堆详解实现优先级队列](../数据结构系列/二叉堆详解实现优先级队列.md)
 =======
+=======
+>>>>>>> Stashed changes
 ### c++
 
 [gowufang](https://github.com/gowufang)提供第146题C++代码：
@@ -613,12 +654,17 @@ class LRUCache:
 
 ```
 
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 
 <<<<<<< Updated upstream
 [目录](../README.md#目录)
 =======
+=======
+
+
+>>>>>>> Stashed changes
 ### javascript
 
 没啥好说的，es6的哈希表Map + 双向链表。
@@ -771,7 +817,10 @@ LRUCache.prototype.removeLeastRecently = function () {
     // 链表头部的第一个元素就是最久未使用的
     let deletedNode = this.cache.removeFirst();
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     // 同时别忘了从 map 中删除它的 key
     let deletedKey = deletedNode.key;
     this.map.delete(deletedKey);
@@ -779,6 +828,7 @@ LRUCache.prototype.removeLeastRecently = function () {
 
 ```
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 [目录](../README.md#目录)
@@ -791,3 +841,5 @@ LRUCache.prototype.removeLeastRecently = function () {
 =======
 [目录](../README.md#目录)
 >>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
+=======
+>>>>>>> Stashed changes
