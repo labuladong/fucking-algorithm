@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [一文秒杀四道原地修改数组的算法题](https://labuladong.gitbook.io/algo/)
-  * [学习算法和数据结构的思路指南](https://labuladong.gitbook.io/algo/)
+**《labuladong 的算法秘籍》、《labuladong 的刷题笔记》两本 PDF 和刷题插件 2.0 免费开放下载，详情见 [labuladong 的刷题三件套正式发布](https://mp.weixin.qq.com/s/yN4cHQRsFa5SWlacopHXYQ)**~
 
 **-----------**
 
@@ -309,7 +307,7 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 

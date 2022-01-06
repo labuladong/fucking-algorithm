@@ -10,9 +10,7 @@
 
 ![](../pictures/souyisou.png)
 
-相关推荐：
-  * [如何高效进行模幂运算](https://labuladong.gitbook.io/algo/)
-  * [经典动态规划：0-1 背包问题](https://labuladong.gitbook.io/algo/)
+**《labuladong 的算法秘籍》、《labuladong 的刷题笔记》两本 PDF 和刷题插件 2.0 免费开放下载，详情见 [labuladong 的刷题三件套正式发布](https://mp.weixin.qq.com/s/yN4cHQRsFa5SWlacopHXYQ)**~
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -126,7 +124,7 @@ image[x][y] = newColor;
 
 完全 OK，这也是处理「图」的一种常用手段。不过对于此题，不用开数组，我们有一种更好的方法，那就是回溯算法。
 
-前文 [回溯算法框架套路](https://labuladong.gitbook.io/algo/)讲过，这里不再赘述，直接套回溯算法框架：
+前文 [回溯算法框架套路](https://labuladong.gitee.io/algo/)讲过，这里不再赘述，直接套回溯算法框架：
 
 ```java
 void fill(int[][] image, int x, int y,
@@ -231,7 +229,7 @@ int fill(int[][] image, int x, int y,
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
+**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
 
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
