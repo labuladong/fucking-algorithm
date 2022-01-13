@@ -86,7 +86,7 @@ But if not found, you need to terminate the while loop and return -1. When shoul
 
 The termination condition of `while (left <= right)` is `left == right + 1`, written in the form of an interval is` [right + 1, right] `, or with a specific number in it `[3, 2] `, It can be seen that **the interval is empty at this time**, because no number is greater than or equal to 3 and less than or equal to 2. So the termination of the while loop is correct at this time, just return -1.
 
-The termination condition of `while (left <right)` is `left == right`, written in the interval form is `[left, right]`, or a specific number is entered in `[2, 2] `, ** this The interval is not empty **, and there is a number 2, but at this time the while loop terminates. That is to say, the interval `[2, 2] `is omitted, and the index 2 is not searched. If it returns -1 at this time, it is wrong.
+The termination condition of `while (left <right)` is `left == right`, written in the interval form is `[left, right]`, or a specific number is entered in `[2, 2] `, ** this interval is not empty **, and there is a number 2, but at this time the while loop terminates. That is to say, the interval `[2, 2] `is omitted, and the index 2 is not searched. If it returns -1 at this time, it is wrong.
 
 Of course, if you have to use `while (left <right)`, we already know the cause of the error, so just patch it:
 
