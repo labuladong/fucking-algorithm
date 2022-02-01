@@ -69,7 +69,7 @@ void traverse(ListNode head) {
 }
 
 void traverse(ListNode head) {
-    // recusively head.val
+    // recursively head.val
     traverse(head.next)
 }
 ```
