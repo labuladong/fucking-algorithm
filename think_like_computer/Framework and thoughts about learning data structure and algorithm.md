@@ -1,41 +1,39 @@
-# Framework and thoughts about learning data structure and algorithm
+# Framework and thoughts about learning data structures and algorithms
 
 Translator: [ForeverSolar](https://github.com/foreversolar)
 
 Author: [labuladong](https://github.com/labuladong)
 
-This is a revision of a long time ago article "framework thinking of learning data structure and algorithm". This article will cover all the previous contents, and will give many code examples to teach you how to use framework thinking.
+This is a revision of a long time ago article titled "framework thinking of learning data structure and algorithm". This article will cover all the previous contents, and will give many code examples to teach you how to use framework thinking.
 
-First of all, we are talking about common data structures. I am not engaged in algorithm competitions, so I can only solve conventional problems. In addition, the following is a summary of my personal experience. No algorithm book can cover these things, so please try to understand my point of view and don't dwell on the details, because this article hopes to build an overview of framework thinking of data structure and algorithm.
+First of all, we are talking about common data structures. I am not engaged in algorithm competitions, so I can only solve conventional problems. In addition, the following is a summary of my personal experience. No algorithm book can cover these things, so please try to understand my point of view and don't dwell on the details, because this article only hopes to build a broad overview of framework thinking for data structures and algorithms.
 
-The framework thinking that from the whole to the details, from the top to the bottom and from the abstract to the concrete is universal. We think in this way can be more effective not only in learning data structure and algorithm, but also in learning any other knowledge.
+Framework thinking goes from the whole to the details, from the top to the bottom and from the abstract to the concrete. We believe that thinking in this way can be more effective not only in learning data structures and algorithms, but also in learning any other type of knowledge.
 
-### 1.Storage mode of data structure
+## 1.Storage mode of data structures
 
-**There are only two ways to store data structure: array (sequential storage) and linked list (linked storage)**。
+**There are only two ways to store data structures: as arrays (sequential storage) or as linked lists (linked storage)**。
 
-Wait..what about other data structure such as hash table, stack, queue, heap, tree, graph and so on?
+Wait... what about other data structures such as hash table, stack, queue, heap, tree, graph and so on?
 
-When we analyze problems, we must have the idea of recursion, from top to bottom, from abstract to concrete. Those data structures belong to the 「superstructure」, while arrays and lists are the 「structural basis」. Because those diversified data structures, the source of which are all special operations on linked lists or arrays, just have different APIs.
+When we analyze problems, we must keep in mind the idea of recursion, from top to bottom, from abstract to concrete. Those data structures belong to the 「superstructure」, while arrays and lists are the 「structural basis」. All those diverse data structures can be viewed as special operations on linked lists or arrays; they just have different APIs.
 
-For example, 「queue」 and 「stack」 data structures can be implemented with both linked lists and arrays. Using array to realize, we need to deal with the problem of expanding and shrinking capacity; using linked list to realize, there is no such problem, but more memory space is needed to store node pointers.
+For example, 「queue」 and 「stack」 data structures can be implemented with both linked lists and arrays. Using arrays, we need to deal with the problem of expanding and shrinking capacity; using linked lists, there is no such problem, but more memory space is needed to store node pointers.
 
-Graph can be implemented with both linked lists and arrays. An adjacency table is a linked list, and an adjacency matrix is a two-dimensional array. Adjacency matrix can judge the connectivity quickly and solve some problems by matrix operation, but if the graph is sparse, it is very time-consuming. Adjacency table is more space-saving, but the efficiency of many operations is certainly less than adjacency matrix.
+A graph can be implemented with both linked lists and arrays. An adjacency table is a linked list, and an adjacency matrix is a two-dimensional array. An adjacency matrix can be used to evaluate connectivity quickly and can solve some problems via matrix operations, but if the graph is sparse, this becomes very time-consuming. An adjacency table is more space-saving, but the efficiency of many operations is certainly less than for an adjacency matrix.
 
-Hashtable maps keys to a large array through hash function. And to solve hash conflict, Chaining needs linked list feature, with simple operation, but needs extra space to store pointer; linear exploration method needs array feature, to address continuously, and does not need storage space of pointer, but the operation is slightly more complex.
+Hashtables map keys to a large array by making use of a hash function to solve hash conflicts. Chaining needs linked list features with simple operations, but with the extra space needed to store pointers; linear exploration methods need array features, to address continuously, and does not need the extra storage space for pointers, but the operation is slightly more complex.
 
-The implementation of "tree" with array is "heap", because "heap" is a complete binary tree, and the storage with array does not need node pointer, and the operation is relatively simple; the implementation with linked list is a very common kind of "tree", because it is not necessarily a complete binary tree, so it is not suitable to use array storage. For this reason, based on the tree structure of the list, various ingenious designs are derived, such as binary search tree, AVL tree, red black tree, interval tree, B tree, etc., to deal with different problems.
+The implementation of trees with arrays is a "heap", because a "heap" is a complete binary tree. Heap storage with arrays does not need node pointers and the operation is relatively simple; the implementation with linked list is a very common kind of "tree", because it is not necessarily a complete binary tree, so it is not suitable to use array storage. For this reason, based on the tree structure of the list, various ingenious designs have been derived, such as binary search trees (BST), AVL trees, red-black trees, interval trees, B-trees, etc., to deal with different problems.
 
-Friends who know about redis database may also know that redis provides lists, strings, collections and other common data structures. However, for each data structure, there are at least two underlying storage methods to facilitate the use of appropriate storage methods according to the actual situation of data storage.
+In conclusion, there are many kinds of data structures, even you can invent your own data structures, but the underlying storage is nothing but arrays or linked lists. **The advantages and disadvantages of the two are as follows:**
 
-In conclusion, there are many kinds of data structures. Even you can invent your own data structures, but the underlying storage is nothing but arrays or linked lists. **The advantages and disadvantages of the two are as follows:**
+- **Arrays** offer compact and continuous storage, which can be accessed randomly. They make it possible to find elements quickly via index and use storage space efficiently. Because of the need for continuous chunks of memory, sufficient storage space must be allocated at one time. Therefore, if the array has to be expanded, we need to find and reallocate a larger space first, and then copy all the data over; time complexity _O(n)_. And if you want to insert and delete elements in the middle of the array, you must move all the data each time to maintain the continuity; time complexity _O(n)_.
 
-**Array** is compact and continuous storage, which can be accessed randomly. It can find corresponding elements quickly through index and save storage space relatively. But just because of the continuous storage, the memory space must be allocated enough at one time, so if the array is to be expanded, it needs to reallocate a larger space, and then copy all the data, the time complexity O (n); and if you want to insert and delete in the middle of the array, you must move all the data behind each time to maintain the continuity, the time complexity O (n).
-
-Because the elements of the **linked list** are not continuous, but the pointer points to the position of the next element, so there is no expansion of the array; if you know the precursor and the hind drive of an element, the operation pointer can delete the element or insert a new element, with time complexity of O (1). But because the storage space is not continuous, you can't calculate the address of the corresponding element according to an index, so you can't access it randomly; and because each element must store a pointer to the location of the front and back elements, it will consume relatively more storage space.
+- Because the elements of a **linked list** are not continuous (the pointer points to the position of the next element), linked lists don't share the expansion problem faced by arrays. If you know the parent and child of a node, the operation can delete the element or insert a new element, with time complexity of _O(1)_. But because the storage space is not continuous, you can't calculate the address of the corresponding element according to an index, so you can't access it randomly. Because each element must store a pointer to the location of parent and/or child nodes, it will consume more storage space.
 
 
-### 2.Basic operation of data structure
+## 2.Basic operations on data structures
 
 For any data structure, its basic operation is no more than traversal + access, and more specific point are: add, delete, search and modify.
 
@@ -112,25 +110,25 @@ N-tree traversal can be extended to graph traversal, because graph is a combinat
 
 **The so-called framework is a trick. No matter add, delete, insert or modify, these codes are never separated from the structure. You can take this structure as the outline and add code on the framework according to specific problems. The following will give specific examples.**
 
-### 3.Guidelines of Algorithm Exercises 
+## 3.Guidelines of Algorithm Exercises 
 
-First of all, it should be clear that **data structure is a tool, and algorithm is a method to solve specific problems through appropriate tools**. That is to say, before learning algorithms, at least we need to understand the common data structures and their characteristics and defects.
+First of all, it should be clear that **data structures are tools, and algorithms are methods to solve specific problems with appropriate tools**. That is to say, before learning algorithms, at a minimum we need to understand common data structures and their characteristics and defects.
 
-So how to practice in leetcode? **Do binary tree exercises first! Do binary tree exercises first! Do binary tree exercises first!** Because binary tree exercises are the easiest to train framework thinking, and most of the algorithm skills are essentially tree traversal problems.
+So how to practice in leetcode? **Do binary tree exercises first! Do binary tree exercises first! Do binary tree exercises first!** Because binary tree exercises are the easiest to train framework thinking and most of the algorithm skills are essentially tree traversal problems.
 
-According to many readers' questions, we are not without ideas to solve problems, but without understanding what we mean by "framework". **Don't look down on following lines of broken code, almost all the topics of binary trees are a set of this framework.**
+If the many readers' questions we have received are any measure, we are not without ideas to solve problems, but most of these ideas lack an understanding of what we mean by "framework". **Don't look down on the following lines of code, almost all the topics of binary trees are a set of this framework:**
 
 ```java
 void traverse(TreeNode root) {
-    // pre order traverse
+    // pre-order traversal
     traverse(root.left)
-    // middle order traverse
+    // middle-order traversal
     traverse(root.right)
-    // post order traverse
+    // post-order traversal
 }
 ```
 
-For example, I can show the solution of a few problems at random, regardless of the specific code logic, just to see how the framework works in it.
+As an example, I can show the solution to a few problems at random, regardless of the specific code logic, just to see how they fit into this framework.
 
 Leetcode No.124 , hard level. This exercise requires to find the maximum sum of paths in the binary tree. The main code is as follows:
 
@@ -145,9 +143,9 @@ int oneSideMax(TreeNode* root) {
 }
 ```
 
-You see, this is a post order traversal.
+You see, this is a post-order traversal.
 
-Leetcode No.105, medium level. This exercise requires to rebuild a binary tree according to the results of traversal in the pre order and middle order. It's a classic problem. The main code is as follows
+Leetcode No.105, medium level. This exercise asks us to rebuild a binary tree according to the results of traversal in the pre-order and middle-order traversals. It's a classic problem. The main code is as follows
 
 ```java
 TreeNode buildTree(int[] preorder, int preStart, int preEnd, 
@@ -167,9 +165,9 @@ TreeNode buildTree(int[] preorder, int preStart, int preEnd,
 }
 ```
 
-Don't be scared by so many parameters of this function, just to control the array index. In essence, this algorithm is also a preorder traversal.
+Don't be scared by the many parameters of this function, they're only purpose is to control the array index. In essence, this algorithm is also a pre-order traversal.
 
-Leetcode No.99 , hard level. This exercise requires to recover a BST, the main code is as follows：
+Leetcode No.99 , hard level. The exercise is to recover a BST, the main code is as follows：
 
 ```cpp
 void traverse(TreeNode* node) {
@@ -184,11 +182,11 @@ void traverse(TreeNode* node) {
 }
 ```
 
-This is just a middle order traversal. There should be no need to explain what it means for a BST middle order traversal.
+This is just a middle-order traversal. There should be no need to explain what is meant by a BST middle-order traversal.
 
-As you can see, the problem of hard level is not much difficulty, but also so regular. Just write out the framework and add something to the corresponding position. That's the idea.
+As you can see, with this framework in mind, even hard level problems don't offer much difficulty. Just write out the framework and add something to the corresponding position. That's the idea.
 
-For a person who understands binary trees, it won't take long to do exercises of a binary tree. So if you can't or are afraid of working out questions, you can start from the binary tree. The first 10 may be a little uncomfortable. If you do another 20 with the framework, you may have some understanding. If you finish that, and then do any backtracking, dynamic programming or divide-and-conquer topic, you will find that **as long as recursion is involved, it's all a tree problem.**
+For a person who understands binary trees, it won't take long to do binary tree exercises. So if you can't or are afraid of working out questions, you can start from the binary trees. The first 10 may be a little uncomfortable. If you do another 20 with the framework, you may gain some understanding. If you finish that, and then do any backtracking, dynamic programming or divide-and-conquer topic, you will find that **as long as recursion is involved, it's all a tree problem.**
 
 More examples:
 
@@ -214,20 +212,20 @@ def coinChange(coins: List[int], amount: int):
     return dp(amount)
 ```
 
-What if I can't read so much code? Directly extract the framework, you can see the core idea：
+What if I can't read so much code? Extract the framework, so you can see the core idea：
 
 ```python
-# a traverse problem of n-tree
+# a traversal problem of an n-tree
 def dp(n):
     for coin in coins:
         dp(n - coin)
 ```
 
-In fact, many dynamic planning problems are traversing a tree. If you are familiar with the traversal operation of the tree, you at least know how to transform ideas into code and how to extract the core ideas of other people's solutions.
+In fact, many dynamic planning problems are traversing a tree. If you are familiar with the traversal operations of the tree, you at least know how to transform ideas into code and how to extract the core ideas of other peoples' solutions.
 
 Look at the backtracking algorithm again. The detailed explanation of the backtracking algorithm in the previous article simply says that the backtracking algorithm is a forward and backward traversal problem of n-tree, without exception.
 
-For example, the main code of N Queen Problem  is as follows:
+For example, the main code of the N-Queen Problem  is as follows:
 
 ```java
 void backtrack(int[] nums, LinkedList<Integer> track) {
@@ -252,19 +250,19 @@ void backtrack(int[] nums, LinkedList<Integer> track) {
 }
 ```
 
-**To sum up, for those who are afraid of algorithms, you can do the exercises of the relevant topics of the tree first, try to see the problems from the framework, rather than the details.**
+**To sum up, for those who are afraid of algorithms, you can do the exercises of the relevant topics of trees first. Try to see the problems in relation to the framework, rather than by focusing on details.**
 
-From the perspective of framework, we can extract and expand based on the framework, which can not only understand the core logic quickly when we look at other people's solutions, but also help us find the direction of thinking when we write our solutions.
+From the perspective of framework we can extract and expand based on the framework. This can not only allow us to quickly understand the core logic of other people's solutions, but also help us find the correct direction of thinking when working on our own solutions.
 
-Of course, if the details are wrong, you can't get the right answer, but as long as there is a framework, you can't be wrong too much, because your direction is right.
+Of course, if the details are wrong, you can't get the right answer. But as long as there is a framework, you can't be too wrong, because your direction is right.
 
 This kind of thinking is very important. Sometimes I write the solution according to the process of finding the state transition equation summarized in the dynamic planning explanation. To be honest, I don't know why it's right. Anyway, it's right...
 
-**This is the power of framework, which can ensure that you can still write the right program even when you are sleepy; even if you can't do anything, you can be a higher level than others.**
+**This is the power of a framework. It can ensure that you can still write the right program even when you are sleepy; even if you can't do anything, you can be at a higher level than others.**
 
 
-### 4.Summary
+## 4.Summary
 
-The basic storage mode of data structure is chain and order. The basic operation is to add, delete, search and modify. The traversal mode is nothing but iteration and recursion.
+The basic storage mode of data structures is chain and order. The basic operation is to add, delete, search and modify. The traversal mode is nothing but iteration and recursion.
 
-It is suggested to start from "tree" and finish these dozens of questions in combination with frame thinking. The understanding of tree structure should be in place. At this time, if you look at the topics of backtracking, dynamic rules, divide and conquer, you may have a deeper understanding of the ideas.
+It is suggested to start from "tree" and finish these dozens of questions in combination with framework thinking. The understanding of tree structures should be solid. If you then look at the topics of backtracking, dynamic rules, divide and conquer, you may have a deeper understanding of the ideas involved.
