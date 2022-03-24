@@ -20,7 +20,7 @@ When we analyze problems, we must keep in mind the idea of recursion, from top t
 
 For example, 「queue」 and 「stack」 data structures can be implemented with both linked lists and arrays. Using arrays, we need to deal with the problem of expanding and shrinking capacity; using linked lists, there is no such problem, but more memory space is needed to store node pointers.
 
-A graph can be implemented with both linked lists and arrays. An adjacency table is a linked list, and an adjacency matrix is a two-dimensional array. An adjacency matrix can be used to evaluate connectivity quickly and can solve some problems via matrix operations, but if the graph is sparse, this becomes very time-consuming. An adjacency table is more space-saving, but the efficiency of many operations is certainly less than for an adjacency matrix.
+A graph can be implemented with both linked lists and arrays. An adjacency table is a linked list, and an adjacency matrix is a two-dimensional array. An adjacency matrix can be used to evaluate connectivity quickly and can solve some problems via matrix operations, but if the graph is sparse, this becomes waste of space. An adjacency table is more space-saving, but the efficiency of many operations is certainly less than for an adjacency matrix.
 
 Hashtables map keys to a large array by making use of a hash function to solve hash conflicts. Chaining needs linked list features with simple operations, but with the extra space needed to store pointers; linear exploration methods need array features, to address continuously, and does not need the extra storage space for pointers, but the operation is slightly more complex.
 
