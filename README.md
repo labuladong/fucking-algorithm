@@ -19,7 +19,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 好消息，《labuladong 的算法小抄》纸质书出版啦！关注公众号查看详情👆
 
 <p align='center'>
-<img src="https://gitee.com/labuladong/pictures/raw/master/starHistory.png" width = "600" />
+<img src="./starHistory.png" width = "600" />
 </p>
 
 
@@ -42,7 +42,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 **2、建议关注我的公众号 labuladong，坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。本仓库的文章就是从公众号里整理出来的**一部分**内容，公众号可以查看更多内容；公众号后台回复关键词【加群】可以加入刷题群，回复 LeetCode 题号可以搜索对应的题解，后台菜单有针对不同人群的刷题计划：
 
 <p align='center'>
-<img src="https://gitee.com/labuladong/upic/raw/master/2021_05_23/20_56_24.jpg" width = "200" />
+<img src="./pictures/qrcode.jpg" width = "200" />
 </p>
 
 **3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题**：
