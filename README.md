@@ -39,20 +39,23 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 **1、先给本仓库点个 star，满足一下我的虚荣心**，文章质量绝对值你一个 star。我还在继续创作，给我一点继续写文的动力，感谢。
 
-**2、建议关注我的公众号 labuladong，坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。本仓库的文章就是从公众号里整理出来的**一部分**内容，公众号可以查看更多内容；公众号后台回复关键词【加群】可以加入刷题群，回复 LeetCode 题号可以搜索对应的题解，后台菜单有针对不同人群的刷题计划：
+**2、建议关注我的公众号 labuladong，坚持高质量原创，说是最良心最硬核的技术公众号都不为过**。本仓库的文章就是从公众号里整理出来的**一部分**内容，公众号可以查看更多内容：
 
 <p align='center'>
 <img src="./pictures/qrcode.jpg" width = "200" />
 </p>
 
-**3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题**：
-
-Gitee Pages 地址：https://labuladong.gitee.io/algo/
+**3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题，一共可以手把手带你刷 200 多道题目**：
 
 GitHub Pages 地址：https://labuladong.github.io/algo/
 
+Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
-**4、欢迎关注 [我的知乎](https://www.zhihu.com/people/labuladong) 和 [B 站](https://space.bilibili.com/14089380)**。
+**4、建议安装我的 [刷题辅助插件](https://mp.weixin.qq.com/s/wIxflO1dvXzDlibhEcENcQ)，方便在网页刷题**：
+
+![](./pictures/plugin.jpg)
+
+**5、欢迎关注 [我的知乎](https://www.zhihu.com/people/labuladong) 和 [B 站](https://space.bilibili.com/14089380)**。
 
 我一直在写优质文章，但是后续的文章只发布到公众号/网站/知乎，不能开放到 GitHub。因为本仓库太火了，很多人直接拿我的文章去开付费专栏，价格还不便宜，我这免费写给您看，何必掏冤枉钱呢？所以多多关注本作者，多多宣传，谁也不希望劣币驱逐良币不是么？
 
