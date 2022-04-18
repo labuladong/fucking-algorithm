@@ -3,7 +3,7 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 # labuladong 的算法小抄
 
 <p align='center'>
-<a href="https://labuladong.gitee.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitee.io%2Falgo&logo=Gitea"></a>
+<a href="https://labuladong.github.io/algo" target="_blank"><img alt="Website" src="https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6&style=flat-square&down_color=blue&down_message=%E7%82%B9%E8%BF%99%E9%87%8C&up_color=blue&up_message=%E7%82%B9%E8%BF%99%E9%87%8C&url=https%3A%2F%2Flabuladong.gitee.io%2Falgo&logo=Gitea"></a>
 <a href="https://github.com/labuladong/fucking-algorithm" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 </p>
 
@@ -83,13 +83,13 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
 ### 第一章、手把手刷数据结构
 
-  * [手把手刷链表题目](https://labuladong.gitee.io/algo/)
+  * [手把手刷链表题目](https://labuladong.github.io/algo/)
     * [一文搞懂单链表的六大解题套路](https://labuladong.github.io/article/?qno=21)
     * [递归反转链表的一部分](https://labuladong.github.io/article/?qno=206) 
     * [如何 K 个一组反转链表](https://labuladong.github.io/article/?qno=25) 
     * [如何判断回文链表](https://labuladong.github.io/article/?qno=234) 
 
-  * [手把手刷二叉树](https://labuladong.gitee.io/algo/)
+  * [手把手刷二叉树](https://labuladong.github.io/algo/)
     * [手把手带你刷二叉树（纲领篇）](https://labuladong.github.io/article/?qno=104)
     * [手把手带你刷二叉树（第一期）](https://labuladong.github.io/article/?qno=226) 
     * [手把手带你刷二叉树（第二期）](https://labuladong.github.io/article/?qno=654) 
@@ -104,7 +104,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [如何计算完全二叉树的节点数](https://labuladong.github.io/article/?qno=222) 
     * [二叉树八股文：递归改迭代](https://labuladong.github.io/article/wx.html?wx=jI8_-E6rx2HVBOmuQOTgHg)
 
-  * [手把手刷图算法](https://labuladong.gitee.io/algo/)
+  * [手把手刷图算法](https://labuladong.github.io/algo/)
     * [图论基础](https://labuladong.github.io/article/?qno=797)
     * [拓扑排序详解及运用](https://labuladong.github.io/article/?qno=207)
     * [二分图判定](https://labuladong.github.io/article/?qno=785)
@@ -115,7 +115,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [众里寻他千百度：名流问题](https://labuladong.github.io/article/?qno=277)
     * [我写了一个模板，把 Dijkstra 算法变成了默写题](https://labuladong.github.io/article/?qno=743)
 
-  * [手把手设计数据结构](https://labuladong.gitee.io/algo/)
+  * [手把手设计数据结构](https://labuladong.github.io/algo/)
     * [算法就像搭乐高：带你手撸 LRU 算法](https://labuladong.github.io/article/?qno=146) 
     * [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/article/?qno=460) 
     * [前缀树算法模板秒杀五道算法题](https://labuladong.github.io/article/?qno=208)
@@ -127,7 +127,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [二叉堆详解实现优先级队列](https://labuladong.github.io/article/wx.html?wx=o7tdyLiYm668dpUWd-x7Lg) 
     * [队列实现栈以及栈实现队列](https://labuladong.github.io/article/?qno=232) 
 
-  * [手把手刷数组题目](https://labuladong.gitee.io/algo/)
+  * [手把手刷数组题目](https://labuladong.github.io/algo/)
     * [小而美的算法技巧：前缀和数组](https://labuladong.github.io/article/?qno=303) 
     * [小而美的算法技巧：差分数组](https://labuladong.github.io/article/?qno=370) 
     * [二维数组的花式遍历技巧](https://labuladong.github.io/article/?qno=48)
@@ -145,7 +145,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
 ### 第二章、手把手刷动态规划
 
-  * [动态规划基本技巧](https://labuladong.gitee.io/algo/)
+  * [动态规划基本技巧](https://labuladong.github.io/algo/)
     * [动态规划解题核心框架](https://labuladong.github.io/article/?qno=509) 
     * [动态规划设计：最长递增子序列](https://labuladong.github.io/article/?qno=300)
     * [最优子结构原理和 dp 数组遍历方向](https://labuladong.github.io/article/wx.html?wx=qvlfyKBiXVX7CCwWFR-XKg) 
@@ -153,7 +153,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [对动态规划进行降维打击](https://labuladong.github.io/article/wx.html?wx=SnyN1Gn6DTLm0uJyp5l6CQ)
     * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.github.io/article/?qno=494) 
 
-  * [子序列类型问题](https://labuladong.gitee.io/algo/)
+  * [子序列类型问题](https://labuladong.github.io/algo/)
     * [经典动态规划：编辑距离](https://labuladong.github.io/article/?qno=72) 
     * [动态规划设计：最长递增子序列](https://labuladong.github.io/article/?qno=300)
     * [二维递增子序列：信封嵌套问题](https://labuladong.github.io/article/?qno=354) 
@@ -161,12 +161,12 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [经典动态规划：最长公共子序列](https://labuladong.github.io/article/?qno=1143) 
     * [动态规划之子序列问题解题模板](https://labuladong.github.io/article/?qno=516) 
 
-  * [背包类型问题](https://labuladong.gitee.io/algo/)
+  * [背包类型问题](https://labuladong.github.io/algo/)
     * [经典动态规划：0-1 背包问题](https://labuladong.github.io/article/wx.html?wx=RXfnhSpVBmVneQjDSUSAVQ) 
     * [经典动态规划：子集背包问题](https://labuladong.github.io/article/?qno=416) 
     * [经典动态规划：完全背包问题](https://labuladong.github.io/article/?qno=518) 
 
-  * [用动态规划玩游戏](https://labuladong.gitee.io/algo/)
+  * [用动态规划玩游戏](https://labuladong.github.io/algo/)
     * [动态规划之最小路径和](https://labuladong.github.io/article/?qno=64)
     * [动态规划帮我通关了《魔塔》](https://labuladong.github.io/article/?qno=174)
     * [动态规划帮我通关了《辐射4》](https://labuladong.github.io/article/?qno=514)
@@ -182,7 +182,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [有限状态机之 KMP 字符匹配算法](https://labuladong.github.io/article/?qno=28) 
     * [构造回文的最小插入次数](https://labuladong.github.io/article/?qno=1312) 
 
-  * [贪心类型问题](https://labuladong.gitee.io/algo/)
+  * [贪心类型问题](https://labuladong.github.io/algo/)
     * [贪心算法之区间调度问题](https://labuladong.github.io/article/?qno=435) 
     * [扫描线技巧：安排会议室](https://labuladong.github.io/article/?qno=253)
     * [剪视频剪出一个贪心算法](https://labuladong.github.io/article/?qno=1024)
@@ -191,7 +191,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
 ### 第三章、必知必会算法技巧
 
-  * [暴力搜索算法](https://labuladong.gitee.io/algo/)
+  * [暴力搜索算法](https://labuladong.github.io/algo/)
     * [回溯算法解题套路框架](https://labuladong.github.io/article/?qno=51) 
     * [经典回溯算法：集合划分问题](https://labuladong.github.io/article/?qno=698)
     * [回溯算法团灭子集、排列、组合问题](https://labuladong.github.io/article/?qno=78) 
@@ -200,7 +200,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [BFS 算法解题套路框架](https://labuladong.github.io/article/?qno=111) 
     * [如何用 BFS 算法秒杀各种智力题](https://labuladong.github.io/article/?qno=773) 
 
-  * [数学运算技巧](https://labuladong.gitee.io/algo/)
+  * [数学运算技巧](https://labuladong.github.io/algo/)
     * [常用的位操作](https://labuladong.github.io/article/?qno=191) 
     * [讲两道常考的阶乘算法题](https://labuladong.github.io/article/?qno=172) 
     * [如何高效寻找素数](https://labuladong.github.io/article/?qno=204) 
@@ -211,12 +211,12 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [一行代码就能解决的算法题](https://labuladong.github.io/article/?qno=292) 
     * [几个反直觉的概率问题](https://labuladong.github.io/article/wx.html?wx=eCgxtBpsrZjJQ9KmhKrEJw) 
 
-  * [其他算法技巧](https://labuladong.gitee.io/algo/)
+  * [其他算法技巧](https://labuladong.github.io/algo/)
     * [快速排序亲兄弟：快速选择算法](https://labuladong.github.io/article/?qno=215) 
     * [分治算法详解：运算优先级](https://labuladong.github.io/article/?qno=241) 
     * [一个方法解决三道区间问题](https://labuladong.github.io/article/?qno=1288) 
 
-  * [经典面试题](https://labuladong.gitee.io/algo/)
+  * [经典面试题](https://labuladong.github.io/algo/)
     * [谁能想到，斗地主也能玩出算法](https://labuladong.github.io/article/?qno=659) 
     * [东哥吃葡萄时竟然吃出一道算法题！](https://labuladong.github.io/article/wx.html?wx=3VjL7Gud1bQQrbjedzEhMQ) 
     * [烧饼排序算法](https://labuladong.github.io/article/?qno=969) 

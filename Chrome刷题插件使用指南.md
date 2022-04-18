@@ -1,0 +1,1 @@
+Chrome 插件持续更新中，安装和使用指南请移步 [这里](https://mp.weixin.qq.com/s/wIxflO1dvXzDlibhEcENcQ)。
