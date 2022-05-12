@@ -11,13 +11,8 @@
 ![](../pictures/souyisou.png)
 
 相关推荐：
-<<<<<<< Updated upstream
   * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitbook.io/algo/)
   * [经典动态规划：完全背包问题](https://labuladong.gitbook.io/algo/)
-=======
-  * [我写了首诗，让你闭着眼睛也能写对二分搜索](https://labuladong.gitee.io/algo/)
-  * [经典动态规划：完全背包问题](https://labuladong.gitee.io/algo/)
->>>>>>> Stashed changes
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
@@ -182,15 +177,10 @@ int[] twoSum(int[] nums, int target) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-<<<<<<< Updated upstream
 **刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitbook.io/algo/) 持续更新最新文章**。
 
 <<<<<<< Updated upstream
 =======
-=======
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
-
->>>>>>> Stashed changes
 **本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
 
 <p align='center'>
@@ -204,10 +194,7 @@ int[] twoSum(int[] nums, int target) {
 
 
 
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 ### python
 
 由[JodyZ0203](https://github.com/JodyZ0203)提供 1. Two Sums Python3 解法代码:
@@ -289,7 +276,6 @@ var twoSum = function (nums, target) {
 
 
 
-<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 [labuladong](https://github.com/labuladong) 提供TwoSum I JAVA解法代码：
@@ -398,9 +384,6 @@ public:
 >>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
 =======
 >>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
-=======
-[170.两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
->>>>>>> Stashed changes
 
 哈希集合优化。
 
@@ -411,10 +394,7 @@ class TwoSum {
         this.nums = [];
     }
 
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
     // 向数据结构中添加一个数 number
     add(number) {
         // 记录所有可能组成的和
@@ -423,13 +403,9 @@ class TwoSum {
         }
         this.nums.add(number);
     }
-<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 <<<<<<< HEAD
-=======
-
->>>>>>> Stashed changes
     // 寻找当前数据结构中是否存在两个数的和为 value
     find(value) {
         return this.sum.has(value);
@@ -438,7 +414,6 @@ class TwoSum {
 ```
 
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 [目录](../README.md#目录)
 =======
 <<<<<<< Updated upstream
@@ -452,5 +427,3 @@ class TwoSum {
 =======
 [目录](../README.md#目录)
 >>>>>>> parent of 1c818b2 (Merge branch 'pr/672' into API)
-=======
->>>>>>> Stashed changes
