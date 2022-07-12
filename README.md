@@ -42,19 +42,37 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 <img src="./pictures/qrcode.jpg" width = "200" />
 </p>
 
-**3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题，一共可以手把手带你刷 200 多道题目**：
+**3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题，一共可以手把手带你刷 300 道题目**：
 
 GitHub Pages 地址：https://labuladong.github.io/algo/
 
 Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
-**4、建议安装我的 [刷题辅助插件](https://mp.weixin.qq.com/s/wIxflO1dvXzDlibhEcENcQ)，方便在网页刷题**：
+**4、我的教程已经制作成了《算法秘籍》和《刷题笔记》两本 PDF 教材，[点这里](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 查看。另外建议关注 [我的 B 站](https://space.bilibili.com/14089380)，我把一系列核心算法技巧都录制成了视频，方便大家学习**。
 
-![](./pictures/plugin.jpg)
+**5、我开发了一系列配套插件辅助大家学习算法，覆盖各个使用场景**：
 
-**5、欢迎关注 [我的知乎](https://www.zhihu.com/people/labuladong) 和 [B 站](https://space.bilibili.com/14089380)**。
+首先是我的 [Chrome 刷题插件](https://mp.weixin.qq.com/s/wIxflO1dvXzDlibhEcENcQ)，方便在网页上刷题的读者，功能如下图：
 
-我一直在写优质文章，但是后续的文章只发布到公众号/网站/知乎，不能开放到 GitHub。因为本仓库太火了，很多人直接拿我的文章去开付费专栏，价格还不便宜，我这免费写给您看，何必掏冤枉钱呢？所以多多关注本作者，多多宣传，谁也不希望劣币驱逐良币不是么？
+![](./pictures/plugin/chrome.jpg)
+
+![](./pictures/plugin/chrome.gif)
+
+如果不喜欢在网页刷题，可以安装我的 [vscode 刷题插件](https://mp.weixin.qq.com/s/z4mqiiJV9pZ3t6SIPa2kTA)，功能如下图：
+
+![](./pictures/plugin/vscode.jpg)
+
+![](./pictures/plugin/vscode.gif)
+
+或者，也可以安装我的 [JetBrains 刷题插件](https://mp.weixin.qq.com/s/NF8mmVyXVfC1ehdMOsO7Cw)，功能如下图：
+
+![](./pictures/plugin/jetbrain.jpg)
+
+![](./pictures/plugin/jetbrain.gif)
+
+**可以说，我把内容和配套工具全都做好了，你只要按部就班顺着我的教程学习，就可以获得沉浸式的学习体验。这是教程及工具链使用手册的入口**：
+
+![](./pictures/plugin/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)
 
 其他的先不多说了，直接上干货吧，我们一起搞定 LeetCode，感受一下支配算法的乐趣。
 
