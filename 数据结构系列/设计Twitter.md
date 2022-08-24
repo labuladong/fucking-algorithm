@@ -1,24 +1,31 @@
 # 设计Twitter
 
 
+
+
+
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
 <a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](../pictures/souyisou.png)
+![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**《labuladong 的算法秘籍》、《labuladong 的刷题笔记》两本 PDF 和刷题插件 2.0 免费开放下载，详情见 [labuladong 的刷题三件套正式发布](https://mp.weixin.qq.com/s/yN4cHQRsFa5SWlacopHXYQ)**~
+**通知：[数据结构精品课 V1.8](https://aep.h5.xeknow.com/s/1XJHEO) 持续更新中；[第十期刷题打卡挑战](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 最后一天报名。**
 
-读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
-[355.设计推特](https://leetcode-cn.com/problems/design-twitter)
+
+读完本文，你不仅学会了算法套路，还可以顺便解决如下题目：
+
+| LeetCode | 力扣 | 难度 |
+| :----: | :----: | :----: |
+| [355. Design Twitter](https://leetcode.com/problems/design-twitter/) | [355. 设计推特](https://leetcode.cn/problems/design-twitter/) | 🟠
 
 **-----------**
 
-「design Twitter」是 LeetCode 上第 355 道题目，不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
+力扣第 355 「设计推特」不仅题目本身很有意思，而且把合并多个有序链表的算法和面向对象设计（OO design）结合起来了，很有实际意义，本文就带大家来看看这道题。
 
 至于 Twitter 的什么功能跟算法有关系，等我们描述一下题目要求就知道了。
 
@@ -120,13 +127,13 @@ class Tweet {
 }
 ```
 
-![tweet](../pictures/设计Twitter/tweet.jpg)
+![](https://labuladong.github.io/algo/images/设计Twitter/tweet.jpg)
 
 **2、User 类的实现**
 
 我们根据实际场景想一想，一个用户需要存储的信息有 userId，关注列表，以及该用户发过的推文列表。其中关注列表应该用集合（Hash Set）这种数据结构来存，因为不能重复，而且需要快速查找；推文列表应该由链表这种数据结构储存，以便于进行有序合并的操作。画个图理解一下：
 
-![User](../pictures/设计Twitter/user.jpg)
+![](https://labuladong.github.io/algo/images/设计Twitter/user.jpg)
 
 除此之外，根据面向对象的设计原则，「关注」「取关」和「发文」应该是 User 的行为，况且关注列表和推文列表也存储在 User 类中，所以我们也应该给 User 添加 follow，unfollow 和 post 这几个方法：
 
@@ -269,10 +276,9 @@ public List<Integer> getNewsFeed(int userId) {
 
 这个过程是这样的，下面是我制作的一个 GIF 图描述合并链表的过程。假设有三个 Tweet 链表按 time 属性降序排列，我们把他们降序合并添加到 res 中。注意图中链表节点中的数字是 time 属性，不是 id 属性：
 
-![gif](../pictures/设计Twitter/merge.gif)
+![](https://labuladong.github.io/algo/images/设计Twitter/merge.gif)
 
 至此，这道一个极其简化的 Twitter 时间线功能就设计完毕了。
-
 
 ### 四、最后总结
 
@@ -282,23 +288,19 @@ public List<Integer> getNewsFeed(int userId) {
 
 当然，实际应用中的社交 App 数据量是巨大的，考虑到数据库的读写性能，我们的设计可能承受不住流量压力，还是有些太简化了。而且实际的应用都是一个极其庞大的工程，比如下图，是 Twitter 这样的社交网站大致的系统结构：
 
-![design](../pictures/设计Twitter/design.png)
+![](https://labuladong.github.io/algo/images/设计Twitter/design.png)
 
 我们解决的问题应该只能算 Timeline Service 模块的一小部分，功能越多，系统的复杂性可能是指数级增长的。所以说合理的顶层设计十分重要，其作用是远超某一个算法的。
 
 最后，Github 上有一个优秀的开源项目，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击 [这里](https://github.com/donnemartin/system-design-primer) 查看。
 
-PS：本文前两张图片和 GIF 是我第一次尝试用平板的绘图软件制作的，花了很多时间，尤其是 GIF 图，需要一帧一帧制作。如果本文内容对你有帮助，点个赞分个享，鼓励一下我呗！
-
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「进群」可加入算法群；回复「PDF」可获取精华文章 PDF**：
 
-**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+![](https://labuladong.github.io/algo/images/souyisou2.png)
 
-<p align='center'>
-<img src="../pictures/qrcode.jpg" width=200 >
-</p>
+
 ======其他语言代码======
 
 [355.设计推特](https://leetcode-cn.com/problems/design-twitter)

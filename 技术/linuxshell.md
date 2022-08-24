@@ -1,16 +1,21 @@
 # 关于 Linux shell 你必须知道的技巧
 
 
+
+
+
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
 <a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](../pictures/souyisou.png)
+![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**《labuladong 的算法秘籍》、《labuladong 的刷题笔记》两本 PDF 和刷题插件 2.0 免费开放下载，详情见 [labuladong 的刷题三件套正式发布](https://mp.weixin.qq.com/s/yN4cHQRsFa5SWlacopHXYQ)**~
+**通知：[数据结构精品课 V1.8](https://aep.h5.xeknow.com/s/1XJHEO) 持续更新中；[第十期刷题打卡挑战](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 最后一天报名。**
+
+
 
 **-----------**
 
@@ -53,7 +58,7 @@ $ rm $(where connect.sh)
 
 **标准输入就是编程语言中诸如`scanf`或者`readline`这种命令；而参数是指程序的`main`函数传入的`args`字符数组**。
 
-前文「Linux文件描述符」说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
+前文 [Linux文件描述符](https://labuladong.github.io/article/fname.html?fname=linux进程) 说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
 
 用刚才的例子说，`rm`命令源代码中肯定不接受标准输入，而是接收命令行参数，删除相应的文件。作为对比，`cat`命令是既接受标准输入，又接受命令行参数：
 
@@ -104,7 +109,7 @@ $ logout
 $ nohup some_cmd &
 ```
 
-`nohup`命令也是类似的原理，不过通过我的测试，还是`(cmd &)`这种形式更加稳定。
+`nohub`命令也是类似的原理，不过通过我的测试，还是`(cmd &)`这种形式更加稳定。
 
 ### 三、单引号和双引号的区别
 
@@ -112,7 +117,7 @@ $ nohup some_cmd &
 
 shell 的行为可以测试，使用`set -x`命令，会开启 shell 的命令回显，你可以通过回显观察 shell 到底在执行什么命令：
 
-![](../pictures/linuxshell/1.png)
+![](https://labuladong.github.io/algo/images/linuxshell/1.png)
 
 可见 `echo $(cmd)` 和 `echo "$(cmd)"`，结果差不多，但是仍然有区别。注意观察，双引号转义完成的结果会自动增加单引号，而前者不会。
 
@@ -147,12 +152,9 @@ $ sudo /home/fdl/bin/connect.sh
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「进群」可加入算法群；回复「PDF」可获取精华文章 PDF**：
 
-**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+![](https://labuladong.github.io/algo/images/souyisou2.png)
 
-<p align='center'>
-<img src="../pictures/qrcode.jpg" width=200 >
-</p>
 
 ======其他语言代码======
