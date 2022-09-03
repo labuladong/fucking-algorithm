@@ -1,9 +1,5 @@
 # 如何k个一组反转链表
 
-
-
-
-
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 <a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
@@ -13,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V1.9，[第 11 期刷题打卡挑战（9/19 开始）](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 开始报名。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V1.9，[第 11 期刷题打卡挑战（9/19 开始）](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -154,6 +150,21 @@ ListNode reverseKGroup(ListNode head, int k) {
 那么如何分解问题、发现递归性质呢？这个只能多练习，也许后续可以专门写一篇文章来探讨一下，本文就到此为止吧，希望对大家有帮助！
 
 > 最后打个广告，我亲自制作了一门 [数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO)，以视频课为主，手把手带你实现常用的数据结构及相关算法，旨在帮助算法基础较为薄弱的读者深入理解常用数据结构的底层原理，在算法学习中少走弯路。
+
+
+
+<hr>
+<details>
+<summary><strong>引用本文的文章</strong></summary>
+
+ - [东哥带你刷二叉树（思路篇）](https://labuladong.github.io/article/fname.html?fname=二叉树系列1)
+ - [算法笔试「骗分」套路](https://labuladong.github.io/article/fname.html?fname=刷题技巧)
+
+</details><hr>
+
+
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 

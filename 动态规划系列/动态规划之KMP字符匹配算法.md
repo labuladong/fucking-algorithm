@@ -1,22 +1,27 @@
 # 动态规划之KMP字符匹配算法
 
-
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
 <a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](../pictures/souyisou.png)
+![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**《labuladong 的算法秘籍》、《labuladong 的刷题笔记》两本 PDF 和刷题插件 2.0 免费开放下载，详情见 [labuladong 的刷题三件套正式发布](https://mp.weixin.qq.com/s/yN4cHQRsFa5SWlacopHXYQ)**~
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V1.9，[第 11 期刷题打卡挑战（9/19 开始）](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
-读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
-[28.实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
+
+读完本文，你不仅学会了算法套路，还可以顺便解决如下题目：
+
+| LeetCode | 力扣 | 难度 |
+| :----: | :----: | :----: |
+| [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) | [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr/) | 🟢
 
 **-----------**
+
+> 阅读本文之前，建议你先学习一下另一种字符串匹配算法：[Rabin Karp 字符匹配算法](https://labuladong.github.io/article/fname.html?fname=rabinkarp)。
 
 KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法，效率很高，但是确实有点复杂。
 
@@ -28,13 +33,13 @@ KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法
 
 读者见过的 KMP 算法应该是，一波诡异的操作处理 `pat` 后形成一个一维的数组 `next`，然后根据这个数组经过又一波复杂操作去匹配 `txt`。时间复杂度 O(N)，空间复杂度 O(M)。其实它这个 `next` 数组就相当于 `dp` 数组，其中元素的含义跟 `pat` 的前缀和后缀有关，判定规则比较复杂，不好理解。**本文则用一个二维的 `dp` 数组（但空间复杂度还是 O(M)），重新定义其中元素的含义，使得代码长度大大减少，可解释性大大提高**。
 
-PS：本文的代码参考《算法4》，原代码使用的数组名称是 `dfa`（确定有限状态机），因为我们的公众号之前有一系列动态规划的文章，就不说这么高大上的名词了，我对书中代码进行了一点修改，并沿用 `dp` 数组的名称。
+> PS：本文的代码参考《算法4》，原代码使用的数组名称是 `dfa`（确定有限状态机），因为我们的公众号之前有一系列动态规划的文章，就不说这么高大上的名词了，我对书中代码进行了一点修改，并沿用 `dp` 数组的名称。
 
 ### 一、KMP 算法概述
 
 首先还是简单介绍一下 KMP 算法和暴力匹配算法的不同在哪里，难点在哪里，和动态规划有啥关系。
 
-暴力的字符串匹配算法很容易写，看一下它的运行逻辑：
+力扣第 28 题「实现 strStr」就是字符串匹配问题，暴力的字符串匹配算法很容易写，看一下它的运行逻辑：
 
 ```java
 // 暴力匹配（伪码）
@@ -57,19 +62,19 @@ int search(String pat, String txt) {
 
 对于暴力算法，如果出现不匹配字符，同时回退 `txt` 和 `pat` 的指针，嵌套 for 循环，时间复杂度 `O(MN)`，空间复杂度`O(1)`。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。
 
-比如 txt = "aaacaaab" pat = "aaab"：
+比如 `txt = "aaacaaab", pat = "aaab"`：
 
-![brutal](../pictures/kmp/1.gif)
+![](https://labuladong.github.io/algo/images/kmp/1.gif)
 
 很明显，`pat` 中根本没有字符 c，根本没必要回退指针 `i`，暴力解法明显多做了很多不必要的操作。
 
 KMP 算法的不同之处在于，它会花费空间来记录一些信息，在上述情况中就会显得很聪明：
 
-![kmp1](../pictures/kmp/2.gif)
+![](https://labuladong.github.io/algo/images/kmp/2.gif)
 
-再比如类似的 txt = "aaaaaaab" pat = "aaab"，暴力解法还会和上面那个例子一样蠢蠢地回退指针 `i`，而 KMP 算法又会耍聪明：
+再比如类似的 `txt = "aaaaaaab", pat = "aaab"`，暴力解法还会和上面那个例子一样蠢蠢地回退指针 `i`，而 KMP 算法又会耍聪明：
 
-![kmp2](../pictures/kmp/3.gif)
+![](https://labuladong.github.io/algo/images/kmp/3.gif)
 
 因为 KMP 算法知道字符 b 之前的字符 a 都是匹配的，所以每次只需要比较字符 b 是否被匹配就行了。
 
@@ -92,21 +97,21 @@ pat = "aaab"
 
 只不过对于 `txt1` 的下面这个即将出现的未匹配情况：
 
-![](../pictures/kmp/txt1.jpg)
+![](https://labuladong.github.io/algo/images/kmp/txt1.jpg)
 
 `dp` 数组指示 `pat` 这样移动：
 
-![](../pictures/kmp/txt2.jpg)
+![](https://labuladong.github.io/algo/images/kmp/txt2.jpg)
 
-PS：这个`j` 不要理解为索引，它的含义更准确地说应该是**状态**（state），所以它会出现这个奇怪的位置，后文会详述。
+> PS：这个`j` 不要理解为索引，它的含义更准确地说应该是**状态**（state），所以它会出现这个奇怪的位置，后文会详述。
 
 而对于 `txt2` 的下面这个即将出现的未匹配情况：
 
-![](../pictures/kmp/txt3.jpg)
+![](https://labuladong.github.io/algo/images/kmp/txt3.jpg)
 
 `dp` 数组指示 `pat` 这样移动：
 
-![](../pictures/kmp/txt4.jpg)
+![](https://labuladong.github.io/algo/images/kmp/txt4.jpg)
 
 明白了 `dp` 数组只和 `pat` 有关，那么我们这样设计 KMP 算法就会比较漂亮：
 
@@ -140,46 +145,45 @@ int pos2 = kmp.search("aaaaaaab"); //4
 
 为什么说 KMP 算法和状态机有关呢？是这样的，我们可以认为 `pat` 的匹配就是状态的转移。比如当 pat = "ABABC"：
 
-![](../pictures/kmp/state.jpg)
+![](https://labuladong.github.io/algo/images/kmp/state.jpg)
 
 如上图，圆圈内的数字就是状态，状态 0 是起始状态，状态 5（`pat.length`）是终止状态。开始匹配时 `pat` 处于起始状态，一旦转移到终止状态，就说明在 `txt` 中找到了 `pat`。比如说当前处于状态 2，就说明字符 "AB" 被匹配：
 
-![](../pictures/kmp/state2.jpg)
+![](https://labuladong.github.io/algo/images/kmp/state2.jpg)
 
 另外，处于不同状态时，`pat` 状态转移的行为也不同。比如说假设现在匹配到了状态 4，如果遇到字符 A 就应该转移到状态 3，遇到字符 C 就应该转移到状态 5，如果遇到字符 B 就应该转移到状态 0：
 
-![](../pictures/kmp/state4.jpg)
+![](https://labuladong.github.io/algo/images/kmp/state4.jpg)
 
 具体什么意思呢，我们来一个个举例看看。用变量 `j` 表示指向当前状态的指针，当前 `pat` 匹配到了状态 4：
 
-![](../pictures/kmp/exp1.jpg)
+![](https://labuladong.github.io/algo/images/kmp/exp1.jpg)
 
 如果遇到了字符 "A"，根据箭头指示，转移到状态 3 是最聪明的：
 
-![](../pictures/kmp/exp3.jpg)
+![](https://labuladong.github.io/algo/images/kmp/exp3.jpg)
 
 如果遇到了字符 "B"，根据箭头指示，只能转移到状态 0（一夜回到解放前）：
 
-![](../pictures/kmp/exp5.jpg)
+![](https://labuladong.github.io/algo/images/kmp/exp5.jpg)
 
 如果遇到了字符 "C"，根据箭头指示，应该转移到终止状态 5，这也就意味着匹配完成：
 
-![](../pictures/kmp/exp7.jpg)
-
+![](https://labuladong.github.io/algo/images/kmp/exp7.jpg)
 
 当然了，还可能遇到其他字符，比如 Z，但是显然应该转移到起始状态 0，因为 `pat` 中根本都没有字符 Z：
 
-![](../pictures/kmp/z.jpg)
+![](https://labuladong.github.io/algo/images/kmp/z.jpg)
 
 这里为了清晰起见，我们画状态图时就把其他字符转移到状态 0 的箭头省略，只画 `pat` 中出现的字符的状态转移：
 
-![](../pictures/kmp/allstate.jpg)
+![](https://labuladong.github.io/algo/images/kmp/allstate.jpg)
 
 KMP 算法最关键的步骤就是构造这个状态转移图。**要确定状态转移的行为，得明确两个变量，一个是当前的匹配状态，另一个是遇到的字符**；确定了这两个变量后，就可以知道这个情况下应该转移到哪个状态。
 
 下面看一下 KMP 算法根据这幅状态转移图匹配字符串 `txt` 的过程：
 
-![](../pictures/kmp/kmp.gif)
+![](https://labuladong.github.io/algo/images/kmp/kmp.gif)
 
 **请记住这个 GIF 的匹配过程，这就是 KMP 算法的核心逻辑**！
 
@@ -234,29 +238,29 @@ for 0 <= j < M: # 状态
 
 这个 next 状态应该怎么求呢？显然，**如果遇到的字符 `c` 和 `pat[j]` 匹配的话**，状态就应该向前推进一个，也就是说 `next = j + 1`，我们不妨称这种情况为**状态推进**：
 
-![](../pictures/kmp/forward.jpg)
+![](https://labuladong.github.io/algo/images/kmp/forward.jpg)
 
 **如果字符 `c` 和 `pat[j]` 不匹配的话**，状态就要回退（或者原地不动），我们不妨称这种情况为**状态重启**：
 
-![](../pictures/kmp/back.jpg)
+![](https://labuladong.github.io/algo/images/kmp/back.jpg)
 
 那么，如何得知在哪个状态重启呢？解答这个问题之前，我们再定义一个名字：**影子状态**（我编的名字），用变量 `X` 表示。**所谓影子状态，就是和当前状态具有相同的前缀**。比如下面这种情况：
 
-![](../pictures/kmp/shadow.jpg)
+![](https://labuladong.github.io/algo/images/kmp/shadow.jpg)
 
 当前状态 `j = 4`，其影子状态为 `X = 2`，它们都有相同的前缀 "AB"。因为状态 `X` 和状态 `j` 存在相同的前缀，所以当状态 `j` 准备进行状态重启的时候（遇到的字符 `c` 和 `pat[j]` 不匹配），可以通过 `X` 的状态转移图来获得**最近的重启位置**。
 
 比如说刚才的情况，如果状态 `j` 遇到一个字符 "A"，应该转移到哪里呢？首先只有遇到 "C" 才能推进状态，遇到 "A" 显然只能进行状态重启。**状态 `j` 会把这个字符委托给状态 `X` 处理，也就是 `dp[j]['A'] = dp[X]['A']`**：
 
-![](../pictures/kmp/shadow1.jpg)
+![](https://labuladong.github.io/algo/images/kmp/shadow1.jpg)
 
 为什么这样可以呢？因为：既然 `j` 这边已经确定字符 "A" 无法推进状态，**只能回退**，而且 KMP 就是要**尽可能少的回退**，以免多余的计算。那么 `j` 就可以去问问和自己具有相同前缀的 `X`，如果 `X` 遇见 "A" 可以进行「状态推进」，那就转移过去，因为这样回退最少。
 
-![](../pictures/kmp/A.gif)
+![](https://labuladong.github.io/algo/images/kmp/A.gif)
 
 当然，如果遇到的字符是 "B"，状态 `X` 也不能进行「状态推进」，只能回退，`j` 只要跟着 `X` 指引的方向回退就行了：
 
-![](../pictures/kmp/shadow2.jpg)
+![](https://labuladong.github.io/algo/images/kmp/shadow2.jpg)
 
 你也许会问，这个 `X` 怎么知道遇到字符 "B" 要回退到状态 0 呢？因为 `X` 永远跟在 `j` 的身后，状态 `X` 如何转移，在之前就已经算出来了。动态规划算法不就是利用过去的结果解决现在的问题吗？
 
@@ -350,7 +354,7 @@ for (int i = 0; i < N; i++) {
 
 下面来看一下状态转移图的完整构造过程，你就能理解状态 `X` 作用之精妙了：
 
-![](../pictures/kmp/dfa.gif)
+![](https://labuladong.github.io/algo/images/kmp/dfa.gif)
 
 至此，KMP 算法的核心终于写完啦啦啦啦！看下 KMP 算法的完整代码吧：
 
@@ -419,15 +423,26 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 
 
 
+<hr>
+<details>
+<summary><strong>引用本文的文章</strong></summary>
+
+ - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
+ - [滑动窗口算法延伸：Rabin Karp 字符匹配算法](https://labuladong.github.io/article/fname.html?fname=rabinkarp)
+
+</details><hr>
+
+
+
+
+
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「进群」可加入算法群；回复「PDF」可获取精华文章 PDF**：
 
-**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+![](https://labuladong.github.io/algo/images/souyisou2.png)
 
-<p align='center'>
-<img src="../pictures/qrcode.jpg" width=200 >
-</p>
+
 ======其他语言代码======
 
 [28.实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
