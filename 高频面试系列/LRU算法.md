@@ -1,5 +1,11 @@
 # LRU 缓存淘汰算法设计
 
+
+
+
+
+
+
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 <a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
@@ -9,7 +15,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V1.9，[第 11 期刷题打卡挑战（9/19 开始）](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V1.9，[第 11 期刷题打卡挑战（9/19 开始）](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 开始报名。**
 
 
 
@@ -341,37 +347,6 @@ class LRUCache {
 接下来可阅读：
 
 * [手把手带你实现 LFU 算法](https://labuladong.github.io/article/fname.html?fname=LFU)
-
-
-
-<hr>
-<details>
-<summary><strong>引用本文的文章</strong></summary>
-
- - [一文看懂 session 和 cookie](https://labuladong.github.io/article/fname.html?fname=session和cookie)
- - [常数时间删除/查找数组中的任意元素](https://labuladong.github.io/article/fname.html?fname=随机集合)
- - [数据结构设计：最大栈](https://labuladong.github.io/article/fname.html?fname=最大栈)
- - [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/article/fname.html?fname=LFU)
- - [算法笔试「骗分」套路](https://labuladong.github.io/article/fname.html?fname=刷题技巧)
-
-</details><hr>
-
-
-
-
-<hr>
-<details>
-<summary><strong>引用本文的题目</strong></summary>
-
-<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
-
-| LeetCode | 力扣 |
-| :----: | :----: |
-| - | [剑指 Offer II 031. 最近最少使用缓存](https://leetcode.cn/problems/OrIXps/?show=1) |
-
-</details>
-
-
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
