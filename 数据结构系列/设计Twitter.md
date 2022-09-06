@@ -290,9 +290,9 @@ public List<Integer> getNewsFeed(int userId) {
 
 ![](https://labuladong.github.io/algo/images/设计Twitter/design.png)
 
-我们解决的问题应该只能算 Timeline Service 模块的一小部分，功能越多，系统的复杂性可能是指数级增长的。所以说合理的顶层设计十分重要，其作用是远超某一个算法的。
+我们解决的问题应该只能算 Timeline Service 模块的一小部分，功能越多，系统的复杂性可能是指数级增长的。所以说合理的顶层设计十分重要，其作用是远超某一个算法的。Github 上有一个优秀的开源项目，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击 [这里](https://github.com/donnemartin/system-design-primer) 查看。
 
-最后，Github 上有一个优秀的开源项目，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击 [这里](https://github.com/donnemartin/system-design-primer) 查看。
+本文就到这里，更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_6312b9e5e4b0eca59c2b7e93/1)。
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 

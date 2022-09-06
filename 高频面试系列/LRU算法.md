@@ -342,7 +342,7 @@ class LRUCache {
 }
 ```
 
-至此，LRU 算法就没有什么神秘的了。
+至此，LRU 算法就没有什么神秘的了。更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_6312b9e5e4b0eca59c2b7e93/1)。
 
 接下来可阅读：
 
