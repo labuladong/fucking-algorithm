@@ -29,14 +29,14 @@
   * [Reverse Part of Linked List via Recursion](data_structure/reverse_part_of_a_linked_list_via_recursion.md)
   * [What's the Best Algo Book](think_like_computer/why_i_recommend_algs4.md)
   * [Queue Implement Stack/Stack implement Queue](data_structure/ImplementQueueUsingStacksImplementStackUsingQueues.md)
-  * [Frameworkabout learning data structure and algorithm](think_like_computer/Framework%20and%20thoughts%20about%20learning%20data%20structure%20and%20algorithm.md)
+  * [Framework for learning data structures and algorithms](think_like_computer/Framework%20and%20thoughts%20about%20learning%20data%20structure%20and%20algorithm.md)
 
 * III. Algorithmic thinking
   * [My Way to Learn Algorithm](think_like_computer/ThewaytoAlgorithmlearning.md)
-  * [The Framwork of Backtracking Algorithm](think_like_computer/DetailsaboutBacktracking.md)
+  * [The Framework for Backtracking Algorithm](think_like_computer/DetailsaboutBacktracking.md)
   * [Binary Search in Detail](think_like_computer/DetailedBinarySearch.md)
   * [The Tech of Double Pointer](think_like_computer/double_pointer.md)
-  * [The Key Concept of TowSum Problems](think_like_computer/The_key_to_resolving_TwoSum_problems.md)
+  * [The Key Concept of TwoSum Problems](think_like_computer/The_key_to_resolving_TwoSum_problems.md)
   * [Divide Complicated Problem: Implement a Calculator](data_structure/Implementing_the_functions_of_a_calculator.md)
   * [Prefix Sum Skill](think_like_computer/prefix_sum.md)
   * [FloodFill Algorithm in Detail](think_like_computer/flood_fill.md)
@@ -67,10 +67,10 @@
   * [How to Scheduling Seats](interview/Seatscheduling.md)
   * [Union-Find Algorithm in Detail](think_like_computer/Union-find-Explanation.md)
   * [Union-Find Application](think_like_computer/Union-Find-Application.md)
-  * [Find Sebesquence With Binary Search](interview/findSebesquenceWithBinarySearch.md)
-  * [Problems can be sloved by one line](interview/one-line-code-puzzles.md)
-  * [How to Find Dup and Missing Element](interview/Find-Duplicate-and-Missing-Element.md)
-  * [How to Check Palindrom LinkedList](interview/check_palindromic_linkedlist.md)
+  * [Find Subsequence With Binary Search](interview/findSebesquenceWithBinarySearch.md)
+  * [Problems can be solved by one line](interview/one-line-code-puzzles.md)
+  * [How to Find Duplicate and Missing Element](interview/Find-Duplicate-and-Missing-Element.md)
+  * [How to Check Palindromic LinkedList](interview/check_palindromic_linkedlist.md)
 
 * V. Common Knowledge
   * [Difference Between Process and Thread in Linux](common_knowledge/linuxProcess.md)
