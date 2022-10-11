@@ -1,13 +1,5 @@
 # 如何k个一组反转链表
 
-
-
-
-
-
-
-
-
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 <a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
@@ -17,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。另外，建议你在我的 [网站](https://labuladong.gitee.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -156,6 +148,34 @@ ListNode reverseKGroup(ListNode head, int k) {
 大家喜欢看动态规划相关的问题，可能因为面试很常见，但就我个人理解，很多算法思想都是源于数据结构的。我们公众号的成名之作之一，[学习数据结构的框架思维](https://labuladong.github.io/article/fname.html?fname=学习数据结构和算法的高效方法) 就提过，什么动规、回溯、分治算法，其实都是树的遍历，树这种结构它不就是个多叉链表吗？你能处理基本数据结构的问题，解决一般的算法问题应该也不会太费事。
 
 那么如何分解问题、发现递归性质呢？这个只能多练习，我在数据结构精品课中讲解了 [单链表的递归实现](https://aep.h5.xeknow.com/s/1RQzXc)，应该能够让你进一步加深对递归的理解。
+
+
+
+<hr>
+<details>
+<summary><strong>引用本文的文章</strong></summary>
+
+ - [东哥带你刷二叉树（思路篇）](https://labuladong.github.io/article/fname.html?fname=二叉树系列1)
+ - [算法笔试「骗分」套路](https://labuladong.github.io/article/fname.html?fname=刷题技巧)
+
+</details><hr>
+
+
+
+
+<hr>
+<details>
+<summary><strong>引用本文的题目</strong></summary>
+
+<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
+
+| LeetCode | 力扣 |
+| :----: | :----: |
+| [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/?show=1) | [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/?show=1) |
+
+</details>
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 

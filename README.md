@@ -210,12 +210,12 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [如何用 BFS 算法秒杀各种智力题](https://labuladong.github.io/article/fname.html?fname=BFS解决滑动拼图)
 
   * [数学运算技巧](https://labuladong.github.io/algo/)
+    * [谈谈游戏中的随机算法](https://labuladong.github.io/article/fname.html?fname=随机算法)
     * [常用的位操作](https://labuladong.github.io/article/fname.html?fname=常用的位操作)
     * [讲两道常考的阶乘算法题](https://labuladong.github.io/article/fname.html?fname=阶乘题目)
     * [如何高效寻找素数](https://labuladong.github.io/article/fname.html?fname=打印素数)
     * [如何高效进行模幂运算](https://labuladong.github.io/article/fname.html?fname=superPower)
     * [如何同时寻找缺失和重复的元素](https://labuladong.github.io/article/fname.html?fname=缺失和重复的元素)
-    * [如何在无限序列中随机抽取元素](https://labuladong.github.io/article/fname.html?fname=水塘抽样)
     * [一行代码就能解决的算法题](https://labuladong.github.io/article/fname.html?fname=一行代码解决的智力题)
     * [几个反直觉的概率问题](https://labuladong.github.io/article/fname.html?fname=几个反直觉的概率问题)
 
@@ -240,6 +240,8 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
   * [Linux shell 的实用小技巧](https://labuladong.github.io/article/fname.html?fname=linuxshell技巧)
   * [Linux 管道符原理大揭秘](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
   * [一文看懂 session 和 cookie](https://labuladong.github.io/article/fname.html?fname=session和cookie)
+  * [消息队列架构设计演进](https://labuladong.github.io/article/fname.html?fname=消息队列)
+  * [存储系统设计之 LSM 树原理](https://labuladong.github.io/article/fname.html?fname=LSM树)
   * [加密算法的前身今世](https://labuladong.github.io/article/fname.html?fname=密码技术)
   * [我用四个命令概括了 Git 的所有套路](https://labuladong.github.io/article/fname.html?fname=git常用命令)
   * [Git/SQL/正则表达式的在线练习平台](https://labuladong.github.io/article/fname.html?fname=在线练习平台)

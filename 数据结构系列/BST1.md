@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V1.9，[第 11 期刷题打卡挑战（9/19 开始）](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。另外，建议你在我的 [网站](https://labuladong.gitee.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -23,6 +23,8 @@
 | - | [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode.cn/problems/w6cpku/) | 🟠
 
 **-----------**
+
+> 本文有视频版：[动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6)
 
 PS：[刷题插件](https://mp.weixin.qq.com/s/OE1zPVPj0V2o82N4HtLQbw) 集成了手把手刷二叉树功能，按照公式和套路讲解了 150 道二叉树题目，可手把手带你刷完二叉树分类的题目，迅速掌握递归思维。
 
@@ -215,7 +217,7 @@ void traverse(TreeNode root) {
 
 简单总结下吧，BST 相关的问题，要么利用 BST 左小右大的特性提升算法效率，要么利用中序遍历的特性满足题目的要求，也就这么些事儿吧。
 
-最后调查下，经过这几篇二叉树相关的系列文章，大家刷题有没有点感觉了？可以留言和我交流。本文对你有帮助的话，请三连~
+当然，BST 还可以玩出更多花样，提供更丰富的 API，更多内容参见我的数据结构课程中的 [动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6) 章节。
 
 
 
@@ -248,6 +250,6 @@ void traverse(TreeNode root) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「进群」可加入算法群；回复「PDF」可获取精华文章 PDF**：
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/algo/images/souyisou2.png)

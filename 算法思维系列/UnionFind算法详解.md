@@ -1,11 +1,5 @@
 # Union-Find 算法详解
 
-
-
-
-
-
-
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 <a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
@@ -15,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。另外，建议你在我的 [网站](https://labuladong.gitee.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -528,6 +522,41 @@ class UF {
 至此，这道判断算式合法性的问题就解决了，借助 Union-Find 算法，是不是很简单呢？
 
 最后，Union-Find 算法也会在一些其他经典图论算法中用到，比如判断「图」和「树」，以及最小生成树的计算，详情见 [Kruskal 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=kruskal)。
+
+
+
+<hr>
+<details>
+<summary><strong>引用本文的文章</strong></summary>
+
+ - [Dijkstra 算法模板及应用](https://labuladong.github.io/article/fname.html?fname=dijkstra算法)
+ - [Kruskal 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=kruskal)
+ - [Prim 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=prim算法)
+ - [一文秒杀所有岛屿题目](https://labuladong.github.io/article/fname.html?fname=岛屿题目)
+ - [二分图判定算法](https://labuladong.github.io/article/fname.html?fname=二分图)
+ - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
+
+</details><hr>
+
+
+
+
+<hr>
+<details>
+<summary><strong>引用本文的题目</strong></summary>
+
+<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
+
+| LeetCode | 力扣 |
+| :----: | :----: |
+| [1361. Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes/?show=1) | [1361. 验证二叉树](https://leetcode.cn/problems/validate-binary-tree-nodes/?show=1) |
+| [200. Number of Islands](https://leetcode.com/problems/number-of-islands/?show=1) | [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/?show=1) |
+| [261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/?show=1)🔒 | [261. 以图判树](https://leetcode.cn/problems/graph-valid-tree/?show=1)🔒 |
+| [765. Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/?show=1) | [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands/?show=1) |
+
+</details>
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 

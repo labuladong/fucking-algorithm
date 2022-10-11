@@ -1,9 +1,5 @@
 # 关于 Linux shell 你必须知道的技巧
 
-
-
-
-
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
 <a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
@@ -13,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 12 期刷题打卡 [开始报名](https://aep.xet.tech/s/XhcRc)，点击这里体验 [刷题全家桶](https://labuladong.gitee.io/algo/images/others/%E5%85%A8%E5%AE%B6%E6%A1%B6.jpg)。另外，建议你在我的 [网站](https://labuladong.gitee.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -149,6 +145,20 @@ $ where connect.sh
 ```shell
 $ sudo /home/fdl/bin/connect.sh
 ```
+
+
+
+<hr>
+<details>
+<summary><strong>引用本文的文章</strong></summary>
+
+ - [Linux 管道符原理大揭秘](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
+
+</details><hr>
+
+
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
