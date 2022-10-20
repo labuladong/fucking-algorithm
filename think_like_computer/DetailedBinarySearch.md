@@ -302,7 +302,7 @@ When `nums [mid] == target`, do not return immediately, but increase the lower b
 
 **2. Why does it return `left-1` instead of` left`? And I think that since it is searching for the right border, it should return `right` only**.
 
-Answer: First, the termination condition of the while loop is `left == right`, so` left` and `right` are the same. You have to embody the characteristics of the right side and return` right-1`.Answer: First, the termination condition of the while loop is `left == right`, so` left` and `right` are the same. You have to embody the characteristics of the right side and return` right-1`.
+Answer: First, the termination condition of the while loop is `left == right`, so` left` and `right` are the same. You have to embody the characteristics of the right side and return` right-1`.
 
 As for why it should be reduced by one, this is a special point in the search for the right border. The key is to judge in this condition:
 
