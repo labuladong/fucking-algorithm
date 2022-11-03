@@ -237,14 +237,15 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
   * [Linux 文件系统都是什么鬼](https://labuladong.github.io/article/fname.html?fname=linux文件系统)
   * [Linux 的进程/线程/文件描述符是什么](https://labuladong.github.io/article/fname.html?fname=linux进程)
   * [关于 Linux shell 你必须知道的](https://labuladong.github.io/article/fname.html?fname=linuxshell)
-  * [Linux shell 的实用小技巧](https://labuladong.github.io/article/fname.html?fname=linuxshell技巧)
-  * [Linux 管道符原理大揭秘](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
+  * [Linux 管道和重定向的坑](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
   * [一文看懂 session 和 cookie](https://labuladong.github.io/article/fname.html?fname=session和cookie)
-  * [消息队列架构设计演进](https://labuladong.github.io/article/fname.html?fname=消息队列)
-  * [存储系统设计之 LSM 树原理](https://labuladong.github.io/article/fname.html?fname=LSM树)
   * [加密算法的前身今世](https://labuladong.github.io/article/fname.html?fname=密码技术)
   * [我用四个命令概括了 Git 的所有套路](https://labuladong.github.io/article/fname.html?fname=git常用命令)
   * [Git/SQL/正则表达式的在线练习平台](https://labuladong.github.io/article/fname.html?fname=在线练习平台)
+  * [消息队列架构设计演进](https://labuladong.github.io/article/fname.html?fname=消息队列)
+  * [存储系统设计之 LSM 树原理](https://labuladong.github.io/article/fname.html?fname=LSM树)
+  * [用消息队列制作一款多人在线游戏](https://labuladong.github.io/article/fname.html?fname=炸弹人游戏)
+  * [拥抱开源，告别 CRUD](https://labuladong.github.io/article/fname.html?fname=参与开源)
 
 <!-- table end -->
 

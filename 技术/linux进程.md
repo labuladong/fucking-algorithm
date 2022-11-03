@@ -136,8 +136,7 @@ $ cmd1 | cmd2 | cmd3
 <details>
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Linux shell 的实用小技巧](https://labuladong.github.io/article/fname.html?fname=linuxshell技巧)
- - [Linux 管道符原理大揭秘](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
+ - [Linux 管道和重定向的坑](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
  - [关于 Linux shell 你必须知道的](https://labuladong.github.io/article/fname.html?fname=linuxshell)
 
 </details><hr>
