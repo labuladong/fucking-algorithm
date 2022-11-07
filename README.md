@@ -196,7 +196,6 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [扫描线技巧：安排会议室](https://labuladong.github.io/article/fname.html?fname=安排会议室)
     * [剪视频剪出一个贪心算法](https://labuladong.github.io/article/fname.html?fname=剪视频)
     * [如何运用贪心思想玩跳跃游戏](https://labuladong.github.io/article/fname.html?fname=跳跃游戏)
-    * [当老司机学会了贪心算法](https://labuladong.github.io/article/fname.html?fname=老司机)
 
 ### [第三章、必知必会算法技巧](https://labuladong.github.io/algo/)
   * [暴力搜索算法](https://labuladong.github.io/algo/)
