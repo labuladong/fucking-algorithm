@@ -244,7 +244,8 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
   * [消息队列架构设计演进](https://labuladong.github.io/article/fname.html?fname=消息队列)
   * [存储系统设计之 LSM 树原理](https://labuladong.github.io/article/fname.html?fname=LSM树)
   * [用消息队列制作一款多人在线游戏](https://labuladong.github.io/article/fname.html?fname=炸弹人游戏)
-  * [拥抱开源，告别 CRUD](https://labuladong.github.io/article/fname.html?fname=参与开源)
+  * [学习开源项目，告别 CRUD](https://labuladong.github.io/article/fname.html?fname=参与开源)
+  * [如何学习开源项目，我又总结了套路](https://labuladong.github.io/article/fname.html?fname=调试技巧)
 
 <!-- table end -->
 
