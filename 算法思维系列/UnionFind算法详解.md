@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，第 14 期打卡训练营 [开始报名](https://aep.xet.tech/s/3ts7sQ)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，2022 年最后一期打卡训练营 [开始报名](https://aep.xet.tech/s/3ts7sQ)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -554,6 +554,7 @@ class UF {
 | [200. Number of Islands](https://leetcode.com/problems/number-of-islands/?show=1) | [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/?show=1) |
 | [261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/?show=1)🔒 | [261. 以图判树](https://leetcode.cn/problems/graph-valid-tree/?show=1)🔒 |
 | [765. Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/?show=1) | [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands/?show=1) |
+| [947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/?show=1) | [947. 移除最多的同行或同列石头](https://leetcode.cn/problems/most-stones-removed-with-same-row-or-column/?show=1) |
 
 </details>
 
