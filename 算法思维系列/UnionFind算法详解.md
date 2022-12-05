@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，2022 年最后一期打卡训练营 [开始报名](https://aep.xet.tech/s/3ts7sQ)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，2022 年最后一期打卡训练营明天开始，[点这里报名](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -23,15 +23,23 @@
 
 **-----------**
 
-今天讲讲 Union-Find 算法，也就是常说的并查集（Disjoint Set）结构，主要是解决图论中「动态连通性」问题的。名词很高端，其实特别好理解，等会解释，另外这个算法的应用都非常有趣。
+记得我之前在讲 [图论算法基础](https://labuladong.github.io/article/fname.html?fname=图) 时说图论相关的算法不会经常考，但最近被打脸了，因为一些读者和我反馈近期求职面试涉及很多图论相关的算法，可能是因为环境不好所以算法这块更卷了吧。
 
-说起这个 Union-Find，应该算是我的「启蒙算法」了，因为《算法4》的开头就介绍了这款算法，可是把我秀翻了，感觉好精妙啊！
+常见的图论算法我都已经写过了，这里按难度顺序列举一下：
 
-后来刷了 LeetCode，并查集相关的算法题目都非常有意思，而且《算法4》给的解法竟然还可以进一步优化，只要加一个微小的修改就可以把时间复杂度降到 O(1)。
+1. [图论算法基础](https://labuladong.github.io/article/fname.html?fname=图)
+2. [二分图判定算法及应用](https://labuladong.github.io/article/fname.html?fname=二分图)
+3. [环检测/拓扑排序算法及应用](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
+4. 并查集算法及应用（本文）
+5. [Kruskal 最小生成树算法及应用](https://labuladong.github.io/article/fname.html?fname=kruskal)
+6. [Prim 最小生成树算法及应用](https://labuladong.github.io/article/fname.html?fname=prim算法)
+7. [Dijkstra 算法模板及应用](https://labuladong.github.io/article/fname.html?fname=dijkstra算法)
 
-废话不多说，直接上干货，先解释一下什么叫动态连通性吧。
+并查集（Union-Find）算法是一个专门针对「动态连通性」的算法，我之前写过两次，因为这个算法的考察频率高，而且它也是最小生成树算法的前置知识，所以我整合了本文，争取一篇文章把这个算法讲明白。
 
-### 一、问题介绍
+首先，从什么是图的动态连通性开始讲。
+
+### 一、动态连通性
 
 简单说，动态连通性其实可以抽象成给一幅图连线。比如下面这幅图，总共有 10 个节点，他们互不相连，分别用 0~9 标记：
 

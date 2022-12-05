@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/algo/images/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，2022 年最后一期打卡训练营 [开始报名](https://aep.xet.tech/s/3ts7sQ)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0，2022 年最后一期打卡训练营明天开始，[点这里报名](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -852,6 +852,7 @@ double dijkstra(int start, int end, List<double[]>[] graph) {
  - [东哥带你刷二叉树（纲领篇）](https://labuladong.github.io/article/fname.html?fname=二叉树总结)
  - [二分图判定算法](https://labuladong.github.io/article/fname.html?fname=二分图)
  - [图论基础及遍历算法](https://labuladong.github.io/article/fname.html?fname=图)
+ - [并查集（Union-Find）算法](https://labuladong.github.io/article/fname.html?fname=UnionFind算法详解)
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
  - [旅游省钱大法：加权最短路径](https://labuladong.github.io/article/fname.html?fname=旅行最短路径)
  - [环检测及拓扑排序算法](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
