@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.gitee.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。过年前最后一期打卡挑战即将开始，[点这里报名](https://aep.xet.tech/s/1a9ByX)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -47,29 +47,29 @@ Redis 监听的默认端口是 6379，我们设置它接收网卡 127.0.0.1 的�
 
 除了密码登录之外，还可以使用 RSA 密钥对登录，但是必须要把我的公钥存到 root 的家目录中 `/root/.ssh/authored_keys`。我们知道 `/root` 目录的权限设置是不允许任何其他用户闯入读写的：
 
-![](https://labuladong.github.io/algo/images/redis入侵/1.png)
+![](https://labuladong.gitee.io/pictures/redis入侵/1.png)
 
 但是，我发现自己竟然可以直接访问 Redis：
 
-![](https://labuladong.github.io/algo/images/redis入侵/2.png)
+![](https://labuladong.gitee.io/pictures/redis入侵/2.png)
 
 如果 Redis 是以 root 的身份运行的，那么我就可以通过操作 Redis，让它把我的公钥写到 root 的家目录中。Redis 有一种持久化方式是生成 RDB 文件，其中会包含原始数据。
 
 我露出了邪恶的微笑，先把 Redis 中的数据全部清空，然后把我的 RSA 公钥写到数据库里，这里在开头和结尾加换行符目的是避免 RDB 文件生成过程中损坏到公钥字符串：
 
-![](https://labuladong.github.io/algo/images/redis入侵/3.png)
+![](https://labuladong.gitee.io/pictures/redis入侵/3.png)
 
 命令 Redis 把生成的数据文件保存到 `/root/.ssh/` 中的 `authored_keys` 文件中：
 
-![](https://labuladong.github.io/algo/images/redis入侵/4.png)
+![](https://labuladong.gitee.io/pictures/redis入侵/4.png)
 
 现在，root 的家目录中已经包含了我们的 RSA 公钥，我们现在可以通过密钥对登录进 root 了：
 
-![](https://labuladong.github.io/algo/images/redis入侵/5.png)
+![](https://labuladong.gitee.io/pictures/redis入侵/5.png)
 
 看一下刚才写入 root 家的公钥：
 
-![](https://labuladong.github.io/algo/images/redis入侵/6.png)
+![](https://labuladong.gitee.io/pictures/redis入侵/6.png)
 
 乱码是 GDB 文件的某种编码吧，但是中间的公钥被完整保存了，而且 ssh 登录程序竟然也识别了这段被乱码包围的公钥！
 
@@ -103,6 +103,6 @@ Redis 监听的默认端口是 6379，我们设置它接收网卡 127.0.0.1 的�
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.gitee.io/pictures/souyisou2.png)
 
 ======其他语言代码======

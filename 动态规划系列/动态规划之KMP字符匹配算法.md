@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.gitee.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。过年前最后一期打卡挑战即将开始，[点这里报名](https://aep.xet.tech/s/1a9ByX)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -64,17 +64,17 @@ int search(String pat, String txt) {
 
 比如 `txt = "aaacaaab", pat = "aaab"`：
 
-![](https://labuladong.github.io/algo/images/kmp/1.gif)
+![](https://labuladong.gitee.io/pictures/kmp/1.gif)
 
 很明显，`pat` 中根本没有字符 c，根本没必要回退指针 `i`，暴力解法明显多做了很多不必要的操作。
 
 KMP 算法的不同之处在于，它会花费空间来记录一些信息，在上述情况中就会显得很聪明：
 
-![](https://labuladong.github.io/algo/images/kmp/2.gif)
+![](https://labuladong.gitee.io/pictures/kmp/2.gif)
 
 再比如类似的 `txt = "aaaaaaab", pat = "aaab"`，暴力解法还会和上面那个例子一样蠢蠢地回退指针 `i`，而 KMP 算法又会耍聪明：
 
-![](https://labuladong.github.io/algo/images/kmp/3.gif)
+![](https://labuladong.gitee.io/pictures/kmp/3.gif)
 
 因为 KMP 算法知道字符 b 之前的字符 a 都是匹配的，所以每次只需要比较字符 b 是否被匹配就行了。
 
@@ -97,21 +97,21 @@ pat = "aaab"
 
 只不过对于 `txt1` 的下面这个即将出现的未匹配情况：
 
-![](https://labuladong.github.io/algo/images/kmp/txt1.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/txt1.jpg)
 
 `dp` 数组指示 `pat` 这样移动：
 
-![](https://labuladong.github.io/algo/images/kmp/txt2.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/txt2.jpg)
 
 > PS：这个`j` 不要理解为索引，它的含义更准确地说应该是**状态**（state），所以它会出现这个奇怪的位置，后文会详述。
 
 而对于 `txt2` 的下面这个即将出现的未匹配情况：
 
-![](https://labuladong.github.io/algo/images/kmp/txt3.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/txt3.jpg)
 
 `dp` 数组指示 `pat` 这样移动：
 
-![](https://labuladong.github.io/algo/images/kmp/txt4.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/txt4.jpg)
 
 明白了 `dp` 数组只和 `pat` 有关，那么我们这样设计 KMP 算法就会比较漂亮：
 
@@ -145,45 +145,45 @@ int pos2 = kmp.search("aaaaaaab"); //4
 
 为什么说 KMP 算法和状态机有关呢？是这样的，我们可以认为 `pat` 的匹配就是状态的转移。比如当 pat = "ABABC"：
 
-![](https://labuladong.github.io/algo/images/kmp/state.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/state.jpg)
 
 如上图，圆圈内的数字就是状态，状态 0 是起始状态，状态 5（`pat.length`）是终止状态。开始匹配时 `pat` 处于起始状态，一旦转移到终止状态，就说明在 `txt` 中找到了 `pat`。比如说当前处于状态 2，就说明字符 "AB" 被匹配：
 
-![](https://labuladong.github.io/algo/images/kmp/state2.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/state2.jpg)
 
 另外，处于不同状态时，`pat` 状态转移的行为也不同。比如说假设现在匹配到了状态 4，如果遇到字符 A 就应该转移到状态 3，遇到字符 C 就应该转移到状态 5，如果遇到字符 B 就应该转移到状态 0：
 
-![](https://labuladong.github.io/algo/images/kmp/state4.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/state4.jpg)
 
 具体什么意思呢，我们来一个个举例看看。用变量 `j` 表示指向当前状态的指针，当前 `pat` 匹配到了状态 4：
 
-![](https://labuladong.github.io/algo/images/kmp/exp1.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/exp1.jpg)
 
 如果遇到了字符 "A"，根据箭头指示，转移到状态 3 是最聪明的：
 
-![](https://labuladong.github.io/algo/images/kmp/exp3.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/exp3.jpg)
 
 如果遇到了字符 "B"，根据箭头指示，只能转移到状态 0（一夜回到解放前）：
 
-![](https://labuladong.github.io/algo/images/kmp/exp5.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/exp5.jpg)
 
 如果遇到了字符 "C"，根据箭头指示，应该转移到终止状态 5，这也就意味着匹配完成：
 
-![](https://labuladong.github.io/algo/images/kmp/exp7.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/exp7.jpg)
 
 当然了，还可能遇到其他字符，比如 Z，但是显然应该转移到起始状态 0，因为 `pat` 中根本都没有字符 Z：
 
-![](https://labuladong.github.io/algo/images/kmp/z.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/z.jpg)
 
 这里为了清晰起见，我们画状态图时就把其他字符转移到状态 0 的箭头省略，只画 `pat` 中出现的字符的状态转移：
 
-![](https://labuladong.github.io/algo/images/kmp/allstate.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/allstate.jpg)
 
 KMP 算法最关键的步骤就是构造这个状态转移图。**要确定状态转移的行为，得明确两个变量，一个是当前的匹配状态，另一个是遇到的字符**；确定了这两个变量后，就可以知道这个情况下应该转移到哪个状态。
 
 下面看一下 KMP 算法根据这幅状态转移图匹配字符串 `txt` 的过程：
 
-![](https://labuladong.github.io/algo/images/kmp/kmp.gif)
+![](https://labuladong.gitee.io/pictures/kmp/kmp.gif)
 
 **请记住这个 GIF 的匹配过程，这就是 KMP 算法的核心逻辑**！
 
@@ -238,29 +238,29 @@ for 0 <= j < M: # 状态
 
 这个 next 状态应该怎么求呢？显然，**如果遇到的字符 `c` 和 `pat[j]` 匹配的话**，状态就应该向前推进一个，也就是说 `next = j + 1`，我们不妨称这种情况为**状态推进**：
 
-![](https://labuladong.github.io/algo/images/kmp/forward.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/forward.jpg)
 
 **如果字符 `c` 和 `pat[j]` 不匹配的话**，状态就要回退（或者原地不动），我们不妨称这种情况为**状态重启**：
 
-![](https://labuladong.github.io/algo/images/kmp/back.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/back.jpg)
 
 那么，如何得知在哪个状态重启呢？解答这个问题之前，我们再定义一个名字：**影子状态**（我编的名字），用变量 `X` 表示。**所谓影子状态，就是和当前状态具有相同的前缀**。比如下面这种情况：
 
-![](https://labuladong.github.io/algo/images/kmp/shadow.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/shadow.jpg)
 
 当前状态 `j = 4`，其影子状态为 `X = 2`，它们都有相同的前缀 "AB"。因为状态 `X` 和状态 `j` 存在相同的前缀，所以当状态 `j` 准备进行状态重启的时候（遇到的字符 `c` 和 `pat[j]` 不匹配），可以通过 `X` 的状态转移图来获得**最近的重启位置**。
 
 比如说刚才的情况，如果状态 `j` 遇到一个字符 "A"，应该转移到哪里呢？首先只有遇到 "C" 才能推进状态，遇到 "A" 显然只能进行状态重启。**状态 `j` 会把这个字符委托给状态 `X` 处理，也就是 `dp[j]['A'] = dp[X]['A']`**：
 
-![](https://labuladong.github.io/algo/images/kmp/shadow1.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/shadow1.jpg)
 
 为什么这样可以呢？因为：既然 `j` 这边已经确定字符 "A" 无法推进状态，**只能回退**，而且 KMP 就是要**尽可能少的回退**，以免多余的计算。那么 `j` 就可以去问问和自己具有相同前缀的 `X`，如果 `X` 遇见 "A" 可以进行「状态推进」，那就转移过去，因为这样回退最少。
 
-![](https://labuladong.github.io/algo/images/kmp/A.gif)
+![](https://labuladong.gitee.io/pictures/kmp/A.gif)
 
 当然，如果遇到的字符是 "B"，状态 `X` 也不能进行「状态推进」，只能回退，`j` 只要跟着 `X` 指引的方向回退就行了：
 
-![](https://labuladong.github.io/algo/images/kmp/shadow2.jpg)
+![](https://labuladong.gitee.io/pictures/kmp/shadow2.jpg)
 
 你也许会问，这个 `X` 怎么知道遇到字符 "B" 要回退到状态 0 呢？因为 `X` 永远跟在 `j` 的身后，状态 `X` 如何转移，在之前就已经算出来了。动态规划算法不就是利用过去的结果解决现在的问题吗？
 
@@ -354,7 +354,7 @@ for (int i = 0; i < N; i++) {
 
 下面来看一下状态转移图的完整构造过程，你就能理解状态 `X` 作用之精妙了：
 
-![](https://labuladong.github.io/algo/images/kmp/dfa.gif)
+![](https://labuladong.gitee.io/pictures/kmp/dfa.gif)
 
 至此，KMP 算法的核心终于写完啦啦啦啦！看下 KMP 算法的完整代码吧：
 
@@ -440,7 +440,7 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.gitee.io/pictures/souyisou2.png)
 
 
 ======其他语言代码======

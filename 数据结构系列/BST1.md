@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.gitee.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。过年前最后一期打卡挑战即将开始，[点这里报名](https://aep.xet.tech/s/1a9ByX)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -58,7 +58,7 @@ void traverse(TreeNode root) {
 
 这是力扣第 230 题「二叉搜索树中第 K 小的元素」，看下题目：
 
-![](https://labuladong.github.io/algo/images/BST1/title.png)
+![](https://labuladong.gitee.io/pictures/BST1/title.png)
 
 这个需求很常见吧，一个直接的思路就是升序排序，然后找第 `k` 个元素呗。BST 的中序遍历其实就是升序排序的结果，找第 `k` 个元素肯定不是什么难事。
 
@@ -142,7 +142,7 @@ class TreeNode {
 
 力扣第 538 题和 1038 题都是这道题，完全一样，你可以把它们一块做掉。看下题目：
 
-![](https://labuladong.github.io/algo/images/BST1/title1.png)
+![](https://labuladong.gitee.io/pictures/BST1/title1.png)
 
 题目应该不难理解，比如图中的节点 5，转化成累加树的话，比 5 大的节点有 6，7，8，加上 5 本身，所以累加树上这个节点的值应该是 5+6+7+8=26。
 
@@ -252,4 +252,4 @@ void traverse(TreeNode root) {
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.gitee.io/pictures/souyisou2.png)

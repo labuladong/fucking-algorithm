@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.gitee.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。过年前最后一期打卡挑战即将开始，[点这里报名](https://aep.xet.tech/s/1a9ByX)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -39,11 +39,11 @@
 
 前文 [图论第一期：遍历基础](https://labuladong.github.io/article/fname.html?fname=图) 说过「图」这种数据结构的基本实现，图中的节点一般就抽象成一个数字（索引），图的具体实现一般是「邻接矩阵」或者「邻接表」。
 
-![](https://labuladong.github.io/algo/images/图/0.jpg)
+![](https://labuladong.gitee.io/pictures/图/0.jpg)
 
 比如上图这幅图用邻接表和邻接矩阵的存储方式如下：
 
-![](https://labuladong.github.io/algo/images/图/2.jpeg)
+![](https://labuladong.gitee.io/pictures/图/2.jpeg)
 
 前文 [图论第二期：拓扑排序](https://labuladong.github.io/article/fname.html?fname=拓扑排序) 告诉你，我们用邻接表的场景更多，结合上图，一幅图可以用如下 Java 代码表示：
 
@@ -120,7 +120,7 @@ void levelTraverse(TreeNode root) {
 
 `while` 循环和 `for` 循环的配合正是这个遍历框架设计的巧妙之处：
 
-![](https://labuladong.github.io/algo/images/dijkstra/1.jpeg)
+![](https://labuladong.gitee.io/pictures/dijkstra/1.jpeg)
 
 **`while` 循环控制一层一层往下走，`for` 循环利用 `sz` 变量控制从左到右遍历每一层二叉树节点**。
 
@@ -200,7 +200,7 @@ int BFS(Node start) {
 
 但是，到了「加权图」的场景，事情就没有这么简单了，因为你不能默认每条边的「权重」都是 1 了，这个权重可以是任意正数（Dijkstra 算法要求不能存在负权重边），比如下图的例子：
 
-![](https://labuladong.github.io/algo/images/dijkstra/2.jpeg)
+![](https://labuladong.gitee.io/pictures/dijkstra/2.jpeg)
 
 如果沿用 BFS 算法中的 `step` 变量记录「步数」，显然红色路径一步就可以走到终点，但是这一步的权重很大；正确的最小权重路径应该是绿色的路径，虽然需要走很多步，但是路径权重依然很小。
 
@@ -322,7 +322,7 @@ class State {
 
 加权图中的 Dijkstra 算法和无权图中的普通 BFS 算法不同，在 Dijkstra 算法中，你第一次经过某个节点时的路径权重，不见得就是最小的，所以对于同一个节点，我们可能会经过多次，而且每次的 `distFromStart` 可能都不一样，比如下图：
 
-![](https://labuladong.github.io/algo/images/dijkstra/3.jpeg)
+![](https://labuladong.gitee.io/pictures/dijkstra/3.jpeg)
 
 我会经过节点 `5` 三次，每次的 `distFromStart` 值都不一样，那我取 `distFromStart` 最小的那次，不就是从起点 `start` 到节点 `5` 的最短路径权重了么？
 
@@ -421,7 +421,7 @@ if (distTo[nextNodeID] > distToNextNode) {
 
 为什么说是一种贪心思路呢，比如说下面这种情况，你想计算从起点 `start` 到终点 `end` 的最短路径权重：
 
-![](https://labuladong.github.io/algo/images/dijkstra/4.jpeg)
+![](https://labuladong.gitee.io/pictures/dijkstra/4.jpeg)
 
 假设你当前只遍历了图中的这几个节点，那么你下一步准备遍历那个节点？这三条路径都可能成为最短路径的一部分，**但你觉得哪条路径更有「潜力」成为最短路径中的一部分**？
 
@@ -489,7 +489,7 @@ Dijkstra 算法的时间复杂度是多少？你去网上查，可能会告诉�
 
 第一题是力扣第 743 题「网络延迟时间」，题目如下：
 
-![](https://labuladong.github.io/algo/images/dijkstra/title1.jpg)
+![](https://labuladong.gitee.io/pictures/dijkstra/title1.jpg)
 
 函数签名如下：
 
@@ -598,7 +598,7 @@ int[] dijkstra(int start, List<int[]>[] graph) {
 
 感觉这道题完全没有难度，下面我们再看一道题目，力扣第 1631 题「最小体力消耗路径」：
 
-![](https://labuladong.github.io/algo/images/dijkstra/title2.jpg)
+![](https://labuladong.gitee.io/pictures/dijkstra/title2.jpg)
 
 函数签名如下：
 
@@ -725,7 +725,7 @@ int minimumEffortPath(int[][] heights) {
 
 最后看一道题吧，力扣第 1514 题「概率最大的路径」，看下题目：
 
-![](https://labuladong.github.io/algo/images/dijkstra/title3.jpg)
+![](https://labuladong.gitee.io/pictures/dijkstra/title3.jpg)
 
 函数签名如下：
 
@@ -880,4 +880,4 @@ double dijkstra(int start, int end, List<double[]>[] graph) {
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.gitee.io/pictures/souyisou2.png)

@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/algo/images/souyisou1.png)
+![](https://labuladong.gitee.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。过年前最后一期打卡挑战即将开始，[点这里报名](https://aep.xet.tech/s/1a9ByX)。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -25,7 +25,7 @@
 
 本文要解决力扣第 25 题「K 个一组翻转链表」，题目不难理解：
 
-![](https://labuladong.github.io/algo/images/kgroup/title.png)
+![](https://labuladong.gitee.io/pictures/kgroup/title.png)
 
 这个问题经常在面经中看到，而且力扣上难度是 Hard，它真的有那么难吗？
 
@@ -37,11 +37,11 @@
 
 什么叫递归性质？直接上图理解，比如说我们对这个链表调用 `reverseKGroup(head, 2)`，即以 2 个节点为一组反转链表：
 
-![](https://labuladong.github.io/algo/images/kgroup/1.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/1.jpg)
 
 如果我设法把前 2 个节点反转，那么后面的那些节点怎么处理？后面的这些节点也是一条链表，而且规模（长度）比原来这条链表小，这就叫**子问题**。
 
-![](https://labuladong.github.io/algo/images/kgroup/2.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/2.jpg)
 
 我们可以把原先的 `head` 指针移动到后面这一段链表的开头，然后继续递归调用 `reverseKGroup(head, 2)`，因为子问题（后面这部分链表）和原问题（整条链表）的结构完全相同，这就是所谓的递归性质。
 
@@ -49,15 +49,15 @@
 
 **1、先反转以 `head` 开头的 `k` 个元素**。
 
-![](https://labuladong.github.io/algo/images/kgroup/3.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/3.jpg)
 
 **2、将第 `k + 1` 个元素作为 `head` 递归调用 `reverseKGroup` 函数**。
 
-![](https://labuladong.github.io/algo/images/kgroup/4.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/4.jpg)
 
 **3、将上述两个过程的结果连接起来**。
 
-![](https://labuladong.github.io/algo/images/kgroup/5.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/5.jpg)
 
 整体思路就是这样了，最后一点值得注意的是，递归函数都有个 base case，对于这个问题是什么呢？
 
@@ -87,7 +87,7 @@ ListNode reverse(ListNode a) {
 
 算法执行的过程如下 GIF 所示：：
 
-![](https://labuladong.github.io/algo/images/kgroup/8.gif)
+![](https://labuladong.gitee.io/pictures/kgroup/8.gif)
 
 这次使用迭代思路来实现的，借助动画理解应该很容易。
 
@@ -135,11 +135,11 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 解释一下 `for` 循环之后的几句代码，注意 `reverse` 函数是反转区间 `[a, b)`，所以情形是这样的：
 
-![](https://labuladong.github.io/algo/images/kgroup/6.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/6.jpg)
 
 递归部分就不展开了，整个函数递归完成之后就是这个结果，完全符合题意：
 
-![](https://labuladong.github.io/algo/images/kgroup/7.jpg)
+![](https://labuladong.gitee.io/pictures/kgroup/7.jpg)
 
 ### 三、最后说两句
 
@@ -181,7 +181,7 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/algo/images/souyisou2.png)
+![](https://labuladong.gitee.io/pictures/souyisou2.png)
 
 
 ======其他语言代码======
