@@ -308,6 +308,19 @@ void BST(TreeNode root, int target) {
 
 
 
+<hr>
+<details>
+<summary><strong>引用本文的题目</strong></summary>
+
+<strong>安装 [我的 Chrome 刷题插件](https://mp.weixin.qq.com/s/X-fE9sR4BLi6T9pn7xP4pg) 点开下列题目可直接查看解题思路：</strong>
+
+| LeetCode | 力扣 |
+| :----: | :----: |
+| - | [剑指 Offer 33. 二叉搜索树的后序遍历序列](https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/?show=1) |
+
+</details>
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 

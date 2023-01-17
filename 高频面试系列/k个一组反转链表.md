@@ -157,6 +157,7 @@ ListNode reverseKGroup(ListNode head, int k) {
 
  - [东哥带你刷二叉树（思路篇）](https://labuladong.github.io/article/fname.html?fname=二叉树系列1)
  - [算法笔试「骗分」套路](https://labuladong.github.io/article/fname.html?fname=刷题技巧)
+ - [递归魔法：反转单链表](https://labuladong.github.io/article/fname.html?fname=递归反转链表的一部分)
 
 </details><hr>
 
