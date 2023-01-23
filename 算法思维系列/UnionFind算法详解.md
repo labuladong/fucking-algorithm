@@ -543,7 +543,7 @@ class UF {
  - [一文秒杀所有岛屿题目](https://labuladong.github.io/article/fname.html?fname=岛屿题目)
  - [二分图判定算法](https://labuladong.github.io/article/fname.html?fname=二分图)
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
- - [用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
+ - [番外：用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
 
 </details><hr>
 

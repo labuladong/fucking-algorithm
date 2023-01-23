@@ -80,6 +80,17 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
 <!-- table start -->
 
+### [准备工作：安装刷题全家桶](https://labuladong.github.io/algo/)
+  * [配套 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
+  * [配套 vscode 刷题插件](https://labuladong.github.io/article/fname.html?fname=vscode插件简介)
+  * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
+  * [配套 PDF 算法教材](https://labuladong.github.io/article/fname.html?fname=pdf简介)
+  * [番外：用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
+  * [数据结构精品课](https://labuladong.github.io/article/fname.html?fname=ds课程简介)
+  * [二叉树（递归）专题课](https://labuladong.github.io/article/fname.html?fname=tree课程简介)
+  * [14 天刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
+  * [Java 语言基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
+
 ### [第零章、核心框架汇总](https://labuladong.github.io/algo/)
   * [学习算法和刷题的框架思维](https://labuladong.github.io/article/fname.html?fname=学习数据结构和算法的高效方法)
   * [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)

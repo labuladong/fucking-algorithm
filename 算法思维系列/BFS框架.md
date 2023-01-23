@@ -395,7 +395,7 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
  - [旅游省钱大法：加权最短路径](https://labuladong.github.io/article/fname.html?fname=旅行最短路径)
  - [环检测及拓扑排序算法](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
- - [用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
+ - [番外：用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
  - [算法学习和心流体验](https://labuladong.github.io/article/fname.html?fname=心流)
 
 </details><hr>
