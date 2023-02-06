@@ -17,7 +17,7 @@
 
 | LeetCode | 力扣 | 难度 |
 | :----: | :----: | :----: |
-| [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) | [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr/) | 🟢
+| [28. Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) | 🟠
 
 **-----------**
 
