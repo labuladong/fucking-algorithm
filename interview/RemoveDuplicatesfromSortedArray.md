@@ -23,7 +23,6 @@ We let the slow pointer `slow` go to the back of the array, and the fast pointer
 ```java
 int removeDuplicates(int[] nums) {
     int n = nums.length;
-    if (n == 0) return 0;
     int slow = 0, fast = 1;
     while (fast < n) {
         if (nums[fast] != nums[slow]) {
