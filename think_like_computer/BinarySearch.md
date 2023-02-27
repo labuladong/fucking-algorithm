@@ -94,7 +94,7 @@ So when we should terminal `while` loop? That's simple, **when the search inverv
 
 The terminal condition of `while(left <= right)` is `left == right + 1`, we can write it as inverval `[right + 1,right]`, or we can just put a specific number into it, like `[3,2]`. It's obvious that **the inverval is empty**, since there is no number which is larger than 3 and less-and-equal to 2. So we should terminate `while` loop and return -1;
 
-The terminal condition of `while(wlft < right)` is `left == right`, we can write is as interval `[left,right]`, or we can also put a specific number into it, like `[2,2]`, **the interval is NOT empty**, there is still a number `2`, but the `while` loop is terminated, which means the interval `[2,2]` is missed, index 2 is not been searched, it's wrong when we return -1 directly.
+The terminal condition of `while(left < right)` is `left == right`, we can write is as interval `[left,right]`, or we can also put a specific number into it, like `[2,2]`, **the interval is NOT empty**, there is still a number `2`, but the `while` loop is terminated, which means the interval `[2,2]` is missed, index 2 is not been searched, it's wrong when we return -1 directly.
 
 It is allright if you want to use `while(left < right)` anyway. Since we know how the mistake occurred, we can fix it with a patch:
 
