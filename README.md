@@ -80,7 +80,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
 <!-- table start -->
 
-### [准备工作：安装刷题全家桶](https://labuladong.github.io/algo/)
+### [准备工作：安装刷题全家桶](https://labuladong.github.io/article/fname.html?fname=全家桶简介)
   * [配套 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
   * [配套 vscode 刷题插件](https://labuladong.github.io/article/fname.html?fname=vscode插件简介)
   * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
