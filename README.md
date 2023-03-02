@@ -173,6 +173,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [动态规划设计：最长递增子序列](https://labuladong.github.io/article/fname.html?fname=动态规划设计：最长递增子序列)
     * [最优子结构原理和 dp 数组遍历方向](https://labuladong.github.io/article/fname.html?fname=最优子结构)
     * [base case 和备忘录的初始值怎么定？](https://labuladong.github.io/article/fname.html?fname=备忘录等基础)
+    * [动态规划穷举的两种视角](https://labuladong.github.io/article/fname.html?fname=动归两种视角)
     * [对动态规划进行降维打击](https://labuladong.github.io/article/fname.html?fname=状态压缩技巧)
 
   * [子序列类型问题](https://labuladong.github.io/algo/)
