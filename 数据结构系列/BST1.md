@@ -24,7 +24,7 @@
 
 **-----------**
 
-> 本文有视频版：[动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6)。
+> tip：本文有视频版：[动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6)。
 
 在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
 
@@ -96,7 +96,7 @@ void traverse(TreeNode root, int k) {
 
 我们前文 [高效计算数据流的中位数](https://labuladong.github.io/article/fname.html?fname=数据流中位数) 中就提过今天的这个问题：
 
-> 如果让你实现一个在二叉搜索树中通过排名计算对应元素的方法 `select(int k)`，你会怎么设计？
+> info：如果让你实现一个在二叉搜索树中通过排名计算对应元素的方法 `select(int k)`，你会怎么设计？
 
 如果按照我们刚才说的方法，利用「BST 中序遍历就是升序排序结果」这个性质，每次寻找第 `k` 小的元素都要中序遍历一次，最坏的时间复杂度是 `O(N)`，`N` 是 BST 的节点个数。
 

@@ -130,7 +130,6 @@ void levelTraverse(TreeNode root) {
 
 基于二叉树的遍历框架，我们又可以扩展出多叉树的层序遍历框架：
 
-<!-- muliti_language -->
 ```java
 // 输入一棵多叉树的根节点，层序遍历这棵多叉树
 void levelTraverse(TreeNode root) {
@@ -543,7 +542,6 @@ int[] dijkstra(int start, List<int[]>[] graph) {}
 
 上述代码首先利用题目输入的数据转化成邻接表表示一幅图，接下来我们可以直接套用 Dijkstra 算法的框架：
 
-<!-- muliti_language -->
 ```java
 class State {
     // 图节点的 id
@@ -667,7 +665,6 @@ class State {
 
 接下来，就可以套用 Dijkstra 算法的代码模板了：
 
-<!-- muliti_language -->
 ```java
 // Dijkstra 算法，计算 (0, 0) 到 (m - 1, n - 1) 的最小体力消耗
 int minimumEffortPath(int[][] heights) {

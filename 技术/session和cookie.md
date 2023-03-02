@@ -115,7 +115,7 @@ type Session interface {
 
 再说 `Provider` 为啥要抽象出来。我们上面那个图的 `Provider` 就是一个散列表，保存 `sid` 到 `Session` 的映射，但是实际中肯定会更加复杂。我们不是要时不时删除一些 session 吗，除了设置存活时间之外，还可以采用一些其他策略，比如 LRU 缓存淘汰算法，这样就需要 `Provider` 内部使用哈希链表这种数据结构来存储 session。
 
-> PS：关于 LRU 算法的奥妙，参见前文 [LRU 算法详解](https://labuladong.github.io/article/fname.html?fname=LRU算法)。
+> tip：关于 LRU 算法的奥妙，参见前文 [LRU 算法详解](https://labuladong.github.io/article/fname.html?fname=LRU算法)。
 
 因此，`Provider` 作为一个容器，就是要屏蔽算法细节，以合理的数据结构和算法组织 `sid` 和 `Session` 的映射关系，只需要实现下面这几个方法实现对 session 的增删查改：
 
