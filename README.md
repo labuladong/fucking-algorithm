@@ -201,7 +201,6 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
     * [经典动态规划：四键键盘](https://labuladong.github.io/article/fname.html?fname=动态规划之四键键盘)
     * [一个方法团灭 LeetCode 打家劫舍问题](https://labuladong.github.io/article/fname.html?fname=抢房子)
     * [一个方法团灭 LeetCode 股票买卖问题](https://labuladong.github.io/article/fname.html?fname=团灭股票问题)
-    * [有限状态机之 KMP 字符匹配算法](https://labuladong.github.io/article/fname.html?fname=动态规划之KMP字符匹配算法)
 
   * [贪心类型问题](https://labuladong.github.io/algo/)
     * [贪心算法之区间调度问题](https://labuladong.github.io/article/fname.html?fname=贪心算法之区间调度问题)
