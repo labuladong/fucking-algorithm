@@ -88,7 +88,6 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
   * [番外：用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
   * [数据结构精品课](https://labuladong.github.io/article/fname.html?fname=ds课程简介)
   * [二叉树（递归）专题课](https://labuladong.github.io/article/fname.html?fname=tree课程简介)
-  * [14 天刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
   * [学习本站所需的 Java 基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
 
 ### [第零章、核心框架汇总](https://labuladong.github.io/algo/)

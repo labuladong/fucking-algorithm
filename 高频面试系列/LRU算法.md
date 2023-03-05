@@ -52,6 +52,7 @@ LRU 缓存淘汰算法就是一种常用策略。LRU 的全称是 Least Recently
 
 注意哦，`get` 和 `put` 方法必须都是 `O(1)` 的时间复杂度，我们举个具体例子来看看 LRU 算法怎么工作。
 
+<!-- muliti_language -->
 ```java
 /* 缓存容量为 2 */
 LRUCache cache = new LRUCache(2);
@@ -121,6 +122,7 @@ LRU 缓存算法的核心数据结构就是哈希链表，双向链表和哈希�
 
 首先，我们把双链表的节点类写出来，为了简化，`key` 和 `val` 都认为是 int 类型：
 
+<!-- muliti_language -->
 ```java
 class Node {
     public int key, val;
@@ -134,6 +136,7 @@ class Node {
 
 然后依靠我们的 `Node` 类型构建一个双链表，实现几个 LRU 算法必须的 API：
 
+<!-- muliti_language -->
 ```java
 class DoubleList {  
     // 头尾虚节点
@@ -188,6 +191,7 @@ class DoubleList {
 
 有了双向链表的实现，我们只需要在 LRU 算法中把它和哈希表结合起来即可，先搭出代码框架：
 
+<!-- muliti_language -->
 ```java
 class LRUCache {
     // key -> Node(key, val)
@@ -210,42 +214,48 @@ class LRUCache {
 
 说的有点玄幻，实际上很简单，就是尽量让 LRU 的主方法 `get` 和 `put` 避免直接操作 `map` 和 `cache` 的细节。我们可以先实现下面几个函数：
 
+<!-- muliti_language -->
 ```java
-/* 将某个 key 提升为最近使用的 */
-private void makeRecently(int key) {
-    Node x = map.get(key);
-    // 先从链表中删除这个节点
-    cache.remove(x);
-    // 重新插到队尾
-    cache.addLast(x);
+class LRUCache {
+    // 为了节约篇幅，省略上文给出的代码部分...
+
+    /* 将某个 key 提升为最近使用的 */
+    private void makeRecently(int key) {
+        Node x = map.get(key);
+        // 先从链表中删除这个节点
+        cache.remove(x);
+        // 重新插到队尾
+        cache.addLast(x);
+    }
+
+    /* 添加最近使用的元素 */
+    private void addRecently(int key, int val) {
+        Node x = new Node(key, val);
+        // 链表尾部就是最近使用的元素
+        cache.addLast(x);
+        // 别忘了在 map 中添加 key 的映射
+        map.put(key, x);
+    }
+
+    /* 删除某一个 key */
+    private void deleteKey(int key) {
+        Node x = map.get(key);
+        // 从链表中删除
+        cache.remove(x);
+        // 从 map 中删除
+        map.remove(key);
+    }
+
+    /* 删除最久未使用的元素 */
+    private void removeLeastRecently() {
+        // 链表头部的第一个元素就是最久未使用的
+        Node deletedNode = cache.removeFirst();
+        // 同时别忘了从 map 中删除它的 key
+        int deletedKey = deletedNode.key;
+        map.remove(deletedKey);
+    }
 }
 
-/* 添加最近使用的元素 */
-private void addRecently(int key, int val) {
-    Node x = new Node(key, val);
-    // 链表尾部就是最近使用的元素
-    cache.addLast(x);
-    // 别忘了在 map 中添加 key 的映射
-    map.put(key, x);
-}
-
-/* 删除某一个 key */
-private void deleteKey(int key) {
-    Node x = map.get(key);
-    // 从链表中删除
-    cache.remove(x);
-    // 从 map 中删除
-    map.remove(key);
-}
-
-/* 删除最久未使用的元素 */
-private void removeLeastRecently() {
-    // 链表头部的第一个元素就是最久未使用的
-    Node deletedNode = cache.removeFirst();
-    // 同时别忘了从 map 中删除它的 key
-    int deletedKey = deletedNode.key;
-    map.remove(deletedKey);
-}
 ```
 
 这里就能回答之前的问答题「为什么要在链表中同时存储 key 和 val，而不是只存储 val」，注意 `removeLeastRecently` 函数中，我们需要用 `deletedNode` 得到 `deletedKey`。
@@ -254,14 +264,19 @@ private void removeLeastRecently() {
 
 上述方法就是简单的操作封装，调用这些函数可以避免直接操作 `cache` 链表和 `map` 哈希表，下面我先来实现 LRU 算法的 `get` 方法：
 
+<!-- muliti_language -->
 ```java
-public int get(int key) {
-    if (!map.containsKey(key)) {
-        return -1;
+class LRUCache {
+    // 为了节约篇幅，省略上文给出的代码部分...
+
+    public int get(int key) {
+        if (!map.containsKey(key)) {
+            return -1;
+        }
+        // 将该数据提升为最近使用的
+        makeRecently(key);
+        return map.get(key).val;
     }
-    // 将该数据提升为最近使用的
-    makeRecently(key);
-    return map.get(key).val;
 }
 ```
 
@@ -271,27 +286,33 @@ public int get(int key) {
 
 这样我们可以轻松写出 `put` 方法的代码：
 
+<!-- muliti_language -->
 ```java
-public void put(int key, int val) {
-    if (map.containsKey(key)) {
-        // 删除旧的数据
-        deleteKey(key);
-        // 新插入的数据为最近使用的数据
-        addRecently(key, val);
-        return;
-    }
+class LRUCache {
+    // 为了节约篇幅，省略上文给出的代码部分...
     
-    if (cap == cache.size()) {
-        // 删除最久未使用的元素
-        removeLeastRecently();
+    public void put(int key, int val) {
+        if (map.containsKey(key)) {
+            // 删除旧的数据
+            deleteKey(key);
+            // 新插入的数据为最近使用的数据
+            addRecently(key, val);
+            return;
+        }
+        
+        if (cap == cache.size()) {
+            // 删除最久未使用的元素
+            removeLeastRecently();
+        }
+        // 添加为最近使用的元素
+        addRecently(key, val);
     }
-    // 添加为最近使用的元素
-    addRecently(key, val);
 }
 ```
 
 至此，你应该已经完全掌握 LRU 算法的原理和实现了，我们最后用 Java 的内置类型 `LinkedHashMap` 来实现 LRU 算法，逻辑和之前完全一致，我就不过多解释了：
 
+<!-- muliti_language -->
 ```java
 class LRUCache {
     int cap;

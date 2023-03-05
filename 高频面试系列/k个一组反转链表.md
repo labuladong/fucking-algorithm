@@ -69,6 +69,7 @@
 
 首先，我们要实现一个 `reverse` 函数反转一个区间之内的元素。在此之前我们再简化一下，给定链表头结点，如何反转整个链表？
 
+<!-- muliti_language -->
 ```java
 // 反转以 a 为头结点的链表
 ListNode reverse(ListNode a) {
@@ -97,6 +98,7 @@ ListNode reverse(ListNode a) {
 
 只要更改函数签名，并把上面的代码中 `null` 改成 `b` 即可：
 
+<!-- muliti_language -->
 ```java
 /** 反转区间 [a, b) 的元素，注意是左闭右开 */
 ListNode reverse(ListNode a, ListNode b) {
@@ -116,6 +118,7 @@ ListNode reverse(ListNode a, ListNode b) {
 
 现在我们迭代实现了反转部分链表的功能，接下来就按照之前的逻辑编写 `reverseKGroup` 函数即可：
 
+<!-- muliti_language -->
 ```java
 ListNode reverseKGroup(ListNode head, int k) {
     if (head == null) return null;

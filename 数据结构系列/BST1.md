@@ -42,6 +42,7 @@
 
 也就是说，如果输入一棵 BST，以下代码可以将 BST 中每个节点的值升序打印出来：
 
+<!-- muliti_language -->
 ```java
 void traverse(TreeNode root) {
     if (root == null) return;
@@ -64,6 +65,7 @@ void traverse(TreeNode root) {
 
 按照这个思路，可以直接写出代码：
 
+<!-- muliti_language -->
 ```java
 int kthSmallest(TreeNode root, int k) {
     // 利用 BST 的中序遍历特性
@@ -124,6 +126,7 @@ void traverse(TreeNode root, int k) {
 
 也就是说，我们 `TreeNode` 中的字段应该如下：
 
+<!-- muliti_language -->
 ```java
 class TreeNode {
     int val;
@@ -148,6 +151,7 @@ class TreeNode {
 
 我们需要把 BST 转化成累加树，函数签名如下：
 
+<!-- muliti_language -->
 ```java
 TreeNode convertBST(TreeNode root)
 ```
@@ -162,6 +166,7 @@ BST 的每个节点左小右大，这似乎是一个有用的信息，既然累�
 
 刚才我们说了 BST 的中序遍历代码可以升序打印节点的值：
 
+<!-- muliti_language -->
 ```java
 void traverse(TreeNode root) {
     if (root == null) return;
@@ -176,6 +181,7 @@ void traverse(TreeNode root) {
 
 很简单，只要把递归顺序改一下就行了：
 
+<!-- muliti_language -->
 ```java
 void traverse(TreeNode root) {
     if (root == null) return;
@@ -192,6 +198,7 @@ void traverse(TreeNode root) {
 
 看下代码就明白了：
 
+<!-- muliti_language -->
 ```java
 TreeNode convertBST(TreeNode root) {
     traverse(root);

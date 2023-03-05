@@ -47,6 +47,7 @@
 
 前文 [图论第二期：拓扑排序](https://labuladong.github.io/article/fname.html?fname=拓扑排序) 告诉你，我们用邻接表的场景更多，结合上图，一幅图可以用如下 Java 代码表示：
 
+<!-- muliti_language -->
 ```java
 // graph[s] 存储节点 s 指向的节点（出度）
 List<Integer>[] graph;
@@ -54,6 +55,7 @@ List<Integer>[] graph;
 
 **如果你想把一个问题抽象成「图」的问题，那么首先要实现一个 API `adj`**：
 
+<!-- muliti_language -->
 ```java
 // 输入节点 s 返回 s 的相邻节点
 List<Integer> adj(int s);
@@ -63,6 +65,7 @@ List<Integer> adj(int s);
 
 比如上面说的用邻接表表示「图」的方式，`adj` 函数就可以这样表示：
 
+<!-- muliti_language -->
 ```java
 List<Integer>[] graph;
 
@@ -74,6 +77,7 @@ List<Integer> adj(int s) {
 
 当然，对于「加权图」，我们需要知道两个节点之间的边权重是多少，所以还可以抽象出一个 `weight` 方法：
 
+<!-- muliti_language -->
 ```java
 // 返回节点 from 到节点 to 之间的边的权重
 int weight(int from, int to);
@@ -87,6 +91,7 @@ int weight(int from, int to);
 
 我们之前说过二叉树的层级遍历框架：
 
+<!-- muliti_language -->
 ```java
 // 输入一棵二叉树的根节点，层序遍历这棵二叉树
 void levelTraverse(TreeNode root) {
@@ -130,6 +135,7 @@ void levelTraverse(TreeNode root) {
 
 基于二叉树的遍历框架，我们又可以扩展出多叉树的层序遍历框架：
 
+<!-- muliti_language -->
 ```java
 // 输入一棵多叉树的根节点，层序遍历这棵多叉树
 void levelTraverse(TreeNode root) {
@@ -158,6 +164,7 @@ void levelTraverse(TreeNode root) {
 
 基于多叉树的遍历框架，我们又可以扩展出 BFS（广度优先搜索）的算法框架：
 
+<!-- muliti_language -->
 ```java
 // 输入起点，进行 BFS 搜索
 int BFS(Node start) {
@@ -216,6 +223,7 @@ int BFS(Node start) {
 
 怎么去掉？就拿二叉树的层级遍历来说，其实你可以直接去掉 `for` 循环相关的代码：
 
+<!-- muliti_language -->
 ```java
 // 输入一棵二叉树的根节点，遍历这棵二叉树所有节点
 void levelTraverse(TreeNode root) {
@@ -243,6 +251,7 @@ void levelTraverse(TreeNode root) {
 
 如果你想同时维护 `depth` 变量，让每个节点 `cur` 知道自己在第几层，可以想其他办法，比如新建一个 `State` 类，记录每个节点所在的层数：
 
+<!-- muliti_language -->
 ```java
 class State {
     // 记录 node 节点的深度
@@ -287,6 +296,7 @@ void levelTraverse(TreeNode root) {
 
 **首先，我们先看一下 Dijkstra 算法的签名**：
 
+<!-- muliti_language -->
 ```java
 // 输入一幅图和一个起点 start，计算 start 到其他节点的最短距离
 int[] dijkstra(int start, List<Integer>[] graph);
@@ -302,6 +312,7 @@ int[] dijkstra(int start, List<Integer>[] graph);
 
 **其次，我们也需要一个 `State` 类来辅助算法的运行**：
 
+<!-- muliti_language -->
 ```java
 class State {
     // 图节点的 id
@@ -330,6 +341,7 @@ class State {
 
 **其实，Dijkstra 可以理解成一个带 dp table（或者说备忘录）的 BFS 算法，伪码如下**：
 
+<!-- muliti_language -->
 ```java
 // 返回节点 from 到节点 to 之间的边的权重
 int weight(int from, int to);
@@ -398,6 +410,7 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 
 `while` 循环每执行一次，都会往外拿一个元素，但想往队列里放元素，可就有很多限制了，必须满足下面这个条件：
 
+<!-- muliti_language -->
 ```java
 // 看看从 curNode 达到 nextNode 的距离是否会更短
 if (distTo[nextNodeID] > distToNextNode) {
@@ -437,6 +450,7 @@ if (distTo[nextNodeID] > distToNextNode) {
 
 需要在代码中做的修改也非常少，只要改改函数签名，再加个 if 判断就行了：
 
+<!-- muliti_language -->
 ```java
 // 输入起点 start 和终点 end，计算起点到终点的最短距离
 int dijkstra(int start, int end, List<Integer>[] graph) {
@@ -493,6 +507,7 @@ Dijkstra 算法的时间复杂度是多少？你去网上查，可能会告诉�
 
 函数签名如下：
 
+<!-- muliti_language -->
 ```java
 // times 记录边和权重，n 为节点个数（从 1 开始），k 为起点
 // 计算从 k 发出的信号至少需要多久传遍整幅图
@@ -505,6 +520,7 @@ int networkDelayTime(int[][] times, int n, int k)
 
 根据我们之前 Dijkstra 算法的框架，我们可以写出下面代码：
 
+<!-- muliti_language -->
 ```java
 int networkDelayTime(int[][] times, int n, int k) {
     // 节点编号是从 1 开始的，所以要一个大小为 n + 1 的邻接表
@@ -542,6 +558,7 @@ int[] dijkstra(int start, List<int[]>[] graph) {}
 
 上述代码首先利用题目输入的数据转化成邻接表表示一幅图，接下来我们可以直接套用 Dijkstra 算法的框架：
 
+<!-- muliti_language -->
 ```java
 class State {
     // 图节点的 id
@@ -602,6 +619,7 @@ int[] dijkstra(int start, List<int[]>[] graph) {
 
 函数签名如下：
 
+<!-- muliti_language -->
 ```java
 // 输入一个二维矩阵，计算从左上角到右下角的最小体力消耗
 int minimumEffortPath(int[][] heights);
@@ -613,6 +631,7 @@ int minimumEffortPath(int[][] heights);
 
 这样一想，是不是就在让你以左上角坐标为起点，以右下角坐标为终点，计算起点到终点的最短路径？Dijkstra 算法是不是可以做到？
 
+<!-- muliti_language -->
 ```java
 // 输入起点 start 和终点 end，计算起点到终点的最短距离
 int dijkstra(int start, int end, List<Integer>[] graph)
@@ -624,6 +643,7 @@ int dijkstra(int start, int end, List<Integer>[] graph)
 
 二维矩阵抽象成图，我们先实现一下图的 `adj` 方法，之后的主要逻辑会清晰一些：
 
+<!-- muliti_language -->
 ```java
 // 方向数组，上下左右的坐标偏移量
 int[][] dirs = new int[][]{{0,1}, {1,0}, {0,-1}, {-1,0}};
@@ -648,6 +668,7 @@ List<int[]> adj(int[][] matrix, int x, int y) {
 
 类似的，我们现在认为一个二维坐标 `(x, y)` 是图中的一个节点，所以这个 `State` 类也需要修改一下：
 
+<!-- muliti_language -->
 ```java
 class State {
     // 矩阵中的一个位置
@@ -665,6 +686,7 @@ class State {
 
 接下来，就可以套用 Dijkstra 算法的代码模板了：
 
+<!-- muliti_language -->
 ```java
 // Dijkstra 算法，计算 (0, 0) 到 (m - 1, n - 1) 的最小体力消耗
 int minimumEffortPath(int[][] heights) {
@@ -729,6 +751,7 @@ int minimumEffortPath(int[][] heights) {
 
 函数签名如下：
 
+<!-- muliti_language -->
 ```java
 // 输入一幅无向图，边上的权重代表概率，返回从 start 到达 end 最大的概率
 double maxProbability(int n, int[][] edges, double[] succProb, int start, int end)
@@ -758,6 +781,7 @@ double maxProbability(int n, int[][] edges, double[] succProb, int start, int en
 
 只不过，这道题的解法要把优先级队列的排序顺序反过来，一些 if 大小判断也要反过来，我们直接看解法代码吧：
 
+<!-- muliti_language -->
 ```java
 double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
     List<double[]>[] graph = new LinkedList[n];

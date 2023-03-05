@@ -47,6 +47,7 @@
 
 现在我们的 Union-Find 算法主要需要实现这两个 API：
 
+<!-- muliti_language -->
 ```java
 class UF {
     /* 将 p 和 q 连接 */
@@ -86,6 +87,7 @@ class UF {
 
 ![](https://labuladong.gitee.io/pictures/unionfind/3.jpg)
 
+<!-- muliti_language -->
 ```java
 class UF {
     // 记录连通分量
@@ -111,29 +113,34 @@ class UF {
 
 ![](https://labuladong.gitee.io/pictures/unionfind/4.jpg)
 
+<!-- muliti_language -->
 ```java
-public void union(int p, int q) {
-    int rootP = find(p);
-    int rootQ = find(q);
-    if (rootP == rootQ)
-        return;
-    // 将两棵树合并为一棵
-    parent[rootP] = rootQ;
-    // parent[rootQ] = rootP 也一样
-    count--; // 两个分量合二为一
-}
+class UF {
+    // 为了节约篇幅，省略上文给出的代码部分...
 
-/* 返回某个节点 x 的根节点 */
-private int find(int x) {
-    // 根节点的 parent[x] == x
-    while (parent[x] != x)
-        x = parent[x];
-    return x;
-}
+    public void union(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP == rootQ)
+            return;
+        // 将两棵树合并为一棵
+        parent[rootP] = rootQ;
+        // parent[rootQ] = rootP 也一样
+        count--; // 两个分量合二为一
+    }
 
-/* 返回当前的连通分量个数 */
-public int count() { 
-    return count;
+    /* 返回某个节点 x 的根节点 */
+    private int find(int x) {
+        // 根节点的 parent[x] == x
+        while (parent[x] != x)
+            x = parent[x];
+        return x;
+    }
+
+    /* 返回当前的连通分量个数 */
+    public int count() { 
+        return count;
+    }
 }
 ```
 
@@ -141,11 +148,16 @@ public int count() {
 
 ![](https://labuladong.gitee.io/pictures/unionfind/5.jpg)
 
+<!-- muliti_language -->
 ```java
-public boolean connected(int p, int q) {
-    int rootP = find(p);
-    int rootQ = find(q);
-    return rootP == rootQ;
+class UF {
+    // 为了节约篇幅，省略上文给出的代码部分...
+
+    public boolean connected(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        return rootP == rootQ;
+    }
 }
 ```
 
@@ -165,16 +177,22 @@ public boolean connected(int p, int q) {
 
 我们要知道哪种情况下可能出现不平衡现象，关键在于 `union` 过程：
 
+<!-- muliti_language -->
 ```java
-public void union(int p, int q) {
-    int rootP = find(p);
-    int rootQ = find(q);
-    if (rootP == rootQ)
-        return;
-    // 将两棵树合并为一棵
-    parent[rootP] = rootQ;
-    // parent[rootQ] = rootP 也可以
-    count--;
+class UF {
+    // 为了节约篇幅，省略上文给出的代码部分...
+
+    public void union(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP == rootQ)
+            return;
+        // 将两棵树合并为一棵
+        parent[rootP] = rootQ;
+        // parent[rootQ] = rootP 也可以
+        count--;
+    }
+}
 ```
 
 我们一开始就是简单粗暴的把 `p` 所在的树接到 `q` 所在的树的根节点下面，那么这里就可能出现「头重脚轻」的不平衡状况，比如下面这种局面：
@@ -183,6 +201,7 @@ public void union(int p, int q) {
 
 长此以往，树可能生长得很不平衡。**我们其实是希望，小一些的树接到大一些的树下面，这样就能避免头重脚轻，更平衡一些**。解决方法是额外使用一个 `size` 数组，记录每棵树包含的节点数，我们不妨称为「重量」：
 
+<!-- muliti_language -->
 ```java
 class UF {
     private int count;
@@ -207,23 +226,29 @@ class UF {
 
 比如说 `size[3] = 5` 表示，以节点 `3` 为根的那棵树，总共有 `5` 个节点。这样我们可以修改一下 `union` 方法：
 
+<!-- muliti_language -->
 ```java
-public void union(int p, int q) {
-    int rootP = find(p);
-    int rootQ = find(q);
-    if (rootP == rootQ)
-        return;
-    
-    // 小树接到大树下面，较平衡
-    if (size[rootP] > size[rootQ]) {
-        parent[rootQ] = rootP;
-        size[rootP] += size[rootQ];
-    } else {
-        parent[rootP] = rootQ;
-        size[rootQ] += size[rootP];
+class UF {
+    // 为了节约篇幅，省略上文给出的代码部分...
+
+    public void union(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP == rootQ)
+            return;
+        
+        // 小树接到大树下面，较平衡
+        if (size[rootP] > size[rootQ]) {
+            parent[rootQ] = rootP;
+            size[rootP] += size[rootQ];
+        } else {
+            parent[rootP] = rootQ;
+            size[rootQ] += size[rootP];
+        }
+        count--;
     }
-    count--;
 }
+
 ```
 
 这样，通过比较树的重量，就可以保证树的生长相对平衡，树的高度大致在 `logN` 这个数量级，极大提升执行效率。
@@ -246,14 +271,19 @@ public void union(int p, int q) {
 
 第一种是在 `find` 中加一行代码：
 
+<!-- muliti_language -->
 ```java
-private int find(int x) {
-    while (parent[x] != x) {
-        // 这行代码进行路径压缩
-        parent[x] = parent[parent[x]];
-        x = parent[x];
+class UF {
+    // 为了节约篇幅，省略上文给出的代码部分...
+
+    private int find(int x) {
+        while (parent[x] != x) {
+            // 这行代码进行路径压缩
+            parent[x] = parent[parent[x]];
+            x = parent[x];
+        }
+        return x;
     }
-    return x;
 }
 ```
 
@@ -265,20 +295,27 @@ private int find(int x) {
 
 路径压缩的第二种写法是这样：
 
+<!-- muliti_language -->
 ```java
-// 第二种路径压缩的 find 方法
-public int find(int x) {
-    if (parent[x] != x) {
-        parent[x] = find(parent[x]);
+class UF {
+    // 为了节约篇幅，省略上文给出的代码部分...
+    
+    // 第二种路径压缩的 find 方法
+    public int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
     }
-    return parent[x];
 }
+
 ```
 
 我一度认为这种递归写法和第一种迭代写法做的事情一样，但实际上是我大意了，有读者指出这种写法进行路径压缩的效率是高于上一种解法的。
 
 这个递归过程有点不好理解，你可以自己手画一下递归过程。我把这个函数做的事情翻译成迭代形式，方便你理解它进行路径压缩的原理：
 
+<!-- muliti_language -->
 ```java
 // 这段迭代代码方便你理解递归代码所做的事情
 public int find(int x) {
@@ -306,6 +343,7 @@ public int find(int x) {
 
 **另外，如果使用路径压缩技巧，那么 `size` 数组的平衡优化就不是特别必要了**。所以你一般看到的 Union Find 算法应该是如下实现：
 
+<!-- muliti_language -->
 ```java
 class UF {
     // 连通分量个数
@@ -376,12 +414,14 @@ Union-Find 算法的复杂度可以这样分析：构造函数初始化数据结
 
 函数签名如下：
 
+<!-- muliti_language -->
 ```java
 int countComponents(int n, int[][] edges)
 ```
 
 这道题我们可以直接套用 `UF` 类来解决：
 
+<!-- muliti_language -->
 ```java
 public int countComponents(int n, int[][] edges) {
     UF uf = new UF(n);
@@ -404,6 +444,7 @@ class UF {
 
 给你一个 M×N 的二维矩阵，其中包含字符 `X` 和 `O`，让你找到矩阵中**四面**被 `X` 围住的 `O`，并且把它们替换成 `X`。
 
+<!-- muliti_language -->
 ```java
 void solve(char[][] board);
 ```
@@ -434,6 +475,7 @@ void solve(char[][] board);
 
 看解法代码：
 
+<!-- muliti_language -->
 ```java
 void solve(char[][] board) {
     if (board.length == 0) return;
@@ -497,6 +539,7 @@ class UF {
 
 **核心思想是，将 `equations` 中的算式根据 `==` 和 `!=` 分成两部分，先处理 `==` 算式，使得他们通过相等关系各自勾结成门派（连通分量）；然后处理 `!=` 算式，检查不等关系是否破坏了相等关系的连通性**。
 
+<!-- muliti_language -->
 ```java
 boolean equationsPossible(String[] equations) {
     // 26 个英文字母

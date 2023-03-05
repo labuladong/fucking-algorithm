@@ -34,6 +34,7 @@ BST 的基础操作主要依赖「左小右大」的特性，可以在二叉树�
 
 对于 BST 相关的问题，你可能会经常看到类似下面这样的代码逻辑：
 
+<!-- muliti_language -->
 ```java
 void BST(TreeNode root, int target) {
     if (root.val == target)
@@ -51,6 +52,7 @@ void BST(TreeNode root, int target) {
 
 力扣第 98 题「验证二叉搜索树」就是让你判断输入的 BST 是否合法。注意，这里是有坑的哦，按照 BST 左小右大的特性，每个节点想要判断自己是否是合法的 BST 节点，要做的事不就是比较自己和左右孩子吗？感觉应该这样写代码：
 
+<!-- muliti_language -->
 ```java
 boolean isValidBST(TreeNode root) {
     if (root == null) return true;
@@ -74,6 +76,7 @@ boolean isValidBST(TreeNode root) {
 
 问题是，对于某一个节点 `root`，他只能管得了自己的左右子节点，怎么把 `root` 的约束传递给左右子树呢？请看正确的代码：
 
+<!-- muliti_language -->
 ```java
 boolean isValidBST(TreeNode root) {
     return isValidBST(root, null, null);
@@ -98,12 +101,14 @@ boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
 
 力扣第 700 题「二叉搜索树中的搜索」就是让你在 BST 中搜索值为 `target` 的节点，函数签名如下：
 
+<!-- muliti_language -->
 ```java
 TreeNode searchBST(TreeNode root, int target);
 ```
 
 如果是在一棵普通的二叉树中寻找，可以这样写代码：
 
+<!-- muliti_language -->
 ```java
 TreeNode searchBST(TreeNode root, int target);
     if (root == null) return null;
@@ -120,6 +125,7 @@ TreeNode searchBST(TreeNode root, int target);
 
 很简单，其实不需要递归地搜索两边，类似二分查找思想，根据 `target` 和 `root.val` 的大小比较，就能排除一边。我们把上面的思路稍稍改动：
 
+<!-- muliti_language -->
 ```java
 TreeNode searchBST(TreeNode root, int target) {
     if (root == null) {
@@ -143,6 +149,7 @@ TreeNode searchBST(TreeNode root, int target) {
 
 上一个问题，我们总结了 BST 中的遍历框架，就是「找」的问题。直接套框架，加上「改」的操作即可。**一旦涉及「改」，就类似二叉树的构造问题，函数要返回 `TreeNode` 类型，并且要对递归调用的返回值进行接收**。
 
+<!-- muliti_language -->
 ```java
 TreeNode insertIntoBST(TreeNode root, int val) {
     // 找到空位置插入新节点
@@ -161,6 +168,7 @@ TreeNode insertIntoBST(TreeNode root, int val) {
 
 这个问题稍微复杂，跟插入操作类似，先「找」再「改」，先把框架写出来再说：
 
+<!-- muliti_language -->
 ```java
 TreeNode deleteNode(TreeNode root, int key) {
     if (root.val == key) {
@@ -214,6 +222,7 @@ if (root.left != null && root.right != null) {
 
 三种情况分析完毕，填入框架，简化一下代码：
 
+<!-- muliti_language -->
 ```java
 TreeNode deleteNode(TreeNode root, int key) {
     if (root == null) return null;

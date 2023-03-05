@@ -29,6 +29,7 @@
 
 Twitter 和微博功能差不多，我们主要要实现这样几个 API：
 
+<!-- muliti_language -->
 ```java
 class Twitter {
 
@@ -49,6 +50,7 @@ class Twitter {
 
 举个具体的例子，方便大家理解 API 的具体用法：
 
+<!-- muliti_language -->
 ```java
 Twitter twitter = new Twitter();
 
@@ -88,6 +90,7 @@ twitter.getNewsFeed(1);
 
 根据刚才的分析，我们需要一个 User 类，储存 user 信息，还需要一个 Tweet 类，储存推文信息，并且要作为链表的节点。所以我们先搭建一下整体的框架：
 
+<!-- muliti_language -->
 ```java
 class Twitter {
     private static int timestamp = 0;
@@ -108,6 +111,7 @@ class Twitter {
 
 根据前面的分析，Tweet 类很容易实现：每个 Tweet 实例需要记录自己的 tweetId 和发表时间 time，而且作为链表节点，要有一个指向下一个节点的 next 指针。
 
+<!-- muliti_language -->
 ```java
 class Tweet {
     private int id;
@@ -133,6 +137,7 @@ class Tweet {
 
 除此之外，根据面向对象的设计原则，「关注」「取关」和「发文」应该是 User 的行为，况且关注列表和推文列表也存储在 User 类中，所以我们也应该给 User 添加 follow，unfollow 和 post 这几个方法：
 
+<!-- muliti_language -->
 ```java
 // static int timestamp = 0
 class User {
@@ -172,6 +177,7 @@ class User {
 
 **3、几个 API 方法的实现**
 
+<!-- muliti_language -->
 ```java
 class Twitter {
     private static int timestamp = 0;
@@ -239,34 +245,39 @@ while pq not empty:
 
 借助这种牛逼的数据结构支持，我们就很容易实现这个核心功能了。注意我们把优先级队列设为按 time 属性**从大到小降序排列**，因为 time 越大意味着时间越近，应该排在前面：
 
+<!-- muliti_language -->
 ```java
-public List<Integer> getNewsFeed(int userId) {
-    List<Integer> res = new ArrayList<>();
-    if (!userMap.containsKey(userId)) return res;
-    // 关注列表的用户 Id
-    Set<Integer> users = userMap.get(userId).followed;
-    // 自动通过 time 属性从大到小排序，容量为 users 的大小
-    PriorityQueue<Tweet> pq = 
-        new PriorityQueue<>(users.size(), (a, b)->(b.time - a.time));
+class Twitter {
+    // 为了节约篇幅，省略上文给出的代码部分...
 
-    // 先将所有链表头节点插入优先级队列
-    for (int id : users) {
-        Tweet twt = userMap.get(id).head;
-        if (twt == null) continue;
-        pq.add(twt);
-    }
+    public List<Integer> getNewsFeed(int userId) {
+        List<Integer> res = new ArrayList<>();
+        if (!userMap.containsKey(userId)) return res;
+        // 关注列表的用户 Id
+        Set<Integer> users = userMap.get(userId).followed;
+        // 自动通过 time 属性从大到小排序，容量为 users 的大小
+        PriorityQueue<Tweet> pq = 
+            new PriorityQueue<>(users.size(), (a, b)->(b.time - a.time));
 
-    while (!pq.isEmpty()) {
-        // 最多返回 10 条就够了
-        if (res.size() == 10) break;
-        // 弹出 time 值最大的（最近发表的）
-        Tweet twt = pq.poll();
-        res.add(twt.id);
-        // 将下一篇 Tweet 插入进行排序
-        if (twt.next != null) 
-            pq.add(twt.next);
+        // 先将所有链表头节点插入优先级队列
+        for (int id : users) {
+            Tweet twt = userMap.get(id).head;
+            if (twt == null) continue;
+            pq.add(twt);
+        }
+
+        while (!pq.isEmpty()) {
+            // 最多返回 10 条就够了
+            if (res.size() == 10) break;
+            // 弹出 time 值最大的（最近发表的）
+            Tweet twt = pq.poll();
+            res.add(twt.id);
+            // 将下一篇 Tweet 插入进行排序
+            if (twt.next != null) 
+                pq.add(twt.next);
+        }
+        return res;
     }
-    return res;
 }
 ```
 

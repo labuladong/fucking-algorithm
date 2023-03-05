@@ -53,6 +53,7 @@ BFS 相对 DFS 的最主要的区别是：**BFS 找到的路径一定是最短�
 
 记住下面这个框架就 OK 了：
 
+<!-- muliti_language -->
 ```java
 // 计算从起点 start 到终点 target 的最近距离
 int BFS(Node start, Node target) {
@@ -104,6 +105,7 @@ if (cur.left == null && cur.right == null)
 
 那么，按照我们上述的框架稍加改造来写解法即可：
 
+<!-- muliti_language -->
 ```java
 int minDepth(TreeNode root) {
     if (root == null) return 0;
@@ -167,6 +169,13 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 ![](https://labuladong.gitee.io/pictures/BFS/title2.jpg)
 
+函数签名如下：
+
+<!-- muliti_language -->
+```java
+int openLock(String[] deadends, String target)
+```
+
 题目中描述的就是我们生活中常见的那种密码锁，如果没有任何约束，最少的拨动次数很好算，就像我们平时开密码锁那样直奔密码拨就行了。
 
 但现在的难点就在于，不能出现 `deadends`，应该如何计算出最少的转动次数呢？
@@ -179,6 +188,7 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 **仔细想想，这就可以抽象成一幅图，每个节点有 8 个相邻的节点**，又让你求最短距离，这不就是典型的 BFS 嘛，框架就可以派上用场了，先写出一个「简陋」的 BFS 框架代码再说别的：
 
+<!-- muliti_language -->
 ```java
 // 将 s[j] 向上拨动一次
 String plusOne(String s, int j) {
@@ -238,6 +248,7 @@ void BFS(String target) {
 
 如果你能够看懂上面那段代码，真得给你鼓掌，只要按照 BFS 框架在对应的位置稍作修改即可修复这些问题：
 
+<!-- muliti_language -->
 ```java
 int openLock(String[] deadends, String target) {
     // 记录需要跳过的死亡密码
@@ -303,6 +314,7 @@ int openLock(String[] deadends, String target) {
 
 **不过，双向 BFS 也有局限，因为你必须知道终点在哪里**。比如我们刚才讨论的二叉树最小高度的问题，你一开始根本就不知道终点在哪里，也就无法使用双向 BFS；但是第二个密码锁的问题，是可以使用双向 BFS 算法来提高效率的，代码稍加修改即可：
 
+<!-- muliti_language -->
 ```java
 int openLock(String[] deadends, String target) {
     Set<String> deads = new HashSet<>();
@@ -357,6 +369,7 @@ int openLock(String[] deadends, String target) {
 
 其实双向 BFS 还有一个优化，就是在 while 循环开始时做一个判断：
 
+<!-- muliti_language -->
 ```java
 // ...
 while (!q1.isEmpty() && !q2.isEmpty()) {
