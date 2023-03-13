@@ -1,4 +1,6 @@
-# 动态规划之KMP字符匹配算法
+---
+title: '动态规划之KMP字符匹配算法'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

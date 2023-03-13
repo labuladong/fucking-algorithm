@@ -1,4 +1,6 @@
-# 我写了一个模板，把 Dijkstra 算法变成了默写题
+---
+title: '我写了一个模板，把 Dijkstra 算法变成了默写题'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

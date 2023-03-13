@@ -1,4 +1,6 @@
-# LRU 缓存淘汰算法设计
+---
+title: 'LRU 缓存淘汰算法设计'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

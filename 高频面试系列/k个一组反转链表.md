@@ -1,4 +1,6 @@
-# 如何k个一组反转链表
+---
+title: '如何k个一组反转链表'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,4 +1,6 @@
-# 详解最长公共子序列问题，秒杀三道动态规划题目
+---
+title: '详解最长公共子序列问题，秒杀三道动态规划题目'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,4 +1,6 @@
-# BFS 算法秒杀各种益智游戏
+---
+title: 'BFS 算法秒杀各种益智游戏'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

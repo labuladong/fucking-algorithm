@@ -1,4 +1,6 @@
-# Union-Find 算法详解
+---
+title: 'Union-Find 算法详解'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,4 +1,6 @@
-# 手把手带你刷二叉搜索树（第二期）
+---
+title: '手把手带你刷二叉搜索树（第二期）'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

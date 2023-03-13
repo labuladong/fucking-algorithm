@@ -1,4 +1,6 @@
-# Linux的进程、线程、文件描述符是什么
+---
+title: 'Linux的进程、线程、文件描述符是什么'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
