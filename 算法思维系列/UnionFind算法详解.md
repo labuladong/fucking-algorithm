@@ -9,7 +9,7 @@ title: 'Union-Find 算法详解'
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.gitee.io/pictures/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。[第 18 期每日打卡](https://aep.xet.tech/s/2PLO1n) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -45,7 +45,7 @@ title: 'Union-Find 算法详解'
 
 简单说，动态连通性其实可以抽象成给一幅图连线。比如下面这幅图，总共有 10 个节点，他们互不相连，分别用 0~9 标记：
 
-![](https://labuladong.gitee.io/pictures/unionfind/1.jpg)
+![](https://labuladong.github.io/pictures/unionfind/1.jpg)
 
 现在我们的 Union-Find 算法主要需要实现这两个 API：
 
@@ -75,7 +75,7 @@ class UF {
 
 再调用 `union(1, 2)`，这时 0,1,2 都被连通，调用 `connected(0, 2)` 也会返回 true，连通分量变为 8 个。
 
-![](https://labuladong.gitee.io/pictures/unionfind/2.jpg)
+![](https://labuladong.github.io/pictures/unionfind/2.jpg)
 
 判断这种「等价关系」非常实用，比如说编译器判断同一个变量的不同引用，比如社交网络中的朋友圈计算等等。
 
@@ -87,7 +87,7 @@ class UF {
 
 怎么用森林来表示连通性呢？我们设定树的每个节点有一个指针指向其父节点，如果是根节点的话，这个指针指向自己。比如说刚才那幅 10 个节点的图，一开始的时候没有相互连通，就是这样：
 
-![](https://labuladong.gitee.io/pictures/unionfind/3.jpg)
+![](https://labuladong.github.io/pictures/unionfind/3.jpg)
 
 <!-- muliti_language -->
 ```java
@@ -113,7 +113,7 @@ class UF {
 
 **如果某两个节点被连通，则让其中的（任意）一个节点的根节点接到另一个节点的根节点上**：
 
-![](https://labuladong.gitee.io/pictures/unionfind/4.jpg)
+![](https://labuladong.github.io/pictures/unionfind/4.jpg)
 
 <!-- muliti_language -->
 ```java
@@ -148,7 +148,7 @@ class UF {
 
 **这样，如果节点 `p` 和 `q` 连通的话，它们一定拥有相同的根节点**：
 
-![](https://labuladong.gitee.io/pictures/unionfind/5.jpg)
+![](https://labuladong.github.io/pictures/unionfind/5.jpg)
 
 <!-- muliti_language -->
 ```java
@@ -169,7 +169,7 @@ class UF {
 
 `find` 主要功能就是从某个节点向上遍历到树根，其时间复杂度就是树的高度。我们可能习惯性地认为树的高度就是 `logN`，但这并不一定。`logN` 的高度只存在于平衡二叉树，对于一般的树可能出现极端不平衡的情况，使得「树」几乎退化成「链表」，树的高度最坏情况下可能变成  `N`。
 
-![](https://labuladong.gitee.io/pictures/unionfind/6.jpg)
+![](https://labuladong.github.io/pictures/unionfind/6.jpg)
 
 所以说上面这种解法，`find` , `union` , `connected` 的时间复杂度都是 O(N)。这个复杂度很不理想的，你想图论解决的都是诸如社交网络这样数据规模巨大的问题，对于 `union` 和 `connected` 的调用非常频繁，每次调用需要线性时间完全不可忍受。
 
@@ -199,7 +199,7 @@ class UF {
 
 我们一开始就是简单粗暴的把 `p` 所在的树接到 `q` 所在的树的根节点下面，那么这里就可能出现「头重脚轻」的不平衡状况，比如下面这种局面：
 
-![](https://labuladong.gitee.io/pictures/unionfind/7.jpg)
+![](https://labuladong.github.io/pictures/unionfind/7.jpg)
 
 长此以往，树可能生长得很不平衡。**我们其实是希望，小一些的树接到大一些的树下面，这样就能避免头重脚轻，更平衡一些**。解决方法是额外使用一个 `size` 数组，记录每棵树包含的节点数，我们不妨称为「重量」：
 
@@ -265,7 +265,7 @@ class UF {
 
 因为无论树长啥样，树上的每个节点的根节点都是相同的，所以能不能进一步压缩每棵树的高度，使树高始终保持为常数？
 
-![](https://labuladong.gitee.io/pictures/unionfind/8.jpg)
+![](https://labuladong.github.io/pictures/unionfind/8.jpg)
 
 这样每个节点的父节点就是整棵树的根节点，`find` 就能以 O(1) 的时间找到某一节点的根节点，相应的，`connected` 和 `union` 复杂度都下降为 O(1)。
 
@@ -291,7 +291,7 @@ class UF {
 
 这个操作有点匪夷所思，看个 GIF 就明白它的作用了（为清晰起见，这棵树比较极端）：
 
-![](https://labuladong.gitee.io/pictures/unionfind/9.gif)
+![](https://labuladong.github.io/pictures/unionfind/9.gif)
 
 用语言描述就是，每次 while 循环都会把一对儿父子节点改到同一层，这样每次调用 `find` 函数向树根遍历的同时，顺手就将树高缩短了。
 
@@ -339,7 +339,7 @@ public int find(int x) {
 
 这种路径压缩的效果如下：
 
-![](https://labuladong.gitee.io/pictures/unionfind/10.jpeg)
+![](https://labuladong.github.io/pictures/unionfind/10.jpeg)
 
 比起第一种路径压缩，显然这种方法压缩得更彻底，直接把一整条树枝压平，一点意外都没有。就算一些极端情况下产生了一棵比较高的树，只要一次路径压缩就能大幅降低树高，从 [摊还分析](https://labuladong.github.io/article/fname.html?fname=时间复杂度) 的角度来看，所有操作的平均时间复杂度依然是 O(1)，所以从效率的角度来说，推荐你使用这种路径压缩算法。
 
@@ -453,7 +453,7 @@ void solve(char[][] board);
 
 注意哦，必须是四面被围的 `O` 才能被换成 `X`，也就是说边角上的 `O` 一定不会被围，进一步，与边角上的 `O` 相连的 `O` 也不会被 `X` 围四面，也不会被替换。
 
-![](https://labuladong.gitee.io/pictures/unionfind应用/2.jpg)
+![](https://labuladong.github.io/pictures/unionfind应用/2.jpg)
 
 > note：这让我想起小时候玩的棋类游戏「黑白棋」，只要你用两个棋子把对方的棋子夹在中间，对方的子就被替换成你的子。可见，占据四角的棋子是无敌的，与其相连的边棋子也是无敌的（无法被夹掉）。
 
@@ -465,7 +465,7 @@ void solve(char[][] board);
 
 **你可以把那些不需要被替换的 `O` 看成一个拥有独门绝技的门派，它们有一个共同「祖师爷」叫 `dummy`，这些 `O` 和 `dummy` 互相连通，而那些需要被替换的 `O` 与 `dummy` 不连通**。
 
-![](https://labuladong.gitee.io/pictures/unionfind应用/3.jpg)
+![](https://labuladong.github.io/pictures/unionfind应用/3.jpg)
 
 这就是 Union-Find 的核心思路，明白这个图，就很容易看懂代码了。
 
@@ -619,7 +619,7 @@ class UF {
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.gitee.io/pictures/souyisou2.png)
+![](https://labuladong.github.io/pictures/souyisou2.png)
 
 
 ======其他语言代码======

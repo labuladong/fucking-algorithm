@@ -9,7 +9,7 @@ title: '详解最长公共子序列问题，秒杀三道动态规划题目'
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.gitee.io/pictures/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。[第 18 期每日打卡](https://aep.xet.tech/s/2PLO1n) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -83,4 +83,4 @@ int longestCommonSubsequence(String s1, String s2);
 
 应合作方要求，本文不便在此发布，请扫码关注回复关键词「LCS」或 [点这里](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_6298793ae4b09dda12708be8/1) 查看：
 
-![](https://labuladong.gitee.io/pictures/qrcode.jpg)
+![](https://labuladong.github.io/pictures/qrcode.jpg)

@@ -9,7 +9,7 @@ title: '设计Twitter'
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.gitee.io/pictures/souyisou1.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
 **通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线。[第 18 期每日打卡](https://aep.xet.tech/s/2PLO1n) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
@@ -129,13 +129,13 @@ class Tweet {
 }
 ```
 
-![](https://labuladong.gitee.io/pictures/设计Twitter/tweet.jpg)
+![](https://labuladong.github.io/pictures/设计Twitter/tweet.jpg)
 
 **2、User 类的实现**
 
 我们根据实际场景想一想，一个用户需要存储的信息有 userId，关注列表，以及该用户发过的推文列表。其中关注列表应该用集合（Hash Set）这种数据结构来存，因为不能重复，而且需要快速查找；推文列表应该由链表这种数据结构储存，以便于进行有序合并的操作。画个图理解一下：
 
-![](https://labuladong.gitee.io/pictures/设计Twitter/user.jpg)
+![](https://labuladong.github.io/pictures/设计Twitter/user.jpg)
 
 除此之外，根据面向对象的设计原则，「关注」「取关」和「发文」应该是 User 的行为，况且关注列表和推文列表也存储在 User 类中，所以我们也应该给 User 添加 follow，unfollow 和 post 这几个方法：
 
@@ -285,7 +285,7 @@ class Twitter {
 
 这个过程是这样的，下面是我制作的一个 GIF 图描述合并链表的过程。假设有三个 Tweet 链表按 time 属性降序排列，我们把他们降序合并添加到 res 中。注意图中链表节点中的数字是 time 属性，不是 id 属性：
 
-![](https://labuladong.gitee.io/pictures/设计Twitter/merge.gif)
+![](https://labuladong.github.io/pictures/设计Twitter/merge.gif)
 
 至此，这道一个极其简化的 Twitter 时间线功能就设计完毕了。
 
@@ -297,7 +297,7 @@ class Twitter {
 
 当然，实际应用中的社交 App 数据量是巨大的，考虑到数据库的读写性能，我们的设计可能承受不住流量压力，还是有些太简化了。而且实际的应用都是一个极其庞大的工程，比如下图，是 Twitter 这样的社交网站大致的系统结构：
 
-![](https://labuladong.gitee.io/pictures/设计Twitter/design.png)
+![](https://labuladong.github.io/pictures/设计Twitter/design.png)
 
 我们解决的问题应该只能算 Timeline Service 模块的一小部分，功能越多，系统的复杂性可能是指数级增长的。所以说合理的顶层设计十分重要，其作用是远超某一个算法的。Github 上有一个优秀的开源项目，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击 [这里](https://github.com/donnemartin/system-design-primer) 查看。
 
@@ -321,7 +321,7 @@ class Twitter {
 
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.gitee.io/pictures/souyisou2.png)
+![](https://labuladong.github.io/pictures/souyisou2.png)
 
 
 ======其他语言代码======
