@@ -43,6 +43,7 @@ KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法
 
 力扣第 28 题「实现 strStr」就是字符串匹配问题，暴力的字符串匹配算法很容易写，看一下它的运行逻辑：
 
+<!-- muliti_language -->
 ```java
 // 暴力匹配（伪码）
 int search(String pat, String txt) {
@@ -117,6 +118,7 @@ pat = "aaab"
 
 明白了 `dp` 数组只和 `pat` 有关，那么我们这样设计 KMP 算法就会比较漂亮：
 
+<!-- muliti_language -->
 ```java
 public class KMP {
     private int[][] dp;
@@ -208,6 +210,7 @@ pat 应该转移到状态 2
 
 根据我们这个 dp 数组的定义和刚才状态转移的过程，我们可以先写出 KMP 算法的 search 函数代码：
 
+<!-- muliti_language -->
 ```java
 public int search(String txt) {
     int M = pat.length();
@@ -285,6 +288,7 @@ for 0 <= j < M:
 
 如果之前的内容你都能理解，恭喜你，现在就剩下一个问题：影子状态 `X` 是如何得到的呢？下面先直接看完整代码吧。
 
+<!-- muliti_language -->
 ```java
 public class KMP {
     private int[][] dp;
@@ -360,6 +364,7 @@ for (int i = 0; i < N; i++) {
 
 至此，KMP 算法的核心终于写完啦啦啦啦！看下 KMP 算法的完整代码吧：
 
+<!-- muliti_language -->
 ```java
 public class KMP {
     private int[][] dp;

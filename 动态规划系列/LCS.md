@@ -38,6 +38,7 @@ title: '详解最长公共子序列问题，秒杀三道动态规划题目'
 
 给你输入两个字符串 `s1` 和 `s2`，请你找出他们俩的最长公共子序列，返回这个子序列的长度。函数签名如下：
 
+<!-- muliti_language -->
 ```java
 int longestCommonSubsequence(String s1, String s2);
 ```

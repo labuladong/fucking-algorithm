@@ -75,6 +75,7 @@ title: 'BFS 算法秒杀各种益智游戏'
 
 对于这道题，题目说输入的数组大小都是 2 x 3，所以我们可以直接手动写出来这个映射：
 
+<!-- muliti_language -->
 ```java
 // 记录一维字符串的相邻索引
 int[][] neighbor = new int[][]{
@@ -99,6 +100,7 @@ int[][] neighbor = new int[][]{
 
 至此，我们就把这个问题完全转化成标准的 BFS 问题了，借助前文 [BFS 算法框架](https://labuladong.github.io/article/fname.html?fname=BFS框架) 的代码框架，直接就可以套出解法代码了：
 
+<!-- muliti_language -->
 ```java
 public int slidingPuzzle(int[][] board) {
     int m = 2, n = 3;
