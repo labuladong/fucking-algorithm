@@ -1,5 +1,6 @@
 ---
 title: '我写了一个模板，把 Dijkstra 算法变成了默写题'
+tags: ['数据结构', '图论算法']
 ---
 
 <p align='center'>

@@ -1,5 +1,6 @@
 ---
 title: 'LRU 缓存淘汰算法设计'
+tags: ['链表', '设计']
 ---
 
 <p align='center'>

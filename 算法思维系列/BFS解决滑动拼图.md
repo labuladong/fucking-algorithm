@@ -1,5 +1,6 @@
 ---
 title: 'BFS 算法秒杀各种益智游戏'
+tags: ['BFS 算法']
 ---
 
 <p align='center'>

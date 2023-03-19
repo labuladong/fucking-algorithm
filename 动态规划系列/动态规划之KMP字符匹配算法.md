@@ -1,5 +1,6 @@
 ---
 title: '动态规划之KMP字符匹配算法'
+tags: ['字符串']
 ---
 
 <p align='center'>

@@ -1,5 +1,6 @@
 ---
 title: 'Union-Find 算法详解'
+tags: ['并查集', '图论算法', '数据结构']
 ---
 
 <p align='center'>

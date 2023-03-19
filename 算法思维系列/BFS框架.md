@@ -1,5 +1,6 @@
 ---
 title: 'BFS 算法框架套路详解'
+tags: ['BFS 算法', '核心框架']
 ---
 
 <p align='center'>
