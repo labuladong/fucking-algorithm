@@ -1,11 +1,16 @@
 name: 报告错误的解法代码
-title: "[bug] {这里替换为出错的力扣题号和题目} {这里替换为出错的编程语言}"
-description: 
+title: "[bug][{这里替换为出错的编程语言}] {这里替换为出错的力扣题目标识符} "
+description: "反馈我的刷题全家桶中的错误。"
 labels: [ "code bug" ]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        力扣题目标识符是题目 URL 的最后一部分。比如 [https://leetcode.cn/problems/search-a-2d-matrix/](https://leetcode.cn/problems/search-a-2d-matrix/) 这道题标识符就是 `search-a-2d-matrix`。请补全 issue 题目，示例：`[bug][golang] search-a-2d-matrix`.
+
   - type: checkboxes
     attributes:
-      label: Search before asking
+      label: 请在提交 bug 之前先搜索
       description: >
         请先搜索 [issues](https://github.com/labuladong/fucking-algorithm/issues) 确保你提的这个 bug 还没有被提交过。
       options:
@@ -17,7 +22,7 @@ body:
       label: 出错的题目链接
       description: |
         输入力扣的题目链接
-      placeholder: e.g. https://leetcode.cn/problems/search-a-2d-matrix/
+      placeholder: 例如 https://leetcode.cn/problems/search-a-2d-matrix/
     validations:
       required: true
   - type: textarea
@@ -41,4 +46,4 @@ body:
         - label: 我愿意！
   - type: markdown
     attributes:
-      value: "感谢你的支持，刷题全家桶会因你变得越来越好！"
+      value: "感谢你的支持，[labuladong 的刷题全家桶](https://labuladong.github.io/article/fname.html?fname=全家桶简介) 会因你变得越来越好！"

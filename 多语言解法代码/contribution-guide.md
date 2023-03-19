@@ -8,6 +8,10 @@
 
 chatGPT 的改写效果还是非常不错的，不过难免还是存在一些错误，所以我希望能够和大家一起来修正这些错误。
 
+## 如何反馈错误
+
+如果你发现某些解法代码不能通过力扣的所有测试用例（一般都是 chatGPT 改写的解法代码会出现这种情况，我的解法代码都是通过测试才发布的），可以 [点这里](https://github.com/labuladong/fucking-algorithm/issues/new?assignees=&labels=code+bug&template=bug_report.yml&title=%5Bbug%5D%5B%7B%E8%BF%99%E9%87%8C%E6%9B%BF%E6%8D%A2%E4%B8%BA%E5%87%BA%E9%94%99%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%7D%5D+%7B%E8%BF%99%E9%87%8C%E6%9B%BF%E6%8D%A2%E4%B8%BA%E5%87%BA%E9%94%99%E7%9A%84%E5%8A%9B%E6%89%A3%E9%A2%98%E7%9B%AE%E6%A0%87%E8%AF%86%E7%AC%A6%7D+) 按照模板提交 issue，我和其他小伙伴会提交 PR 修复这些错误。
+
 ## 如何修正错误
 
 首先，感谢你愿意为我的插件提供的解法代码纠错，你向本仓库提交 PR 修复错误后，你将成为本仓库的 contributor，出现在仓库首页的贡献者列表中。本仓库已经获得了 115k star，你的贡献将会被许多人看到。
@@ -65,6 +69,6 @@ chatGPT 的改写效果还是非常不错的，不过难免还是存在一些错
 
 2、把我的解法翻译成多语言的目的是帮助不同背景的小伙伴理解算法思维，所以你修改的代码可以不是效率最优的，但应该尽可能和我的解法思路保持一致，且包含我的解法中的完整注释。
 
-3、你的 PR 描述中需要包含代码通过所有测试用例截图。
+3、你的 PR 描述中需要包含代码通过所有测试用例截图。PR 标题的格式为 `[fix][{lang}] {slug}`，其中 `{lang}` 需要替换为你修复的解法语言，比如 `[fix][cpp]`，`{slug}` 需要替换为你修复的题目的标识符（题目 URL 的最后一部分），比如 [https://leetcode.cn/problems/search-a-2d-matrix/](https://leetcode.cn/problems/search-a-2d-matrix/) 这道题的标识符就是 `search-a-2d-matrix`。
 
 **你可以查看这个 PR 作为案例**：https://github.com/labuladong/fucking-algorithm/pull/1112

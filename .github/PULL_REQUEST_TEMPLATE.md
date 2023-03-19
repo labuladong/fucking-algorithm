@@ -1,8 +1,12 @@
 <!-- 
-如果你是在修复刷题插件的解法代码，请遵循正确的格式，参见这个样例：
+如果你是在修复刷题插件的解法代码，请遵循正确的格式，具体要求参见如下链接：
 
-https://github.com/labuladong/fucking-algorithm/pull/1112
+https://github.com/labuladong/fucking-algorithm/issues/1113
 -->
+
+<!-- 如果你的 PR 能够关闭某个 issue，那么在 Fixes 关键词后面输入该 issue 的链接 -->
+
+Fixes <!-- issue 链接 -->
 
 我修改的是如下题目的 xx 解法：
 
