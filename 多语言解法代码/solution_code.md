@@ -55577,25 +55577,7 @@ func searchMatrix(matrix [][]int, target int) bool {
 
 // 通过一维坐标访问二维数组中的元素
 func get(matrix [][]int, index int) int {
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
-    m, n := len(matrix), len(matrix[0])
-    _, n := len(matrix), len(matrix[0])
+    n := len(matrix[0])
     // 计算二维中的横纵坐标
     i, j := index/n, index%n
     return matrix[i][j]
