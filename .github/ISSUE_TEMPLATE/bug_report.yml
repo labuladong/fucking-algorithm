@@ -1,12 +1,12 @@
 name: 报告错误的解法代码
-title: "[bug][{这里替换为出错的编程语言}] {这里替换为出错的力扣题目标识符} "
+title: "[bug][这里替换为出错的编程语言] 这里替换为出错的力扣题目标识符"
 description: "反馈我的刷题全家桶中的错误。"
-labels: [ "code bug" ]
+labels: [ "help wanted" ]
 body:
   - type: markdown
     attributes:
       value: |
-        力扣题目标识符是题目 URL 的最后一部分。比如 [https://leetcode.cn/problems/search-a-2d-matrix/](https://leetcode.cn/problems/search-a-2d-matrix/) 这道题标识符就是 `search-a-2d-matrix`。请补全 issue 题目，示例：`[bug][golang] search-a-2d-matrix`.
+        力扣题目标识符就是题目 URL 的最后一部分。比如 [https://leetcode.cn/problems/search-a-2d-matrix/](https://leetcode.cn/problems/search-a-2d-matrix/) 这道题标识符就是 `search-a-2d-matrix`。请补全 issue 题目，示例：`[bug][golang] search-a-2d-matrix`.
 
   - type: checkboxes
     attributes:
@@ -31,10 +31,8 @@ body:
       description: |
         把出错的原因复制粘贴在这里
       value: |
-        <!-- 把报错粘贴到下面的 ``` 块中 -->
-        ```
+        <!-- 把报错信息粘贴到这里 -->
 
-        ```
     validations:
       required: true
   - type: checkboxes
