@@ -50869,7 +50869,7 @@ var dp = function(n, memo) {
 class Solution:
     # 备忘录
     memo = []
-
+    MOD = 1e9 + 7
     def numWays(self, n: int) -> int:
         self.memo = [-1] * (n + 1)
         return self.dp(n)
@@ -50878,7 +50878,7 @@ class Solution:
     def dp(self, n: int) -> int:
         # base case
         if n <= 2:
-            return n
+            return n if n else 1
 
         if self.memo[n] != -1:
             return self.memo[n]
@@ -50886,7 +50886,7 @@ class Solution:
         # 状态转移方程：
         # 爬到第 n 级台阶的方法个数等于爬到 n - 1 的方法个数和爬到 n - 2 的方法个数之和。
         self.memo[n] = self.dp(n - 1) + self.dp(n - 2)
-        return self.memo[n]
+        return round(self.memo[n] % self.MOD)
 ```
 
 https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof 的多语言解法👆
