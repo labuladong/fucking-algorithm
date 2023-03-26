@@ -27725,7 +27725,7 @@ function encode(s) {
         let delta = c.charCodeAt() - 'a'.charCodeAt();
         count[delta]++;
     }
-    return count.join('');
+    return count.toString();
 }
 ```
 
@@ -27756,7 +27756,7 @@ class Solution:
         for c in s:
             delta = ord(c) - ord('a')
             count[delta] += 1
-        return ''.join(str(x) for x in count)
+        return str(count)
 ```
 
 https://leetcode.cn/problems/group-anagrams 的多语言解法👆
