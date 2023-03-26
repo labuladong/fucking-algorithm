@@ -19934,7 +19934,7 @@ public:
                 if (word1[i - 1] == word2[j - 1])
                     dp[i][j] = dp[i - 1][j - 1];
                 else
-                    dp[i][j] = min({
+                    dp[i][j] = min(
                         dp[i - 1][j] + 1,
                         /**<extend up -300>
                         ![](../pictures/editDistance/delete.gif)
@@ -19947,7 +19947,7 @@ public:
                         /**<extend up -300>
                         ![](../pictures/editDistance/replace.gif)
                         */
-                    });
+                    );
             }
         }
         // 储存着整个 s1 和 s2 的最小编辑距离
@@ -19955,7 +19955,7 @@ public:
     }
 
     int min(int a, int b, int c) {
-        return min(a, min(b, c));
+        return std::min(a, std::min(b, c));
     }
 };
 ```
