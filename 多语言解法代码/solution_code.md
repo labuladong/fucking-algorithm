@@ -22015,34 +22015,38 @@ https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof 的多语言解法�
 class Solution {
 public:
     string reverseWords(string s) {
-        string res = "";
-        // 先清洗一下数据，把多余的空格都删掉
+        // 先清洗一下数据，把多于的空格都删掉
+        string sb;
         for (int i = 0; i < s.length(); i++) {
             char c = s[i];
             if (c != ' ') {
                 // 单词中的字母/数字
-                res += c;
-            } else if (i > 0 && res.back() != ' ') {
+                sb += c;
+            } else if (!sb.empty() && sb[sb.length() - 1] != ' ') {
                 // 单词之间保留一个空格
-                res += ' ';
+                sb += ' ';
             }
         }
+        if (sb.empty()) {
+            return "";
+        }
         // 末尾如果有空格，清除之
-        if (res.back() == ' ') {
-            res.pop_back();
+        if (sb[sb.length() - 1] == ' ') {
+            sb.erase(sb.length() - 1, 1);
         }
 
         // 清洗之后的字符串
-        char* chars = &res[0];
-        int n = res.length();
+        char* chars = new char[sb.length() + 1];
+        strcpy(chars, sb.c_str());
+        int n = strlen(chars);
         // 进行单词的翻转，先整体翻转
-        reverse(chars, chars + n);
+        reverse(chars, 0, n - 1);
         // 再把每个单词翻转
         for (int i = 0; i < n; ) {
             for (int j = i; j < n; j++) {
                 if (j + 1 == n || chars[j + 1] == ' ') {
                     // chars[i..j] 是一个单词，翻转之
-                    reverse(chars + i, chars + j + 1);
+                    reverse(chars, i, j);
                     // 把 i 置为下一个单词的首字母
                     i = j + 2;
                     break;
@@ -22050,17 +22054,19 @@ public:
             }
         }
         // 最后得到题目想要的结果
+        string res(chars);
+        delete[] chars;
         return res;
     }
 
     // 翻转 arr[i..j]
-    void reverse(char* arr, char* arr_end) {
-        while (arr < arr_end) {
-            char temp = *arr;
-            *arr = *arr_end;
-            *arr_end = temp;
-            arr++;
-            arr_end--;
+    void reverse(char* arr, int i, int j) {
+        while (i < j) {
+            char temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
         }
     }
 };
@@ -22130,6 +22136,9 @@ class Solution {
                 // 单词之间保留一个空格
                 sb.append(' ');
             }
+        }
+        if (sb.isEmpty()) {
+            return "";
         }
         // 末尾如果有空格，清除之
         if (sb.charAt(sb.length() - 1) == ' ') {
@@ -22231,8 +22240,8 @@ function reverse(arr, i, j) {
 # by chatGPT (python)
 class Solution:
     def reverseWords(self, s: str) -> str:
-        sb = []
         # 先清洗一下数据，把多于的空格都删掉
+        sb = []
         for c in s:
             if c != ' ':
                 # 单词中的字母/数字
@@ -22240,26 +22249,30 @@ class Solution:
             elif sb and sb[-1] != ' ':
                 # 单词之间保留一个空格
                 sb.append(' ')
+        if not sb:
+            return ""
         # 末尾如果有空格，清除之
-        if sb and sb[-1] == ' ':
+        if sb[-1] == ' ':
             sb.pop()
 
         # 清洗之后的字符串
-        chars = sb[::-1]
+        chars = ''.join(sb)
+        chars = list(chars)
         n = len(chars)
-        i = 0
         # 进行单词的翻转，先整体翻转
         self.reverse(chars, 0, n - 1)
         # 再把每个单词翻转
+        i = 0
         while i < n:
             j = i
-            while j < n and chars[j] != ' ':
+            while j < n:
+                if j + 1 == n or chars[j + 1] == ' ':
+                    # chars[i..j] 是一个单词，翻转之
+                    self.reverse(chars, i, j)
+                    # 把 i 置为下一个单词的首字母
+                    i = j + 2
+                    break
                 j += 1
-            # chars[i..j-1] 是一个单词，翻转之
-            self.reverse(chars, i, j - 1)
-            # 把 i 置为下一个单词的首字母
-            i = j + 1
-
         # 最后得到题目想要的结果
         return ''.join(chars)
 
