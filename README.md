@@ -51,7 +51,7 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 **另外建议关注 [我的 B 站](https://space.bilibili.com/14089380)，我把一系列核心算法技巧的文章都录制成了领读视频，方便大家学习**。
 
 
-## labuladong 的刷题全家桶
+## 安装使用 labuladong 的刷题全家桶
 
 > tip：labuladong 的刷题全家桶由学习网站、《算法秘籍》《刷题笔记》两本 PDF、Chrome/vscode/Jetbrain 三个不同平台的刷题插件组成，致力于为大家提供最丝滑的刷题体验。公众号后台回复关键词「**全家桶**」即可获取下载和使用手册。
 
@@ -59,13 +59,21 @@ Gitee Pages 地址：https://labuladong.gitee.io/algo/
 
 内容当然是我的系列算法教程中最核心的部分，其他的插件和 PDF 教材都是为内容服务的。我的算法教程都发布在公众号/网站上，相信你会未来会在这里花费大量的学习时间，而不是仅仅加入收藏夹~
 
+![](https://labuladong.github.io/pictures/简介/web_intro.jpg)
+
 **具体介绍**：[labuladong 的公众号/算法网站使用手册](https://labuladong.github.io/article/fname.html?fname=网站介绍)
 
 ### 二、PDF 教材
 
 鉴于我积累的算法教程比较多，为了防止过于陡峭的学习曲线，我精心挑选了必知必会的算法技巧，设计了一套循序渐进的学习路线，并制作成 PDF 方便大家离线学习/记笔记。
 
-PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系统掌握算法的知识体系，另一本《labuladong 的刷题笔记》类似练习册，助你遨游题海，随心所欲地运用所学的技巧解题。
+PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系统掌握算法的知识体系：
+
+![](https://labuladong.github.io/pictures/简介/pdf3.jpg)
+
+另一本《labuladong 的刷题笔记》类似练习册，助你遨游题海，随心所欲地运用所学的技巧解题：
+
+![](https://labuladong.github.io/pictures/简介/pdf5.jpg)
 
 **具体介绍**：[配套 PDF 算法教材使用手册](https://labuladong.github.io/article/fname.html?fname=pdf简介)
 
@@ -74,6 +82,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
 如果你认可我的算法教程，可以购买我的付费课程，目前我制作完成了[《数据结构精品课》](https://labuladong.github.io/article/fname.html?fname=ds课程简介) 和[《二叉树（递归）专题课》](https://labuladong.github.io/article/fname.html?fname=tree课程简介)。另外，还有押金形式的[刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)，完成打卡后押金将全额返还，打卡挑战适用于自己刷题坚持不下来的小伙伴参加。
 
 课程和打卡挑战都可以在我的知识店铺购买和报名：
+
 <p align='center'>
 <img src="https://labuladong.github.io/pictures/xiaoe_qr.png" width = "200" />
 
