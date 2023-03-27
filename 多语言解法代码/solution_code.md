@@ -67157,7 +67157,7 @@ https://leetcode.cn/problems/xu-lie-hua-er-cha-shu-lcof 的多语言解法👇
 class Codec {
 public:
     string SEP = ",";
-    string NULL = "#";
+    string EMPTY = "#";
 
     /* 主函数，将二叉树序列化为字符串 */
     string serialize(TreeNode* root) {
@@ -67169,7 +67169,7 @@ public:
     /* 辅助函数，将二叉树存入字符串 */
     void serialize(TreeNode* root, string& res) {
         if (root == nullptr) {
-            res += NULL + SEP;
+            res += EMPTY + SEP;
             return;
         }
 
@@ -67207,7 +67207,7 @@ public:
         // 列表最左侧就是根节点
         string first = nodes[0];
         nodes.erase(nodes.begin());
-        if (first == NULL) return nullptr;
+        if (first == EMPTY) return nullptr;
         TreeNode* root = new TreeNode(stoi(first));
         /***********************/
 
