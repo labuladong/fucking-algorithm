@@ -41588,9 +41588,10 @@ class Solution:
         valid = 0
         # 记录最小覆盖子串的起始索引及长度
         start, length = 0, float('inf')
-        /**<extend down -200>
+        """
+        <extend down -200>
         ![](../pictures/slidingwindow/1.png)
-        */
+        """
         while right < len(s):
             # c 是将移入窗口的字符
             c = s[right]
@@ -41603,9 +41604,10 @@ class Solution:
 
             # 判断左侧窗口是否要收缩
             while valid == len(need):
-                /**<extend down -200>
+                """
+                <extend down -200>
                 ![](../pictures/slidingwindow/2.png)
-                */
+                """
                 # 在这里更新最小覆盖子串
                 if right - left < length:
                     start = left
@@ -41619,9 +41621,10 @@ class Solution:
                         valid -= 1
                     window[d] -= 1
 
-            /**<extend up -50>
+            """
+            <extend up -50>
             ![](../pictures/slidingwindow/4.png)
-            */
+            """
         # 返回最小覆盖子串
         return '' if length == float('inf') else s[start:start+length]
 ```
@@ -54458,6 +54461,9 @@ class Solution {
                 sb.append(' ');
             }
         }
+        if (sb.isEmpty()) {
+            return "";
+        }
         // 末尾如果有空格，清除之
         if (sb.charAt(sb.length() - 1) == ' ') {
             sb.deleteCharAt(sb.length() - 1);
@@ -66377,6 +66383,231 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/wildcard-matching 的多语言解法👆
+
+https://leetcode.cn/problems/word-break-ii 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    vector<string> res;
+    // 记录回溯路径
+    deque<string> track;
+
+    vector<string> wordBreak(string s, vector<string>& wordDict) {
+        // 根据函数定义，判断 s[0..] 是否能够被拼出
+        backtrack(s, 0, wordDict);
+        return res;
+    }
+
+    // 回溯算法框架
+    void backtrack(string s, int i, vector<string>& wordDict) {
+        // base case，整个 s 都被拼出来了
+        if (i == s.length()) {
+            res.emplace_back(track[0]);
+            for (int j = 1; j < track.size(); ++j) {
+                res.back() += " " + track[j];
+            }
+            return;
+        }
+        if (i > s.length()) {
+            return;
+        }
+
+        // 遍历所有单词，尝试匹配 s[i..] 的前缀
+        for (const string& word : wordDict) {
+            int len = word.length();
+            // 单词太长，跳过
+            if (i + len > s.length()) {
+                continue;
+            }
+            // 无法匹配，跳过
+            string subStr = s.substr(i, len);
+            if (subStr != word) {
+                continue;
+            }
+            // s[i..] 的前缀被 word 匹配，做选择
+            track.emplace_back(word);
+            backtrack(s, i + len, wordDict);
+            // 撤销选择
+            track.pop_back();
+        }
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+func wordBreak(s string, wordDict []string) []string {
+    res := []string{}
+    // 记录回溯路径
+    track := []string{}
+    // 根据函数定义，判断 s[0..] 是否能够被拼出
+    backtrack(s, 0, wordDict, &track, &res)
+    return res
+}
+
+// 回溯算法框架
+func backtrack(s string, i int, wordDict []string, track *[]string, res *[]string) {
+    // base case，整个 s 都被拼出来了
+    if i == len(s) {
+        *res = append(*res, strings.Join(*track, " "))
+        return
+    }
+    if i > len(s) {
+        return
+    }
+
+    // 遍历所有单词，尝试匹配 s[i..] 的前缀
+    for _, word := range(wordDict) {
+        len := len(word)
+        // 单词太长，跳过
+        if i + len > len(s) {
+            continue
+        }
+        // 无法匹配，跳过
+        subStr := s[i:i+len]
+        if subStr != word {
+            continue
+        }
+        // s[i..] 的前缀被 word 匹配，做选择
+        *track = append(*track, word)
+        backtrack(s, i + len, wordDict, track, res)
+        // 撤销选择
+        *track = (*track)[:len(*track)-1]
+    }
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+
+    List<String> res = new LinkedList<>();
+    // 记录回溯路径
+    LinkedList<String> track = new LinkedList<>();
+
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        // 根据函数定义，判断 s[0..] 是否能够被拼出
+        backtrack(s, 0, wordDict);
+        return res;
+    }
+
+    // 回溯算法框架
+    void backtrack(String s, int i, List<String> wordDict) {
+        // base case，整个 s 都被拼出来了
+        if (i == s.length()) {
+            res.add(String.join(" ", track));
+            return;
+        }
+        if (i > s.length()) {
+            return;
+        }
+
+        // 遍历所有单词，尝试匹配 s[i..] 的前缀
+        for (String word : wordDict) {
+            int len = word.length();
+            // 单词太长，跳过
+            if (i + len > s.length()) {
+                continue;
+            }
+            // 无法匹配，跳过
+            String subStr = s.substring(i, i + len);
+            if (!subStr.equals(word)) {
+                continue;
+            }
+            // s[i..] 的前缀被 word 匹配，做选择
+            track.addLast(word);
+            backtrack(s, i + len, wordDict);
+            // 撤销选择
+            track.removeLast();
+        }
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var wordBreak = function(s, wordDict) {
+  let res = [];  // 记录结果
+  let track = []; // 记录回溯路径
+
+  // 回溯算法框架
+  function backtrack(s, i, wordDict) {
+    // base case，整个 s 都被拼出来了
+    if (i === s.length) {
+      res.push(track.join(" "));
+      return;
+    }
+    if (i > s.length) {
+      return;
+    }
+
+    // 遍历所有单词，尝试匹配 s[i..] 的前缀
+    for (let word of wordDict) {
+      let len = word.length;
+      // 单词太长，跳过
+      if (i + len > s.length) {
+        continue;
+      }
+      // 无法匹配，跳过
+      let subStr = s.substring(i, i + len);
+      if (subStr !== word) {
+        continue;
+      }
+      // s[i..] 的前缀被 word 匹配，做选择
+      track.push(word);
+      backtrack(s, i + len, wordDict);
+      // 撤销选择
+      track.pop();
+    }
+  }
+
+  backtrack(s, 0, wordDict);
+  return res;
+};
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def __init__(self):
+        self.res = []
+        # 记录回溯路径
+        self.track = []
+
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        # 根据函数定义，判断 s[0..] 是否能够被拼出
+        self.backtrack(s, 0, wordDict)
+        return self.res
+
+    # 回溯算法框架
+    def backtrack(self, s: str, i: int, wordDict: List[str]) -> None:
+        # base case，整个 s 都被拼出来了
+        if i == len(s):
+            self.res.append(" ".join(self.track))
+            return
+        if i > len(s):
+            return
+
+        # 遍历所有单词，尝试匹配 s[i..] 的前缀
+        for word in wordDict:
+            length = len(word)
+            # 单词太长，跳过
+            if i + length > len(s):
+                continue
+            # 无法匹配，跳过
+            sub_str = s[i:i + length]
+            if sub_str != word:
+                continue
+            # s[i..] 的前缀被 word 匹配，做选择
+            self.track.append(word)
+            self.backtrack(s, i + length, wordDict)
+            # 撤销选择
+            self.track.pop()
+```
+
+https://leetcode.cn/problems/word-break-ii 的多语言解法👆
 
 https://leetcode.cn/problems/word-pattern 的多语言解法👇
 
