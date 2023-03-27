@@ -38510,14 +38510,14 @@ class Solution:
         pq = []
         for head in lists:
             if head:
-                heapq.heappush(pq, (head.val, head))
+                heapq.heappush(pq, (head.val, id(head), head))
         # 将 k 个链表的头结点加入最小堆
         while pq:
             # 获取最小节点，接到结果链表中
-            _, node = heapq.heappop(pq)
+            node = heapq.heappop(pq)[2]
             p.next = node
             if node.next:
-                heapq.heappush(pq, (node.next.val, node.next))
+                heapq.heappush(pq, (node.next.val, id(node.next), node.next))
             # p 指针不断前进
             p = p.next
         return dummy.next
