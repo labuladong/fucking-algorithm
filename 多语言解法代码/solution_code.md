@@ -50756,11 +50756,15 @@ https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof 的多语言解法
 // by chatGPT (cpp)
 class Solution {
     // 备忘录
-    int[] memo;
+    vector<int> memo;
+    int MOD = 1000000007;
 
 public:
     int numWays(int n) {
-        memo = new int[n + 1];
+        if (n == 0) {
+            return 1;
+        }
+        memo = vector(n + 1, 0);
         return dp(n);
     }
 
@@ -50775,7 +50779,7 @@ public:
         }
         // 状态转移方程：
         // 爬到第 n 级台阶的方法个数等于爬到 n - 1 的方法个数和爬到 n - 2 的方法个数之和。
-        memo[n] = dp(n - 1) + dp(n - 2);
+        memo[n] = (dp(n - 1) + dp(n - 2)) % MOD;
         return memo[n];
     }
 };
