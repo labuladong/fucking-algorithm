@@ -12,7 +12,7 @@ body:
     attributes:
       label: 请在提交 bug 之前先搜索
       description: >
-        请先搜索 [issues](https://github.com/labuladong/fucking-algorithm/issues) 确保你提的这个 bug 还没有被提交过。
+        请先在 [issues](https://github.com/labuladong/fucking-algorithm/issues) 列表中搜索对应题目的标识符，确保你提的这个 bug 还没有被提交过。
       options:
         - label: >
             我已经搜索过 [issues](https://github.com/labuladong/fucking-algorithm/issues)，没有发现相同的 bug。
