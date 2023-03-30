@@ -50900,7 +50900,10 @@ public:
     vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
         // 存储三元组 (num1[i], nums2[i], i)
         // i 记录 nums2 元素的索引位置，用于生成下一个节点
-        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+        auto cmp = [](auto & a, auto & b) {
+            return a[0] + a[1] > b[0] + b[1];
+        };
+        priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> pq(cmp);
         // 按照 23 题的逻辑初始化优先级队列
         for (int i = 0; i < nums1.size(); i++) {
             pq.push({nums1[i], nums2[0], 0});
