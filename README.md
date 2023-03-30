@@ -218,6 +218,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [最优子结构原理和 dp 数组遍历方向](https://labuladong.github.io/article/fname.html?fname=最优子结构)
     * [base case 和备忘录的初始值怎么定？](https://labuladong.github.io/article/fname.html?fname=备忘录等基础)
     * [动态规划穷举的两种视角](https://labuladong.github.io/article/fname.html?fname=动归两种视角)
+    * [动态规划和回溯算法的思维转换](https://labuladong.github.io/article/fname.html?fname=单词拼接)
     * [对动态规划进行降维打击](https://labuladong.github.io/article/fname.html?fname=状态压缩技巧)
 
   * [子序列类型问题](https://labuladong.github.io/algo/)
