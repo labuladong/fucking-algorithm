@@ -7879,7 +7879,7 @@ https://leetcode.cn/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof 的�
 // by chatGPT (cpp)
 class Solution {
 public:
-    int myAtoi(string str) {
+    int strToInt(string str) {
         int n = str.length();
         int i = 0;
         // 记录正负号
