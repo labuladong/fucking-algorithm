@@ -59599,35 +59599,34 @@ https://leetcode.cn/problems/sort-characters-by-frequency 的多语言解法👇
 class Solution {
 public:
     string frequencySort(string s) {
-        char[] chars = s.toCharArray();
+        vector<char> chars(s.begin(), s.end());
         // s 中的字符 -> 该字符出现的频率
         unordered_map<char, int> charToFreq;
         for (char ch : chars) {
-            charToFreq[ch] = charToFreq[ch] + 1;
+            charToFreq[ch]++;
         }
 
-        priority_queue<pair<char, int>, vector<pair<char, int>>, function<bool(pair<char, int>, pair<char, int>)>>
-                pq([](const pair<char, int>& entry1, const pair<char, int>& entry2) -> bool {
-            // 队列按照键值对中的值（字符出现频率）从大到小排序
-            return entry2.second < entry1.second;
-        });
+        auto cmp = [](pair<char, int>& entry1, pair<char, int>& entry2) {
+            return entry1.second < entry2.second;
+        };
+        // 队列按照键值对中的值（字符出现频率）从大到小排序
+        priority_queue<pair<char, int>, vector<pair<char, int>>, decltype(cmp)> pq(cmp);
 
         // 按照字符频率排序
-        for (const auto& entry : charToFreq) {
+        for (auto& entry : charToFreq) {
             pq.push(entry);
         }
 
-        string res;
+        string res = "";
         while (!pq.empty()) {
             // 把频率最高的字符排在前面
             pair<char, int> entry = pq.top();
             pq.pop();
-            string part(entry.second, entry.first);
-            res.append(part);
+            res += string(entry.second, entry.first);
         }
 
         return res;
-    }
+        }
 };
 ```
 
