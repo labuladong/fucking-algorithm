@@ -1,0 +1,47 @@
+name: 报告错误的解法代码
+title: "[bug][这里替换为出错的编程语言] 这里替换为出错的力扣题目标识符"
+description: "反馈我的刷题全家桶中的错误。"
+labels: [ "help wanted" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        力扣题目标识符就是题目 URL 的最后一部分。比如 [https://leetcode.cn/problems/search-a-2d-matrix/](https://leetcode.cn/problems/search-a-2d-matrix/) 这道题标识符就是 `search-a-2d-matrix`。请补全 issue 题目，示例：`[bug][golang] search-a-2d-matrix`.
+
+  - type: checkboxes
+    attributes:
+      label: 请在提交 bug 之前先搜索
+      description: >
+        请先在 [issues](https://github.com/labuladong/fucking-algorithm/issues) 列表中搜索对应题目的标识符，确保你提的这个 bug 还没有被提交过。
+      options:
+        - label: >
+            我已经搜索过 [issues](https://github.com/labuladong/fucking-algorithm/issues)，没有发现相同的 bug。
+          required: true
+  - type: input
+    attributes:
+      label: 出错的题目链接
+      description: |
+        输入力扣的题目链接
+      placeholder: 例如 https://leetcode.cn/problems/search-a-2d-matrix/
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 报错信息
+      description: |
+        把出错的原因复制粘贴在这里
+      value: |
+        <!-- 把报错信息粘贴到这里 -->
+
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: 你是否愿意提交 PR 修复这个 bug？
+      description: >
+        PR 规范 [见这里](https://github.com/labuladong/fucking-algorithm/issues/1113)，欢迎成为本仓库的 contributor！
+      options:
+        - label: 我愿意！
+  - type: markdown
+    attributes:
+      value: "感谢你的支持，[labuladong 的刷题全家桶](https://labuladong.github.io/article/fname.html?fname=全家桶简介) 会因你变得越来越好！"

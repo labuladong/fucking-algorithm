@@ -1,18 +1,19 @@
-# Linux的进程、线程、文件描述符是什么
-
+---
+title: 'Linux的进程、线程、文件描述符是什么'
+---
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
 <a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://i.loli.net/2020/10/10/MhRTyUKfXZOlQYN.jpg"><img src="https://img.shields.io/badge/公众号-@labuladong-000000.svg?style=flat-square&logo=WeChat"></a>
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](../pictures/souyisou.png)
+![](https://labuladong.github.io/pictures/souyisou1.png)
 
-相关推荐：
-  * [一文解决三道区间问题](https://labuladong.gitee.io/algo/)
-  * [Union-Find算法详解](https://labuladong.gitee.io/algo/)
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.1，[手把手刷二叉树系列课程](https://aep.xet.tech/s/3YGcq3) 上线，[第 19 期刷题打卡](https://aep.xet.tech/s/32wqt4) 开始报名。另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+
+
 
 **-----------**
 
@@ -24,7 +25,7 @@ Linux 中的进程就是一个数据结构，看明白就可以理解文件描�
 
 首先，抽象地来说，我们的计算机就是这个东西：
 
-![](../pictures/linuxProcess/1.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/1.jpg)
 
 这个大的矩形表示计算机的**内存空间**，其中的小矩形代表**进程**，左下角的圆形表示**磁盘**，右下角的图形表示一些**输入输出设备**，比如鼠标键盘显示器等等。另外，注意到内存空间被划分为了两块，上半部分表示**用户空间**，下半部分表示**内核空间**。
 
@@ -55,45 +56,45 @@ struct task_struct {
 };
 ```
 
-`task_struct`就是 Linux 内核对于一个进程的描述，也可以称为「进程描述符」。源码比较复杂，我这里就截取了一小部分比较常见的。
+ `task_struct` 就是 Linux 内核对于一个进程的描述，也可以称为「进程描述符」。源码比较复杂，我这里就截取了一小部分比较常见的。
 
-其中比较有意思的是`mm`指针和`files`指针。`mm`指向的是进程的虚拟内存，也就是载入资源和可执行文件的地方；`files`指针指向一个数组，这个数组里装着所有该进程打开的文件的指针。
+其中比较有意思的是 `mm` 指针和 `files` 指针。`mm` 指向的是进程的虚拟内存，也就是载入资源和可执行文件的地方；`files` 指针指向一个数组，这个数组里装着所有该进程打开的文件的指针。
 
 ### 二、文件描述符是什么
 
-先说`files`，它是一个文件指针数组。一般来说，一个进程会从`files[0]`读取输入，将输出写入`files[1]`，将错误信息写入`files[2]`。
+先说 `files`，它是一个文件指针数组。一般来说，一个进程会从 `files[0]` 读取输入，将输出写入 `files[1]`，将错误信息写入 `files[2]`。
 
-举个例子，以我们的角度 C 语言的`printf`函数是向命令行打印字符，但是从进程的角度来看，就是向`files[1]`写入数据；同理，`scanf`函数就是进程试图从`files[0]`这个文件中读取数据。
+举个例子，以我们的角度 C 语言的 `printf` 函数是向命令行打印字符，但是从进程的角度来看，就是向 `files[1]` 写入数据；同理，`scanf` 函数就是进程试图从 `files[0]` 这个文件中读取数据。
 
-**每个进程被创建时，`files`的前三位被填入默认值，分别指向标准输入流、标准输出流、标准错误流。我们常说的「文件描述符」就是指这个文件指针数组的索引**，所以程序的文件描述符默认情况下 0 是输入，1 是输出，2 是错误。
+**每个进程被创建时，`files` 的前三位被填入默认值，分别指向标准输入流、标准输出流、标准错误流。我们常说的「文件描述符」就是指这个文件指针数组的索引**，所以程序的文件描述符默认情况下 0 是输入，1 是输出，2 是错误。
  
 我们可以重新画一幅图：
 
-![](../pictures/linuxProcess/2.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/2.jpg)
 
 对于一般的计算机，输入流是键盘，输出流是显示器，错误流也是显示器，所以现在这个进程和内核连了三根线。因为硬件都是由内核管理的，我们的进程需要通过「系统调用」让内核进程访问硬件资源。
 
-PS：不要忘了，Linux 中一切都被抽象成文件，设备也是文件，可以进行读和写。
+> note：不要忘了，Linux 中一切都被抽象成文件，设备也是文件，可以进行读和写。
 
-如果我们写的程序需要其他资源，比如打开一个文件进行读写，这也很简单，进行系统调用，让内核把文件打开，这个文件就会被放到`files`的第 4 个位置：
+如果我们写的程序需要其他资源，比如打开一个文件进行读写，这也很简单，进行系统调用，让内核把文件打开，这个文件就会被放到 `files` 的第 4 个位置：
 
-![](../pictures/linuxProcess/3.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/3.jpg)
 
-明白了这个原理，**输入重定向**就很好理解了，程序想读取数据的时候就会去`files[0]`读取，所以我们只要把`files[0]`指向一个文件，那么程序就会从这个文件中读取数据，而不是从键盘：
+明白了这个原理，**输入重定向**就很好理解了，程序想读取数据的时候就会去 `files[0]` 读取，所以我们只要把 `files[0]` 指向一个文件，那么程序就会从这个文件中读取数据，而不是从键盘：
 
 ```shell
 $ command < file.txt
 ```
 
-![](../pictures/linuxProcess/5.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/5.jpg)
 
-同理，**输出重定向**就是把`files[1]`指向一个文件，那么程序的输出就不会写入到显示器，而是写入到这个文件中：
+同理，**输出重定向**就是把 `files[1]` 指向一个文件，那么程序的输出就不会写入到显示器，而是写入到这个文件中：
 
 ```shell
 $ command > file.txt
 ```
 
-![](../pictures/linuxProcess/4.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/4.jpg)
 
 错误重定向也是一样的，就不再赘述。
 
@@ -103,9 +104,9 @@ $ command > file.txt
 $ cmd1 | cmd2 | cmd3
 ```
 
-![](../pictures/linuxProcess/6.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/6.jpg)
 
-到这里，你可能也看出「Linux 中一切皆文件」设计思路的高明了，不管是设备、另一个进程、socket 套接字还是真正的文件，全部都可以读写，统一装进一个简单的`files`数组，进程通过简单的文件描述符访问相应资源，具体细节交于操作系统，有效解耦，优美高效。
+到这里，你可能也看出「Linux 中一切皆文件」设计思路的高明了，不管是设备、另一个进程、socket 套接字还是真正的文件，全部都可以读写，统一装进一个简单的 `files` 数组，进程通过简单的文件描述符访问相应资源，具体细节交于操作系统，有效解耦，优美高效。
 
 ### 三、线程是什么
 
@@ -113,13 +114,13 @@ $ cmd1 | cmd2 | cmd3
 
 为什么说 Linux 中线程和进程基本没有区别呢，因为从 Linux 内核的角度来看，并没有把线程和进程区别对待。
 
-我们知道系统调用`fork()`可以新建一个子进程，函数`pthread()`可以新建一个线程。**但无论线程还是进程，都是用`task_struct`结构表示的，唯一的区别就是共享的数据区域不同**。
+我们知道系统调用 `fork()` 可以新建一个子进程，函数 `pthread()` 可以新建一个线程。**但无论线程还是进程，都是用 `task_struct` 结构表示的，唯一的区别就是共享的数据区域不同**。
 
-换句话说，线程看起来跟进程没有区别，只是线程的某些数据区域和其父进程是共享的，而子进程是拷贝副本，而不是共享。就比如说，`mm`结构和`files`结构在线程中都是共享的，我画两张图你就明白了：
+换句话说，线程看起来跟进程没有区别，只是线程的某些数据区域和其父进程是共享的，而子进程是拷贝副本，而不是共享。就比如说，`mm` 结构和 `files` 结构在线程中都是共享的，我画两张图你就明白了：
 
-![](../pictures/linuxProcess/7.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/7.jpg)
 
-![](../pictures/linuxProcess/8.jpg)
+![](https://labuladong.github.io/pictures/linuxProcess/8.jpg)
 
 所以说，我们的多线程程序要利用锁机制，避免多个线程同时往同一区域写入数据，否则可能造成数据错乱。
 
@@ -131,14 +132,26 @@ $ cmd1 | cmd2 | cmd3
 
 在 Linux 中新建线程和进程的效率都是很高的，对于新建进程时内存区域拷贝的问题，Linux 采用了 copy-on-write 的策略优化，也就是并不真正复制父进程的内存空间，而是等到需要写操作时才去复制。**所以 Linux 中新建进程和新建线程都是很迅速的**。
 
+
+
+<hr>
+<details>
+<summary><strong>引用本文的文章</strong></summary>
+
+ - [Linux 管道和重定向的坑](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
+ - [关于 Linux shell 你必须知道的](https://labuladong.github.io/article/fname.html?fname=linuxshell)
+
+</details><hr>
+
+
+
+
+
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**刷算法，学套路，认准 labuladong，公众号和 [在线电子书](https://labuladong.gitee.io/algo/) 持续更新最新文章**。
+**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-**本小抄即将出版，微信扫码关注公众号，后台回复「小抄」限时免费获取，回复「进群」可进刷题群一起刷题，带你搞定 LeetCode**。
+![](https://labuladong.github.io/pictures/souyisou2.png)
 
-<p align='center'>
-<img src="../pictures/qrcode.jpg" width=200 >
-</p>
 
 ======其他语言代码======
