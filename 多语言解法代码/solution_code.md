@@ -59599,35 +59599,34 @@ https://leetcode.cn/problems/sort-characters-by-frequency 的多语言解法👇
 class Solution {
 public:
     string frequencySort(string s) {
-        char[] chars = s.toCharArray();
+        vector<char> chars(s.begin(), s.end());
         // s 中的字符 -> 该字符出现的频率
         unordered_map<char, int> charToFreq;
         for (char ch : chars) {
-            charToFreq[ch] = charToFreq[ch] + 1;
+            charToFreq[ch]++;
         }
 
-        priority_queue<pair<char, int>, vector<pair<char, int>>, function<bool(pair<char, int>, pair<char, int>)>>
-                pq([](const pair<char, int>& entry1, const pair<char, int>& entry2) -> bool {
-            // 队列按照键值对中的值（字符出现频率）从大到小排序
-            return entry2.second < entry1.second;
-        });
+        auto cmp = [](pair<char, int>& entry1, pair<char, int>& entry2) {
+            return entry1.second < entry2.second;
+        };
+        // 队列按照键值对中的值（字符出现频率）从大到小排序
+        priority_queue<pair<char, int>, vector<pair<char, int>>, decltype(cmp)> pq(cmp);
 
         // 按照字符频率排序
-        for (const auto& entry : charToFreq) {
+        for (auto& entry : charToFreq) {
             pq.push(entry);
         }
 
-        string res;
+        string res = "";
         while (!pq.empty()) {
             // 把频率最高的字符排在前面
             pair<char, int> entry = pq.top();
             pq.pop();
-            string part(entry.second, entry.first);
-            res.append(part);
+            res += string(entry.second, entry.first);
         }
 
         return res;
-    }
+        }
 };
 ```
 
@@ -67672,6 +67671,146 @@ class Codec:
 ```
 
 https://leetcode.cn/problems/xu-lie-hua-er-cha-shu-lcof 的多语言解法👆
+
+https://leetcode.cn/problems/xx4gT2 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int left = 0, right = 0;
+        // 维护窗口内元素之和
+        int windowSum = 0;
+        int res = INT_MAX;
+
+        while (right < nums.size()) {
+            // 扩大窗口
+            windowSum += nums[right];
+            right++;
+            while (windowSum >= target && left < right) {
+                // 已经达到 target，缩小窗口，同时更新答案
+                res = min(res, right - left);
+                windowSum -= nums[left];
+                left++;
+            }
+        }
+        return res == INT_MAX ? 0 : res;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+import (
+	"fmt"
+	"math"
+)
+
+func minSubArrayLen(target int, nums []int) int {
+    left, right := 0, 0
+    // 维护窗口内元素之和
+    windowSum := 0
+    res := math.MaxInt64
+
+    for right < len(nums) {
+        // 扩大窗口
+        windowSum += nums[right]
+        right++
+        for windowSum >= target && left < right {
+            // 已经达到 target，缩小窗口，同时更新答案
+            res = min(res, right - left)
+            windowSum -= nums[left]
+            left++
+        }
+    }
+    if res == math.MaxInt64 {
+        return 0
+    }
+    return res
+}
+
+// 获取两个整数的最小值
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // 小顶堆，堆顶是最小元素
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int e : nums) {
+            // 每个元素都要过一遍二叉堆
+            pq.offer(e);
+            // 堆中元素多于 k 个时，删除堆顶元素
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+        // pq 中剩下的是 nums 中 k 个最大元素，
+        // 堆顶是最小的那个，即第 k 个最大元素
+        return pq.peek();
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSubArrayLen = function(target, nums) {
+    var left = 0, right = 0;
+    // 维护窗口内元素之和
+    var windowSum = 0;
+    var res = Number.MAX_SAFE_INTEGER;
+
+    while (right < nums.length) {
+        // 扩大窗口
+        windowSum += nums[right];
+        right++;
+        while (windowSum >= target && left < right) {
+            // 已经达到 target，缩小窗口，同时更新答案
+            res = Math.min(res, right - left);
+            windowSum -= nums[left];
+            left++;
+        }
+    }
+    return res == Number.MAX_SAFE_INTEGER ? 0 : res;
+};
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        left = 0
+        right = 0
+        # 维护窗口内元素之和
+        windowSum = 0
+        res = sys.maxsize
+
+        while right < len(nums):
+            # 扩大窗口
+            windowSum += nums[right]
+            right += 1
+            while windowSum >= target and left < right:
+                # 已经达到 target，缩小窗口，同时更新答案
+                res = min(res, right - left)
+                windowSum -= nums[left]
+                left += 1
+        return res if res != sys.maxsize else 0
+```
+
+https://leetcode.cn/problems/xx4gT2 的多语言解法👆
 
 https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof 的多语言解法👇
 
