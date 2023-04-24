@@ -29555,7 +29555,9 @@ public:
         q.push(q.front());
         q.pop();
         // 删除之前的队尾元素
-        return q.front();
+        int tmp=q.front();
+        q.pop();
+        return tmp;
     }
 
     /**
