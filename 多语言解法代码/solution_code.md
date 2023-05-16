@@ -28992,6 +28992,22 @@ var rob = function(root) {
 };
 ```
 
+```typescript
+function rob(root: TreeNode | null): number {
+    const traverse = (node: TreeNode | null): number[] => {
+        if (!node) { return [0, 0] }
+        let dp: number[] = [0, 0]
+        let leftdp = traverse(node.left)
+        let rightdp = traverse(node.right)
+        dp[0] = Math.max(leftdp[0], leftdp[1]) + Math.max(rightdp[0], rightdp[1])
+        dp[1] = leftdp[0] + rightdp[0] + node.val
+        return dp
+    }
+    let [res1, res2] = traverse(root)
+    return Math.max(res1, res2)
+};
+```
+
 ```python
 # by chatGPT (python)
 class Solution:
