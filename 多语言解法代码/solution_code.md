@@ -2000,7 +2000,7 @@ var evalRPN = function(tokens) {
 ```python
 # by chatGPT (python)
 class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
+    def evalRPN(self, tokens):
         stk = []
         for token in tokens:
             if token in "+-*/":
@@ -2014,7 +2014,7 @@ class Solution:
                 elif token == "*":
                     stk.append(a * b)
                 else: # token == "/"
-                    stk.append(int(b / a))
+                    stk.append(int(float(b) / a))
             else:
                 # 是个数字，直接入栈即可
                 stk.append(int(token))
