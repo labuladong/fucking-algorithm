@@ -26418,8 +26418,9 @@ class Solution:
         for v in nums:
             valToFreq[v] = valToFreq.get(v, 0) + 1
 
-        # 优先队列按照键值对中的值（元素出现频率）从小到大排序
-        pq = [(freq, val) for val, freq in valToFreq.items()]
+        # 二叉堆按照键值对中的值（元素出现频率的负值）从小到大排列
+        # 从二叉堆中pop出来的就是频率最大的键 （频率越大，负值越小）
+        pq = [(-freq, val) for val, freq in valToFreq.items()]
         heapq.heapify(pq)
 
         # 将前 k 个最大元素装入 res
