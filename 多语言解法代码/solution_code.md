@@ -779,26 +779,27 @@ class Solution {
 var uniquePaths = function(m, n) {
     // 备忘录
     let memo = new Array(m).fill().map(() => new Array(n).fill(0));
-    return dp(m - 1, n - 1);
-};
 
-// 定义：从 (0, 0) 到 (x, y) 有 dp(x, y) 条路径
-var dp = function(x, y) {
-    // base case
-    if (x === 0 && y === 0) {
-        return 1;
-    }
-    if (x < 0 || y < 0) {
-        return 0;
-    }
-    // 避免冗余计算
-    if (memo[x][y] > 0) {
+    // 定义：从 (0, 0) 到 (x, y) 有 dp(x, y) 条路径
+    var dp = function(x, y) {
+        // base case
+        if (x === 0 && y === 0) {
+            return 1;
+        }
+        if (x < 0 || y < 0) {
+            return 0;
+        }
+        // 避免冗余计算
+        if (memo[x][y] > 0) {
+            return memo[x][y];
+        }
+        // 状态转移方程：
+        // 到达 (x, y) 的路径数等于到达 (x - 1, y) 和 (x, y - 1) 路径数之和
+        memo[x][y] = dp(x - 1, y) + dp(x, y - 1);
         return memo[x][y];
-    }
-    // 状态转移方程：
-    // 到达 (x, y) 的路径数等于到达 (x - 1, y) 和 (x, y - 1) 路径数之和
-    memo[x][y] = dp(x - 1, y) + dp(x, y - 1);
-    return memo[x][y];
+    };
+
+    return dp(m - 1, n - 1);
 };
 ```
 
@@ -9625,23 +9626,23 @@ class Solution {
  * @return {TreeNode}
  */
 var bstToGst = function(root) {
+  let sum = 0;
+  
+  const traverse = function(root) {
+    if (root == null) {
+      return;
+    }
+    traverse(root.right);
+    // 维护累加和
+    sum += root.val;
+    // 将 BST 转化成累加树
+    root.val = sum;
+    traverse(root.left);
+  }
+  
   traverse(root);
   return root;
-}
-
-// 记录累加和
-let sum = 0;
-let traverse = function(root) {
-  if (root === null) {
-    return;
-  }
-  traverse(root.right);
-  // 维护累加和
-  sum += root.val;
-  // 将 BST 转化成累加树
-  root.val = sum;
-  traverse(root.left);
-}
+};
 ```
 
 ```python
@@ -9796,45 +9797,35 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
-/**
- * 动态规划思路
- * 定义：输入一个节点，返回以该节点为根的二叉树的中序遍历结果
- */
 var inorderTraversal = function(root) {
-    const res = [];
-    if (!root) {
+    let res = new LinkedList();
+    if (root === null) {
         return res;
     }
-    res.push(...inorderTraversal(root.left));
-    res.push(root.val);
-    res.push(...inorderTraversal(root.right));
+    res.addAll(inorderTraversal(root.left));
+    res.add(root.val);
+    res.addAll(inorderTraversal(root.right));
     return res;
 };
 
-/**
- * 回溯算法思路
- */
-const res = [];
-
-/**
- * 返回前序遍历结果
- */
 var inorderTraversal2 = function(root) {
+    let res = new LinkedList();
+    if (root === null) {
+        return res;
+    }
+    
     traverse(root);
     return res;
 };
 
-/**
- * 二叉树遍历函数
- */
-function traverse(root) {
-    if (!root) {
+const traverse = function(root, res) {
+    if (root === null) {
         return;
     }
-    traverse(root.left);
+    traverse(root.left, res);
     // 中序遍历位置
-    res.push(root.val);
-    traverse(root.right);
+    res.add(root.val);
+    traverse(root.right, res);
 }
 ```
 
@@ -14853,69 +14844,39 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
-/**
- * 存储 inorder 中值到索引的映射
- */
-let valToIndex = new Map();
+var buildTree = function(preorder, inorder) {
+    // 存储 inorder 中值到索引的映射
+    var valToIndex = new Map();
+    for (var i = 0; i < inorder.length; i++) {
+        valToIndex.set(inorder[i], i);
+    }
+    return build(preorder, 0, preorder.length - 1,
+                inorder, 0, inorder.length - 1);
+};
 
-/**
- * 定义：前序遍历数组为 preorder[preStart..preEnd]，
- * 中序遍历数组为 inorder[inStart..inEnd]，
- * 构造这个二叉树并返回该二叉树的根节点
- */
-function build(preorder, preStart, preEnd, inorder, inStart, inEnd) {
-  if (preStart > preEnd) {
-    return null;
-  }
-
-  // root 节点对应的值就是前序遍历数组的第一个元素
-  const rootVal = preorder[preStart];
-  // rootVal 在中序遍历数组中的索引
-  const index = valToIndex.get(rootVal);
-
-  const leftSize = index - inStart;
-
-  // 先构造出当前根节点
-  const root = new TreeNode(rootVal);
-
-  // 递归构造左右子树
-  root.left = build(
-    preorder,
-    preStart + 1,
-    preStart + leftSize,
-    inorder,
-    inStart,
-    index - 1
-  );
-
-  root.right = build(
-    preorder,
-    preStart + leftSize + 1,
-    preEnd,
-    inorder,
-    index + 1,
-    inEnd
-  );
-  return root;
-}
-
-/**
- * @param {number[]} preorder
- * @param {number[]} inorder
- * @return {TreeNode}
- */
-var buildTree = function (preorder, inorder) {
-  for (let i = 0; i < inorder.length; i++) {
-    valToIndex.set(inorder[i], i);
-  }
-  return build(
-    preorder,
-    0,
-    preorder.length - 1,
-    inorder,
-    0,
-    inorder.length - 1
-  );
+/*
+   定义：前序遍历数组为 preorder[preStart..preEnd]，
+   中序遍历数组为 inorder[inStart..inEnd]，
+   构造这个二叉树并返回该二叉树的根节点
+*/
+var build = function(preorder, preStart, preEnd,
+               inorder, inStart, inEnd) {
+    if (preStart > preEnd) {
+        return null;
+    }
+    // root 节点对应的值就是前序遍历数组的第一个元素
+    var rootVal = preorder[preStart];
+    // rootVal 在中序遍历数组中的索引
+    var index = valToIndex.get(rootVal);
+    var leftSize = index - inStart;
+    // 先构造出当前根节点
+    var root = new TreeNode(rootVal);
+    // 递归构造左右子树
+    root.left = build(preorder, preStart + 1, preStart + leftSize,
+            inorder, inStart, index - 1);
+    root.right = build(preorder, preStart + leftSize + 1, preEnd,
+            inorder, index + 1, inEnd);
+    return root;
 };
 ```
 
@@ -15418,24 +15379,21 @@ class Solution {
  * @return {TreeNode}
  */
 var convertBST = function(root) {
+    // 记录累加和
+    let sum = 0;
+    // 中序遍历节点
+    const traverse = function(node) {
+        if (!node) {
+            return;
+        }
+        traverse(node.right);  // 先遍历右子树
+        sum += node.val;  // 维护累加和
+        node.val = sum;  // 将 BST 节点的值更新为累加和
+        traverse(node.left);  // 遍历左子树
+    }
     traverse(root);
     return root;
 };
-
-// 记录累加和
-let sum = 0;
-
-function traverse(root) {
-    if (root === null) {
-        return;
-    }
-    traverse(root.right);
-    // 维护累加和
-    sum += root.val;
-    // 将 BST 转化成累加树
-    root.val = sum;
-    traverse(root.left);
-}
 ```
 
 ```python
@@ -17369,7 +17327,7 @@ var canFinish = function(numCourses, prerequisites) {
         if (onPath[s]) {
             // 出现环
             hasCycle = true;
-            /*<extend up -150>
+            /**<extend up -150>
             ![](../pictures/拓扑排序/4.jpeg)
             */
             return;
@@ -23965,16 +23923,15 @@ var left_bound = function(nums, target) {
   // 检查出界情况
   if (left >= nums.length || nums[left] !== target) {
     /**<extend up -300>
-        ![](../pictures/二分查找/2.jpg)
-        */
-    return [-1, -1];
+    ![](../pictures/二分查找/2.jpg)
+    */
+    return -1;
   }
   return left;
 };
 
 var right_bound = function(nums, target) {
-  let left = 0,
-    right = nums.length - 1;
+  let left = 0,right = nums.length - 1;
   while (left <= right) {
     let mid = left + Math.floor((right - left) / 2);
     if (nums[mid] < target) {
@@ -23989,9 +23946,9 @@ var right_bound = function(nums, target) {
   // 这里改为检查 right 越界的情况，见下图
   if (right < 0 || nums[right] !== target) {
     /**<extend up -300>
-        ![](../pictures/二分查找/4.jpg)
-        */
-    return [-1, -1];
+    ![](../pictures/二分查找/4.jpg)
+    */
+    return -1;
   }
   return right;
 };
@@ -26038,60 +25995,67 @@ class Solution2 {
 
 ```javascript
 // by chatGPT (javascript)
-/**
- * @param {Node} head
- * @return {Node}
- */
 var copyRandomList = function(head) {
     const originToClone = new Map();
+
     // 第一次遍历，先把所有节点克隆出来
-    for (let p = head; p !== null; p = p.next) {
+    for (let p = head; p != null; p = p.next) {
         if (!originToClone.has(p)) {
             originToClone.set(p, new Node(p.val));
         }
     }
+
     // 第二次遍历，把克隆节点的结构连接好
-    for (let p = head; p !== null; p = p.next) {
-        if (p.next !== null) {
+    for (let p = head; p != null; p = p.next) {
+        if (p.next != null) {
             originToClone.get(p).next = originToClone.get(p.next);
         }
-        if (p.random !== null) {
+        if (p.random != null) {
             originToClone.get(p).random = originToClone.get(p.random);
         }
     }
+
     // 返回克隆之后的头结点
     return originToClone.get(head);
 };
 
+// 用递归的方式进行遍历
 var copyRandomList2 = function(head) {
+    const visited = new Set();
+    const originToClone = new Map();
+
+    // DFS 图遍历框架
+    const traverse = (node) => {
+        if (node == null) {
+            return;
+        }
+        if (visited.has(node)) {
+            return;
+        }
+
+        // 前序位置，标记为已访问
+        visited.add(node);
+
+        // 前序位置，克隆节点
+        if (!originToClone.has(node)) {
+            originToClone.set(node, new Node(node.val));
+        }
+
+        const cloneNode = originToClone.get(node);
+
+        // 递归遍历邻居节点，并构建克隆图
+        // 递归之后，邻居节点一定存在 originToClone 中
+
+        traverse(node.next);
+        cloneNode.next = originToClone.get(node.next);
+
+        traverse(node.random);
+        cloneNode.random = originToClone.get(node.random);
+    };
+
     traverse(head);
     return originToClone.get(head);
 };
-
-const visited = new Set();
-const originToClone = new Map();
-
-// DFS 图遍历框架
-function traverse(node) {
-    if (node === null || visited.has(node)) {
-        return;
-    }
-    // 前序位置，标记为已访问
-    visited.add(node);
-    // 前序位置，克隆节点
-    if (!originToClone.has(node)) {
-        originToClone.set(node, new Node(node.val));
-    }
-    const cloneNode = originToClone.get(node);
-
-    // 递归遍历邻居节点，并构建克隆图
-    // 递归之后，邻居节点一定存在 originToClone 中
-    traverse(node.next);
-    cloneNode.next = originToClone.get(node.next);
-
-    traverse(node.random);
-    cloneNode.random = originToClone.get(node.random);
-}
 ```
 
 ```python
@@ -28352,12 +28316,6 @@ var mergeTwoLists = function(l1, l2) {
 
 ```python
 # by chatGPT (python)
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         # 虚拟头结点
@@ -37039,12 +36997,12 @@ func traverse(root *TreeNode, depth *int, res *int) {
 }
 
 /***** 解法二，动态规划思路 *****/
-func maxDepth(root *TreeNode) int {
+func maxDepth2(root *TreeNode) int {
     if root == nil {
         return 0
     }
-    leftMax := maxDepth(root.Left)
-    rightMax := maxDepth(root.Right)
+    leftMax := maxDepth2(root.Left)
+    rightMax := maxDepth2(root.Right)
     // 根据左右子树的最大深度推出原二叉树的最大深度
     return 1 + max(leftMax, rightMax)
 }
@@ -37107,55 +37065,42 @@ class Solution2 {
 /**
  * 解法一，回溯算法思路
  */
-var Solution = function() {
-  let depth = 0;
-  let res = 0;
+function maxDepth(root) {
+    let depth = 0;
+    let res = 0;
+    // 遍历二叉树
+    function traverse(root) {
+        if (root === null) {
+        return;
+        }
 
-  function maxDepth(root) {
+        // 前序遍历位置
+        depth++;
+        // 遍历的过程中记录最大深度
+        res = Math.max(res, depth);
+        traverse(root.left);
+        traverse(root.right);
+        // 后序遍历位置
+        depth--;
+    }
     traverse(root);
     return res;
-  }
-
-  // 遍历二叉树
-  function traverse(root) {
-    if (root === null) {
-      return;
-    }
-
-    // 前序遍历位置
-    depth++;
-    // 遍历的过程中记录最大深度
-    res = Math.max(res, depth);
-    traverse(root.left);
-    traverse(root.right);
-    // 后序遍历位置
-    depth--;
-  }
-
-  return {
-    maxDepth,
-  };
-};
+}
 
 /**
  * 解法二，动态规划思路
  */
-var Solution2 = function() {
-  // 定义：输入一个节点，返回以该节点为根的二叉树的最大深度
-  function maxDepth(root) {
+
+// 定义：输入一个节点，返回以该节点为根的二叉树的最大深度
+function maxDepth2(root) {
     if (root === null) {
-      return 0;
+        return 0;
     }
-    const leftMax = maxDepth(root.left);
-    const rightMax = maxDepth(root.right);
+    const leftMax = maxDepth2(root.left);
+    const rightMax = maxDepth2(root.right);
     // 根据左右子树的最大深度推出原二叉树的最大深度
     return 1 + Math.max(leftMax, rightMax);
-  }
-
-  return {
-    maxDepth,
-  };
-};
+}
 ```
 
 ```python
@@ -37263,29 +37208,28 @@ func maxDepth(root *Node) int {
 
 // 遍历的思路
 func maxDepth(root *Node) int {
-    traverse(root)
+    // 记录递归遍历到的深度
+    depth := 0
+    // 记录最大的深度
+    res := 0
+    
+    traverse(root, &depth, &res)
     return res
 }
 
-// 记录递归遍历到的深度
-var depth = 0
-// 记录最大的深度
-var res = 0
-
-func traverse(root *Node) {
+func traverse(root *Node, depth *int, res *int) {
     if root == nil {
         return
     }
     // 前序遍历位置
-    depth++
-    res = max(res, depth)
+    (*depth)++
+    *res = max(*res, *depth)
 
     for _, child := range root.Children {
-        traverse(child)
+        traverse(child, depth, res)
     }
-
     // 后序遍历位置
-    depth--
+    (*depth)--
 }
 
 func max(a, b int) int {
@@ -40451,9 +40395,8 @@ var minDepth = function(root) {
     var depth = 1;
 
     while (q.length !== 0) {
-        /** 
-         * extend down -200>
-         * ![](../pictures/dijkstra/1.jpeg)
+        /** <extend down -200>
+         ![](../pictures/dijkstra/1.jpeg)
          */
         var sz = q.length;
         /* 遍历当前层的节点 */
@@ -47094,65 +47037,66 @@ class Solution {
 ```javascript
 // by chatGPT (javascript)
 var canPartitionKSubsets = function(nums, k) {
+    let memo = new Map();
+    
+    function backtrack(k, bucket, nums, start, used, target) {  
+        // base case
+        if (k == 0) {
+            // 所有桶都被装满了，而且 nums 一定全部用完了
+            return true;
+        }
+        if (bucket == target) {
+            // 装满了当前桶，递归穷举下一个桶的选择
+            // 让下一个桶从 nums[0] 开始选数字
+            let res = backtrack(k - 1, 0, nums, 0, used, target);
+            // 缓存结果
+            memo.set(used, res);
+            return res;
+        }
+
+        if (memo.has(used)) {
+            // 避免冗余计算
+            return memo.get(used);
+        }
+
+        for (let i = start; i < nums.length; i++) {
+            // 剪枝
+            if (((used >> i) & 1) == 1) { // 判断第 i 位是否是 1
+                // nums[i] 已经被装入别的桶中
+                continue;
+            }
+            if (nums[i] + bucket > target) {
+                continue;
+            }
+            // 做选择
+            let newUsed = used | (1 << i); // 将第 i 位置为 1
+            let newBucket = bucket + nums[i];
+            /**<extend down -200>
+            ![](../pictures/集合划分/5.jpeg)
+            */
+            // 递归穷举下一个数字是否装入当前桶
+            if (backtrack(k, newBucket, nums, i + 1, newUsed, target)) {
+                return true;
+            }
+            // 撤销选择
+            newUsed ^= (1 << i); // 将第 i 位置为 0
+            newBucket -= nums[i];
+        }
+
+        memo.set(used, false);
+        return false;
+    }
+
     // 排除一些基本情况
     if (k > nums.length) return false;
     let sum = 0;
     for (let v of nums) sum += v;
-    if (sum % k !== 0) return false;
+    if (sum % k != 0) return false;
 
     let used = 0; // 使用位图技巧
     let target = sum / k;
     // k 号桶初始什么都没装，从 nums[0] 开始做选择
     return backtrack(k, 0, nums, 0, used, target);
-};
-
-const memo = new Map();
-function backtrack(k, bucket, nums, start, used, target) {
-    if (k === 0) {
-        // 所有桶都被装满了，而且 nums 一定全部用完了
-        return true;
-    }
-    if (bucket === target) {
-        // 装满了当前桶，递归穷举下一个桶的选择
-        // 让下一个桶从 nums[0] 开始选数字
-        const key = used;
-        if (memo.has(key)) {
-            return memo.get(key);
-        }
-        const res = backtrack(k - 1, 0, nums, 0, used, target);
-        // 缓存结果
-        memo.set(key, res);
-        return res;
-    }
-
-    if (memo.has(used)) {
-        // 避免冗余计算
-        return memo.get(used);
-    }
-
-    for (let i = start; i < nums.length; i++) {
-        // 剪枝
-        if (((used >> i) & 1) === 1) { // 判断第 i 位是否是 1
-            // nums[i] 已经被装入别的桶中
-            continue;
-        }
-        if (nums[i] + bucket > target) {
-            continue;
-        }
-        // 做选择
-        used |= 1 << i; // 将第 i 位置为 1
-        bucket += nums[i];
-
-        // 递归穷举下一个数字是否装入当前桶
-        if (backtrack(k, bucket, nums, i + 1, used, target)) {
-            return true;
-        }
-        // 撤销选择
-        used ^= 1 << i; // 将第 i 位置为 0
-        bucket -= nums[i];
-    }
-
-    return false;
 };
 ```
 
@@ -48217,153 +48161,6 @@ class Solution {
             this.y = y;
             this.effortFromStart = effortFromStart;
         }
-    }
-}
-```
-
-```javascript
-// by chatGPT (javascript)
-var minimumEffortPath = function(heights) {
-    let m = heights.length, n = heights[0].length;
-    // 定义：从 (0, 0) 到 (i, j) 的最小体力消耗是 effortTo[i][j]
-    let effortTo = new Array(m).fill().map(() => new Array(n).fill(Number.MAX_VALUE));
-    // dp table 初始化为正无穷
-    for(let i = 0; i < m; i++) {
-        effortTo[i].fill(Number.MAX_VALUE);
-    }
-    // base case，起点到起点的最小消耗就是 0
-    effortTo[0][0] = 0;
-    // 从起点 (0, 0) 开始进行 BFS
-    let pq = new PriorityQueue((a, b) => {
-        return a.effortFromStart - b.effortFromStart;
-    });
-    // 优先级队列，effortFromStart 较小的排在前面
-    pq.offer(new State(0, 0, 0));
-    while(!pq.isEmpty()) {
-        let curState = pq.poll();
-        let curX = curState.x;
-        let curY = curState.y;
-        let curEffortFromStart = curState.effortFromStart;
-
-        // 到达终点提前结束
-        if(curX === m - 1 && curY === n - 1) {
-            return curEffortFromStart;
-        }
-
-        if(curEffortFromStart > effortTo[curX][curY]) {
-            continue;
-        }
-        // 将 (curX, curY) 的相邻坐标装入队列
-        let neighbors = adj(heights, curX, curY);
-        for(let i = 0; i < neighbors.length; i++){
-            let neighbor = neighbors[i];
-            let nextX = neighbor[0];
-            let nextY = neighbor[1];
-            // 计算从 (curX, curY) 达到 (nextX, nextY) 的消耗
-            let effortToNextNode = Math.max(
-                effortTo[curX][curY],
-                Math.abs(heights[curX][curY] - heights[nextX][nextY])
-            );
-            // 更新 dp table
-            if(effortTo[nextX][nextY] > effortToNextNode) {
-                effortTo[nextX][nextY] = effortToNextNode;
-                pq.offer(new State(nextX, nextY, effortToNextNode));
-            }
-        }
-    }
-    // 正常情况不会达到这个 return
-    return -1;
-}
-
-// 方向数组，上下左右的坐标偏移量
-let dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
-
-// 返回坐标 (x, y) 的上下左右相邻坐标
-let adj = (matrix, x, y) => {
-    let m = matrix.length, n = matrix[0].length;
-    // 存储相邻节点
-    let neighbors = [];
-    for(let i = 0; i < dirs.length; i++) {
-        let dir = dirs[i];
-        let nx = x + dir[0];
-        let ny = y + dir[1];
-        if(nx >= m || nx < 0 || ny >= n || ny < 0) {
-            // 索引越界
-            continue;
-        }
-        neighbors.push([nx, ny]);
-    }
-    return neighbors;
-}
-
-class PriorityQueue {
-    constructor(fn) {
-        this.heap = [];
-        this.cmp = fn || ((a, b) => {
-            return a - b;
-        });
-    }
-    size() {
-        return this.heap.length;
-    }
-    isEmpty() {
-        return this.size() === 0;
-    }
-    offer(...values) {
-        values.forEach((value) => {
-            this.heap.push(value);
-            this.up(this.size() - 1);
-        });
-    }
-    poll() {
-        if(this.isEmpty()) {
-            return null;
-        }
-        const top = this.heap[0];
-        this.swap(0, this.size() - 1);
-        this.heap.pop();
-        this.down(0);
-        return top;
-    }
-    up(index) {
-        let parent = (index - 1) >>> 1;
-        while(index > 0 && this.cmp(this.heap[index], this.heap[parent]) < 0) {
-            this.swap(index, parent);
-            index = parent;
-            parent = (index - 1) >>> 1;
-        }
-    }
-    down(index) {
-        let left = (index << 1) + 1;
-        let right = (index << 1) + 2;
-        let minComparator = index;
-        if(left < this.size() && this.cmp(this.heap[left], this.heap[minComparator]) < 0) {
-            minComparator = left;
-        }
-        if(right < this.size() && this.cmp(this.heap[right], this.heap[minComparator]) < 0) {
-            minComparator = right;
-        }
-        if(minComparator !== index) {
-            this.swap(index, minComparator);
-            this.down(minComparator);
-        }
-    }
-    peek() {
-        return this.isEmpty() ? null : this.heap[0];
-    }
-    swap(i, j) {
-        const temp = this.heap[i];
-        this.heap[i] = this.heap[j];
-        this.heap[j] = temp;
-    }
-}
-
-class State {
-    // 矩阵中的一个位置
-    constructor(x, y, effortFromStart) {
-        this.x = x;
-        this.y = y;
-        this.effortFromStart = effortFromStart;
     }
 }
 ```
@@ -51319,6 +51116,60 @@ public:
 };
 ```
 
+```go
+// by chatGPT (go)
+type Solution struct {
+    m, n int
+    // 抽象一维数组的长度
+    len int
+    // 已删除元素到尾部未删除元素的映射
+    deletedToExist map[int]int
+    // 这个 deletedToExist 存的到底是什么呢？举个例子你就明白了：
+    // 假设数组 [1,2,3,4,5]，我第一次随机选择了元素 2，
+    // 然后我就会在 deletedToExist 记录一个映射 2 -> 5，并删除最后的元素 5
+    // 现在数组是 [1,2,3,4]，我第二次随机选择又选到了 2，
+    // 但不能重复选择同一个元素，所以我选择 5，因为 deletedToExist[2] = 5
+    // 然后我再更新 deletedToExist，记录 2 -> 4 并删除最后的元素 4
+    // 以此类推，这样就能保证随机选择到相同的元素时也能等概率地返回不同的元素
+    random *rand.Rand
+}
+
+func Constructor(m int, n int) Solution {
+    return Solution{
+        m:              m,
+        n:              n,
+        len:            m * n,
+        deletedToExist: make(map[int]int),
+        random:         rand.New(rand.NewSource(time.Now().Unix())),
+    }
+}
+
+func (this *Solution) Flip() []int {
+    rand := this.random.Intn(this.len)
+    // 这个随机数可能已经被删掉了（刚才已经被选过）
+    res := rand
+    if val, ok := this.deletedToExist[rand]; ok {
+        res = val
+    }
+    // 把 rand 置换到数组尾部
+    last := this.len - 1
+    // 尾部的那个元素也可能已经被删掉了
+    if val, ok := this.deletedToExist[last]; ok {
+        last = val
+    }
+    this.deletedToExist[rand] = last
+    // 把尾部的这个元素删掉
+    this.len--
+    // 一维坐标转化成二维坐标
+    return []int{res / this.n, res % this.n}
+}
+
+func (this *Solution) Reset() {
+    this.len = this.m * this.n
+    this.deletedToExist = make(map[int]int)
+}
+```
+
 ```java
 // by labuladong (java)
 class Solution {
@@ -54067,33 +53918,30 @@ class Solution {
 ```javascript
 // by chatGPT (javascript)
 var reverseBetween = function(head, m, n) {
+    let successor = null;
+    // 反转以 head 为起点的 n 个节点，返回新的头结点
+    const reverseN = function(head, n) {
+        if (n == 1) {
+            // 记录第 n + 1 个节点
+            successor = head.next;
+            return head;
+        }
+        const last = reverseN(head.next, n - 1);
+        head.next.next = head;
+        // 让反转之后的 head 节点和后面的节点连起来
+        head.next = successor;
+        return last;
+        /**<extend up -90>
+        ![](../pictures/反转链表/7.jpg)
+        */
+    };
     // base case
-    if (m === 1) {
+    if (m == 1) {
         return reverseN(head, n);
     }
     // 前进到反转的起点触发 base case
     head.next = reverseBetween(head.next, m - 1, n - 1);
     return head;
-};
-
-let successor = null; // 后驱节点
-// 反转以 head 为起点的 n 个节点，返回新的头结点
-const reverseN = (head, n) => {
-    if (n === 1) {
-        // 记录第 n + 1 个节点
-        successor = head.next;
-        return head;
-    }
-    // 以 head.next 为起点，需要反转前 n - 1 个节点
-    const last = reverseN(head.next, n - 1);
-
-    head.next.next = head;
-    // 让反转之后的 head 节点和后面的节点连起来
-    head.next = successor;
-    return last;
-    /**<extend up -90>
-    ![](../pictures/反转链表/7.jpg)
-    */
 };
 ```
 
@@ -59629,7 +59477,7 @@ public:
         }
 
         return res;
-        }
+    }
 };
 ```
 
@@ -62077,36 +61925,42 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var findTargetSumWays = function(nums, target) {
-    if (nums.length == 0) return 0;
-    return dp(nums, 0, target);
-};
+// 传入一个整数数组和目标值target，求有多少种方法使得数组中的元素之和为target，每个元素可以选择加或者减
+var findTargetSumWays = function (nums, target) {
+  // 数组长度为0直接返回0
+  if (nums.length === 0) return 0;
 
-// 备忘录
-const memo = new Map();
+  // 备忘录哈希表，记录已经计算过的子问题的结果，避免重复计算
+  const memo = new Map();
 
-var dp = function(nums, i, remain) {
-    // base case
-    if (i == nums.length) {
-        if (remain == 0) return 1;
-        return 0;
+  // 递归函数
+  const dp = (nums, i, remain) => {
+    // 如果已经遍历到了数组的末尾，判断remain是否等于0，如果等于0则返回1，否则返回0
+    if (i === nums.length) {
+      if (remain === 0) return 1;
+      return 0;
     }
-    // 把它俩转成字符串才能作为哈希表的键
+
+    // 用i和remain作为键，判断是否已经计算过这个子问题，如果已经计算，则直接返回结果，否则继续计算
     const key = i + "," + remain;
-    // 避免重复计算
+
     if (memo.has(key)) {
-        return memo.get(key);
+      return memo.get(key);
     }
-    // 还是穷举
-    let result = dp(nums, i + 1, remain - nums[i]) + dp(nums, i + 1, remain + nums[i]);
-    // 记入备忘录
+
+    // 分别递归计算加上和减去当前元素后能够得到目标值的方案数量，相加得到当前子问题的解
+    const result =
+      dp(nums, i + 1, remain - nums[i]) + dp(nums, i + 1, remain + nums[i]);
+
+    // 把计算结果存入备忘录
     memo.set(key, result);
+
+    // 返回当前子问题的解
     return result;
+  };
+
+  // 从0开始遍历数组，计算从每个索引开始的子问题，最终得到问题的解
+  return dp(nums, 0, target);
 };
 ```
 
@@ -67681,64 +67535,58 @@ https://leetcode.cn/problems/xx4gT2 的多语言解法👇
 // by chatGPT (cpp)
 class Solution {
 public:
-    int minSubArrayLen(int target, vector<int>& nums) {
-        int left = 0, right = 0;
-        // 维护窗口内元素之和
-        int windowSum = 0;
-        int res = INT_MAX;
-
-        while (right < nums.size()) {
-            // 扩大窗口
-            windowSum += nums[right];
-            right++;
-            while (windowSum >= target && left < right) {
-                // 已经达到 target，缩小窗口，同时更新答案
-                res = min(res, right - left);
-                windowSum -= nums[left];
-                left++;
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> pq; // 小顶堆，堆顶是最小元素
+        for (auto e : nums) {
+            // 每个元素都要过一遍二叉堆
+            pq.push(e);
+            // 堆中元素多于 k 个时，删除堆顶元素
+            if (pq.size() > k) {
+                pq.pop();
             }
         }
-        return res == INT_MAX ? 0 : res;
+        // pq 中剩下的是 nums 中 k 个最大元素，
+        // 堆顶是最小的那个，即第 k 个最大元素
+        return pq.top();
     }
 };
 ```
 
 ```go
 // by chatGPT (go)
-import (
-	"fmt"
-	"math"
-)
+import "container/heap"
 
-func minSubArrayLen(target int, nums []int) int {
-    left, right := 0, 0
-    // 维护窗口内元素之和
-    windowSum := 0
-    res := math.MaxInt64
-
-    for right < len(nums) {
-        // 扩大窗口
-        windowSum += nums[right]
-        right++
-        for windowSum >= target && left < right {
-            // 已经达到 target，缩小窗口，同时更新答案
-            res = min(res, right - left)
-            windowSum -= nums[left]
-            left++
+func findKthLargest(nums []int, k int) int {
+    pq := &minHeap{}
+    heap.Init(pq)
+    for _, e := range nums {
+        // 每个元素都要过一遍小根堆
+        heap.Push(pq, e)
+        // 堆中元素多于 k 个时，删除堆顶元素
+        if pq.Len() > k {
+            heap.Pop(pq)
         }
     }
-    if res == math.MaxInt64 {
-        return 0
-    }
-    return res
+    // pq 中剩下的是 nums 中 k 个最大元素，
+    // 堆顶是最小的那个，即第 k 个最大元素
+    return (*pq)[0]
 }
 
-// 获取两个整数的最小值
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+type minHeap []int
+
+func (h minHeap) Len() int { return len(h) }
+func (h minHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h minHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+func (h *minHeap) Push(x interface{}) {
+    *h = append(*h, x.(int))
+}
+
+func (h *minHeap) Pop() interface{} {
+    old := *h
+    n := len(old)
+    x := old[n-1]
+    *h = old[:n-1]
+    return x
 }
 ```
 
@@ -67765,52 +67613,41 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
-/**
- * @param {number} target
- * @param {number[]} nums
- * @return {number}
- */
-var minSubArrayLen = function(target, nums) {
-    var left = 0, right = 0;
-    // 维护窗口内元素之和
-    var windowSum = 0;
-    var res = Number.MAX_SAFE_INTEGER;
-
-    while (right < nums.length) {
-        // 扩大窗口
-        windowSum += nums[right];
-        right++;
-        while (windowSum >= target && left < right) {
-            // 已经达到 target，缩小窗口，同时更新答案
-            res = Math.min(res, right - left);
-            windowSum -= nums[left];
-            left++;
+var findKthLargest = function(nums, k) {
+    // 小顶堆，堆顶是最小元素
+    const pq = new PriorityQueue()
+    for (let i = 0; i < nums.length; i++) {
+        const e = nums[i]
+        // 每个元素都要过一遍二叉堆
+        pq.offer(e)
+        // 堆中元素多于 k 个时，删除堆顶元素
+        if (pq.size() > k) {
+            pq.poll();
         }
     }
-    return res == Number.MAX_SAFE_INTEGER ? 0 : res;
+    // pq 中剩下的是 nums 中 k 个最大元素，
+    // 堆顶是最小的那个，即第 k 个最大元素
+    return pq.peek()
 };
 ```
 
 ```python
 # by chatGPT (python)
-class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        left = 0
-        right = 0
-        # 维护窗口内元素之和
-        windowSum = 0
-        res = sys.maxsize
+import heapq
 
-        while right < len(nums):
-            # 扩大窗口
-            windowSum += nums[right]
-            right += 1
-            while windowSum >= target and left < right:
-                # 已经达到 target，缩小窗口，同时更新答案
-                res = min(res, right - left)
-                windowSum -= nums[left]
-                left += 1
-        return res if res != sys.maxsize else 0
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        # 小顶堆，堆顶是最小元素
+        pq = []
+        for e in nums:
+            # 每个元素都要过一遍二叉堆
+            heapq.heappush(pq, e)
+            # 堆中元素多于 k 个时，删除堆顶元素
+            if len(pq) > k:
+                heapq.heappop(pq)
+        # pq 中剩下的是 nums 中 k 个最大元素，
+        # 堆顶是最小的那个，即第 k 个最大元素
+        return pq[0]
 ```
 
 https://leetcode.cn/problems/xx4gT2 的多语言解法👆
