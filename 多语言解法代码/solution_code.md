@@ -38016,7 +38016,7 @@ class Solution {
 
     /* 主函数 */
     public int maxSumBST(TreeNode root) {
-        traverse(root);
+        findMaxMinSum(root);
         return maxSum;
     }
 
