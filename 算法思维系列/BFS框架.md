@@ -138,6 +138,8 @@ int minDepth(TreeNode root) {
 }
 ```
 
+<visual slug='minimum-depth-of-binary-tree' />
+
 这里注意这个 `while` 循环和 `for` 循环的配合，**`while` 循环控制一层一层往下走，`for` 循环利用 `sz` 变量控制从左到右遍历每一层二叉树节点**：
 
 ![](https://labuladong.github.io/pictures/dijkstra/1.jpeg)

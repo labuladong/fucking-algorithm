@@ -97,7 +97,29 @@ int[][] neighbor = new int[][]{
 
 观察上图就能发现，如果二维数组中的某个元素 `e` 在一维数组中的索引为 `i`，那么 `e` 的左右相邻元素在一维数组中的索引就是 `i - 1` 和 `i + 1`，而 `e` 的上下相邻元素在一维数组中的索引就是 `i - n` 和 `i + n`，其中 `n` 为二维数组的列数。
 
-这样，对于 `m x n` 的二维数组，我们可以写一个函数来生成它的 `neighbor` 索引映射，篇幅所限，我这里就不写了。
+这样，对于 `m x n` 的二维数组，我们可以写一个函数来生成它的 `neighbor` 索引映射：
+
+```java
+int[][] generateNeighborMapping(int m, int n) {
+    int[][] neighbor = new int[m * n][];
+    for (int i = 0; i < m * n; i++) {
+        List<Integer> neighbors = new ArrayList<>();
+
+        // 如果不是第一列，有左侧邻居
+        if (i % n != 0) neighbors.add(i - 1);
+        // 如果不是最后一列，有右侧邻居
+        if (i % n != n - 1) neighbors.add(i + 1);
+        // 如果不是第一行，有上方邻居
+        if (i - n >= 0) neighbors.add(i - n);
+        // 如果不是最后一行，有下方邻居
+        if (i + n < m * n) neighbors.add(i + n);
+
+        // Java 语言特性，将 List 类型转为 int[] 数组
+        neighbor[i] = neighbors.stream().mapToInt(Integer::intValue).toArray();
+    }
+    return neighbor;
+}
+```
 
 至此，我们就把这个问题完全转化成标准的 BFS 问题了，借助前文 [BFS 算法框架](https://labuladong.github.io/article/fname.html?fname=BFS框架) 的代码框架，直接就可以套出解法代码了：
 
