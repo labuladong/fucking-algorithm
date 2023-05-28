@@ -149,6 +149,8 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 ![](https://labuladong.github.io/pictures/kgroup/7.jpg)
 
+<visual slug='reverse-nodes-in-k-group'/>
+
 ### 三、最后说两句
 
 从阅读量上看，基本数据结构相关的算法文章看的人都不多，我想说这是要吃亏的。

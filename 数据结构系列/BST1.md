@@ -97,6 +97,8 @@ void traverse(TreeNode root, int k) {
 }
 ```
 
+<visual slug='kth-smallest-element-in-a-bst'/>
+
 这道题就做完了，不过呢，还是要多说几句，因为这个解法并不是最高效的解法，而是仅仅适用于这道题。
 
 我们前文 [高效计算数据流的中位数](https://labuladong.github.io/article/fname.html?fname=数据流中位数) 中就提过今天的这个问题：
@@ -222,6 +224,8 @@ void traverse(TreeNode root) {
     traverse(root.left);
 }
 ```
+
+<visual slug='convert-bst-to-greater-tree'/>
 
 这道题就解决了，核心还是 BST 的中序遍历特性，只不过我们修改了递归顺序，降序遍历 BST 的元素值，从而契合题目累加树的要求。
 

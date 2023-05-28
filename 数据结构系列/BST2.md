@@ -98,6 +98,8 @@ boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
 }
 ```
 
+<visual slug='validate-binary-search-tree'/>
+
 我们通过使用辅助函数，增加函数参数列表，在参数中携带额外信息，将这种约束传递给子树的所有节点，这也是二叉树算法的一个小技巧吧。
 
 ### 在 BST 中搜索元素
@@ -146,6 +148,8 @@ TreeNode searchBST(TreeNode root, int target) {
 }
 ```
 
+<visual slug='search-in-a-binary-search-tree'/>
+
 ### 在 BST 中插入一个数
 
 对数据结构的操作无非遍历 + 访问，遍历就是「找」，访问就是「改」。具体到这个问题，插入一个数，就是先找到插入位置，然后进行插入操作。
@@ -166,6 +170,8 @@ TreeNode insertIntoBST(TreeNode root, int val) {
     return root;
 }
 ```
+
+<visual slug='insert-into-a-binary-search-tree'/>
 
 ### 三、在 BST 中删除一个数
 
@@ -256,6 +262,8 @@ TreeNode getMin(TreeNode node) {
     return node;
 }
 ```
+
+<visual slug='delete-node-in-a-bst'/>
 
 这样，删除操作就完成了。注意一下，上述代码在处理情况 3 时通过一系列略微复杂的链表操作交换 `root` 和 `minNode` 两个节点：
 
