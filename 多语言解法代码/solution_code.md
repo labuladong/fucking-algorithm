@@ -56922,8 +56922,10 @@ class Solution:
                     nextY = y + dirs[i][1]
                     # 确保相邻的这个坐标没有越界且值为 0 且之前没有走过
                     if 0 <= nextX < m and 0 <= nextY < n and not visited[nextX][nextY] and grid[nextX][nextY] == 0:
-                        q.append([nextX, nextY])
-                        visited[nextX][nextY] = True
+                        # 确保相邻的这个坐标没有越界且值为 0
+                        if grid[nextX][nextY] == 0:
+                            q.append([nextX, nextY])
+                            visited[nextX][nextY] = True
             # 层数增加
             pathLen += 1
         # 如果无法到达终点，则返回 -1
