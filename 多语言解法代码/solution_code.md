@@ -53157,7 +53157,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 ```java
 // by labuladong (java)
 class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
+    public deleteDuplicates(ListNode head) {
         if (head == null) return null;
         ListNode slow = head, fast = head;
         while (fast != null) {
