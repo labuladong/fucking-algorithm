@@ -26803,7 +26803,7 @@ public:
         return res;
     }
 
-    // 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+    // 可用的左括号数量为 left 个，可用的右括号数量为 right 个
     void backtrack(int left, int right,
                 string& track, vector<string>& res) {
         // 若左括号剩下的多，说明不合法
@@ -26844,7 +26844,7 @@ func generateParenthesis(n int) []string {
     return res
 }
 
-// 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+// 可用的左括号数量为 left 个，可用的右括号数量为 right 个
 func backtrack(left int, right int, track *string, res *[]string) {
     // 若左括号剩下的多，说明不合法
     if right < left {
@@ -26886,7 +26886,7 @@ class Solution {
         return res;
     }
 
-    // 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+    // 可用的左括号数量为 left 个，可用的右括号数量为 right 个
     void backtrack(int left, int right, 
                 StringBuilder track, List<String> res) {
         // 若左括号剩下的多，说明不合法
@@ -26925,7 +26925,7 @@ var generateParenthesis = function(n) {
     return res;
 };
 
-// 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+// 可用的左括号数量为 left 个，可用的右括号数量为 right 个
 function backtrack(left, right, track, res) {
     // 若左括号剩下的多，说明不合法
     if (right < left) return;
@@ -26963,7 +26963,7 @@ class Solution:
         self.backtrack(n, n, track, res)
         return res
 
-    # 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+    # 可用的左括号数量为 left 个，可用的右括号数量为 right 个
     def backtrack(self, left, right, track, res):
         # 若左括号剩下的多，说明不合法
         if right < left:
@@ -53157,7 +53157,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 ```java
 // by labuladong (java)
 class Solution {
-    public deleteDuplicates(ListNode head) {
+    public ListNode deleteDuplicates(ListNode head) {
         if (head == null) return null;
         ListNode slow = head, fast = head;
         while (fast != null) {
