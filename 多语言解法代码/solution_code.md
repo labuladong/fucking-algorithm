@@ -26875,7 +26875,6 @@ func backtrack(left int, right int, track *string, res *[]string) {
 ```java
 // by labuladong (java)
 class Solution {
-
     public List<String> generateParenthesis(int n) {
         if (n == 0) return new ArrayList<>();
         // 记录所有合法的括号组合
