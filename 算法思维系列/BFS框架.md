@@ -65,7 +65,6 @@ int BFS(Node start, Node target) {
     
     q.offer(start); // 将起点加入队列
     visited.add(start);
-    int step = 0; // 记录扩散的步数
 
     while (q not empty) {
         int sz = q.size();
@@ -83,9 +82,8 @@ int BFS(Node start, Node target) {
                 }
             }
         }
-        /* 划重点：更新步数在这里 */
-        step++;
     }
+    // 如果走到这里，说明在图中没有找到目标节点
 }
 ```
 
@@ -432,8 +430,13 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 | [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/?show=1) | [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/?show=1) |
 | [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/?show=1) | [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix/?show=1) |
 | [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/?show=1) | [117. 填充每个节点的下一个右侧节点指针 II](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/?show=1) |
+| [1926. Nearest Exit from Entrance in Maze](https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/?show=1) | [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/?show=1) |
 | [286. Walls and Gates](https://leetcode.com/problems/walls-and-gates/?show=1)🔒 | [286. 墙与门](https://leetcode.cn/problems/walls-and-gates/?show=1)🔒 |
+| [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/?show=1) | [310. 最小高度树](https://leetcode.cn/problems/minimum-height-trees/?show=1) |
+| [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/?show=1) | [365. 水壶问题](https://leetcode.cn/problems/water-and-jug-problem/?show=1) |
 | [431. Encode N-ary Tree to Binary Tree](https://leetcode.com/problems/encode-n-ary-tree-to-binary-tree/?show=1)🔒 | [431. 将 N 叉树编码为二叉树](https://leetcode.cn/problems/encode-n-ary-tree-to-binary-tree/?show=1)🔒 |
+| [490. The Maze](https://leetcode.com/problems/the-maze/?show=1)🔒 | [490. 迷宫](https://leetcode.cn/problems/the-maze/?show=1)🔒 |
+| [505. The Maze II](https://leetcode.com/problems/the-maze-ii/?show=1)🔒 | [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii/?show=1)🔒 |
 | [542. 01 Matrix](https://leetcode.com/problems/01-matrix/?show=1) | [542. 01 矩阵](https://leetcode.cn/problems/01-matrix/?show=1) |
 | [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/?show=1) | [773. 滑动谜题](https://leetcode.cn/problems/sliding-puzzle/?show=1) |
 | [863. All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/?show=1) | [863. 二叉树中所有距离为 K 的结点](https://leetcode.cn/problems/all-nodes-distance-k-in-binary-tree/?show=1) |

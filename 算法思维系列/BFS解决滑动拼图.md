@@ -211,6 +211,19 @@ class Solution {
 
 
 
+<hr>
+<details>
+<summary><strong>引用本文的题目</strong></summary>
+
+<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
+
+| LeetCode | 力扣 |
+| :----: | :----: |
+| [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/?show=1) | [365. 水壶问题](https://leetcode.cn/problems/water-and-jug-problem/?show=1) |
+
+</details>
+
+
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
