@@ -336,40 +336,39 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
-let memo;
-
 var minPathSum = function(grid) {
-    const m = grid.length;
-    const n = grid[0].length;
+    var m = grid.length;
+    var n = grid[0].length;
     // 构造备忘录，初始值全部设为 -1
-    memo = new Array(m);
-    for (let i = 0; i < m; i++) {
-        memo[i] = new Array(n).fill(-1);
+    var memo = new Array(m);
+    for (var i = 0; i < memo.length; i++) {
+        memo[i] = new Array(n);
+        memo[i].fill(-1);
     }
 
-    return dp(grid, m - 1, n - 1);
+    return dp(grid, m - 1, n - 1, memo);
 };
 
-var dp = function(grid, i, j) {
+function dp(grid, i, j, memo) {
     // base case
-    if (i === 0 && j === 0) {
+    if (i == 0 && j == 0) {
         return grid[0][0];
     }
     if (i < 0 || j < 0) {
-        return Number.MAX_SAFE_INTEGER;
+        return Number.MAX_VALUE;
     }
     // 避免重复计算
-    if (memo[i][j] !== -1) {
+    if (memo[i][j] != -1) {
         return memo[i][j];
     }
     // 将计算结果记入备忘录
     memo[i][j] = Math.min(
-        dp(grid, i - 1, j),
-        dp(grid, i, j - 1)
-    ) + grid[i][j];
+            dp(grid, i - 1, j, memo),
+            dp(grid, i, j - 1, memo)
+        ) + grid[i][j];
 
     return memo[i][j];
-};
+}
 ```
 
 ```python
@@ -2541,9 +2540,9 @@ https://leetcode.cn/problems/Gu0c2T 的多语言解法👆
 https://leetcode.cn/problems/IDBivT 的多语言解法👇
 
 ```cpp
-// by chatGPT (cpp)
+// by labuladong (cpp)
 class Solution {
-public:
+    public:
     vector<string> generateParenthesis(int n) {
         if (n == 0) return {};
         // 记录所有合法的括号组合
@@ -2556,7 +2555,7 @@ public:
     }
 
     // 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
-    void backtrack(int left, int right,
+    void backtrack(int left, int right, 
                 string& track, vector<string>& res) {
         // 若左括号剩下的多，说明不合法
         if (right < left) return;
@@ -2567,7 +2566,7 @@ public:
             res.push_back(track);
             return;
         }
-
+        
         // 尝试放一个左括号
         track.push_back('('); // 选择
         backtrack(left - 1, right, track, res);
@@ -2578,7 +2577,7 @@ public:
         backtrack(left, right - 1, track, res);
         track.pop_back(); // 撤消选择
     }
-};
+}
 ```
 
 ```go
@@ -26789,9 +26788,9 @@ https://leetcode.cn/problems/gas-station 的多语言解法👆
 https://leetcode.cn/problems/generate-parentheses 的多语言解法👇
 
 ```cpp
-// by chatGPT (cpp)
+// by labuladong (cpp)
 class Solution {
-public:
+    public:
     vector<string> generateParenthesis(int n) {
         if (n == 0) return {};
         // 记录所有合法的括号组合
@@ -26803,8 +26802,8 @@ public:
         return res;
     }
 
-    // 可用的左括号数量为 left 个，可用的右括号数量为 right 个
-    void backtrack(int left, int right,
+    // 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+    void backtrack(int left, int right, 
                 string& track, vector<string>& res) {
         // 若左括号剩下的多，说明不合法
         if (right < left) return;
@@ -26815,7 +26814,7 @@ public:
             res.push_back(track);
             return;
         }
-
+        
         // 尝试放一个左括号
         track.push_back('('); // 选择
         backtrack(left - 1, right, track, res);
@@ -26826,7 +26825,7 @@ public:
         backtrack(left, right - 1, track, res);
         track.pop_back(); // 撤消选择
     }
-};
+}
 ```
 
 ```go
@@ -40830,6 +40829,242 @@ class Solution:
 
 https://leetcode.cn/problems/minimum-falling-path-sum 的多语言解法👆
 
+https://leetcode.cn/problems/minimum-height-trees 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        // 1、构建邻接表
+        vector<vector<int>> graph(n);
+        for (auto& edge : edges) {
+            // 无向图，等同于双向图
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+
+        // 2、找到所有的叶子节点
+        vector<int> leaves;
+        for (int i = 0; i < n; i++) {
+            if (graph[i].size() == 1) {
+                leaves.push_back(i);
+            }
+        }
+
+        // 3、不断删除叶子节点，直到剩下的节点数小于等于 2 个
+        int remainNodeNum = n;
+        while (remainNodeNum > 2) {
+            // 删除当前叶子节点，计算新的叶子节点
+            remainNodeNum -= leaves.size();
+            vector<int> newLeaves;
+            for (auto leaf : leaves) {
+                // 将被删除的叶子节点的邻接节点的度减 1
+                int neighbor = graph[leaf][0];
+                graph[neighbor].erase(find(graph[neighbor].begin(), graph[neighbor].end(), leaf));
+                // 如果邻接节点的度为 1，说明它也变成了叶子节点
+                if (graph[neighbor].size() == 1) {
+                    newLeaves.push_back(neighbor);
+                }
+            }
+            leaves = newLeaves;
+        }
+
+        // 最后剩下的节点就是根节点
+        return leaves;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+func findMinHeightTrees(n int, edges [][]int) []int {
+    // 1、构建邻接表
+    graph := make([][]int, n)
+    for i := 0; i < n; i++ {
+        graph[i] = []int{}
+    }
+    for _, edge := range edges {
+        // 无向图，等同于双向图
+        graph[edge[0]] = append(graph[edge[0]], edge[1])
+        graph[edge[1]] = append(graph[edge[1]], edge[0])
+    }
+
+    // 2、找到所有的叶子节点
+    leaves := []int{}
+    for i := 0; i < n; i++ {
+        if len(graph[i]) == 1 {
+            leaves = append(leaves, i)
+        }
+    }
+
+    // 3、不断删除叶子节点，直到剩下的节点数小于等于 2 个
+    remainNodeNum := n
+    for remainNodeNum > 2 {
+        // 删除当前叶子节点，计算新的叶子节点
+        remainNodeNum -= len(leaves)
+        newLeaves := []int{}
+        for _, leaf := range leaves {
+            // 将被删除的叶子节点的邻接节点的度减 1
+            neighbor := graph[leaf][0]
+            graph[neighbor] = removeElement(graph[neighbor], leaf)
+            // 如果邻接节点的度为 1，说明它也变成了叶子节点
+            if len(graph[neighbor]) == 1 {
+                newLeaves = append(newLeaves, neighbor)
+            }
+        }
+        leaves = newLeaves
+    }
+
+    // 最后剩下的节点就是根节点
+    return leaves
+}
+
+// 删除切片中的元素
+func removeElement(slice []int, elem int) []int {
+    index := -1
+    for i, v := range slice {
+        if v == elem {
+            index = i
+            break
+        }
+    }
+    if index == -1 {
+        return slice
+    }
+    return append(slice[:index], slice[index+1:]...)
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        // 1、构建邻接表
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            graph.add(new ArrayList<Integer>());
+        }
+        for (int[] edge : edges) {
+            // 无向图，等同于双向图
+            graph.get(edge[0]).add(edge[1]);
+            graph.get(edge[1]).add(edge[0]);
+        }
+
+        // 2、找到所有的叶子节点
+        List<Integer> leaves = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (graph.get(i).size() == 1) {
+                leaves.add(i);
+            }
+        }
+
+        // 3、不断删除叶子节点，直到剩下的节点数小于等于 2 个
+        int remainNodeNum = n;
+        while (remainNodeNum > 2) {
+            // 删除当前叶子节点，计算新的叶子节点
+            remainNodeNum -= leaves.size();
+            List<Integer> newLeaves = new ArrayList<>();
+            for (int leaf : leaves) {
+                // 将被删除的叶子节点的邻接节点的度减 1
+                int neighbor = graph.get(leaf).get(0);
+                graph.get(neighbor).remove(leaf);
+                // 如果邻接节点的度为 1，说明它也变成了叶子节点
+                if (graph.get(neighbor).size() == 1) {
+                    newLeaves.add(neighbor);
+                }
+        }
+
+        // 最后剩下的节点就是根节点
+        return leaves;
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var findMinHeightTrees = function(n, edges) {
+    // 1、构建邻接表
+    let graph = new Array(n);
+    for(let i = 0; i < n; i++) {
+        graph[i] = [];
+    }
+    for(let edge of edges) {
+        // 无向图，等同于双向图
+        graph[edge[0]].push(edge[1]);
+        graph[edge[1]].push(edge[0]);
+    }
+
+    // 2、找到所有的叶子节点
+    let leaves = [];
+    for(let i = 0; i < n; i++) {
+        if(graph[i].length === 1) {
+            leaves.push(i);
+        }
+    }
+
+    // 3、不断删除叶子节点，直到剩下的节点数小于等于 2 个
+    let remainNodeNum = n;
+    while(remainNodeNum > 2) {
+        // 删除当前叶子节点，计算新的叶子节点
+        remainNodeNum -= leaves.length;
+        let newLeaves = [];
+        for(let leaf of leaves) {
+            // 将被删除的叶子节点的邻接节点的度减 1
+            let neighbor = graph[leaf][0];
+            graph[neighbor].splice(graph[neighbor].indexOf(leaf), 1);
+            // 如果邻接节点的度为 1，说明它也变成了叶子节点
+            if(graph[neighbor].length === 1) {
+                newLeaves.push(neighbor);
+            }
+        }
+        leaves = newLeaves;
+    }
+
+    // 最后剩下的节点就是根节点
+    return leaves;
+};
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+        # 1、构建邻接表
+        graph = [[] for _ in range(n)]
+        for edge in edges:
+            # 无向图，等同于双向图
+            graph[edge[0]].append(edge[1])
+            graph[edge[1]].append(edge[0])
+
+        # 2、找到所有的叶子节点
+        leaves = []
+        for i in range(n):
+            if len(graph[i]) == 1:
+                leaves.append(i)
+
+        # 3、不断删除叶子节点，直到剩下的节点数小于等于 2 个
+        remainNodeNum = n
+        while remainNodeNum > 2:
+            # 删除当前叶子节点，计算新的叶子节点
+            remainNodeNum -= len(leaves)
+            newLeaves = []
+            for leaf in leaves:
+                # 将被删除的叶子节点的邻接节点的度减 1
+                neighbor = graph[leaf][0]
+                graph[neighbor].remove(leaf)
+                # 如果邻接节点的度为 1，说明它也变成了叶子节点
+                if len(graph[neighbor]) == 1:
+                    newLeaves.append(neighbor)
+            
+            leaves = newLeaves
+
+        # 最后剩下的节点就是根节点
+        return leaves
+```
+
+https://leetcode.cn/problems/minimum-height-trees 的多语言解法👆
+
 https://leetcode.cn/problems/minimum-insertions-to-balance-a-parentheses-string 的多语言解法👇
 
 ```cpp
@@ -43241,6 +43476,221 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/nZZqjQ 的多语言解法👆
+
+https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    int nearestExit(vector<vector<char>>& maze, vector<int>& entrance) {
+        int m = maze.size();
+        int n = maze[0].size();
+        vector<vector<int>> dirs {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        
+        // BFS 算法的队列和 visited 数组
+        queue<vector<int>> queue;
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        queue.push(entrance);
+        visited[entrance[0]][entrance[1]] = true;
+        // 启动 BFS 算法从 entrance 开始像四周扩散
+        int step = 0;
+        while (!queue.empty()) {
+            int sz = queue.size();
+            step++;
+            // 扩散当前队列中的所有节点
+            for (int i = 0; i < sz; i++) {
+                vector<int> cur = queue.front();
+                queue.pop();
+                // 每个节点都会尝试向上下左右四个方向扩展一步
+                for (vector<int> dir : dirs) {
+                    int x = cur[0] + dir[0];
+                    int y = cur[1] + dir[1];
+                    if (x < 0 || x >= m || y < 0 || y >= n
+                            || visited[x][y] || maze[x][y] == '+') {
+                        continue;
+                    }
+                    if (x == 0 || x == m - 1 || y == 0 || y == n - 1) {
+                        // 走到边界（出口）
+                        return step;
+                    }
+                    visited[x][y] = true;
+                    queue.push(vector<int>{x, y});
+                }
+            }
+        }
+        return -1;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+func nearestExit(maze [][]byte, entrance []int) int {
+    m, n := len(maze), len(maze[0])
+    dirs := [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
+
+    // BFS 算法的队列和 visited 数组
+    queue := [][]int{entrance}
+    visited := make([][]bool, m)
+    for i := 0; i < m; i++ {
+        visited[i] = make([]bool, n)
+    }
+    visited[entrance[0]][entrance[1]] = true
+    // 启动 BFS 算法从 entrance 开始像四周扩散
+    step := 0
+    for len(queue) > 0 {
+        sz := len(queue)
+        step++
+        // 扩散当前队列中的所有节点
+        for i := 0; i < sz; i++ {
+            cur := queue[0]
+            queue = queue[1:]
+            // 每个节点都会尝试向上下左右四个方向扩展一步
+            for _, dir := range dirs {
+                x := cur[0] + dir[0]
+                y := cur[1] + dir[1]
+                if x < 0 || x >= m || y < 0 || y >= n || visited[x][y] || maze[x][y] == '+' {
+                    continue
+                }
+                if x == 0 || x == m-1 || y == 0 || y == n-1 {
+                    // 走到边界（出口）
+                    return step
+                }
+                visited[x][y] = true
+                queue = append(queue, []int{x, y})
+            }
+        }
+    }
+    return -1
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public int nearestExit(char[][] maze, int[] entrance) {
+        int m = maze.length;
+        int n = maze[0].length;
+        int[][] dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+        // BFS 算法的队列和 visited 数组
+        Queue<int[]> queue = new LinkedList<>();
+        boolean[][] visited = new boolean[m][n];
+        queue.offer(entrance);
+        visited[entrance[0]][entrance[1]] = true;
+        // 启动 BFS 算法从 entrance 开始像四周扩散
+        int step = 0;
+        while (!queue.isEmpty()) {
+            int sz = queue.size();
+            step++;
+            // 扩散当前队列中的所有节点
+            for (int i = 0; i < sz; i++) {
+                int[] cur = queue.poll();
+                // 每个节点都会尝试向上下左右四个方向扩展一步
+                for (int[] dir : dirs) {
+                    int x = cur[0] + dir[0];
+                    int y = cur[1] + dir[1];
+                    if (x < 0 || x >= m || y < 0 || y >= n
+                            || visited[x][y] || maze[x][y] == '+') {
+                        continue;
+                    }
+                    if (x == 0 || x == m - 1 || y == 0 || y == n - 1) {
+                        // 走到边界（出口）
+                        return step;
+                    }
+                    visited[x][y] = true;
+                    queue.offer(new int[]{x, y});
+                }
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var nearestExit = function(maze, entrance) {
+    const m = maze.length;
+    const n = maze[0].length;
+    const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+
+    // BFS 算法的队列和 visited 数组
+    const queue = [];
+    const visited = Array(m).fill(0).map(() => Array(n).fill(false));
+    queue.push(entrance);
+    visited[entrance[0]][entrance[1]] = true;
+
+    // 启动 BFS 算法从 entrance 开始像四周扩散
+    let step = 0;
+    while (queue.length) {
+        const sz = queue.length;
+        step++;
+
+        // 扩散当前队列中的所有节点
+        for (let i = 0; i < sz; i++) {
+            const cur = queue.shift();
+
+            // 每个节点都会尝试向上下左右四个方向扩展一步
+            for (const dir of dirs) {
+                const x = cur[0] + dir[0];
+                const y = cur[1] + dir[1];
+
+                if (x < 0 || x >= m || y < 0 || y >= n || visited[x][y] || maze[x][y] === '+') {
+                    continue;
+                }
+
+                if (x === 0 || x === m - 1 || y === 0 || y === n - 1) {
+                    // 走到边界（出口）
+                    return step;
+                }
+
+                visited[x][y] = true;
+                queue.push([x, y]);
+            }
+        }
+    }
+
+    return -1;
+};
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
+        m, n = len(maze), len(maze[0])
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+        # BFS 算法的队列和 visited 数组
+        queue = deque()
+        visited = [[False] * n for _ in range(m)]
+        queue.append(tuple(entrance))
+        visited[entrance[0]][entrance[1]] = True
+        # 启动 BFS 算法从 entrance 开始像四周扩散
+        step = 0
+        while queue:
+            sz = len(queue)
+            step += 1
+            # 扩散当前队列中的所有节点
+            for _ in range(sz):
+                cur_x, cur_y = queue.popleft()
+                # 每个节点都会尝试向上下左右四个方向扩展一步
+                for dir_x, dir_y in dirs:
+                    nxt_x, nxt_y = cur_x + dir_x, cur_y + dir_y
+                    if nxt_x < 0 or nxt_x >= m or nxt_y < 0 or nxt_y >= n \
+                            or visited[nxt_x][nxt_y] or maze[nxt_x][nxt_y] == '+':
+                        continue
+                    if nxt_x == 0 or nxt_x == m - 1 or nxt_y == 0 or nxt_y == n - 1:
+                        # 走到边界（出口）
+                        return step
+                    visited[nxt_x][nxt_y] = True
+                    queue.append((nxt_x, nxt_y))
+        return -1
+```
+
+https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze 的多语言解法👆
 
 https://leetcode.cn/problems/network-delay-time 的多语言解法👇
 
@@ -61989,6 +62439,465 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/target-sum 的多语言解法👆
+
+https://leetcode.cn/problems/the-maze 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    bool hasPath(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
+        int m = maze.size(), n = maze[0].size();
+        // 方向数组，方便上下左右移动
+        int dirs[4][2] = {{0,1},{0,-1},{1,0},{-1,0}};
+
+        // BFS 算法的队列和 visited 数组
+        queue<vector<int>> q;
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        // 加入起点
+        q.push(start);
+        visited[start[0]][start[1]] = true;
+        // 启动 BFS 算法框架
+        while (!q.empty()) {
+            vector<int> cur = q.front();
+            q.pop();
+            // 向四个方向扩展
+            for (auto dir : dirs) {
+                int x = cur[0], y = cur[1];
+                // 和其他题目不同的是，这里一直走到墙，而不是只走一步
+                while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                    x += dir[0];
+                    y += dir[1];
+                }
+                x -= dir[0];
+                y -= dir[1];
+                // 判断是否到达终点
+                if (x == destination[0] && y == destination[1]) {
+                    return true;
+                }
+                if (!visited[x][y]) {
+                    visited[x][y] = true;
+                    q.push({x, y});
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+import "fmt"
+
+func hasPath(maze [][]int, start []int, destination []int) bool {
+    m, n := len(maze), len(maze[0])
+    // 方向数组，方便上下左右移动
+    dirs := [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
+
+    q := [][]int{start}
+    visited := make([][]bool, m)
+    for i := range visited {
+        visited[i] = make([]bool, n)
+    }
+    visited[start[0]][start[1]] = true
+
+    // 启动 BFS 算法框架
+    for len(q) > 0 {
+        cur := q[0]
+        q = q[1:]
+        // 向四个方向扩展
+        for _, dir := range dirs {
+            x, y := cur[0], cur[1]
+            // 和其他题目不同的是，这里一直走到墙，而不是只走一步
+            for x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0 {
+                x += dir[0]
+                y += dir[1]
+            }
+            x -= dir[0]
+            y -= dir[1]
+            // 判断是否到达终点
+            if x == destination[0] && y == destination[1] {
+                return true
+            }
+            if !visited[x][y] {
+                visited[x][y] = true
+                q = append(q, []int{x, y})
+            }
+        }
+    }
+    return false
+}
+
+func main() {
+    maze := [][]int{
+        {0,0,1,0,0},
+        {0,0,0,0,0},
+        {0,0,0,1,0},
+        {1,1,0,1,1},
+        {0,0,0,0,0},
+    }
+    start := []int{0, 4}
+    destination := []int{4, 4}
+    fmt.Println(hasPath(maze, start, destination)) // Output: true
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public boolean hasPath(int[][] maze, int[] start, int[] destination) {
+        int m = maze.length, n = maze[0].length;
+        // 方向数组，方便上下左右移动
+        int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0}};
+
+        // BFS 算法的队列和 visited 数组
+        Queue<int[]> q = new LinkedList<>();
+        boolean[][] visited = new boolean[m][n];
+        // 加入起点
+        q.offer(start);
+        visited[start[0]][start[1]] = true;
+        // 启动 BFS 算法框架
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            // 向四个方向扩展
+            for (int[] dir : dirs) {
+                int x = cur[0], y = cur[1];
+                // 和其他题目不同的是，这里一直走到墙，而不是只走一步
+                while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                    x += dir[0];
+                    y += dir[1];
+                }
+                x -= dir[0];
+                y -= dir[1];
+                // 判断是否到达终点
+                if (x == destination[0] && y == destination[1]) {
+                    return true;
+                }
+                if (!visited[x][y]) {
+                    visited[x][y] = true;
+                    q.offer(new int[]{x, y});
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var hasPath = function(maze, start, destination) {
+    var m = maze.length, n = maze[0].length;
+    // 方向数组，方便上下左右移动
+    var dirs = [[0,1],[0,-1],[1,0],[-1,0]];
+
+    // BFS 算法的队列和 visited 数组
+    var q = [];
+    var visited = new Array(m);
+    for (var i = 0; i < m; i++) {
+        visited[i] = new Array(n).fill(false);
+    }
+    // 加入起点
+    q.push(start);
+    visited[start[0]][start[1]] = true;
+    // 启动 BFS 算法框架
+    while (q.length > 0) {
+        var cur = q.shift();
+        // 向四个方向扩展
+        for (var i = 0; i < 4; i++) {
+            var dir = dirs[i];
+            var x = cur[0], y = cur[1];
+            // 和其他题目不同的是，这里一直走到墙，而不是只走一步
+            while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                x += dir[0];
+                y += dir[1];
+            }
+            x -= dir[0];
+            y -= dir[1];
+            // 判断是否到达终点
+            if (x == destination[0] && y == destination[1]) {
+                return true;
+            }
+            if (!visited[x][y]) {
+                visited[x][y] = true;
+                q.push([x, y]);
+            }
+        }
+    }
+    return false;
+};
+```
+
+```python
+# by chatGPT (python)
+from typing import List
+from queue import Queue
+
+class Solution:
+    def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:
+        m, n = len(maze), len(maze[0])   # 获取矩阵的行和列
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]   # 四个方向
+
+        q = Queue()   # BFS 算法的队列
+        visited = [[False for _ in range(n)] for _ in range(m)]   # visited 数组
+        q.put(start)   # 加入起点
+        visited[start[0]][start[1]] = True   # 设置该点已访问
+        # 启动 BFS 算法框架
+        while not q.empty():
+            x, y = q.get()
+            # 向四个方向扩展
+            for dir in dirs:
+                # 和其他题目不同的是，这里一直走到墙，而不是只走一步
+                nr, nc = x, y
+                while 0 <= nr < m and 0 <= nc < n and not maze[nr][nc]:
+                    nr += dir[0]
+                    nc += dir[1]
+                nr -= dir[0]   # 走过墙后需要回退一步
+                nc -= dir[1]
+                # 判断是否到达终点
+                if (nr, nc) == tuple(destination):
+                    return True
+                if not visited[nr][nc]:
+                    visited[nr][nc] = True   # 设置该点已访问
+                    q.put((nr, nc))
+
+        return False
+```
+
+https://leetcode.cn/problems/the-maze 的多语言解法👆
+
+https://leetcode.cn/problems/the-maze-ii 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    int shortestDistance(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
+        int m = maze.size(), n = maze[0].size();
+        // 方向数组，方便上下左右移动
+        vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+        // BFS 算法的队列和 visited 数组
+        queue<vector<int>> q;
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        // 加入起点
+        q.push(start);
+        visited[start[0]][start[1]] = true;
+        // 启动 BFS 算法框架
+        while (!q.empty()) {
+            vector<int> cur = q.front();
+            q.pop();
+            // 向四个方向扩展
+            for (auto dir : dirs) {
+                int x = cur[0], y = cur[1];
+                int step = 0;
+                // 和其他题目不同的是，这里一直走到墙，而不是只走一步，同时要记录走过的步数
+                while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                    x += dir[0];
+                    y += dir[1];
+                    step++;
+                }
+                x -= dir[0];
+                y -= dir[1];
+                step--;
+                // 判断是否到达终点
+                if (x == destination[0] && y == destination[1]) {
+                    return step;
+                }
+                if (!visited[x][y]) {
+                    visited[x][y] = true;
+                    q.push({x, y});
+                }
+            }
+        }
+        return -1;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+import "container/list"
+
+func shortestDistance(maze [][]int, start []int, destination []int) int {
+    m, n := len(maze), len(maze[0])
+    // 方向数组，方便上下左右移动
+    dirs := [][]int{{0,1},{0,-1},{1,0},{-1,0}}
+
+    // BFS 算法的队列和 visited 数组
+    q := list.New()
+    visited := make([][]bool, m)
+    for i := range visited {
+        visited[i] = make([]bool, n)
+    }
+    // 加入起点
+    q.PushBack(start)
+    visited[start[0]][start[1]] = true
+    // 启动 BFS 算法框架
+    for q.Len() != 0 {
+        cur := q.Front().Value.([]int)
+        q.Remove(q.Front())
+        // 向四个方向扩展
+        for _, dir := range dirs {
+            x, y := cur[0], cur[1]
+            step := 0
+            // 和其他题目不同的是，这里一直走到墙，而不是只走一步，同时要记录走过的步数
+            for x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0 {
+                x += dir[0]
+                y += dir[1]
+                step++
+            }
+            x -= dir[0]
+            y -= dir[1]
+            step--
+            // 判断是否到达终点
+            if x == destination[0] && y == destination[1] {
+                return step
+            }
+            if !visited[x][y] {
+                visited[x][y] = true
+                q.PushBack([]int{x, y})
+            }
+        }
+    }
+    return -1
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public int shortestDistance(int[][] maze, int[] start, int[] destination) {
+        int m = maze.length, n = maze[0].length;
+        // 方向数组，方便上下左右移动
+        int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0}};
+
+        // BFS 算法的队列和 visited 数组
+        Queue<int[]> q = new LinkedList<>();
+        boolean[][] visited = new boolean[m][n];
+        // 加入起点
+        q.offer(start);
+        visited[start[0]][start[1]] = true;
+        // 启动 BFS 算法框架
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            // 向四个方向扩展
+            for (int[] dir : dirs) {
+                int x = cur[0], y = cur[1];
+                int step = 0;
+                // 和其他题目不同的是，这里一直走到墙，而不是只走一步，同时要记录走过的步数
+                while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                    x += dir[0];
+                    y += dir[1];
+                    step++;
+                }
+                x -= dir[0];
+                y -= dir[1];
+                step--;
+                // 判断是否到达终点
+                if (x == destination[0] && y == destination[1]) {
+                    return step;
+                }
+                if (!visited[x][y]) {
+                    visited[x][y] = true;
+                    q.offer(new int[]{x, y});
+                }
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var shortestDistance = function(maze, start, destination) {
+    var m = maze.length, n = maze[0].length;
+    // 方向数组，方便上下左右移动
+    var dirs = [[0,1],[0,-1],[1,0],[-1,0]];
+
+    // BFS 算法的队列和 visited 数组
+    var q = [];
+    var visited = new Array(m);
+    for (var i = 0; i < m; i++) {
+        visited[i] = new Array(n).fill(false);
+    }
+    // 加入起点
+    q.push(start);
+    visited[start[0]][start[1]] = true;
+    // 启动 BFS 算法框架
+    while (q.length > 0) {
+        var cur = q.shift();
+        // 向四个方向扩展
+        for (var dir of dirs) {
+            var x = cur[0], y = cur[1];
+            var step = 0;
+            // 和其他题目不同的是，这里一直走到墙，而不是只走一步，同时要记录走过的步数
+            while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                x += dir[0];
+                y += dir[1];
+                step++;
+            }
+            x -= dir[0];
+            y -= dir[1];
+            step--;
+            // 判断是否到达终点
+            if (x == destination[0] && y == destination[1]) {
+                return step;
+            }
+            if (!visited[x][y]) {
+                visited[x][y] = true;
+                q.push([x, y]);
+            }
+        }
+    }
+    return -1;
+};
+```
+
+```python
+# by chatGPT (python)
+from queue import Queue
+
+class Solution:
+    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
+        m, n = len(maze), len(maze[0])
+
+        # 方向数组，方便上下左右移动
+        dirs = [(0,1), (0,-1), (1,0), (-1,0)]
+
+        # BFS 算法的队列和 visited 数组
+        q = Queue()
+        visited = [[False for _ in range(n)] for _ in range(m)]
+        # 加入起点
+        q.put(start)
+        visited[start[0]][start[1]] = True
+        # 启动 BFS 算法框架
+        while not q.empty():
+            cur = q.get()
+            # 向四个方向扩展
+            for dir in dirs:
+                x, y = cur[0], cur[1]
+                step = 0
+                # 和其他题目不同的是，这里一直走到墙，而不是只走一步，同时要记录走过的步数
+                while x >= 0 and x < m and y >= 0 and y < n and maze[x][y] == 0:
+                    x += dir[0]
+                    y += dir[1]
+                    step += 1
+                x -= dir[0]
+                y -= dir[1]
+                step -= 1
+                # 判断是否到达终点
+                if x == destination[0] and y == destination[1]:
+                    return step
+                if not visited[x][y]:
+                    visited[x][y] = True
+                    q.put((x, y))
+        return -1
+```
+
+https://leetcode.cn/problems/the-maze-ii 的多语言解法👆
 
 https://leetcode.cn/problems/ti-huan-kong-ge-lcof 的多语言解法👇
 
