@@ -28922,20 +28922,31 @@ class Solution {
 }
 ```
 
-```typescript
-// by yyj08070631 (typescript)
-function rob(root: TreeNode | null): number {
-    const traverse = (node: TreeNode | null): number[] => {
-        if (!node) { return [0, 0] }
-        let dp: number[] = [0, 0]
-        let leftdp = traverse(node.left)
-        let rightdp = traverse(node.right)
-        dp[0] = Math.max(leftdp[0], leftdp[1]) + Math.max(rightdp[0], rightdp[1])
-        dp[1] = leftdp[0] + rightdp[0] + node.val
-        return dp
+```javascript
+// by chatGPT (javascript)
+// memo 需要提到函数外侧，否则每次递归重新声明 memo，相当于备忘录没有生效
+const memo = new Map();
+var rob = function(root) {
+    if (root === null) {
+        return 0;
     }
-    let [res1, res2] = traverse(root)
-    return Math.max(res1, res2)
+    // 利用备忘录消除重叠子问题
+    if (memo.has(root)) {
+        return memo.get(root);
+    }
+    // 抢，然后去下下家
+    let do_it = root.val +
+        ((root.left === null) ?
+            0 :
+            rob(root.left.left) + rob(root.left.right)) +
+        ((root.right === null) ?
+            0 :
+            rob(root.right.left) + rob(root.right.right));
+    // 不抢，然后去下家
+    let not_do = rob(root.left) + rob(root.right);
+    let res = Math.max(do_it, not_do);
+    memo.set(root, res);
+    return res;
 };
 ```
 
