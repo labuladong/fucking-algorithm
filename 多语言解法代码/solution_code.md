@@ -26417,8 +26417,9 @@ class Solution:
         for v in nums:
             valToFreq[v] = valToFreq.get(v, 0) + 1
 
-        # 优先队列按照键值对中的值（元素出现频率）从小到大排序
-        pq = [(freq, val) for val, freq in valToFreq.items()]
+        # 二叉堆按照键值对中的值（元素出现频率的负值）从小到大排列
+        # 从二叉堆中pop出来的就是频率最大的键 （频率越大，负值越小）
+        pq = [(-freq, val) for val, freq in valToFreq.items()]
         heapq.heapify(pq)
 
         # 将前 k 个最大元素装入 res
@@ -68764,7 +68765,7 @@ MyQueue.prototype.empty = function() {
 
 ```python
 # by chatGPT (python)
-class MyQueue:
+class CQueue:
     def __init__(self):
         """
         初始化一个队列，使用两个堆栈 s1 和 s2
@@ -68772,21 +68773,23 @@ class MyQueue:
         self.s1 = []
         self.s2 = []
     
-    def push(self, x: int) -> None:
+    def appendTail(self, value):
         """
         添加元素到队尾
         """
-        self.s1.append(x)
+        self.s1.append(value)
     
-    def pop(self) -> int:
+    def deleteHead(self):
         """
         删除队头的元素并返回
         """
         # 先调用 peek 保证 s2 非空
-        self.peek()
-        return self.s2.pop()
+        if self.peek() is None:
+            return -1
+        else: 
+            return self.s2.pop() 
     
-    def peek(self) -> int:
+    def peek(self):
         """
         返回队头元素
         """
@@ -68794,9 +68797,11 @@ class MyQueue:
             # 把 s1 元素压入 s2
             while self.s1:
                 self.s2.append(self.s1.pop())
-        return self.s2[-1]
+        
+        return self.s2[-1] if self.s2 else None
+        
     
-    def empty(self) -> bool:
+    def empty(self):
         """
         判断队列是否为空
         """
