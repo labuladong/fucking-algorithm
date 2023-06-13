@@ -2624,42 +2624,41 @@ func backtrack(left, right int, track *string, res *[]string) {
 ```
 
 ```java
-// by labuladong (java)
+// by chatGPT (java)
 class Solution {
-    public:
-    vector<string> generateParenthesis(int n) {
-        if (n == 0) return {};
+    public List<String> generateParenthesis(int n) {
+        if (n == 0) return new ArrayList<>();
         // 记录所有合法的括号组合
-        vector<string> res;
+        List<String> res = new ArrayList<>();
         // 回溯过程中的路径
-        string track;
+        StringBuilder track = new StringBuilder();
         // 可用的左括号和右括号数量初始化为 n
         backtrack(n, n, track, res);
         return res;
     }
 
-    // 可用的左括号数量为 left 个，可用的右括号数量为 rgiht 个
+    // 可用的左括号数量为 left 个，可用的右括号数量为 right 个
     void backtrack(int left, int right, 
-                string& track, vector<string>& res) {
+                StringBuilder track, List<String> res) {
         // 若左括号剩下的多，说明不合法
         if (right < left) return;
         // 数量小于 0 肯定是不合法的
         if (left < 0 || right < 0) return;
         // 当所有括号都恰好用完时，得到一个合法的括号组合
         if (left == 0 && right == 0) {
-            res.push_back(track);
+            res.add(track.toString());
             return;
         }
         
         // 尝试放一个左括号
-        track.push_back('('); // 选择
+        track.append('('); // 选择
         backtrack(left - 1, right, track, res);
-        track.pop_back(); // 撤消选择
+        track.deleteCharAt(track.length() - 1); // 撤消选择
 
         // 尝试放一个右括号
-        track.push_back(')'); // 选择
+        track.append(')'); // 选择
         backtrack(left, right - 1, track, res);
-        track.pop_back(); // 撤消选择
+        track.deleteCharAt(track.length() - 1); // 撤消选择
     }
 }
 ```
@@ -26873,7 +26872,7 @@ func backtrack(left int, right int, track *string, res *[]string) {
 ```
 
 ```java
-// by labuladong (java)
+// by chatGPT (java)
 class Solution {
     public List<String> generateParenthesis(int n) {
         if (n == 0) return new ArrayList<>();
@@ -32964,6 +32963,53 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/lMSNwu 的多语言解法👆
+
+https://leetcode.cn/problems/letter-case-permutation 的多语言解法👇
+
+```java
+// by labuladong (java)
+class Solution {
+    public List<String> letterCasePermutation(String s) {
+        backtrack(s, 0);
+        return res;
+    }
+
+    StringBuilder track = new StringBuilder();
+    List<String> res = new LinkedList<>();
+
+    void backtrack(String s, int index) {
+        if (index == s.length()) {
+            res.add(track.toString());
+            return;
+        }
+
+        if ('0' <= s.charAt(index) && s.charAt(index) <= '9') {
+            // s[index] 是数字
+            // 做选择
+            track.append(s.charAt(index));
+            backtrack(s, index + 1);
+            // 撤销选择
+            track.deleteCharAt(track.length() - 1);
+        } else {
+            // s[index] 是字母
+            
+            // 小写字母，做选择
+            track.append(Character.toLowerCase(s.charAt(index)));
+            backtrack(s, index + 1);
+            // 撤销选择
+            track.deleteCharAt(track.length() - 1);
+
+            // 大写字母，做选择
+            track.append(Character.toUpperCase(s.charAt(index)));
+            backtrack(s, index + 1);
+            // 撤销选择
+            track.deleteCharAt(track.length() - 1);
+        }
+    }
+}
+```
+
+https://leetcode.cn/problems/letter-case-permutation 的多语言解法👆
 
 https://leetcode.cn/problems/letter-combinations-of-a-phone-number 的多语言解法👇
 
@@ -53608,7 +53654,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 ```java
 // by labuladong (java)
 class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
+    public deleteDuplicates(ListNode head) {
         if (head == null) return null;
         ListNode slow = head, fast = head;
         while (fast != null) {
