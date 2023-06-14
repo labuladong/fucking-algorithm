@@ -28923,29 +28923,32 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
-// memo 需要提到函数外侧，否则每次递归重新声明 memo，相当于备忘录没有生效
-const memo = new Map();
 var rob = function(root) {
-    if (root === null) {
-        return 0;
+    // memo 需要提到函数外侧，否则每次递归重新声明 memo，相当于备忘录没有生效
+    const memo = new Map();
+    let dp = (node) => {
+        if (node === null) {
+            return 0;
+        }
+        // 利用备忘录消除重叠子问题
+        if (memo.has(node)) {
+            return memo.get(node);
+        }
+        // 抢，然后去下下家
+        let do_it = node.val +
+            ((node.left === null) ?
+                0 :
+                dp(node.left.left) + dp(node.left.right)) +
+            ((node.right === null) ?
+                0 :
+                dp(node.right.left) + dp(node.right.right));
+        // 不抢，然后去下家
+        let not_do = dp(node.left) + dp(node.right);
+        let res = Math.max(do_it, not_do);
+        memo.set(node, res);
+        return res;
     }
-    // 利用备忘录消除重叠子问题
-    if (memo.has(root)) {
-        return memo.get(root);
-    }
-    // 抢，然后去下下家
-    let do_it = root.val +
-        ((root.left === null) ?
-            0 :
-            rob(root.left.left) + rob(root.left.right)) +
-        ((root.right === null) ?
-            0 :
-            rob(root.right.left) + rob(root.right.right));
-    // 不抢，然后去下家
-    let not_do = rob(root.left) + rob(root.right);
-    let res = Math.max(do_it, not_do);
-    memo.set(root, res);
-    return res;
+    dp(root)
 };
 ```
 
