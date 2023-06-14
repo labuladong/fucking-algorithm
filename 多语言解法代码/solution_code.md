@@ -28948,7 +28948,7 @@ var rob = function(root) {
         memo.set(node, res);
         return res;
     }
-    dp(root)
+    return dp(root)
 };
 ```
 
