@@ -27744,6 +27744,9 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
+        if (n == 0) {
+            return 0;
+        }
         vector<vector<int>> dp(n, vector<int>(2));
         for (int i = 0; i < n; i++) {
             if (i - 1 == -1) {
@@ -27764,6 +27767,9 @@ public:
 // by chatGPT (go)
 func maxProfit(prices []int) int {
     n := len(prices)
+    if (n == 0) {
+        return 0
+    }
     dp := make([][]int, n)
     for i := range dp {
         dp[i] = make([]int, 2)
@@ -27793,6 +27799,7 @@ func max(a, b int) int {
 class Solution {
     public int maxProfit(int[] prices) {
         int n = prices.length;
+        if (n == 0) return 0;
         int[][] dp = new int[n][2];
         for (int i = 0; i < n; i++) {
             if (i - 1 == -1) {
@@ -27813,6 +27820,9 @@ class Solution {
 // by chatGPT (javascript)
 var maxProfit = function(prices) {
     const n = prices.length;
+    if (n == 0) {
+        return 0;
+    }
     const dp = Array.from(Array(n), () => new Array(2).fill(0));
     for (let i = 0; i < n; i++) {
         if (i - 1 === -1) {
@@ -27833,6 +27843,8 @@ var maxProfit = function(prices) {
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
+        if (n == 0):
+            return 0
         dp = [[0]*2 for _ in range(n)]
         for i in range(n):
             if i - 1 == -1:
