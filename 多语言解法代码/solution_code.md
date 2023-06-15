@@ -20522,23 +20522,26 @@ var maxDepth = function(root) {
 # by chatGPT (python)
 # 解法一，回溯算法思路
 class Solution:
+    def __init__(self):
+        self.res = 0
+        self.depth = 0
+
     def maxDepth(self, root: TreeNode) -> int:
-        depth, res = 0, 0
-        self.traverse(root, depth, res)
-        return res
+        self.traverse(root)
+        return self.res
     
     # 遍历二叉树
-    def traverse(self, root: TreeNode, depth: int, res: int) -> None:
+    def traverse(self, root: TreeNode) -> None:
         if not root:
             return
         # 前序遍历位置
-        depth += 1
+        self.depth += 1
         # 遍历的过程中记录最大深度
-        res = max(res, depth)
-        self.traverse(root.left, depth, res)
-        self.traverse(root.right, depth, res)
+        self.res = max(self.res, self.depth)
+        self.traverse(root.left)
+        self.traverse(root.right)
         # 后序遍历位置
-        depth -= 1
+        self.depth -= 1
 
 # 解法二，动态规划思路
 class Solution2:
