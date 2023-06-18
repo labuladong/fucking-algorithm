@@ -8708,7 +8708,7 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int max_k = 2, n = prices.size();
-        int dp[n][max_k + 1][2];
+        vector<vector<vector<int>>> dp(n,vector<vector<int>>(max_k+1,vector<int>(2)));
         for (int i = 0; i < n; i++) {
             for (int k = max_k; k >= 1; k--) {
                 if (i - 1 == -1) {
