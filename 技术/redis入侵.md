@@ -1,5 +1,7 @@
 ---
-title: 'Redis 入侵'
+hidden: false
+title: Redis 入侵
+wechat: https://mp.weixin.qq.com/s/5W_IoGBibczKBCt1-2UTww
 ---
 
 <p align='center'>

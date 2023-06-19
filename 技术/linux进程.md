@@ -1,5 +1,8 @@
 ---
-title: 'Linux的进程、线程、文件描述符是什么'
+hidden: false
+number: '929'
+title: Linux的进程、线程、文件描述符是什么
+wechat: https://mp.weixin.qq.com/s/USb5e2Zoc0LRgRShRpTYfg
 ---
 
 <p align='center'>
@@ -152,6 +155,5 @@ $ cmd1 | cmd2 | cmd3
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/pictures/souyisou2.png)
-
 
 ======其他语言代码======

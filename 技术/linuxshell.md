@@ -1,5 +1,8 @@
 ---
-title: '关于 Linux shell 你必须知道的技巧'
+hidden: false
+number: '848'
+title: 关于 Linux shell 你必须知道的技巧
+wechat: https://mp.weixin.qq.com/s/h3SXmZ2yMtOKEKdACUx1Ew
 ---
 
 <p align='center'>
@@ -365,6 +368,5 @@ tail | grep '下一篇' $filename
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/pictures/souyisou2.png)
-
 
 ======其他语言代码======

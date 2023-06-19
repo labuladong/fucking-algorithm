@@ -1,6 +1,12 @@
 ---
-title: 'BFS 算法框架套路详解'
-tags: ['BFS 算法', '核心框架']
+discuss: '990'
+hidden: false
+number: '845'
+tags:
+- BFS 算法
+- 核心框架
+title: BFS 算法框架套路详解
+wechat: https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g
 ---
 
 <p align='center'>

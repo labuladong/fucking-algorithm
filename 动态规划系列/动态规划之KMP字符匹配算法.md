@@ -1,6 +1,11 @@
 ---
-title: '动态规划之KMP字符匹配算法'
-tags: ['字符串']
+discuss: '1036'
+hidden: false
+number: '810'
+tags:
+- 字符串
+title: 动态规划之KMP字符匹配算法
+wechat: https://mp.weixin.qq.com/s/r9pbkMyFyMAvmkf4QnL-1g
 ---
 
 <p align='center'>
@@ -449,7 +454,6 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/pictures/souyisou2.png)
-
 
 ======其他语言代码======
 

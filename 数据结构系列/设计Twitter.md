@@ -1,6 +1,12 @@
 ---
-title: '设计Twitter'
-tags: ['数据结构', '设计']
+discuss: '1048'
+hidden: false
+number: '863'
+tags:
+- 数据结构
+- 设计
+title: 设计Twitter
+wechat: https://mp.weixin.qq.com/s/Bv_nZpPQFoyk10OEijN20A
 ---
 
 <p align='center'>
@@ -323,7 +329,6 @@ class Twitter {
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/pictures/souyisou2.png)
-
 
 ======其他语言代码======
 

@@ -1,6 +1,11 @@
 ---
-title: 'BFS 算法秒杀各种益智游戏'
-tags: ['BFS 算法']
+discuss: '1080'
+hidden: false
+number: '802'
+tags:
+- BFS 算法
+title: BFS 算法秒杀各种益智游戏
+wechat: https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw
 ---
 
 <p align='center'>

@@ -1,6 +1,14 @@
 ---
-title: '如何k个一组反转链表'
-tags: ['数据结构', '链表', '递归']
+discuss: '1040'
+hidden: false
+number: '778'
+tags:
+- 数据结构
+- 链表
+- 递归
+title: 如何k个一组反转链表
+wechat: https://mp.weixin.qq.com/s/A-dQ9spsP_Iu1Y4iCRP9nA
+xiaoeID: i_632888c1e4b0eca59c32815f
 ---
 
 <p align='center'>
@@ -193,7 +201,6 @@ ListNode reverseKGroup(ListNode head, int k) {
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/pictures/souyisou2.png)
-
 
 ======其他语言代码======
 

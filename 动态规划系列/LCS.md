@@ -1,6 +1,13 @@
 ---
-title: '详解最长公共子序列问题，秒杀三道动态规划题目'
-tags: ['动态规划', '子序列']
+discuss: '1029'
+hidden: true
+number: '757'
+tags:
+- 动态规划
+- 子序列
+title: 详解最长公共子序列问题，秒杀三道动态规划题目
+wechat: https://mp.weixin.qq.com/s/ZhPEchewfc03xWv9VP3msg
+xiaoeID: i_6298793ae4b09dda12708be8
 ---
 
 <p align='center'>

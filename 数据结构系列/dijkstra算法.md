@@ -1,6 +1,12 @@
 ---
-title: '我写了一个模板，把 Dijkstra 算法变成了默写题'
-tags: ['数据结构', '图论算法']
+discuss: '1050'
+hidden: false
+number: '841'
+tags:
+- 数据结构
+- 图论算法
+title: 我写了一个模板，把 Dijkstra 算法变成了默写题
+wechat: https://mp.weixin.qq.com/s/RXR18dNUyIVoCQXrO46gWA
 ---
 
 <p align='center'>

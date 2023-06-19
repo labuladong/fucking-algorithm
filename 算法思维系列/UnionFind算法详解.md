@@ -1,6 +1,13 @@
 ---
-title: 'Union-Find 算法详解'
-tags: ['并查集', '图论算法', '数据结构']
+discuss: '1083'
+hidden: false
+number: '844'
+tags:
+- 并查集
+- 图论算法
+- 数据结构
+title: Union-Find 算法详解
+wechat: https://mp.weixin.qq.com/s/Xo5OScpH-cz41aL2NPqH2w
 ---
 
 <p align='center'>
@@ -622,7 +629,6 @@ class UF {
 **《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复关键词「**进群**」可加入算法群；回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
 ![](https://labuladong.github.io/pictures/souyisou2.png)
-
 
 ======其他语言代码======
 

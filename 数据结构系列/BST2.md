@@ -1,6 +1,15 @@
 ---
-title: '手把手带你刷二叉搜索树（第二期）'
-tags: ['数据结构', '二叉搜索树', '二叉树', '分解问题的思路']
+discuss: '1081'
+hidden: false
+number: '815'
+tags:
+- 数据结构
+- 二叉搜索树
+- 二叉树
+- 分解问题的思路
+title: 手把手带你刷二叉搜索树（第二期）
+wechat: https://mp.weixin.qq.com/s/SuGAvV9zOi4viaeyjWhzDw
+xiaoeID: i_63a84fb7e4b07b0558298a07
 ---
 
 <p align='center'>
