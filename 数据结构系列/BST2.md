@@ -2,7 +2,7 @@
 discuss: '1081'
 hidden: false
 number: '815'
-tags:
+tag:
 - 数据结构
 - 二叉搜索树
 - 二叉树

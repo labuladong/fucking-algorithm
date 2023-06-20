@@ -2,7 +2,7 @@
 discuss: '1050'
 hidden: false
 number: '841'
-tags:
+tag:
 - 数据结构
 - 图论算法
 title: 我写了一个模板，把 Dijkstra 算法变成了默写题

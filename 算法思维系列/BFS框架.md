@@ -2,7 +2,7 @@
 discuss: '990'
 hidden: false
 number: '845'
-tags:
+tag:
 - BFS 算法
 - 核心框架
 title: BFS 算法框架套路详解

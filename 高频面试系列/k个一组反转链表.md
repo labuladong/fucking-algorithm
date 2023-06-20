@@ -2,7 +2,7 @@
 discuss: '1040'
 hidden: false
 number: '778'
-tags:
+tag:
 - 数据结构
 - 链表
 - 递归

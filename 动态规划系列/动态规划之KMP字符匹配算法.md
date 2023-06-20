@@ -2,7 +2,7 @@
 discuss: '1036'
 hidden: false
 number: '810'
-tags:
+tag:
 - 字符串
 title: 动态规划之KMP字符匹配算法
 wechat: https://mp.weixin.qq.com/s/r9pbkMyFyMAvmkf4QnL-1g

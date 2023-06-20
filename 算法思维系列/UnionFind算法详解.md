@@ -2,7 +2,7 @@
 discuss: '1083'
 hidden: false
 number: '844'
-tags:
+tag:
 - 并查集
 - 图论算法
 - 数据结构

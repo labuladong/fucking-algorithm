@@ -2,7 +2,7 @@
 discuss: '1058'
 hidden: false
 number: '831'
-tags:
+tag:
 - 链表
 - 设计
 title: LRU 缓存淘汰算法设计

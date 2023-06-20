@@ -2,7 +2,7 @@
 discuss: '1029'
 hidden: true
 number: '757'
-tags:
+tag:
 - 动态规划
 - 子序列
 title: 详解最长公共子序列问题，秒杀三道动态规划题目

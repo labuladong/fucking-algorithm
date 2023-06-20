@@ -2,7 +2,7 @@
 discuss: '1048'
 hidden: false
 number: '863'
-tags:
+tag:
 - 数据结构
 - 设计
 title: 设计Twitter
