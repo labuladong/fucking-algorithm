@@ -24470,30 +24470,26 @@ class PriorityQueue {
 ```
 
 ```python
-# by chatGPT (python)
 import heapq
-
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
-        # 存储三元组 (num1[i], nums2[i], i)
-        # i 记录 nums2 元素的索引位置，用于生成下一个节点
         pq = []
+	# 创建四元组，首个元素须为两个列表第一个元素之和才能被排序
+	# i 记录 nums2 元素的索引位置，用于生成下一个节点
         for i in range(len(nums1)):
-            heapq.heappush(pq, [nums1[i], nums2[0], 0])
-            
+		heapq.heappush(pq, (nums1[i]+nums2[0], nums1[i], nums2[0], 0))
+
         res = []
-        # 执行合并多个有序链表的逻辑
-        while pq and k > 0:
-            cur = heapq.heappop(pq)
-            k -= 1
-            # 链表中的下一个节点加入优先级队列
-            next_index = cur[2] + 1
-            if next_index < len(nums2):
-                heapq.heappush(pq, [cur[0], nums2[next_index], next_index])
-            
-            pair = [cur[0], cur[1]]
-            res.append(pair)
-        
+	# 执行合并多个有序链表的逻辑
+        while k>0 and pq:
+		cur = heapq.heappop(pq)
+		k-=1
+		# 链表中的下一个节点加入优先级队列
+            	newIndex = cur[3]+1
+            	if newIndex < len(nums2):
+                	heapq.heappush(pq, (cur[1]+nums2[newIndex], cur[1], nums2[newIndex], newIndex))
+
+		res.append(list(cur[1:3]))
         return res
 ```
 
