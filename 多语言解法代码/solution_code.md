@@ -57813,7 +57813,7 @@ public:
             int firstNum = pow(10, bit - 1);
             int lastNum = pow(10, bit) - 1;
             int bitNums = lastNum - firstNum + 1;
-            int totalNums = bitNums * bit;
+            long totalNums = long(bitNums) * bit;
             if (n < totalNums) {
                 int numTimes = n / bit;
                 int numIndex = n % bit;
