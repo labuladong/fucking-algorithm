@@ -70537,7 +70537,7 @@ public:
 ```go
 // by chatGPT (go)
 // 二叉堆的解法思路
-func getLeastNumbers(arr []int, k int) []int {
+func getLeastNumbers1(arr []int, k int) []int {
     // 大顶堆，堆顶是最大元素
     pq := make(IntHeap, 0)
     heap.Init(&pq)
