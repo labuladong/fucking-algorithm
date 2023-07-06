@@ -19,7 +19,7 @@ wechat: https://mp.weixin.qq.com/s/Xo5OScpH-cz41aL2NPqH2w
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 即将涨价，[第 20 期打卡挑战](https://opedk.xet.tech/s/1cEM6U) 即将开始，最后 1 天报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 即将涨价！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -596,7 +596,7 @@ class UF {
  - [一文秒杀所有岛屿题目](https://labuladong.github.io/article/fname.html?fname=岛屿题目)
  - [二分图判定算法](https://labuladong.github.io/article/fname.html?fname=二分图)
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
- - [番外：用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
+ - [用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
 
 </details><hr>
 
