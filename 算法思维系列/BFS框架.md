@@ -18,7 +18,7 @@ wechat: https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 即将涨价！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！[第 21 期打卡挑战](https://opedk.xet.tech/s/4ptSo2) 开始报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -33,6 +33,8 @@ wechat: https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g
 **-----------**
 
 > tip：本文有视频版：[BFS 算法核心框架套路](https://www.bilibili.com/video/BV1oT411u7Vn/)。建议关注我的 B 站账号，我会用视频领读的方式带大家学习那些稍有难度的算法技巧。
+
+
 
 后台有很多人问起 BFS 和 DFS 的框架，今天就来说说吧。
 

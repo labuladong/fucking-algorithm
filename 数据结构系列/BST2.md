@@ -21,7 +21,7 @@ xiaoeID: i_63a84fb7e4b07b0558298a07
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 即将涨价！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！[第 21 期打卡挑战](https://opedk.xet.tech/s/4ptSo2) 开始报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -36,7 +36,10 @@ xiaoeID: i_63a84fb7e4b07b0558298a07
 
 **-----------**
 
-> note：在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
+
+> info：在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
+
+
 
 我们前文 [东哥带你刷二叉搜索树（特性篇）](https://labuladong.github.io/article/fname.html?fname=BST1) 介绍了 BST 的基本特性，还利用二叉搜索树「中序遍历有序」的特性来解决了几道题目，本文来实现 BST 的基础操作：判断 BST 的合法性、增、删、查。其中「删」和「判断合法性」略微复杂。
 

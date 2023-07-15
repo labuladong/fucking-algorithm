@@ -129,6 +129,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
   * [配套 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
   * [配套 vscode 刷题插件](https://labuladong.github.io/article/fname.html?fname=vscode插件简介)
   * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
+  * [算法可视化功能简介](https://labuladong.github.io/article/fname.html?fname=可视化简介)
   * [数据结构精品课](https://labuladong.github.io/article/fname.html?fname=ds课程简介)
   * [二叉树（递归）专题课](https://labuladong.github.io/article/fname.html?fname=tree课程简介)
   * [14 天刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)

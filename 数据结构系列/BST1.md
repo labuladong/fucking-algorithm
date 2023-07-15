@@ -21,7 +21,7 @@ xiaoeID: i_63a84f9de4b06159f7250324
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 即将涨价！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！[第 21 期打卡挑战](https://opedk.xet.tech/s/4ptSo2) 开始报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
@@ -38,7 +38,12 @@ xiaoeID: i_63a84f9de4b06159f7250324
 
 > tip：本文有视频版：[动手实现 TreeMap](https://appktavsiei5995.pc.xiaoe-tech.com/detail/p_62655516e4b0cedf38a93758/6)。
 
-> note：在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
+
+
+
+> info：在开头先打个广告，我的 [手把手刷二叉树课程](https://aep.xet.tech/s/3YGcq3) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
+
+
 
 前文手把手带你刷二叉树已经写了 [第一期](https://labuladong.github.io/article/fname.html?fname=二叉树系列1)，[第二期](https://labuladong.github.io/article/fname.html?fname=二叉树系列2) 和 [第三期](https://labuladong.github.io/article/fname.html?fname=二叉树系列3)，今天写一篇二叉搜索树（Binary Search Tree，后文简写 BST）相关的文章，手把手带你刷 BST。
 
