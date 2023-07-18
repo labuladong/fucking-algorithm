@@ -227,6 +227,7 @@ class Solution {
 | [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/?show=1) | [365. 水壶问题](https://leetcode.cn/problems/water-and-jug-problem/?show=1) |
 
 </details>
+<hr>
 
 
 
