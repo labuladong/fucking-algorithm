@@ -1,13 +1,4 @@
----
-discuss: '1050'
-hidden: false
-number: '841'
-tag:
-- 数据结构
-- 图论算法
-title: 我写了一个模板，把 Dijkstra 算法变成了默写题
-wechat: https://mp.weixin.qq.com/s/RXR18dNUyIVoCQXrO46gWA
----
+# 我写了一个模板，把 Dijkstra 算法变成了默写题
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

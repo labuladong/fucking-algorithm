@@ -1,9 +1,4 @@
----
-hidden: false
-number: '848'
-title: 关于 Linux shell 你必须知道的技巧
-wechat: https://mp.weixin.qq.com/s/h3SXmZ2yMtOKEKdACUx1Ew
----
+# 关于 Linux shell 你必须知道的技巧
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

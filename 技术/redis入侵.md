@@ -1,8 +1,4 @@
----
-hidden: false
-title: Redis 入侵
-wechat: https://mp.weixin.qq.com/s/5W_IoGBibczKBCt1-2UTww
----
+# Redis 入侵
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,9 +1,4 @@
----
-hidden: false
-number: '847'
-title: 一文读懂 session 和 cookie
-wechat: https://mp.weixin.qq.com/s/lEAFW9ZSiqHJOfMnznPPHA
----
+# 一文读懂 session 和 cookie
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,14 +1,4 @@
----
-discuss: '1083'
-hidden: false
-number: '844'
-tag:
-- 并查集
-- 图论算法
-- 数据结构
-title: Union-Find 算法详解
-wechat: https://mp.weixin.qq.com/s/Xo5OScpH-cz41aL2NPqH2w
----
+# Union-Find 算法详解
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,13 +1,4 @@
----
-discuss: '1048'
-hidden: false
-number: '863'
-tag:
-- 数据结构
-- 设计
-title: 设计Twitter
-wechat: https://mp.weixin.qq.com/s/Bv_nZpPQFoyk10OEijN20A
----
+# 设计Twitter
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

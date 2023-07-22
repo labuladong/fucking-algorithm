@@ -1,14 +1,4 @@
----
-discuss: '1058'
-hidden: false
-number: '831'
-tag:
-- 链表
-- 设计
-title: LRU 缓存淘汰算法设计
-wechat: https://mp.weixin.qq.com/s/b0YVCccJ8mFP6lI-1NiQOQ
-xiaoeID: i_627ceaa0e4b01c509aaf8ae2
----
+# LRU 缓存淘汰算法设计
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

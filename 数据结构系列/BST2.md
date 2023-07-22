@@ -1,16 +1,4 @@
----
-discuss: '1081'
-hidden: false
-number: '815'
-tag:
-- 数据结构
-- 二叉搜索树
-- 二叉树
-- 分解问题的思路
-title: 手把手带你刷二叉搜索树（第二期）
-wechat: https://mp.weixin.qq.com/s/SuGAvV9zOi4viaeyjWhzDw
-xiaoeID: i_63a84fb7e4b07b0558298a07
----
+# 手把手带你刷二叉搜索树（第二期）
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

@@ -1,15 +1,4 @@
----
-discuss: '1040'
-hidden: false
-number: '778'
-tag:
-- 数据结构
-- 链表
-- 递归
-title: 如何k个一组反转链表
-wechat: https://mp.weixin.qq.com/s/A-dQ9spsP_Iu1Y4iCRP9nA
-xiaoeID: i_632888c1e4b0eca59c32815f
----
+# 如何k个一组反转链表
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>

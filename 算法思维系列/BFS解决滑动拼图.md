@@ -1,12 +1,4 @@
----
-discuss: '1080'
-hidden: false
-number: '802'
-tag:
-- BFS 算法
-title: BFS 算法秒杀各种益智游戏
-wechat: https://mp.weixin.qq.com/s/Xn-oW7QRu8spYzL3B6zLxw
----
+# BFS 算法秒杀各种益智游戏
 
 <p align='center'>
 <a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
