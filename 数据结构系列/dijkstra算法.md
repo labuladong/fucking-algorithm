@@ -879,6 +879,7 @@ double dijkstra(int start, int end, List<double[]>[] graph) {
  - [并查集（Union-Find）算法](https://labuladong.github.io/article/fname.html?fname=UnionFind算法详解)
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)
  - [旅游省钱大法：加权最短路径](https://labuladong.github.io/article/fname.html?fname=旅行最短路径)
+ - [本站简介](https://labuladong.github.io/article/fname.html?fname=home)
  - [环检测及拓扑排序算法](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
 
 </details><hr>
