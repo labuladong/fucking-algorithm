@@ -7052,7 +7052,7 @@ public:
         // 给 nums2 降序排序
         priority_queue<pair<int, int>> maxpq;
         for (int i = 0; i < n; i++) {
-            maxpq.push({i, nums2[i]});
+            maxpq.push({nums2[i], i});
         }
         // 给 nums1 升序排序
         sort(nums1.begin(), nums1.end());
@@ -7062,7 +7062,7 @@ public:
         vector<int> res(n);
 
         while (!maxpq.empty()) {
-            auto [i, maxval] = maxpq.top(); maxpq.pop();
+            auto [maxval, i] = maxpq.top(); maxpq.pop();
             // maxval 是 nums2 中的最大值，i 是对应索引
             if (maxval < nums1[right]) {
                 // 如果 nums1[right] 能胜过 maxval，那就自己上
