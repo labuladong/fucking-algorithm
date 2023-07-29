@@ -33696,7 +33696,7 @@ LFUCache.prototype.removeMinFreqKey = function() {
 ```
 
 ```python
-# by chatGPT (python)
+from collections import defaultdict
 class LFUCache:
 
     def __init__(self, capacity: int):
@@ -33705,7 +33705,7 @@ class LFUCache:
         # key 到 freq 的映射，我们后文称为 KF 表
         self.keyToFreq = {}
         # freq 到 key 列表的映射，我们后文称为 FK 表
-        self.freqToKeys = {}
+        self.freqToKeys = defaultdict(list)
         # 记录最小的频次
         self.minFreq = 0
         # 记录 LFU 缓存的最大容量
@@ -33740,8 +33740,7 @@ class LFUCache:
         # 插入 KF 表
         self.keyToFreq[key] = 1
         # 插入 FK 表
-        self.freqToKeys.setdefault(1, set())
-        self.freqToKeys[1].add(key)
+        self.freqToKeys[1].append(key)
         # 插入新 key 后最小的 freq 肯定是 1
         self.minFreq = 1
 
@@ -33753,8 +33752,7 @@ class LFUCache:
         # 将 key 从 freq 对应的列表中删除
         self.freqToKeys[freq].remove(key)
         # 将 key 加入 freq + 1 对应的列表中
-        self.freqToKeys.setdefault(freq + 1, set())
-        self.freqToKeys[freq + 1].add(key)
+        self.freqToKeys[freq + 1].append(key)
         # 如果 freq 对应的列表空了，移除这个 freq
         if not self.freqToKeys[freq]:
             del self.freqToKeys[freq]
@@ -33766,7 +33764,8 @@ class LFUCache:
         # freq 最小的 key 列表
         keyList = self.freqToKeys[self.minFreq]
         # 其中最先被插入的那个 key 就是该被淘汰的 key
-        deletedKey = keyList.pop()
+        deletedKey = keyList[0]
+        del keyList[0]
         # 更新 FK 表
         if not keyList:
             del self.freqToKeys[self.minFreq]
