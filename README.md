@@ -129,7 +129,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
 ### [本站简介](https://labuladong.github.io/article/fname.html?fname=home)
 
 ### [准备工作：安装刷题全家桶](https://labuladong.github.io/article/fname.html?fname=全家桶简介)
-  * [配套 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
+  * [配套浏览器刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介)
   * [配套 vscode 刷题插件](https://labuladong.github.io/article/fname.html?fname=vscode插件简介)
   * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
   * [算法可视化功能简介](https://labuladong.github.io/article/fname.html?fname=可视化简介)
