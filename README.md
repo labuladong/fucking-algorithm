@@ -235,7 +235,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [经典动态规划：0-1 背包问题](https://labuladong.github.io/article/fname.html?fname=背包问题)
     * [经典动态规划：子集背包问题](https://labuladong.github.io/article/fname.html?fname=背包子集)
     * [经典动态规划：完全背包问题](https://labuladong.github.io/article/fname.html?fname=背包零钱)
-    * [动态规划和回溯算法到底谁是谁爹？](https://labuladong.github.io/article/fname.html?fname=targetSum)
+    * [目标和：背包问题的变体](https://labuladong.github.io/article/fname.html?fname=targetSum)
 
   * [用动态规划玩游戏](https://labuladong.github.io/algo/)
     * [动态规划之最小路径和](https://labuladong.github.io/article/fname.html?fname=最小路径和)

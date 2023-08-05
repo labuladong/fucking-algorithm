@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！[第 21 期打卡挑战](https://opedk.xet.tech/s/4ptSo2) 最后一天报名！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
 
 
 
