@@ -38150,7 +38150,7 @@ class Solution:
         self.maxSum = 0
     
     def maxSumBST(self, root: TreeNode) -> int:
-        self.traverse(root)
+        self.findMaxMinSum(root)
         return self.maxSum
     
     def findMaxMinSum(self, root: TreeNode) -> List[int]:
@@ -38162,7 +38162,7 @@ class Solution:
         left = self.findMaxMinSum(root.left)
         right = self.findMaxMinSum(root.right)
         
-        /*******后序遍历位置*******/
+        # /*******后序遍历位置*******/
         res = [0] * 4
         # 这个 if 在判断以 root 为根的二叉树是不是 BST
         if left[0] == 1 and right[0] == 1 and root.val > left[2] and root.val < right[1]:
@@ -38180,7 +38180,7 @@ class Solution:
             # 以 root 为根的二叉树不是 BST
             res[0] = 0
             # 其他的值都没必要计算了，因为用不到
-        /**************************/
+        # /**************************/
         return res
 ```
 
