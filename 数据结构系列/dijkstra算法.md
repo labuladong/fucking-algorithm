@@ -867,7 +867,7 @@ double dijkstra(int start, int end, List<double[]>[] graph) {
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [BFS 算法解题套路框架](https://labuladong.github.io/article/fname.html?fname=BFS框架)
@@ -888,7 +888,7 @@ double dijkstra(int start, int end, List<double[]>[] graph) {
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的题目</strong></summary>
 
 <strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>

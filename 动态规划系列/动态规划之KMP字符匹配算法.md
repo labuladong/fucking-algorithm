@@ -429,7 +429,7 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [我的刷题心得](https://labuladong.github.io/article/fname.html?fname=算法心得)

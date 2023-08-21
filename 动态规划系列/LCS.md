@@ -52,7 +52,7 @@ int longestCommonSubsequence(String s1, String s2);
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
  - [动态规划之子序列问题解题模板](https://labuladong.github.io/article/fname.html?fname=子序列问题模板)
@@ -64,7 +64,7 @@ int longestCommonSubsequence(String s1, String s2);
 
 
 <hr>
-<details>
+<details class="hint-container details">
 <summary><strong>引用本文的题目</strong></summary>
 
 <strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
