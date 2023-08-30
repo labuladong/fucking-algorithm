@@ -71074,3 +71074,53 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof 的多语言解法👆
+
+https://leetcode.cn/problems/h54YBf/description/的C++解法勘误👇
+插件中给出的源代码
+string NULL = “#”;NULL 是一个预定义的宏，表示空指针。 因此，不能在代码中使用 NULL 作为变量名，因为这会导致冲突和错误。
+反复实验修改源代码仍然超时，经过GPT修改代码如下，可通过：
+```cpp
+// by chatGPT (cpp)
+class Codec {
+public:
+    // Serialize the tree to a string
+    string serialize(TreeNode* root) {
+        ostringstream out;
+        serialize(root, out);
+        return out.str();
+    }
+
+    // Deserialize the string to a tree
+    TreeNode* deserialize(string data) {
+        istringstream in(data);
+        return deserialize(in);
+    }
+
+private:
+    // Helper function to serialize the tree
+    void serialize(TreeNode* root, ostringstream& out) {
+        if (root) {
+            out << root->val << ' ';
+            serialize(root->left, out);
+            serialize(root->right, out);
+        } else {
+            out << "# ";
+        }
+    }
+
+    // Helper function to deserialize the tree
+    TreeNode* deserialize(istringstream& in) {
+        string val;
+        in >> val;
+        if (val == "#") {
+            return nullptr;
+        }
+
+        TreeNode* root = new TreeNode(stoi(val));
+        root->left = deserialize(in);
+        root->right = deserialize(in);
+
+        return root;
+    }
+};
+```
