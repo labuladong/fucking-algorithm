@@ -59693,48 +59693,47 @@ var maxSlidingWindow = function(nums, k) {
 ```python
 # by chatGPT (python)
 class Solution:
-    # Monotonic Queue Implementation
+    # 单调队列的实现
     class MonotonicQueue:
         def __init__(self):
             self.q = []
         
-        # Push elements into the queue
+        # 将元素推入队列
         def push(self, n):
-            # remove all elements smaller than n from the tail of the queue
+            # 移除队尾小于n的所有元素
             while self.q and self.q[-1] < n:
-                # extend down -300
-                # ![](../pictures/单调队列/3.png)
+                # 在队尾扩展
                 self.q.pop()
-            # then insert n at the tail
+            # 然后将n插入到队尾
             self.q.append(n)
         
-        # Get maximum element in the queue
+        # 获取队列中的最大元素
         def max(self):
             return self.q[0]
         
-        # Remove element n from the queue
+        # 从队列中移除元素n
         def pop(self, n):
             if n == self.q[0]:
                 self.q.pop(0)
 
-    # Implementing the solution function
+    # 实现解决方案函数
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         window = self.MonotonicQueue()
         res = []
 
         for i in range(len(nums)):
             if i < k - 1:
-                # fill up the first k-1 elements of the window initially
+                # 最开始填满窗口的前k-1个元素
                 window.push(nums[i])
             else:
-                # slide the window forward and add the new element
+                # 滑动窗口并添加新元素
                 window.push(nums[i])
-                # record the maximum value of the current window
+                # 记录当前窗口的最大值
                 res.append(window.max())
-                # remove the old element
+                # 移除旧元素
                 window.pop(nums[i - k + 1])
         
-        # converting the recorded elements into an integer array
+        # 将记录的元素转换为整数数组
         return res
 ```
 
