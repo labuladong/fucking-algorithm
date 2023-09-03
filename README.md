@@ -135,7 +135,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
   * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
   * [数据结构精品课](https://labuladong.github.io/article/fname.html?fname=ds课程简介)
   * [二叉树递归专题课](https://labuladong.github.io/article/fname.html?fname=tree课程简介)
-  * [14 天刷题打卡挑战](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
+  * [30 天刷题打卡挑战（升级版）](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
   * [学习本站所需的 Java 基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
 
 ### [第零章、核心框架汇总](https://labuladong.github.io/algo/)
@@ -259,8 +259,8 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
 ### [第三章、必知必会算法技巧](https://labuladong.github.io/algo/)
   * [暴力搜索算法](https://labuladong.github.io/algo/)
     * [回溯算法解题套路框架](https://labuladong.github.io/article/fname.html?fname=回溯算法详解修订版)
-    * [经典回溯算法：集合划分问题](https://labuladong.github.io/article/fname.html?fname=集合划分)
     * [回溯算法秒杀所有排列/组合/子集问题](https://labuladong.github.io/article/fname.html?fname=子集排列组合)
+    * [回溯算法穷举的两种视角](https://labuladong.github.io/article/fname.html?fname=集合划分)
     * [一文秒杀所有岛屿题目](https://labuladong.github.io/article/fname.html?fname=岛屿题目)
     * [回溯算法最佳实践：解数独](https://labuladong.github.io/article/fname.html?fname=sudoku)
     * [回溯算法最佳实践：括号生成](https://labuladong.github.io/article/fname.html?fname=合法括号生成)
