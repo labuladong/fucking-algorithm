@@ -24474,13 +24474,13 @@ class PriorityQueue {
 import heapq
 
 class Solution:
-    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
+    def kSmallestPairs(self, nums1, nums2, k):
         # 存储三元组 (num1[i], nums2[i], i)
         # i 记录 nums2 元素的索引位置，用于生成下一个节点
-        pq = []
+        pq = []  
         for i in range(len(nums1)):
-            heapq.heappush(pq, [nums1[i], nums2[0], 0])
-            
+            heapq.heappush(pq, (nums1[i] + nums2[0], nums2[0], 0))
+
         res = []
         # 执行合并多个有序链表的逻辑
         while pq and k > 0:
@@ -24488,12 +24488,14 @@ class Solution:
             k -= 1
             # 链表中的下一个节点加入优先级队列
             next_index = cur[2] + 1
+            # 获取第一个链表节点
+            node = cur[0] - cur[1]
             if next_index < len(nums2):
-                heapq.heappush(pq, [cur[0], nums2[next_index], next_index])
-            
-            pair = [cur[0], cur[1]]
+                heapq.heappush(pq, (node + nums2[next_index],  nums2[next_index], next_index))
+
+            pair = [node, cur[1]]
             res.append(pair)
-        
+
         return res
 ```
 
