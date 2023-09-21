@@ -58518,14 +58518,17 @@ var findRepeatNumber = function(nums) {
 # by chatGPT (python)
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
+        # 对所有元素加1，除去0的影响
+        nums = [num+1 for num in nums]
         for num in nums:
-            if nums[abs(num)] < 0:
+            if nums[abs(num)-1] < 0:
                 # 之前已经把对应索引的元素变成负数了，
                 # 这说明 num 重复出现了两次
-                return abs(num)
+                # 之前对nums中所有元素都加1了，这里必须减去1
+                return abs(num)-1
             else:
                 # 把索引 num 的元素置为负数
-                nums[abs(num)] *= -1
+                nums[abs(num)-1] *= -1
         # 如果没有在 for 循环中返回，说明重复的那个元素是 0
         return 0
 ```
