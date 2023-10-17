@@ -14,9 +14,9 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 <a href="https://space.bilibili.com/14089380" target="_blank"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](pictures/souyisou.png)
+![](pictures/cover.jpg)
 
-好消息，《labuladong 的算法小抄》纸质书出版啦！关注公众号查看详情👆
+好消息，2023 最新版《labuladong 的算法笔记》纸质书出版啦！微信扫码查看简介👆
 
 [![Star History Chart](https://api.star-history.com/svg?repos=labuladong/fucking-algorithm&type=Date)](https://star-history.com/#labuladong/fucking-algorithm&Date)
 
