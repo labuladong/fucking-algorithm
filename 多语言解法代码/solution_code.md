@@ -17347,7 +17347,7 @@ var canFinish = function(numCourses, prerequisites) {
 
     function buildGraph(numCourses, prerequisites) {
         // 图中共有 numCourses 个节点
-        const graph = new Array(numCourses).map(() => []);
+        const graph = new Array(numCourses).fill(-1).map(() => []);
         for (let edge of prerequisites) {
             const from = edge[1];
             const to = edge[0];
