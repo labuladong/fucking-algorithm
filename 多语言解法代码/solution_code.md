@@ -67970,13 +67970,13 @@ var exist = function(board, word) {
             return;
         }
         // 已经匹配过的字符，我们给它添一个负号作为标记，避免走回头路
-        board[i][j] = -board[i][j];
+        board[i][j] = '-' + board[i][j];
         // word[p] 被 board[i][j] 匹配，开始向四周搜索 word[p+1..]
         dfs(board, i + 1, j, word, p + 1);
         dfs(board, i, j + 1, word, p + 1);
         dfs(board, i - 1, j, word, p + 1);
         dfs(board, i, j - 1, word, p + 1);
-        board[i][j] = -board[i][j];
+        board[i][j] = board[i][j].slice(1);
     }
     let m = board.length, n = board[0].length;
     for (let i = 0; i < m; i++) {
