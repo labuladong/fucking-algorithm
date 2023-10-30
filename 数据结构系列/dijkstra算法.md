@@ -503,7 +503,7 @@ Dijkstra 算法的时间复杂度是多少？你去网上查，可能会告诉�
 
 第一题是力扣第 743 题「网络延迟时间」，题目如下：
 
-![](https://labuladong.github.io/pictures/dijkstra/title1.jpg)
+<Problem slug="network-delay-time" />
 
 函数签名如下：
 
@@ -615,7 +615,7 @@ int[] dijkstra(int start, List<int[]>[] graph) {
 
 感觉这道题完全没有难度，下面我们再看一道题目，力扣第 1631 题「最小体力消耗路径」：
 
-![](https://labuladong.github.io/pictures/dijkstra/title2.jpg)
+<Problem slug="path-with-minimum-effort" />
 
 函数签名如下：
 
@@ -747,7 +747,7 @@ int minimumEffortPath(int[][] heights) {
 
 最后看一道题吧，力扣第 1514 题「概率最大的路径」，看下题目：
 
-![](https://labuladong.github.io/pictures/dijkstra/title3.jpg)
+<Problem slug="path-with-maximum-probability" />
 
 函数签名如下：
 

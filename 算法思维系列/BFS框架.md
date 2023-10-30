@@ -92,7 +92,7 @@ int BFS(Node start, Node target) {
 
 先来个简单的问题实践一下 BFS 框架吧，判断一棵二叉树的**最小**高度，这也是力扣第 111 题「二叉树的最小深度」：
 
-![](https://labuladong.github.io/pictures/BFS/title1.jpg)
+<Problem slug="minimum-depth-of-binary-tree" />
 
 怎么套到 BFS 的框架里呢？首先明确一下起点 `start` 和终点 `target` 是什么，怎么判断到达了终点？
 
@@ -169,7 +169,7 @@ BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复�
 
 这是力扣第 752 题「打开转盘锁」，比较有意思：
 
-![](https://labuladong.github.io/pictures/BFS/title2.jpg)
+<Problem slug="open-the-lock" />
 
 函数签名如下：
 

@@ -64,7 +64,7 @@ void traverse(TreeNode root) {
 
 这是力扣第 230 题「二叉搜索树中第 K 小的元素」，看下题目：
 
-![](https://labuladong.github.io/pictures/BST1/title.png)
+<Problem slug="kth-smallest-element-in-a-bst" />
 
 这个需求很常见吧，一个直接的思路就是升序排序，然后找第 `k` 个元素呗。BST 的中序遍历其实就是升序排序的结果，找第 `k` 个元素肯定不是什么难事。
 
@@ -152,7 +152,7 @@ class TreeNode {
 
 力扣第 538 题和 1038 题都是这道题，完全一样，你可以把它们一块做掉。看下题目：
 
-![](https://labuladong.github.io/pictures/BST1/title1.png)
+<Problem slug="convert-bst-to-greater-tree" />
 
 题目应该不难理解，比如图中的节点 5，转化成累加树的话，比 5 大的节点有 6，7，8，加上 5 本身，所以累加树上这个节点的值应该是 5+6+7+8=26。
 

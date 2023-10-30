@@ -27,7 +27,7 @@
 
 先看下题目，不难理解：
 
-![](https://labuladong.github.io/pictures/kgroup/title.png)
+<Problem slug="reverse-nodes-in-k-group" />
 
 这个问题经常在面经中看到，而且力扣上难度是 Hard，它真的有那么难吗？
 
