@@ -58433,18 +58433,21 @@ https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof 的多语言�
 class Solution {
 public:
     int findRepeatNumber(vector<int>& nums) {
+        int equalZeroIndex = 0;
         for (int num : nums) {
-            if (nums[abs(num)] < 0) {
-                // 之前已经把对应索引的元素变成负数了，
-                // 这说明 num 重复出现了两次
+            // 因为0无法改变正负号，所以没办法判断符号是否变化了，需要特殊处理
+            if (nums[abs(num)] == 0) {
+                equalZeroIndex = abs(num);
+            } else if (nums[abs(num)] < 0) {
+                // 之前已经把对应索引的元素变成负数了，这说明 num 重复出现了两次
                 return abs(num);
             } else {
                 // 把索引 num 的元素置为负数
                 nums[abs(num)] *= -1;
             }
         }
-        // 如果没有在 for 循环中返回，说明重复的那个元素是 0
-        return 0;
+        // 如果没有在 for 循环中返回，说明重复的那个元素应该是记录的"等于0的索引值"
+        return equalZeroIndex;
     }
 };
 ```
@@ -58452,25 +58455,29 @@ public:
 ```go
 // by chatGPT (go)
 func findRepeatNumber(nums []int) int {
-    for _, num := range nums {
-        if nums[abs(num)] < 0 {
-            // 之前已经把对应索引的元素变成负数了，
-            // 这说明 num 重复出现了两次
-            return abs(num)
-        } else {
+	equalZeroIndex := 0
+
+	for _, num := range nums {
+        // 因为0无法改变正负号，所以没办法判断符号是否变化了，需要特殊处理
+		if nums[abs(num)] == 0 {
+			equalZeroIndex = abs(num)
+		} else if nums[abs(num)] < 0 {
+            // 之前已经把对应索引的元素变成负数了，这说明 num 重复出现了两次
+			return abs(num)
+		} else {
             // 把索引 num 的元素置为负数
-            nums[abs(num)] *= -1
-        }
-    }
-    // 如果没有在 for 循环中返回，说明重复的那个元素是 0
-    return 0
+			nums[abs(num)] *= -1
+		}
+	}
+    // 如果没有在 for 循环中返回，说明重复的那个元素应该是记录的"等于0的索引值"
+	return equalZeroIndex
 }
 
 func abs(num int) int {
-    if num < 0 {
-        return -num
-    }
-    return num
+	if num < 0 {
+		return -num
+	}
+	return num
 }
 ```
 
@@ -58478,18 +58485,22 @@ func abs(num int) int {
 // by labuladong (java)
 class Solution {
     public int findRepeatNumber(int[] nums) {
+        int euqalZeroIndex = 0;
+        // 因为 nums 中所有数字都在 0～n-1 的范围内，所以索引不会越界
         for (int num : nums) {
-            if (nums[Math.abs(num)] < 0) {
-                // 之前已经把对应索引的元素变成负数了，
-                // 这说明 num 重复出现了两次
+            // 因为0无法改变正负号，所以没办法判断符号是否变化了，需要特殊处理
+            if (nums[Math.abs(num)] == 0) {
+                euqalZeroIndex = Math.abs(num);
+            } else if (nums[Math.abs(num)] < 0) {
+                // 之前已经把对应索引的元素变成负数了，这说明 num 重复出现了两次
                 return Math.abs(num);
             } else {
                 // 把索引 num 的元素置为负数
                 nums[Math.abs(num)] *= -1;
             }
         }
-        // 如果没有在 for 循环中返回，说明重复的那个元素是 0
-        return 0;
+        // 如果没有在 for 循环中返回，说明重复的那个元素应该是记录的"等于0的索引值"
+        return euqalZeroIndex; 
     }
 }
 ```
@@ -58500,36 +58511,43 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var findRepeatNumber = function(nums) {
-    for (let num of nums) {
-        if (nums[Math.abs(num)] < 0) {
-            // 之前已经把对应索引的元素变成负数了，
-            // 这说明 num 重复出现了两次
-            return Math.abs(num);
-        } else {
-            // 把索引 num 的元素置为负数
-            nums[Math.abs(num)] *= -1;
-        }
+function findRepeatNumber(nums) {
+  let equalZeroIndex = 0;
+
+  for (let num of nums) {
+    // 因为0无法改变正负号，所以没办法判断符号是否变化了，需要特殊处理
+    if (nums[Math.abs(num)] === 0) {
+      equalZeroIndex = Math.abs(num);
+    } else if (nums[Math.abs(num)] < 0) {
+        // 之前已经把对应索引的元素变成负数了，这说明 num 重复出现了两次
+      return Math.abs(num);
+    } else {
+        // 把索引 num 的元素置为负数
+      nums[Math.abs(num)] *= -1;
     }
-    // 如果没有在 for 循环中返回，说明重复的那个元素是 0
-    return 0;
-};
+  }
+    // 如果没有在 for 循环中返回，说明重复的那个元素应该是记录的"等于0的索引值"
+  return equalZeroIndex;
+}
 ```
 
 ```python
 # by chatGPT (python)
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
+        equal_zero_index = 0
         for num in nums:
-            if nums[abs(num)] < 0:
-                # 之前已经把对应索引的元素变成负数了，
-                # 这说明 num 重复出现了两次
+            # 因为0无法改变正负号，所以没办法判断符号是否变化了，需要特殊处理
+            if nums[abs(num)] == 0:
+                equal_zero_index = abs(num)
+            elif nums[abs(num)] < 0:
+                # 之前已经把对应索引的元素变成负数了，这说明 num 重复出现了两次
                 return abs(num)
             else:
                 # 把索引 num 的元素置为负数
                 nums[abs(num)] *= -1
-        # 如果没有在 for 循环中返回，说明重复的那个元素是 0
-        return 0
+        # 如果没有在 for 循环中返回，说明重复的那个元素应该是记录的"等于0的索引值"
+        return equal_zero_index
 ```
 
 https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof 的多语言解法👆
