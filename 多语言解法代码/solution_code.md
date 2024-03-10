@@ -57815,7 +57815,7 @@ public:
             int firstNum = pow(10, bit - 1);
             int lastNum = pow(10, bit) - 1;
             int bitNums = lastNum - firstNum + 1;
-            int totalNums = bitNums * bit;
+            long totalNums = long(bitNums) * bit;
             if (n < totalNums) {
                 int numTimes = n / bit;
                 int numIndex = n % bit;
@@ -70539,7 +70539,7 @@ public:
 ```go
 // by chatGPT (go)
 // 二叉堆的解法思路
-func getLeastNumbers(arr []int, k int) []int {
+func getLeastNumbers1(arr []int, k int) []int {
     // 大顶堆，堆顶是最大元素
     pq := make(IntHeap, 0)
     heap.Init(&pq)
