@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://labuladong.online/algo/ds-class/) 和 [递归算法专题课](https://labuladong.online/algo/tree-class/) 限时附赠网站会员；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -140,8 +140,8 @@ $ cmd1 | cmd2 | cmd3
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Linux 管道和重定向的坑](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
- - [关于 Linux shell 你必须知道的](https://labuladong.github.io/article/fname.html?fname=linuxshell)
+ - [Linux 管道符的坑](https://labuladong.github.io/article/fname.html?fname=linux技巧3)
+ - [关于 Linux shell 你必须知道的技巧](https://labuladong.github.io/article/fname.html?fname=linuxshell)
 
 </details><hr>
 

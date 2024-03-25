@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://labuladong.online/algo/ds-class/) 和 [递归算法专题课](https://labuladong.online/algo/tree-class/) 限时附赠网站会员；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -23,9 +23,6 @@
 | [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) | [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/) | 🟠
 
 **-----------**
-
-
-> info：在开头先打个广告，我的 [手把手刷二叉树课程](https://labuladong.online/algo/tree-class/) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
 
 
 
@@ -312,7 +309,7 @@ void BST(TreeNode root, int target) {
 
 3、根据代码框架掌握了 BST 的增删查改操作。
 
-本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见 [手把手带你刷通二叉树](https://labuladong.online/algo/tree-class/)。
+本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见二叉树章节中的 [递归专项练习](https://labuladong.github.io/article/fname.html?fname=习题搜索树1)
 
 
 

@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://labuladong.online/algo/ds-class/) 和 [递归算法专题课](https://labuladong.online/algo/tree-class/) 限时附赠网站会员；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -369,7 +369,7 @@ class LRUCache {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [一文看懂 session 和 cookie](https://labuladong.github.io/article/fname.html?fname=session和cookie)
+ - [一文读懂 session 和 cookie](https://labuladong.github.io/article/fname.html?fname=session和cookie)
  - [常数时间删除/查找数组中的任意元素](https://labuladong.github.io/article/fname.html?fname=随机集合)
  - [数据结构设计：最大栈](https://labuladong.github.io/article/fname.html?fname=最大栈)
  - [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/article/fname.html?fname=LFU)

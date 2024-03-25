@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：[数据结构精品课](https://labuladong.online/algo/ds-class/) 和 [递归算法专题课](https://labuladong.online/algo/tree-class/) 限时附赠网站会员；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：算法可视化编辑器上线，[点击体验](https://labuladong.online/algo-visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -23,13 +23,6 @@
 | - | [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode.cn/problems/w6cpku/) | 🟠
 
 **-----------**
-
-> tip：本文有视频版：[动手实现 TreeMap](https://labuladong.online/algo/ds-class/dong-shou--60928/treemap-yu-a003e/)。
-
-
-
-
-> info：在开头先打个广告，我的 [手把手刷二叉树课程](https://labuladong.online/algo/tree-class/) 按照公式和套路讲解了 150 道二叉树题目，只需一顿饭钱，就能手把手带你刷完二叉树分类的题目，迅速掌握递归思维，让你豁然开朗。我绝对有这个信心，信不信，可以等你看完我的二叉树算法系列文章再做评判。
 
 
 
@@ -237,9 +230,7 @@ void traverse(TreeNode root) {
 
 简单总结下吧，BST 相关的问题，要么利用 BST 左小右大的特性提升算法效率，要么利用中序遍历的特性满足题目的要求，也就这么些事儿吧。
 
-当然，BST 还可以玩出更多花样，提供更丰富的 API，更多内容参见我的数据结构课程中的 [动手实现 TreeMap](https://labuladong.online/algo/ds-class/dong-shou--60928/treemap-yu-a003e/) 章节。
-
-本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见 [手把手带你刷通二叉树](https://labuladong.online/algo/tree-class/)。
+本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见二叉树章节中的 [递归专项练习](https://labuladong.github.io/article/fname.html?fname=习题搜索树1)
 
 
 
@@ -247,6 +238,7 @@ void traverse(TreeNode root) {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
+ - [【强化练习】优先级队列经典习题](https://labuladong.github.io/article/fname.html?fname=二叉堆习题)
  - [东哥带你刷二叉搜索树（基操篇）](https://labuladong.github.io/article/fname.html?fname=BST2)
  - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.github.io/article/fname.html?fname=BST3)
  - [二叉树的递归转迭代的代码框架](https://labuladong.github.io/article/fname.html?fname=迭代遍历二叉树)
