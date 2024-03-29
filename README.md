@@ -196,7 +196,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [Git原理之最近公共祖先](https://labuladong.github.io/article/fname.html?fname=公共祖先)
     * [如何计算完全二叉树的节点数](https://labuladong.github.io/article/fname.html?fname=完全二叉树节点数)
 
-  * [【递归专项】手把手带你刷 100 道二叉树](https://labuladong.github.io/algo/)
+  * [【强化练习】手把手带你刷 100 道二叉树](https://labuladong.github.io/algo/)
     * [用「遍历」思维解题 I](https://labuladong.github.io/article/fname.html?fname=习题遍历1)
     * [用「遍历」思维解题 II](https://labuladong.github.io/article/fname.html?fname=习题遍历2)
     * [用「遍历」思维解题 III](https://labuladong.github.io/article/fname.html?fname=习题遍历3)
