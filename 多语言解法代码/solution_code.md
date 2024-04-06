@@ -38715,17 +38715,12 @@ public:
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
     // 虚拟头结点
     dummy := &ListNode{-1, nil}
-    p := dummy
-    p1 := l1
-    p2 := l2
+    p, p1, p2 := dummy, list1, list2
 
     for p1 != nil && p2 != nil {
-        /**<extend down -200>
-        ![](../pictures/链表技巧/1.gif)
-        */
         // 比较 p1 和 p2 两个指针
         // 将值较小的的节点接到 p 指针
         if p1.Val > p2.Val {
