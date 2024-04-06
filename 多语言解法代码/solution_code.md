@@ -38370,9 +38370,14 @@ private:
 ```
 
 ```go
-// by chatGPT (go)
-//Definition for singly-linked list.
-
+// by mario-huang (go)
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func mergeKLists(lists []*ListNode) *ListNode {
     if len(lists) == 0 {
         return nil
