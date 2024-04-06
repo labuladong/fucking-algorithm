@@ -38707,7 +38707,7 @@ public:
 ```
 
 ```go
-// by chatGPT (go)
+// by mario-huang (go)
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
