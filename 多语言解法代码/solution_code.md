@@ -34343,26 +34343,30 @@ public:
 ```
 
 ```go
-// by chatGPT (go)
+// by mario-huang (go)
 func detectCycle(head *ListNode) *ListNode {
-    fast, slow := head, head
+    slow, fast := head, head
     for fast != nil && fast.Next != nil {
-        fast = fast.Next.Next
         slow = slow.Next
-        if fast == slow {
+        fast = fast.Next.Next
+        if slow == fast {
             break
             /**<extend down -200>
             ![](../pictures/双指针/3.jpeg)
             */
         }
     }
+    // 上面的代码类似 hasCycle 函数
     if fast == nil || fast.Next == nil {
+        // fast 遇到空指针说明没有环
         return nil
     }
+    // 重新指向头结点
     slow = head
     /**<extend up -100>
     ![](../pictures/双指针/2.jpeg)
     */
+    // 快慢指针同步前进，相交点就是环起点
     for slow != fast {
         slow = slow.Next
         fast = fast.Next
