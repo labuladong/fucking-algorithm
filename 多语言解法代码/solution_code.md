@@ -38721,6 +38721,9 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
     p, p1, p2 := dummy, list1, list2
 
     for p1 != nil && p2 != nil {
+        /**<extend down -200>
+        ![](../pictures/链表技巧/1.gif)
+        */
         // 比较 p1 和 p2 两个指针
         // 将值较小的的节点接到 p 指针
         if p1.Val > p2.Val {
