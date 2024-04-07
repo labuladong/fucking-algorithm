@@ -7041,6 +7041,302 @@ class Solution:
 
 https://leetcode.cn/problems/add-two-numbers-ii 的多语言解法👆
 
+https://leetcode.cn/problems/additive-number 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    bool isAdditiveNumber(string num) {
+        // 穷举前两个数字
+        int n = num.size();
+        for (int i = 1; i <= n; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                string first = num.substr(0, i);
+                string second = num.substr(i, j-i);
+                if (isValid(num, first, second)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+private:
+    // 定义：num 前两个数字分别是 first 和 second，判断 num 是否满足累加数的性质
+    bool isValid(string num, string first, string second) {
+        if ((first[0] == '0' && first.size() > 1)
+                || (second[0] == '0' && second.size() > 1)) {
+            // 0 开头的数字，只能是 0 本身
+            return false;
+        }
+        string sumStr = strAdd(first, second);
+        string next = num.substr(first.size() + second.size());
+        if (next.find(sumStr) != 0) {
+            // 不满足累加数的性质
+            return false;
+        }
+        if (next == sumStr) {
+            // 已经匹配完整个字符串
+            return true;
+        }
+        // 根据递归函数的定义，继续匹配后面的三个数字，我这里用递归的方式去比较，因为容易写
+        // 你也可以改用迭代写法，一样的
+        return isValid(num.substr(first.size()), second, sumStr);
+    }
+
+    // 模拟加法竖式运算，具体可以看下这道题
+    // https://leetcode-cn.com/problems/add-strings/
+    string strAdd(string a, string b) {
+        int n = a.size(), m = b.size();
+        int i = n - 1, j = m - 1, add = 0;
+        string builder;
+        while (i >= 0 || j >= 0 || add != 0) {
+            int x = i >= 0 ? a[i] - '0' : 0;
+            int y = j >= 0 ? b[j] - '0' : 0;
+            int result = x + y + add;
+            builder.push_back(result % 10 + '0');
+            add = result / 10;
+            i--;
+            j--;
+        }
+        reverse(builder.begin(), builder.end());
+        return builder;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+import (
+	"strconv"
+	"strings"
+)
+
+// isAdditiveNumber - 穷举前两个数字
+func isAdditiveNumber(num string) bool {
+	n := len(num)
+	for i := 1; i <= n; i++ {
+		for j := i + 1; j <= n; j++ {
+			first := num[:i]
+			second := num[i:j]
+			if isValid(num, first, second) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+// isValid - 定义:num 前两个数字分别是 first 和 second，判断 num 是否满足累加数的性质
+func isValid(num string, first string, second string) bool {
+	if (strings.HasPrefix(first, "0") && len(first) > 1) ||
+		(strings.HasPrefix(second, "0") && len(second) > 1) {
+		// 0 开头的数字，只能是 0 本身
+		return false
+	}
+	sumStr := strAdd(first, second)
+	next := num[len(first)+len(second):]
+	if !strings.HasPrefix(next, sumStr) {
+		// 不满足累加数的性质
+		return false
+	}
+	if next == sumStr {
+		// 已经匹配完整个字符串
+		return true
+	}
+	// 根据递归函数的定义，继续匹配后面的三个数字，我这里用递归的方式去比较，因为容易写
+	// 你也可以改用迭代写法，一样的
+	return isValid(num[len(first):], second, sumStr)
+}
+
+// strAdd - 模拟加法竖式运算，具体可以看下这道题
+// https://leetcode.cn/problems/add-strings/
+func strAdd(a, b string) string {
+	i, j, carry := len(a)-1, len(b)-1, 0
+	ans := ""
+	for i >= 0 || j >= 0 {
+		x, _ := strconv.Atoi(string(a[i]))
+		y, _ := strconv.Atoi(string(b[j]))
+		sum := x + y + carry
+		tmp := sum % 10
+		carry = sum / 10
+		ans = strconv.Itoa(tmp) + ans
+		i--
+		j--
+	}
+	if carry > 0 {
+		ans = "1" + ans
+	}
+	return ans
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public boolean isAdditiveNumber(String num) {
+        // 穷举前两个数字
+        int n = num.length();
+        for (int i = 1; i <= n; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                String first = num.substring(0, i);
+                String second = num.substring(i, j);
+                if (isValid(num, first, second)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // 定义：num 前两个数字分别是 first 和 second，判断 num 是否满足累加数的性质
+    boolean isValid(String num, String first, String second) {
+        if (first.startsWith("0") && first.length() > 1
+                || second.startsWith("0") && second.length() > 1) {
+            // 0 开头的数字，只能是 0 本身
+            return false;
+        }
+        String sumStr = strAdd(first, second);
+        String next = num.substring(first.length() + second.length());
+        if (!next.startsWith(sumStr)) {
+            // 不满足累加数的性质
+            return false;
+        }
+        if (next.equals(sumStr)) {
+            // 已经匹配完整个字符串
+            return true;
+        }
+        // 根据递归函数的定义，继续匹配后面的三个数字，我这里用递归的方式去比较，因为容易写
+        // 你也可以改用迭代写法，一样的
+        return isValid(num.substring(first.length()), second, sumStr);
+    }
+
+    // 模拟加法竖式运算，具体可以看下这道题
+    // https://leetcode.cn/problems/add-strings/
+    String strAdd(String a, String b) {
+        int n = a.length(), m = b.length();
+        int i = n - 1, j = m - 1, add = 0;
+        StringBuilder builder = new StringBuilder();
+        while (i >= 0 || j >= 0 || add != 0) {
+            int x = i >= 0 ? a.charAt(i) - '0' : 0;
+            int y = j >= 0 ? b.charAt(j) - '0' : 0;
+            int result = x + y + add;
+            builder.append(result % 10);
+            add = result / 10;
+            i--;
+            j--;
+        }
+        return builder.reverse().toString();
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var isAdditiveNumber = function(num) {
+    // 穷举前两个数字
+    let n = num.length;
+    for (let i = 1; i <= n; i++) {
+        for (let j = i + 1; j <= n; j++) {
+            let first = num.substring(0, i);
+            let second = num.substring(i, j);
+            if (isValid(num, first, second)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+var isValid = function(num, first, second) {
+    if ((first.startsWith("0") && first.length > 1)
+            || (second.startsWith("0") && second.length > 1)) {
+        // 0 开头的数字，只能是 0 本身
+        return false;
+    }
+    let sumStr = strAdd(first, second);
+    let next = num.substring(first.length + second.length);
+    if (!next.startsWith(sumStr)) {
+        // 不满足累加数的性质
+        return false;
+    }
+    if (next === sumStr) {
+        // 已经匹配完整个字符串
+        return true;
+    }
+    // 根据递归函数的定义，继续匹配后面的三个数字，我这里用递归的方式去比较，因为容易写
+    // 你也可以改用迭代写法，一样的
+    return isValid(num.substring(first.length), second, sumStr);
+}
+
+var strAdd = function(a, b) {
+    let n = a.length, m = b.length;
+    let i = n - 1, j = m - 1, add = 0;
+    let builder = [];
+    while (i >= 0 || j >= 0 || add != 0) {
+        let x = i >= 0 ? a.charAt(i) - '0' : 0;
+        let y = j >= 0 ? b.charAt(j) - '0' : 0;
+        let result = x + y + add;
+        builder.push(result % 10);
+        add = Math.floor(result / 10);
+        i--;
+        j--;
+    }
+    return builder.reverse().join('');
+}
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def isAdditiveNumber(self, num):
+        # 穷举前两个数字
+        n = len(num)
+        for i in range(1, n + 1):
+            for j in range(i + 1, n + 1):
+                first = num[0 : i]
+                second = num[i : j]
+                if self.isValid(num, first, second):
+                    return True
+        return False
+
+    def isValid(self, num, first, second):
+        # 定义：num 前两个数字分别是 first 和 second，判断 num 是否满足累加数的性质
+        if (first.startswith("0") and len(first) > 1) or (second.startswith("0") and len(second) > 1):
+            # 0 开头的数字，只能是 0 本身
+            return False
+        sumStr = self.strAdd(first, second)
+        next = num[len(first) + len(second):]
+        if not next.startswith(sumStr):
+            # 不满足累加数的性质
+            return False
+        if next == sumStr:
+            # 已经匹配完整个字符串
+            return True
+        # 根据递归函数的定义，继续匹配后面的三个数字，我这里用递归的方式去比较，因为容易写
+        # 你也可以改用迭代写法，一样的
+        return self.isValid(num[len(first):], second, sumStr)
+
+    def strAdd(self, a, b):
+        # 模拟加法竖式运算，具体可以看下这道题
+        # https://leetcode.cn/problems/add-strings/
+        n, m = len(a), len(b)
+        i, j, add = n - 1, m - 1, 0
+        builder = []
+        while i >= 0 or j >= 0 or add != 0:
+            x = int(a[i]) if i >= 0 else 0
+            y = int(b[j]) if j >= 0 else 0
+            result = x + y + add
+            builder.append(result % 10)
+            add = result // 10
+            i -= 1
+            j -= 1
+        return ''.join(str(i) for i in builder[::-1])
+```
+
+https://leetcode.cn/problems/additive-number 的多语言解法👆
+
 https://leetcode.cn/problems/advantage-shuffle 的多语言解法👇
 
 ```cpp
@@ -22934,7 +23230,8 @@ class Solution2 {
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> res = new LinkedList<>();
         for (int num : nums) {
-            // 注意索引，元素大小从 1 开始，有一位索引偏移
+            // 注意索引，nums 中元素大小从 1 开始，
+            // 而索引是从 0 开始的，所以有一位索引偏移
             if (nums[Math.abs(num) - 1] < 0) {
                 // 之前已经把对应索引的元素变成负数了，
                 // 这说明 num 重复出现了两次
@@ -23145,10 +23442,11 @@ class Solution {
 class Solution2 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         for (int num : nums) {
-            // 注意索引，元素大小从 1 开始，有一位索引偏移
+            // 注意索引，nums 中元素大小从 1 开始，
+            // 而索引是从 0 开始的，所以有一位索引偏移
             if (nums[Math.abs(num) - 1] < 0) {
                 // 之前已经把对应索引的元素变成负数了，
-                // 这说明 num 重复出现了两次，但我们不用做，让索引继续保持负数
+                // 这说明 num 重复出现了两次，但我们什么都不用做，让索引继续保持负数
             } else {
                 // 把索引 num - 1 置为负数
                 nums[Math.abs(num) - 1] *= -1;
@@ -24474,13 +24772,13 @@ class PriorityQueue {
 import heapq
 
 class Solution:
-    def kSmallestPairs(self, nums1, nums2, k):
+    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
         # 存储三元组 (num1[i], nums2[i], i)
         # i 记录 nums2 元素的索引位置，用于生成下一个节点
-        pq = []  
+        pq = []
         for i in range(len(nums1)):
-            heapq.heappush(pq, (nums1[i] + nums2[0], nums2[0], 0))
-
+            heapq.heappush(pq, [nums1[i], nums2[0], 0])
+            
         res = []
         # 执行合并多个有序链表的逻辑
         while pq and k > 0:
@@ -24488,14 +24786,12 @@ class Solution:
             k -= 1
             # 链表中的下一个节点加入优先级队列
             next_index = cur[2] + 1
-            # 获取第一个链表节点
-            node = cur[0] - cur[1]
             if next_index < len(nums2):
-                heapq.heappush(pq, (node + nums2[next_index],  nums2[next_index], next_index))
-
-            pair = [node, cur[1]]
+                heapq.heappush(pq, [cur[0], nums2[next_index], next_index])
+            
+            pair = [cur[0], cur[1]]
             res.append(pair)
-
+        
         return res
 ```
 
@@ -25491,6 +25787,91 @@ class NestedIterator:
 ```
 
 https://leetcode.cn/problems/flatten-nested-list-iterator 的多语言解法👆
+
+https://leetcode.cn/problems/flip-game 的多语言解法👇
+
+```java
+// by labuladong (java)
+class Solution {
+    public List<String> generatePossibleNextMoves(String currentState) {
+        List<String> res = new ArrayList<>();
+        char[] arr = currentState.toCharArray();
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == '+' && arr[i - 1] == '+') {
+                // 做选择
+                arr[i] = '-';
+                arr[i - 1] = '-';
+                res.add(new String(arr));
+                // 撤销选择
+                arr[i] = '+';
+                arr[i - 1] = '+';
+            }
+        }
+        return res;
+    }
+}
+```
+
+https://leetcode.cn/problems/flip-game 的多语言解法👆
+
+https://leetcode.cn/problems/flip-game-ii 的多语言解法👇
+
+```java
+// by labuladong (java)
+class Solution {
+
+    // 直接把 293 的代码 copy 过来，生成所有可能的下一步
+    List<String> generatePossibleNextMoves(String currentState) {
+        List<String> res = new ArrayList<>();
+        char[] arr = currentState.toCharArray();
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == '+' && arr[i - 1] == '+') {
+                // 做选择
+                arr[i] = '-';
+                arr[i - 1] = '-';
+                res.add(new String(arr));
+                // 撤销选择
+                arr[i] = '+';
+                arr[i - 1] = '+';
+            }
+        }
+        return res;
+    }
+
+    // 备忘录
+    Map<String, Boolean> memo = new HashMap<>();
+
+    public boolean canWin(String currentState) {
+        // 记入备忘录
+        memo.clear();
+        return dp(currentState);
+    }
+
+    // 定义：输入字符串 s，返回在此局面下先手是否可能赢
+    boolean dp(String s) {
+        if (memo.containsKey(s)) {
+            // 之前遇到过这种局面，直接返回结果
+            return memo.get(s);
+        }
+        boolean res = false;
+        List<String> nextStates = generatePossibleNextMoves(s);
+        for (String nextState : nextStates) {
+            // 只要有一个是 false，说明当前玩家赢了
+            boolean win = dp(nextState);
+            // 后序位置，做判断
+            if (!win) {
+                res = true;
+                break;
+            }
+        }
+        // 记入备忘录
+        memo.put(s, res);
+        return res;
+    }
+}
+```
+
+https://leetcode.cn/problems/flip-game-ii 的多语言解法👆
 
 https://leetcode.cn/problems/freedom-trail 的多语言解法👇
 
@@ -28926,31 +29307,27 @@ class Solution {
 ```javascript
 // by chatGPT (javascript)
 var rob = function(root) {
-    // memo 需要提到函数外侧，否则每次递归重新声明 memo，相当于备忘录没有生效
     const memo = new Map();
-    let dp = (node) => {
-        if (node === null) {
-            return 0;
-        }
-        // 利用备忘录消除重叠子问题
-        if (memo.has(node)) {
-            return memo.get(node);
-        }
-        // 抢，然后去下下家
-        let do_it = node.val +
-            ((node.left === null) ?
-                0 :
-                dp(node.left.left) + dp(node.left.right)) +
-            ((node.right === null) ?
-                0 :
-                dp(node.right.left) + dp(node.right.right));
-        // 不抢，然后去下家
-        let not_do = dp(node.left) + dp(node.right);
-        let res = Math.max(do_it, not_do);
-        memo.set(node, res);
-        return res;
+    if (root === null) {
+        return 0;
     }
-    return dp(root)
+    // 利用备忘录消除重叠子问题
+    if (memo.has(root)) {
+        return memo.get(root);
+    }
+    // 抢，然后去下下家
+    let do_it = root.val +
+        ((root.left === null) ?
+            0 :
+            rob(root.left.left) + rob(root.left.right)) +
+        ((root.right === null) ?
+            0 :
+            rob(root.right.left) + rob(root.right.right));
+    // 不抢，然后去下家
+    let not_do = rob(root.left) + rob(root.right);
+    let res = Math.max(do_it, not_do);
+    memo.set(root, res);
+    return res;
 };
 ```
 
@@ -32972,6 +33349,93 @@ https://leetcode.cn/problems/lMSNwu 的多语言解法👆
 
 https://leetcode.cn/problems/letter-case-permutation 的多语言解法👇
 
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    string track;
+    vector<string> res;
+    
+    vector<string> letterCasePermutation(string s) {
+        backtrack(s, 0);
+        return res;
+    }
+
+    void backtrack(string s, int index) {
+        if (index == s.size()) {
+            res.push_back(track);
+            return;
+        }
+
+        if ('0' <= s[index] && s[index] <= '9') {
+            // s[index] 是数字
+            // 做选择
+            track.push_back(s[index]);
+            backtrack(s, index + 1);
+            // 撤销选择
+            track.pop_back();
+        } else {
+            // s[index] 是字母
+            
+            // 小写字母，做选择
+            track.push_back(tolower(s[index]));
+            backtrack(s, index + 1);
+            // 撤销选择
+            track.pop_back();
+
+            // 大写字母，做选择
+            track.push_back(toupper(s[index]));
+            backtrack(s, index + 1);
+            // 撤销选择
+            track.pop_back();
+        }
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+func letterCasePermutation(s string) []string {
+    var track []byte
+    var res []string
+
+    var backtrack func(s string, index int)
+    backtrack = func(s string, index int) {
+        if index == len(s) {
+            res = append(res, string(track))
+            return
+        }
+
+        if '0' <= s[index] && s[index] <= '9' {
+            // s[index] 是数字
+            // 做选择
+            track = append(track, s[index])
+            backtrack(s, index + 1)
+            // 撤销选择
+            track = track[:len(track)-1]
+        } else {
+            // s[index] 是字母
+
+            // 小写字母，做选择
+            track = append(track, byte(unicode.ToLower(rune(s[index]))))
+            backtrack(s, index + 1)
+            // 撤销选择
+            track = track[:len(track)-1]
+
+            // 大写字母，做选择
+            track = append(track, byte(unicode.ToUpper(rune(s[index]))))
+            backtrack(s, index + 1)
+            // 撤销选择
+            track = track[:len(track)-1]
+        }
+    }
+
+    backtrack(s, 0)
+
+    return res
+}
+```
+
 ```java
 // by labuladong (java)
 class Solution {
@@ -33013,6 +33477,88 @@ class Solution {
         }
     }
 }
+```
+
+```javascript
+// by chatGPT (javascript)
+var Solution = function() {
+    this.track = [];
+    this.res = [];
+
+    this.letterCasePermutation = function(s) {
+        this.backtrack(s, 0);
+        return this.res;
+    }
+
+    this.backtrack = function(s, index) {
+        if (index == s.length) {
+            this.res.push(this.track.join(''));
+            return;
+        }
+
+        if ('0' <= s.charAt(index) && s.charAt(index) <= '9') {
+            // s[index] 是数字
+            // 做选择
+            this.track.push(s.charAt(index));
+            this.backtrack(s, index + 1);
+            // 撤销选择
+            this.track.pop();
+        } else {
+            // s[index] 是字母
+            
+            // 小写字母，做选择
+            this.track.push(s.charAt(index).toLowerCase());
+            this.backtrack(s, index + 1);
+            // 撤销选择
+            this.track.pop();
+
+            // 大写字母，做选择
+            this.track.push(s.charAt(index).toUpperCase());
+            this.backtrack(s, index + 1);
+            // 撤销选择
+            this.track.pop();
+        }
+    }
+}
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def __init__(self):
+        self.track = ""
+        self.res = []    
+
+    def letterCasePermutation(self, s: str) -> List[str]:
+        self.backtrack(s, 0)
+        return self.res
+
+    def backtrack(self, s, index):
+        if index == len(s):
+            self.res.append(self.track)
+            return
+
+        if '0' <= s[index] <= '9':
+            # s[index] 是数字
+            # 做选择
+            self.track += s[index]
+            self.backtrack(s, index + 1)
+            # 撤销选择
+            self.track = self.track[:-1]
+        else:
+            # s[index] 是字母
+            
+            # 小写字母，做选择
+            self.track += s[index].lower()
+            self.backtrack(s, index + 1)
+            # 撤销选择
+            self.track = self.track[:-1]
+
+            # 大写字母，做选择
+            self.track += s[index].upper()
+            self.backtrack(s, index + 1)
+            # 撤销选择
+            self.track = self.track[:-1]
 ```
 
 https://leetcode.cn/problems/letter-case-permutation 的多语言解法👆
@@ -40399,7 +40945,70 @@ func minDepth(root *TreeNode) int {
 
 ```java
 // by labuladong (java)
+// 「迭代」的递归思路
 class Solution {
+    private int minDepth = Integer.MAX_VALUE;
+    private int currentDepth = 0;
+
+    public int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        traverse(root);
+        return minDepth;
+    }
+
+    private void traverse(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        // 做选择：在进入节点时增加当前深度
+        currentDepth++;
+
+        // 如果当前节点是叶子节点，更新最小深度
+        if (root.left == null && root.right == null) {
+            minDepth = Math.min(minDepth, currentDepth);
+        }
+
+        traverse(root.left);
+        traverse(root.right);
+
+        // 撤销选择：在离开节点时减少当前深度
+        currentDepth--;
+    }
+}
+
+// 「分解问题」的递归思路
+class Solution2 {
+    public int minDepth(TreeNode root) {
+        // 基本情况：如果节点为空，返回深度为0
+        if (root == null) {
+            return 0;
+        }
+
+        // 递归计算左子树的最小深度
+        int leftDepth = minDepth(root.left);
+        // 递归计算右子树的最小深度
+        int rightDepth = minDepth(root.right);
+
+        // 特殊情况处理：如果左子树为空，返回右子树的深度加1
+        if (leftDepth == 0) {
+            return rightDepth + 1;
+        }
+        // 特殊情况处理：如果右子树为空，返回左子树的深度加1
+        if (rightDepth == 0) {
+            return leftDepth + 1;
+        }
+
+        // 计算并返回最小深度：左右子树深度的最小值加1
+        return Math.min(leftDepth, rightDepth) + 1;
+    }
+}
+
+
+// BFS 的思路
+class Solution3 {
     public int minDepth(TreeNode root) {
         if (root == null) return 0;
         Queue<TreeNode> q = new LinkedList<>();
@@ -48667,6 +49276,89 @@ class Solution {
 }
 ```
 
+```javascript
+// by chatGPT (javascript)
+var minimumEffortPath = function(heights) {
+
+    // Dijkstra 算法，计算 (0, 0) 到 (m - 1, n - 1) 的最小体力消耗
+    let m = heights.length,
+        n = heights[0].length,
+        // 定义：从 (0, 0) 到 (i, j) 的最小体力消耗是 effortTo[i][j]
+        effortTo = Array.from({ length: m }, () => Array(n).fill(Number.MAX_SAFE_INTEGER)),
+        // 方向数组，上下左右的坐标偏移量
+        dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]],
+        // 优先级队列，effortFromStart 较小的排在前面
+        pq = [];
+
+    // 从起点 (0, 0) 开始进行 BFS
+    pq.push(new State(0, 0, 0));
+
+    // base case，起点到起点的最小消耗就是 0
+    effortTo[0][0] = 0;
+
+    class State {
+        // 矩阵中的一个位置
+        // 从起点 (0, 0) 到当前位置的最小体力消耗（距离）
+        constructor(x, y, effortFromStart) {
+            this.x = x;
+            this.y = y;
+            this.effortFromStart = effortFromStart;
+        }
+    }
+
+    function adj(matrix, x, y) {
+        let m = matrix.length, n = matrix[0].length;
+        // 存储相邻节点
+        let neighbors = [];
+        for (let dir of dirs) {
+            let nx = x + dir[0];
+            let ny = y + dir[1];
+            if (nx >= m || nx < 0 || ny >= n || ny < 0) {
+                // 索引越界
+                continue;
+            }
+            neighbors.push([nx, ny]);
+        }
+        return neighbors;
+    }
+
+    while (pq.length != 0) {
+        let curState = pq.shift();
+        let curX = curState.x;
+        let curY = curState.y;
+        let curEffortFromStart = curState.effortFromStart;
+
+        // 到达终点提前结束
+        if (curX == m - 1 && curY == n - 1) {
+            return curEffortFromStart;
+        }
+    
+        if (curEffortFromStart > effortTo[curX][curY]) {
+            continue;
+        }
+
+        // 将 (curX, curY) 的相邻坐标装入队列
+        for (let neighbor of adj(heights, curX, curY)) {
+            let nextX = neighbor[0];
+            let nextY = neighbor[1];
+            // 计算从 (curX, curY) 达到 (nextX, nextY) 的消耗
+            let effortToNextNode = Math.max(
+                effortTo[curX][curY],
+                Math.abs(heights[curX][curY] - heights[nextX][nextY])
+            );
+            // 更新 dp table
+            if (effortTo[nextX][nextY] > effortToNextNode) {
+                effortTo[nextX][nextY] = effortToNextNode;
+                pq.push(new State(nextX, nextY, effortToNextNode));
+            }
+        }
+    }
+    
+    // 正常情况不会达到这个 return
+    return -1;
+};
+```
+
 ```python
 # by chatGPT (python)
 import heapq
@@ -53531,17 +54223,18 @@ class Solution {
         int count = 0;
         while (fast < nums.length) {
             if (nums[fast] != nums[slow]) {
+                // 此时，对于 nums[0..slow] 来说，nums[fast] 是一个新的元素，加进来
                 slow++;
                 nums[slow] = nums[fast];
             } else if (slow < fast && count < 2) {
-                // 当一个元素重复次数不到 2 次时，也
+                // 此时，对于 nums[0..slow] 来说，nums[fast] 重复次数小于 2，也加进来
                 slow++;
                 nums[slow] = nums[fast];
             }
             fast++;
             count++;
             if (fast < nums.length && nums[fast] != nums[fast - 1]) {
-                // 遇到不同的元素
+                // fast 遇到新的不同的元素时，重置 count
                 count = 0;
             }
         }
@@ -58478,18 +59171,25 @@ func abs(num int) int {
 // by labuladong (java)
 class Solution {
     public int findRepeatNumber(int[] nums) {
+        // 先把 nums 数组中的所有元素都加一，避免 0 的影响
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = nums[i] + 1;
+        }
+
         for (int num : nums) {
-            if (nums[Math.abs(num)] < 0) {
+            // 该元素对应的索引
+            int index = Math.abs(num) - 1;
+            if (nums[index] < 0) {
                 // 之前已经把对应索引的元素变成负数了，
                 // 这说明 num 重复出现了两次
-                return Math.abs(num);
+                // 注意结果要减一
+                return Math.abs(num) - 1;
             } else {
                 // 把索引 num 的元素置为负数
-                nums[Math.abs(num)] *= -1;
+                nums[index] *= -1;
             }
         }
-        // 如果没有在 for 循环中返回，说明重复的那个元素是 0
-        return 0;
+        return -1;
     }
 }
 ```
@@ -62832,13 +63532,13 @@ class Solution {
         // 加入起点
         q.offer(start);
         visited[start[0]][start[1]] = true;
+        int step = 0;
         // 启动 BFS 算法框架
         while (!q.isEmpty()) {
             int[] cur = q.poll();
             // 向四个方向扩展
             for (int[] dir : dirs) {
                 int x = cur[0], y = cur[1];
-                int step = 0;
                 // 和其他题目不同的是，这里一直走到墙，而不是只走一步，同时要记录走过的步数
                 while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
                     x += dir[0];

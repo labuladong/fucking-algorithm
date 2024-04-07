@@ -125,7 +125,6 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
 
 <!-- table start -->
 
-<!--  -->
 ### [本站简介](https://labuladong.github.io/article/fname.html?fname=home)
 
 ### [准备工作：安装刷题全家桶](https://labuladong.github.io/article/fname.html?fname=全家桶简介)
@@ -134,10 +133,28 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
   * [配套 JetBrains 刷题插件](https://labuladong.github.io/article/fname.html?fname=jb插件简介)
   * [算法可视化面板简介（必读）](https://labuladong.github.io/article/fname.html?fname=可视化简介)
   * [使用可视化面板的 JavaScript 基础](https://labuladong.github.io/article/fname.html?fname=面板js基础)
-  * [学习本站所需的 Java 基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
   * [30 天刷题打卡挑战（可选）](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
 
+### [新手入门：数据结构基础](https://labuladong.github.io/algo/)
+  * [本章导读](https://labuladong.github.io/article/fname.html?fname=数据结构基础简介)
+  * [学习本站所需的 Java 基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
+  * [手把手带你实现动态数组](https://labuladong.github.io/algo/)
+    * [数组（顺序存储）基本原理](https://labuladong.github.io/article/fname.html?fname=数组基础)
+    * [动态数组代码实现](https://labuladong.github.io/article/fname.html?fname=数组实现)
+  * [手把手带你实现链表](https://labuladong.github.io/algo/)
+    * [链表（链式存储）基本原理](https://labuladong.github.io/article/fname.html?fname=链表基础)
+    * [链表代码实现](https://labuladong.github.io/article/fname.html?fname=链表实现)
+  * [手把手带你实现队列/栈](https://labuladong.github.io/algo/)
+    * [队列/栈基本原理](https://labuladong.github.io/article/fname.html?fname=队列栈基础)
+    * [用链表实现队列/栈](https://labuladong.github.io/article/fname.html?fname=队列栈链表实现)
+    * [环形数组技巧](https://labuladong.github.io/article/fname.html?fname=环形数组技巧)
+    * [用数组实现队列/栈](https://labuladong.github.io/article/fname.html?fname=队列栈数组实现)
+    * [双端队列（Deque）原理及实现](https://labuladong.github.io/article/fname.html?fname=双端队列原理实现)
+  * [正在更新 ing](https://labuladong.github.io/article/fname.html?fname=更新中)
+
+
 ### [第零章、核心框架汇总](https://labuladong.github.io/algo/)
+  * [本章导读](https://labuladong.github.io/article/fname.html?fname=核心框架章节简介)
   * [学习算法和刷题的框架思维](https://labuladong.github.io/article/fname.html?fname=学习数据结构和算法的高效方法)
   * [我的刷题心得：算法的本质](https://labuladong.github.io/article/fname.html?fname=算法心得)
   * [双指针技巧秒杀七道链表题目](https://labuladong.github.io/article/fname.html?fname=链表技巧)
