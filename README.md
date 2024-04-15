@@ -135,13 +135,13 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
   * [使用可视化面板的 JavaScript 基础](https://labuladong.github.io/article/fname.html?fname=面板js基础)
   * [30 天刷题打卡挑战（可选）](https://labuladong.github.io/article/fname.html?fname=打卡挑战简介)
 
-### [新手入门：数据结构基础](https://labuladong.github.io/algo/)
+### [极速入门：数据结构基础](https://labuladong.github.io/algo/)
   * [本章导读](https://labuladong.github.io/article/fname.html?fname=数据结构基础简介)
   * [学习本站所需的 Java 基础](https://labuladong.github.io/article/fname.html?fname=网站Java基础)
   * [手把手带你实现动态数组](https://labuladong.github.io/algo/)
     * [数组（顺序存储）基本原理](https://labuladong.github.io/article/fname.html?fname=数组基础)
     * [动态数组代码实现](https://labuladong.github.io/article/fname.html?fname=数组实现)
-  * [手把手带你实现链表](https://labuladong.github.io/algo/)
+  * [手把手带你实现单/双链表](https://labuladong.github.io/algo/)
     * [链表（链式存储）基本原理](https://labuladong.github.io/article/fname.html?fname=链表基础)
     * [链表代码实现](https://labuladong.github.io/article/fname.html?fname=链表实现)
   * [手把手带你实现队列/栈](https://labuladong.github.io/algo/)
@@ -150,6 +150,11 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [环形数组技巧](https://labuladong.github.io/article/fname.html?fname=环形数组技巧)
     * [用数组实现队列/栈](https://labuladong.github.io/article/fname.html?fname=队列栈数组实现)
     * [双端队列（Deque）原理及实现](https://labuladong.github.io/article/fname.html?fname=双端队列原理实现)
+  * [手把手带你实现哈希表](https://labuladong.github.io/algo/)
+    * [哈希表基本原理](https://labuladong.github.io/article/fname.html?fname=哈希表基础)
+    * [用拉链法实现哈希表](https://labuladong.github.io/article/fname.html?fname=哈希表拉链法)
+    * [线性探查法的两个难点](https://labuladong.github.io/article/fname.html?fname=哈希表线性探查难点)
+    * [线性探查法的两种代码实现](https://labuladong.github.io/article/fname.html?fname=哈希表线性探查实现)
   * [正在更新 ing](https://labuladong.github.io/article/fname.html?fname=更新中)
 
 
