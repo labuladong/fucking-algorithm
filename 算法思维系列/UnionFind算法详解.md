@@ -23,17 +23,17 @@
 
 **-----------**
 
-记得我之前在讲 [图论算法基础](https://labuladong.github.io/article/fname.html?fname=图) 时说图论相关的算法不会经常考，但最近被打脸了，因为一些读者和我反馈近期求职面试涉及很多图论相关的算法，可能是因为环境不好所以算法这块更卷了吧。
+记得我之前在讲 [图论算法基础](https://labuladong.online/algo/fname.html?fname=图) 时说图论相关的算法不会经常考，但最近被打脸了，因为一些读者和我反馈近期求职面试涉及很多图论相关的算法，可能是因为环境不好所以算法这块更卷了吧。
 
 常见的图论算法我都已经写过了，这里按难度顺序列举一下：
 
-1. [图论算法基础](https://labuladong.github.io/article/fname.html?fname=图)
-2. [二分图判定算法及应用](https://labuladong.github.io/article/fname.html?fname=二分图)
-3. [环检测/拓扑排序算法及应用](https://labuladong.github.io/article/fname.html?fname=拓扑排序)
+1. [图论算法基础](https://labuladong.online/algo/fname.html?fname=图)
+2. [二分图判定算法及应用](https://labuladong.online/algo/fname.html?fname=二分图)
+3. [环检测/拓扑排序算法及应用](https://labuladong.online/algo/fname.html?fname=拓扑排序)
 4. 并查集算法及应用（本文）
-5. [Kruskal 最小生成树算法及应用](https://labuladong.github.io/article/fname.html?fname=kruskal)
-6. [Prim 最小生成树算法及应用](https://labuladong.github.io/article/fname.html?fname=prim算法)
-7. [Dijkstra 算法模板及应用](https://labuladong.github.io/article/fname.html?fname=dijkstra算法)
+5. [Kruskal 最小生成树算法及应用](https://labuladong.online/algo/fname.html?fname=kruskal)
+6. [Prim 最小生成树算法及应用](https://labuladong.online/algo/fname.html?fname=prim算法)
+7. [Dijkstra 算法模板及应用](https://labuladong.online/algo/fname.html?fname=dijkstra算法)
 
 并查集（Union-Find）算法是一个专门针对「动态连通性」的算法，我之前写过两次，因为这个算法的考察频率高，而且它也是最小生成树算法的前置知识，所以我整合了本文，争取一篇文章把这个算法讲明白。
 
@@ -85,13 +85,13 @@ class UF {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Dijkstra 算法模板及应用](https://labuladong.github.io/article/fname.html?fname=dijkstra算法)
- - [Kruskal 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=kruskal)
- - [Prim 最小生成树算法](https://labuladong.github.io/article/fname.html?fname=prim算法)
- - [一文秒杀所有岛屿题目](https://labuladong.github.io/article/fname.html?fname=岛屿题目)
- - [二分图判定算法](https://labuladong.github.io/article/fname.html?fname=二分图)
- - [我的刷题心得：算法的本质](https://labuladong.github.io/article/fname.html?fname=算法心得)
- - [用算法打败算法](https://labuladong.github.io/article/fname.html?fname=PDF中的算法)
+ - [Dijkstra 算法模板及应用](https://labuladong.online/algo/fname.html?fname=dijkstra算法)
+ - [Kruskal 最小生成树算法](https://labuladong.online/algo/fname.html?fname=kruskal)
+ - [Prim 最小生成树算法](https://labuladong.online/algo/fname.html?fname=prim算法)
+ - [一文秒杀所有岛屿题目](https://labuladong.online/algo/fname.html?fname=岛屿题目)
+ - [二分图判定算法](https://labuladong.online/algo/fname.html?fname=二分图)
+ - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
+ - [用算法打败算法](https://labuladong.online/algo/fname.html?fname=PDF中的算法)
 
 </details><hr>
 
@@ -102,7 +102,7 @@ class UF {
 <details class="hint-container details">
 <summary><strong>引用本文的题目</strong></summary>
 
-<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
+<strong>安装 [我的 Chrome 刷题插件](https://labuladong.online/algo/intro/chrome/) 点开下列题目可直接查看解题思路：</strong>
 
 | LeetCode | 力扣 |
 | :----: | :----: |
@@ -122,7 +122,7 @@ class UF {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.gitee.io/article/fname.html?fname=UnionFind算法详解) 查看：
+本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解) 查看：
 
 ![](https://labuladong.github.io/pictures/qrcode.jpg)
 

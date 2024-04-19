@@ -229,7 +229,7 @@ class Twitter {
 
 ### 三、算法设计
 
-实现合并 k 个有序链表的算法需要用到优先级队列（Priority Queue），这种数据结构是二叉堆最重要的应用。你可以理解为它可以对插入的元素自动排序，乱序的元素插入其中就被放到了正确的位置，可以按照从小到大（或从大到小）有序地取出元素。具体可以看这篇 [二叉树实现优先级队列](https://labuladong.github.io/article/fname.html?fname=二叉堆详解实现优先级队列)
+实现合并 k 个有序链表的算法需要用到优先级队列（Priority Queue），这种数据结构是二叉堆最重要的应用。你可以理解为它可以对插入的元素自动排序，乱序的元素插入其中就被放到了正确的位置，可以按照从小到大（或从大到小）有序地取出元素。具体可以看这篇 [二叉树实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆详解实现优先级队列)
 
 ```python
 PriorityQueue pq
@@ -299,7 +299,7 @@ class Twitter {
 
 我们解决的问题应该只能算 Timeline Service 模块的一小部分，功能越多，系统的复杂性可能是指数级增长的。所以说合理的顶层设计十分重要，其作用是远超某一个算法的。Github 上有一个优秀的开源项目，专门收集了很多大型系统设计的案例和解析，而且有中文版本，上面这个图也出自该项目。对系统设计感兴趣的读者可以点击 [这里](https://github.com/donnemartin/system-design-primer) 查看。
 
-本文就到这里，更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://labuladong.github.io/article/fname.html?fname=设计习题)。
+本文就到这里，更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://labuladong.online/algo/fname.html?fname=设计习题)。
 
 
 
@@ -307,7 +307,7 @@ class Twitter {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [数据结构设计：最大栈](https://labuladong.github.io/article/fname.html?fname=最大栈)
+ - [数据结构设计：最大栈](https://labuladong.online/algo/fname.html?fname=最大栈)
 
 </details><hr>
 
