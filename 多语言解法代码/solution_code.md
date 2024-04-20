@@ -19442,21 +19442,26 @@ public:
 ```
 
 ```go
-// by chatGPT (go)
+// by mario_huang (go)
+var maxDiameter int
+
 func diameterOfBinaryTree(root *TreeNode) int {
-    maxDiameter := 0
-    maxDepth := func(root *TreeNode) int {
-        if root == nil {
-            return 0
-        }
-        leftMax := maxDepth(root.Left)
-        rightMax := maxDepth(root.Right)
-        // 后序遍历位置顺便计算最大直径
-        maxDiameter = max(maxDiameter, leftMax+rightMax)
-        return 1 + max(leftMax, rightMax)
-    }
+    // 记录最大直径的长度
+    maxDiameter = 0
     maxDepth(root)
     return maxDiameter
+}
+
+func maxDepth(root *TreeNode) int {
+    if root == nil {
+        return 0
+    }
+    leftMax := maxDepth(root.Left)
+    rightMax := maxDepth(root.Right)
+    // 后序位置，顺便计算最大直径
+    myDiameter := leftMax + rightMax
+    maxDiameter = max(maxDiameter, myDiameter)
+    return max(leftMax, rightMax) + 1
 }
 
 // 这是一种简单粗暴，但是效率不高的解法
