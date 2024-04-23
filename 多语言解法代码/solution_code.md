@@ -39018,20 +39018,21 @@ var mergeKLists = function(lists) {
     let dummy = new ListNode(-1);
     let p = dummy;
     // 优先级队列，最小堆
-    let pq = new PriorityQueue(
-        lists.length, (a, b) => (a.val - b.val));
+    let pq = new PriorityQueue({
+        compare: (a, b) => (a.val - b.val)
+    });
     // 将 k 个链表的头结点加入最小堆
     for (let head of lists) {
         if (head != null)
-            pq.add(head);
+            pq.enqueue(head);
     }
 
     while (!pq.isEmpty()) {
         // 获取最小节点，接到结果链表中
-        let node = pq.poll();
+        let node = pq.dequeue();
         p.next = node;
         if (node.next != null) {
-            pq.add(node.next);
+            pq.enqueue(node.next);
         }
         // p 指针不断前进
         p = p.next;
