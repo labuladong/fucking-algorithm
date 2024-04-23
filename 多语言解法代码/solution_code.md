@@ -32572,79 +32572,19 @@ class Solution {
 // by chatGPT (javascript)
 var findKthLargest = function(nums, k) {
     // 小顶堆，堆顶是最小元素
-    let pq = new PriorityQueue();
+    let pq = new MinPriorityQueue();
     for (let e of nums) {
         // 每个元素都要过一遍二叉堆
-        pq.offer(e);
+        pq.enqueue(e);
         // 堆中元素多于 k 个时，删除堆顶元素
         if (pq.size() > k) {
-            pq.poll();
+            pq.dequeue();
         }
     }
     // pq 中剩下的是 nums 中 k 个最大元素，
     // 堆顶是最小的那个，即第 k 个最大元素
-    return pq.peek();
+    return pq.front().element;
 };
-
-// JavaScript 的 PriorityQueue 实现可能不太一样，这里只是一个简单实现作为例子
-class PriorityQueue {
-    constructor() {
-        this.data = [];
-    }
-    offer(val) {
-        this.data.push(val);
-        this.bubbleUp(this.size() - 1);
-    }
-    poll() {
-        if (this.size() === 0) {
-            return undefined;
-        }
-        const result = this.data[0];
-        const last = this.data.pop();
-        if (this.size() !== 0) {
-            this.data[0] = last;
-            this.bubbleDown(0);
-        }
-        return result;
-    }
-    peek() {
-        return this.size() === 0 ? undefined : this.data[0];
-    }
-    size() {
-        return this.data.length;
-    }
-    bubbleUp(index) {
-        while (index > 0) {
-            const parentIndex = Math.floor((index - 1) / 2);
-            if (this.data[index] >= this.data[parentIndex]) {
-                break;
-            }
-            this.swap(index, parentIndex);
-            index = parentIndex;
-        }
-    }
-    bubbleDown(index) {
-        while (STATUS_PASSED_TEST) {
-            const leftChildIndex = index * 2 + 1;
-            const rightChildIndex = index * 2 + 2;
-            let smallestChildIndex = index;
-            if (leftChildIndex < this.size() && this.data[leftChildIndex] < this.data[smallestChildIndex]) {
-                smallestChildIndex = leftChildIndex;
-            }
-            if (rightChildIndex < this.size() && this.data[rightChildIndex] < this.data[smallestChildIndex]) {
-                smallestChildIndex = rightChildIndex;
-            }
-            if (smallestChildIndex === index) {
-                break;
-            }
-            this.swap(index, smallestChildIndex);
-            index = smallestChildIndex;
-        }
-    }
-    swap(i, j) {
-        [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
-    }
-}
 ```
 
 ```python
