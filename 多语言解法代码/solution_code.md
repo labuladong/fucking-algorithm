@@ -32996,68 +32996,6 @@ var kthSmallest = function(matrix, k) {
     }
     return res;
 };
-
-class PriorityQueue {
-    constructor(comparator) {
-        this.heap = [];
-        this.comparator = comparator;
-    }
-
-    isEmpty() {
-        return this.heap.length === 0;
-    }
-
-    offer(val) {
-        this.heap.push(val);
-        this.bubbleUp(this.heap.length - 1);
-    }
-
-    poll() {
-        if (this.isEmpty()) {
-            return null;
-        }
-        const val = this.heap[0];
-        const lastVal = this.heap.pop();
-        if (this.heap.length > 0) {
-            this.heap[0] = lastVal;
-            this.sinkDown(0);
-        }
-        return val;
-    }
-
-    bubbleUp(pos) {
-        while (pos > 0) {
-            const parentPos = (pos - 1) >>> 1;
-            if (this.comparator(this.heap[pos], this.heap[parentPos]) < 0) {
-                [this.heap[pos], this.heap[parentPos]] = [this.heap[parentPos], this.heap[pos]];
-                pos = parentPos;
-            } else {
-                break;
-            }
-        }
-    }
-
-    sinkDown(pos) {
-        const lastPos = this.heap.length - 1;
-        while (STATUS_PASSED_TEST) {
-            const leftChildPos = pos * 2 + 1;
-            const rightChildPos = pos * 2 + 2;
-            let minPos = pos;
-            if (leftChildPos <= lastPos && this.comparator(this.heap[leftChildPos], this.heap[minPos]) < 0) {
-                minPos = leftChildPos;
-            }
-            if (rightChildPos <= lastPos && this.comparator(this.heap[rightChildPos], this.heap[minPos]) < 0) {
-                minPos = rightChildPos;
-            }
-            if (minPos !== pos) {
-                [this.heap[pos], this.heap[minPos]] = [this.heap[minPos], this.heap[pos]];
-                pos = minPos;
-            } else {
-                break;
-            }
-        }
-    }
-};
 ```
 
 ```python
