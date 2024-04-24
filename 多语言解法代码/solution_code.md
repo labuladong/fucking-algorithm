@@ -24668,24 +24668,23 @@ class Solution {
 var kSmallestPairs = function(nums1, nums2, k) {
     // 存储三元组 (num1[i], nums2[i], i)
     // i 记录 nums2 元素的索引位置，用于生成下一个节点
-    const pq = new PriorityQueue((a, b) => {
-        // 按照数对的元素和升序排序
-        return (a[0] + a[1]) - (b[0] + b[1]);
+    const pq = new PriorityQueue({
+        compare: (a, b) => (a[0] + a[1]) - (b[0] + b[1])
     });
     // 按照 23 题的逻辑初始化优先级队列
     for (let i = 0; i < nums1.length; i++) {
-        pq.offer([nums1[i], nums2[0], 0]);
+        pq.enqueue([nums1[i], nums2[0], 0]);
     }
 
     const res = [];
     // 执行合并多个有序链表的逻辑
     while (!pq.isEmpty() && k > 0) {
-        const cur = pq.poll();
+        const cur = pq.dequeue();
         k--;
         // 链表中的下一个节点加入优先级队列
         const next_index = cur[2] + 1;
         if (next_index < nums2.length) {
-            pq.add([cur[0], nums2[next_index], next_index]);
+            pq.enqueue([cur[0], nums2[next_index], next_index]);
         }
 
         const pair = [cur[0], cur[1]];
@@ -24693,78 +24692,6 @@ var kSmallestPairs = function(nums1, nums2, k) {
     }
     return res;
 };
-
-// 优先级队列的实现，用于存储三元组
-class PriorityQueue {
-    constructor(comparator) {
-        this.heap = [];
-        this.comparator = comparator;
-    }
-
-    isEmpty() {
-        return this.heap.length === 0;
-    }
-
-    size() {
-        return this.heap.length;
-    }
-
-    peek() {
-        return this.heap[0];
-    }
-
-    offer(value) {
-        this.heap.push(value);
-        this.bubbleUp(this.heap.length - 1);
-    }
-
-    poll() {
-        const result = this.heap[0];
-        const end = this.heap.pop();
-        if (this.heap.length > 0) {
-            this.heap[0] = end;
-            this.bubbleDown(0);
-        }
-        return result;
-    }
-
-    bubbleUp(index) {
-        while (index > 0) {
-            const parentIndex = (index - 1) >> 1;
-            if (this.comparator(this.heap[index], this.heap[parentIndex]) < 0) {
-                const tmp = this.heap[index];
-                this.heap[index] = this.heap[parentIndex];
-                this.heap[parentIndex] = tmp;
-                index = parentIndex;
-            } else {
-                break;
-            }
-        }
-    }
-
-    bubbleDown(index) {
-        const lastIndex = this.heap.length - 1;
-        while (STATUS_PASSED_TEST) {
-            const leftIndex = index * 2 + 1;
-            const rightIndex = index * 2 + 2;
-            let findIndex = index;
-            if (leftIndex <= lastIndex && this.comparator(this.heap[leftIndex], this.heap[findIndex]) < 0) {
-                findIndex = leftIndex;
-            }
-            if (rightIndex <= lastIndex && this.comparator(this.heap[rightIndex], this.heap[findIndex]) < 0) {
-                findIndex = rightIndex;
-            }
-            if (index !== findIndex) {
-                const tmp = this.heap[index];
-                this.heap[index] = this.heap[findIndex];
-                this.heap[findIndex] = tmp;
-                index = findIndex;
-            } else {
-                break;
-            }
-        }
-    }
-}
 ```
 
 ```python
