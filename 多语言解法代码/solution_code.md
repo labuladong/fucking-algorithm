@@ -48860,14 +48860,16 @@ function dijkstra(start, end, graph) {
     distTo[start] = 1;
 
     // 优先级队列，distFromStart 较小的排在前面
-    const pq = new PriorityQueue((a, b) => {
-        return b.distFromStart - a.distFromStart;
+    const pq = new PriorityQueue({
+        compare: (a, b) => {
+            return b.distFromStart - a.distFromStart;
+        }
     });
     // 从起点 start 开始进行 BFS
-    pq.offer(new State(start, 1));
+    pq.enqueue(new State(start, 1));
 
     while (!pq.isEmpty()) {
-        const curState = pq.poll();
+        const curState = pq.dequeue();
         const curNodeID = curState.id;
         const curDistFromStart = curState.distFromStart;
 
@@ -48889,31 +48891,11 @@ function dijkstra(start, end, graph) {
                 // 更新 dp table
                 distTo[nextNodeID] = distToNextNode;
                 // 将这个节点以及距离放入队列
-                pq.offer(new State(nextNodeID, distToNextNode));
+                pq.enqueue(new State(nextNodeID, distToNextNode));
             }
         }
     }
     return 0.0;
-}
-
-class PriorityQueue {
-    constructor(compare) {
-        this.queue = [];
-        this.compare = compare;
-    }
-
-    offer(val) {
-        this.queue.push(val);
-        this.queue.sort(this.compare);
-    }
-
-    poll() {
-        return this.queue.shift();
-    }
-
-    isEmpty() {
-        return this.queue.length === 0;
-    }
 }
 ```
 
