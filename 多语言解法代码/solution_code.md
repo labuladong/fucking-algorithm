@@ -42265,53 +42265,64 @@ class Solution {
 ```
 
 ```go
-// by chatGPT (go)
-// 采用滑动窗口方法的 Go 解法
+// by mario_huang (go)
 func minWindow(s string, t string) string {
-    // 将需要匹配的字符及其出现次数存入 need
-    // 将滑动窗口中的字符及出现次数存入 window
-    need, window := make(map[byte]int), make(map[byte]int)
-    for i := range t {
-        need[t[i]]++
+    need := map[byte]int{}
+    window := map[byte]int{}
+    for _, c := range []byte(t) {
+        need[c]++
     }
-
-    left, right := 0, 0 // 定义窗口的左右边界
-    valid := 0 // valid 存储满足 need 条件的字符个数
-    start, length := 0, math.MaxInt32 // 定义最小覆盖子串的起始位置及长度
-
-    for right < len(s) { // 当右边界小于 s 的长度时
+    left, right := 0, 0
+    valid := 0
+    // 记录最小覆盖子串的起始索引及长度
+    start, length := 0, math.MaxInt
+    /**<extend down -200>
+      ![](../pictures/slidingwindow/1.png)
+    */
+    for right < len(s) {
+        // c 是将移入窗口的字符
         c := s[right]
+        // 右移窗口
         right++
-
-        if _, ok := need[c]; ok { // 如果 c 是需要匹配的字符
+        // 进行窗口内数据的一系列更新
+        if _, ok := need[c]; ok {
             window[c]++
             if window[c] == need[c] {
                 valid++
             }
         }
-
-        for valid == len(need) { // 当窗口中已经包含了所有需要的字符时
-            if right-left < length { // 更新最小覆盖子串长度及起始位置
+        // 判断左侧窗口是否要收缩
+        for valid == len(need) {
+            /**<extend down -200>
+              ![](../pictures/slidingwindow/2.png)
+            */
+            // 在这里更新最小覆盖子串
+            if right-left < length {
                 start = left
                 length = right - left
             }
+            // d 是将移出窗口的字符
             d := s[left]
+            // 左移窗口
             left++
-
-            if _, ok := need[d]; ok { // 如果 d 是需要匹配的字符
+            // 进行窗口内数据的一系列更新
+            if _, ok := need[d]; ok {
                 if window[d] == need[d] {
                     valid--
                 }
                 window[d]--
             }
         }
+        /**<extend up -50>
+          ![](../pictures/slidingwindow/4.png)
+        */
     }
-
-    if length == math.MaxInt32 { // 如果没有符合要求的子串，返回空字符串
+    // 返回最小覆盖子串
+    if length == math.MaxInt {
         return ""
+    } else {
+        return s[start : start+length]
     }
-
-    return s[start : start+length] // 返回最小覆盖子串
 }
 ```
 
