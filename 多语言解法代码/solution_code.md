@@ -7179,8 +7179,10 @@ class Solution {
         // 穷举前两个数字
         int n = num.length();
         for (int i = 1; i <= n; i++) {
+            // 先穷举第一个数字
+            String first = num.substring(0, i);
             for (int j = i + 1; j <= n; j++) {
-                String first = num.substring(0, i);
+                // 再穷举第二个数字
                 String second = num.substring(i, j);
                 if (isValid(num, first, second)) {
                     return true;
@@ -16405,6 +16407,97 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/count-complete-tree-nodes 的多语言解法👆
+
+https://leetcode.cn/problems/count-numbers-with-unique-digits 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) return 1;
+        if (n == 1) return 10;
+        int res = 9;
+        // 计算 n 位数的阶乘，共有几种不同数字的排列组合
+        for (int i = 1; i < n; i++) {
+            res *= (10 - i);
+        }
+        // 最后要加上 n - 1 位数的排列组合
+        return res + countNumbersWithUniqueDigits(n - 1);
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+// Solution function 
+func countNumbersWithUniqueDigits(n int) int {
+    if n == 0 { 
+        return 1
+    }
+    if n == 1 { 
+        return 10
+    }
+    res := 9
+    
+    // 计算 n 位数的阶乘，共有几种不同数字的排列组合
+    for i := 1; i < n; i++ {
+        res *= (10 - i)
+    }
+    // 最后要加上 n - 1 位数的排列组合
+    return res + countNumbersWithUniqueDigits(n - 1)
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+    public int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) return 1;
+        if (n == 1) return 10;
+        int res = 9;
+        // 计算 n 位数的阶乘，共有几种不同数字的排列组合
+        for (int i = 1; i < n; i++) {
+            res *= (10 - i);
+        }
+        // 最后要加上 n - 1 位数的排列组合
+        return res + countNumbersWithUniqueDigits(n - 1);
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var countNumbersWithUniqueDigits = function(n) {
+    if (n == 0) return 1;
+    if (n == 1) return 10;
+    var res = 9;
+    // 计算 n 位数的阶乘，共有几种不同数字的排列组合
+    for (var i = 1; i < n; i++) {
+        res *= (10 - i);
+    }
+    // 最后要加上 n - 1 位数的排列组合
+    return res + countNumbersWithUniqueDigits(n - 1);
+};
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+    def countNumbersWithUniqueDigits(self, n: int) -> int:
+        if n == 0:
+            return 1
+        if n == 1:
+            return 10
+        res = 9
+        # 计算 n 位数的阶乘，共有几种不同数字的排列组合
+        for i in range(1, n):
+            res *= (10 - i)
+        # 最后要加上 n - 1 位数的排列组合
+        return res + self.countNumbersWithUniqueDigits(n - 1)
+```
+
+https://leetcode.cn/problems/count-numbers-with-unique-digits 的多语言解法👆
 
 https://leetcode.cn/problems/count-of-range-sum 的多语言解法👇
 
@@ -25790,6 +25883,48 @@ https://leetcode.cn/problems/flatten-nested-list-iterator 的多语言解法👆
 
 https://leetcode.cn/problems/flip-game 的多语言解法👇
 
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    vector<string> generatePossibleNextMoves(string currentState) {
+        vector<string> res;
+        for (int i = 1; i < currentState.size(); i++) {
+            if (currentState[i] == '+' && currentState[i - 1] == '+') {
+                // 做选择
+                currentState[i] = '-';
+                currentState[i - 1] = '-';
+                res.push_back(currentState);
+                // 撤销选择
+                currentState[i] = '+';
+                currentState[i - 1] = '+';
+            }
+        }
+        return res;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+func generatePossibleNextMoves(currentState string) []string {
+    res := []string{}
+    arr := []rune(currentState)
+    for i := 1; i < len(arr); i++ {
+        if arr[i] == '+' && arr[i-1] == '+' {
+            // 做选择
+            arr[i] = '-'
+            arr[i-1] = '-'
+            res = append(res, string(arr))
+            // 撤销选择
+            arr[i] = '+'
+            arr[i-1] = '+'
+        }
+    }
+    return res
+}
+```
+
 ```java
 // by labuladong (java)
 class Solution {
@@ -25812,9 +25947,160 @@ class Solution {
 }
 ```
 
+```javascript
+// by chatGPT (javascript)
+var generatePossibleNextMoves = function(currentState) {
+    var res = [];
+    var arr = Array.from(currentState);
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] === '+' && arr[i - 1] === '+') {
+            // 做选择
+            arr[i] = '-';
+            arr[i - 1] = '-';
+            res.push(arr.join(''));
+            // 撤销选择
+            arr[i] = '+';
+            arr[i - 1] = '+';
+        }
+    }
+    return res;
+}
+```
+
+```python
+# by chatGPT (python)
+class Solution(object):
+    def generatePossibleNextMoves(self, currentState):
+        """
+        :type currentState: str
+        :rtype: List[str]
+        """
+        res = []
+        for i in range(1, len(currentState)):
+            if currentState[i] == '+' and currentState[i - 1] == '+':
+                 # 做选择
+                res.append(currentState[:i - 1] + '--' + currentState[i + 1:])
+                # 撤销选择 is not needed in python due to its immutability of string
+        return res
+```
+
 https://leetcode.cn/problems/flip-game 的多语言解法👆
 
 https://leetcode.cn/problems/flip-game-ii 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    // 直接把 293 的代码 copy 过来，生成所有可能的下一步
+    vector<string> generatePossibleNextMoves(string currentState) {
+        vector<string> res;
+        for (int i = 1; i < currentState.size(); i++) {
+            if (currentState[i] == '+' && currentState[i - 1] == '+') {
+                // 做选择
+                currentState[i] = '-';
+                currentState[i - 1] = '-';
+                res.push_back(currentState);
+                // 撤销选择
+                currentState[i] = '+';
+                currentState[i - 1] = '+';
+            }
+        }
+        return res;
+    }
+
+    // 备忘录
+    unordered_map<string, bool> memo;
+
+    bool canWin(string currentState) {
+        // 记入备忘录
+        memo.clear();
+        return dp(currentState);
+    }
+
+    // 定义：输入字符串 s，返回在此局面下先手是否可能赢
+    bool dp(string s) {
+        if (memo.find(s) != memo.end()) {
+            // 之前遇到过这种局面，直接返回结果
+            return memo[s];
+        }
+        vector<string> nextStates = generatePossibleNextMoves(s);
+        bool res = false;
+        for (string nextState : nextStates) {
+            // 只要有一个是 false，说明当前玩家赢了
+            bool win = dp(nextState);
+            // 后序位置，做判断
+            if (!win) {
+                res = true;
+                break;
+            }
+        }
+        // 记入备忘录
+        memo[s] = res;
+        return res;
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+import "strings"
+
+// 直接把 293 的代码 copy 过来，生成所有可能的下一步
+func generatePossibleNextMoves(currentState string) []string {
+    res := make([]string, 0)
+    arr := []rune(currentState)
+    for i := 1; i < len(arr); i++ {
+        if arr[i] == '+' && arr[i-1] == '+' {
+            // making a choice
+            // 做选择
+            arr[i] = '-'
+            arr[i-1] = '-'
+            res = append(res, string(arr))
+            // undo choice
+            // 撤销选择
+            arr[i] = '+'
+            arr[i-1] = '+'
+        }
+    }
+    return res
+}
+
+func canWin(currentState string) bool {
+    // Definition: Enter string s, return whether the first hand can win in this face.
+    // 定义：输入字符串 s，返回在此局面下先手是否可能赢
+    var dp func(string, map[string]bool) bool
+    dp = func(s string, memo map[string]bool) bool {
+        if _, ok := memo[s]; ok {
+            // have encountered this position before, return the result directly
+            // 之前遇到过这种局面，直接返回结果
+            return memo[s]
+        }
+        res := false
+        nextStates := generatePossibleNextMoves(s)
+        for _, nextState := range nextStates {
+            // As long as one is false, it means the current player won
+            // 只要有一个是 false，说明当前玩家赢了
+            win := dp(nextState, memo)
+            // subsequent position, make a judgment
+            // 后序位置，做判断
+            if !win {
+                res = true
+                break
+            }
+        }
+        // record in the memo
+        // 记入备忘录
+        memo[s] = res
+        return res
+    }
+
+    // memo is a map that acts as the memoization for dp.
+    // 备忘录
+    memo := make(map[string]bool)
+    return dp(currentState, memo)
+}
+```
 
 ```java
 // by labuladong (java)
@@ -25869,6 +26155,52 @@ class Solution {
         return res;
     }
 }
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+
+    # 直接把 293 的代码 copy 过来，生成所有可能的下一步
+    def generatePossibleNextMoves(self, currentState):
+        res = []
+        arr = list(currentState)
+        for i in range(1, len(arr)):
+            if arr[i] == '+' and arr[i - 1] == '+':
+                # 做选择
+                arr[i] = '-'
+                arr[i - 1] = '-'
+                res.append("".join(arr))
+                # 撤销选择
+                arr[i] = '+'
+                arr[i - 1] = '+'
+        return res
+
+    # 备忘录
+    memo = {}
+
+    def canWin(self, currentState):
+        # 记入备忘录
+        self.memo.clear()
+        return self.dp(currentState)
+
+    # 定义：输入字符串 s，返回在此局面下先手是否可能赢
+    def dp(self, s):
+        if s in self.memo:
+            # 之前遇到过这种局面，直接返回结果
+            return self.memo[s]
+        res = False
+        nextStates = self.generatePossibleNextMoves(s)
+        for nextState in nextStates:
+            # 只要有一个是 false，说明当前玩家赢了
+            win = self.dp(nextState)
+            # 后序位置，做判断
+            if not win:
+                res = True
+                break
+        # 记入备忘录
+        self.memo[s] = res
+        return res
 ```
 
 https://leetcode.cn/problems/flip-game-ii 的多语言解法👆
@@ -33757,6 +34089,179 @@ class Solution:
 ```
 
 https://leetcode.cn/problems/letter-combinations-of-a-phone-number 的多语言解法👆
+
+https://leetcode.cn/problems/letter-tile-possibilities 的多语言解法👇
+
+```cpp
+// by chatGPT (cpp)
+class Solution {
+public:
+    int res = 0;
+    vector<bool> used;
+
+    int numTilePossibilities(string s) {
+        vector<char> nums(s.begin(), s.end());
+        // 先排序，让相同的元素靠在一起
+        sort(nums.begin(), nums.end());
+        used = vector<bool>(nums.size(), false);
+        backtrack(nums);
+        return res - 1;
+    }
+
+    void backtrack(vector<char>& nums) {
+        res++;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (used[i]) {
+                continue;
+            }
+            // 新添加的剪枝逻辑，固定相同的元素在排列中的相对位置
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                continue;
+            }
+            used[i] = true;
+            backtrack(nums);
+            used[i] = false;
+        }
+    }
+};
+```
+
+```go
+// by chatGPT (go)
+import (
+	"sort"
+	"strings"
+)
+
+func numTilePossibilities(s string) int {
+	nums := strings.Split(s, "")
+    // 先排序，让相同的元素靠在一起
+	sort.Strings(nums)
+
+	used := make([]bool, len(nums))
+	res := 0
+
+	var backtrack func(nums []string)
+	backtrack = func(nums []string) {
+		res++
+
+		for i := 0; i < len(nums); i++ {
+			if used[i] {
+				continue
+			}
+            // 新添加的剪枝逻辑，固定相同的元素在排列中的相对位置
+			if i > 0 && nums[i] == nums[i-1] && !used[i-1] {
+				continue
+			}
+			used[i] = true
+			backtrack(nums)
+			used[i] = false
+		}
+	}
+	backtrack(nums)
+	return res - 1
+}
+```
+
+```java
+// by labuladong (java)
+class Solution {
+
+    int res = 0;
+    boolean[] used;
+
+    public int numTilePossibilities(String s) {
+        char[] nums = s.toCharArray();
+        // 先排序，让相同的元素靠在一起
+        Arrays.sort(nums);
+        used = new boolean[nums.length];
+        backtrack(nums);
+        return res - 1;
+    }
+
+    void backtrack(char[] nums) {
+        res++;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            // 新添加的剪枝逻辑，固定相同的元素在排列中的相对位置
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                continue;
+            }
+            used[i] = true;
+            backtrack(nums);
+            used[i] = false;
+        }
+    }
+}
+```
+
+```javascript
+// by chatGPT (javascript)
+var numTilePossibilities = function(s) {
+    var res = 0;
+    var nums = s.split('').sort();
+    var used = new Array(nums.length).fill(false);
+
+    function backtrack(nums) {
+        res++;
+
+        for (var i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            // 新添加的剪枝逻辑，固定相同的元素在排列中的相对位置
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                continue;
+            }
+            // 做选择
+            used[i] = true;
+            backtrack(nums);
+            // 撤销选择
+            used[i] = false;
+        }
+    }
+    
+    backtrack(nums);
+    
+    return res - 1;
+};
+```
+
+```python
+# by chatGPT (python)
+class Solution:
+
+    def __init__(self):
+        self.res = 0
+        self.used = []
+
+    def numTilePossibilities(self, s: str) -> int:
+        nums = list(s)
+        # 先排序，让相同的元素靠在一起
+        nums.sort()
+        self.used = [False for _ in range(len(nums))]
+        self.backtrack(nums)
+        return self.res - 1
+
+    def backtrack(self, nums: list) -> None:
+        self.res += 1
+
+        for i in range(len(nums)):
+            if self.used[i]:
+                continue
+            # 新添加的剪枝逻辑，固定相同的元素在排列中的相对位置
+            if i > 0 and nums[i] == nums[i - 1] and not self.used[i - 1]:
+                continue
+            self.used[i] = True
+            self.backtrack(nums)
+            self.used[i] = False
+```
+
+https://leetcode.cn/problems/letter-tile-possibilities 的多语言解法👆
 
 https://leetcode.cn/problems/lfu-cache 的多语言解法👇
 

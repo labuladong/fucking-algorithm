@@ -9,7 +9,7 @@
 
 ![](https://labuladong.github.io/pictures/souyisou1.png)
 
-**通知：算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -185,13 +185,14 @@ class DoubleList {
 }
 ```
 
+如果对链表的操作不熟悉，可以看前文 [手把手带你实现双链表](https://labuladong.online/algo/fname.html?fname=链表基础)。
+
 到这里就能回答刚才「为什么必须要用双向链表」的问题了，因为我们需要删除操作。删除一个节点不光要得到该节点本身的指针，也需要操作其前驱节点的指针，而双向链表才能支持直接查找前驱，保证操作的时间复杂度 O(1)。
 
 **注意我们实现的双链表 API 只能从尾部插入，也就是说靠尾部的数据是最近使用的，靠头部的数据是最久未使用的**。
 
 有了双向链表的实现，我们只需要在 LRU 算法中把它和哈希表结合起来即可，先搭出代码框架：
 
-<!-- muliti_language -->
 ```java
 class LRUCache {
     // key -> Node(key, val)
@@ -214,7 +215,6 @@ class LRUCache {
 
 说的有点玄幻，实际上很简单，就是尽量让 LRU 的主方法 `get` 和 `put` 避免直接操作 `map` 和 `cache` 的细节。我们可以先实现下面几个函数：
 
-<!-- muliti_language -->
 ```java
 class LRUCache {
     // 为了节约篇幅，省略上文给出的代码部分...
@@ -264,7 +264,6 @@ class LRUCache {
 
 上述方法就是简单的操作封装，调用这些函数可以避免直接操作 `cache` 链表和 `map` 哈希表，下面我先来实现 LRU 算法的 `get` 方法：
 
-<!-- muliti_language -->
 ```java
 class LRUCache {
     // 为了节约篇幅，省略上文给出的代码部分...
@@ -286,7 +285,6 @@ class LRUCache {
 
 这样我们可以轻松写出 `put` 方法的代码：
 
-<!-- muliti_language -->
 ```java
 class LRUCache {
     // 为了节约篇幅，省略上文给出的代码部分...
@@ -312,7 +310,6 @@ class LRUCache {
 
 至此，你应该已经完全掌握 LRU 算法的原理和实现了，我们最后用 Java 的内置类型 `LinkedHashMap` 来实现 LRU 算法，逻辑和之前完全一致，我就不过多解释了：
 
-<!-- muliti_language -->
 ```java
 class LRUCache {
     int cap;
