@@ -42442,7 +42442,8 @@ class Solution {
         // 按 end 升序排序
         Arrays.sort(intvs, new Comparator<int[]>() {
             public int compare(int[] a, int[] b) {
-                return a[1] - b[1];
+                // Compare as Long values
+                return Long.compare(a[1], b[1]);
             }
         });
         // 至少有一个区间不相交
