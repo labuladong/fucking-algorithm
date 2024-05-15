@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/pictures/souyisou1.png)
+![](https://labuladong.online/algo/images/souyisou1.png)
 
 **通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
@@ -23,7 +23,7 @@ Linux 中的进程就是一个数据结构，看明白就可以理解文件描�
 
 首先，抽象地来说，我们的计算机就是这个东西：
 
-![](https://labuladong.github.io/pictures/linuxProcess/1.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/1.jpg)
 
 这个大的矩形表示计算机的**内存空间**，其中的小矩形代表**进程**，左下角的圆形表示**磁盘**，右下角的图形表示一些**输入输出设备**，比如鼠标键盘显示器等等。另外，注意到内存空间被划分为了两块，上半部分表示**用户空间**，下半部分表示**内核空间**。
 
@@ -68,7 +68,7 @@ struct task_struct {
  
 我们可以重新画一幅图：
 
-![](https://labuladong.github.io/pictures/linuxProcess/2.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/2.jpg)
 
 对于一般的计算机，输入流是键盘，输出流是显示器，错误流也是显示器，所以现在这个进程和内核连了三根线。因为硬件都是由内核管理的，我们的进程需要通过「系统调用」让内核进程访问硬件资源。
 
@@ -80,7 +80,7 @@ struct task_struct {
 
 如果我们写的程序需要其他资源，比如打开一个文件进行读写，这也很简单，进行系统调用，让内核把文件打开，这个文件就会被放到 `files` 的第 4 个位置：
 
-![](https://labuladong.github.io/pictures/linuxProcess/3.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/3.jpg)
 
 明白了这个原理，**输入重定向**就很好理解了，程序想读取数据的时候就会去 `files[0]` 读取，所以我们只要把 `files[0]` 指向一个文件，那么程序就会从这个文件中读取数据，而不是从键盘：
 
@@ -88,7 +88,7 @@ struct task_struct {
 $ command < file.txt
 ```
 
-![](https://labuladong.github.io/pictures/linuxProcess/5.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/5.jpg)
 
 同理，**输出重定向**就是把 `files[1]` 指向一个文件，那么程序的输出就不会写入到显示器，而是写入到这个文件中：
 
@@ -96,7 +96,7 @@ $ command < file.txt
 $ command > file.txt
 ```
 
-![](https://labuladong.github.io/pictures/linuxProcess/4.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/4.jpg)
 
 错误重定向也是一样的，就不再赘述。
 
@@ -106,7 +106,7 @@ $ command > file.txt
 $ cmd1 | cmd2 | cmd3
 ```
 
-![](https://labuladong.github.io/pictures/linuxProcess/6.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/6.jpg)
 
 到这里，你可能也看出「Linux 中一切皆文件」设计思路的高明了，不管是设备、另一个进程、socket 套接字还是真正的文件，全部都可以读写，统一装进一个简单的 `files` 数组，进程通过简单的文件描述符访问相应资源，具体细节交于操作系统，有效解耦，优美高效。
 
@@ -120,9 +120,9 @@ $ cmd1 | cmd2 | cmd3
 
 换句话说，线程看起来跟进程没有区别，只是线程的某些数据区域和其父进程是共享的，而子进程是拷贝副本，而不是共享。就比如说，`mm` 结构和 `files` 结构在线程中都是共享的，我画两张图你就明白了：
 
-![](https://labuladong.github.io/pictures/linuxProcess/7.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/7.jpg)
 
-![](https://labuladong.github.io/pictures/linuxProcess/8.jpg)
+![](https://labuladong.online/algo/images/linuxProcess/8.jpg)
 
 所以说，我们的多线程程序要利用锁机制，避免多个线程同时往同一区域写入数据，否则可能造成数据错乱。
 
@@ -153,6 +153,6 @@ $ cmd1 | cmd2 | cmd3
 
 **《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/pictures/souyisou2.png)
+![](https://labuladong.online/algo/images/souyisou2.png)
 
 ======其他语言代码======

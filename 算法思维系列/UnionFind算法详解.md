@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/pictures/souyisou1.png)
+![](https://labuladong.online/algo/images/souyisou1.png)
 
 **通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
@@ -43,7 +43,7 @@
 
 简单说，动态连通性其实可以抽象成给一幅图连线。比如下面这幅图，总共有 10 个节点，他们互不相连，分别用 0~9 标记：
 
-![](https://labuladong.github.io/pictures/unionfind/1.jpg)
+![](https://labuladong.online/algo/images/unionfind/1.jpg)
 
 现在我们的 Union-Find 算法主要需要实现这两个 API：
 
@@ -73,7 +73,7 @@ class UF {
 
 再调用 `union(1, 2)`，这时 0,1,2 都被连通，调用 `connected(0, 2)` 也会返回 true，连通分量变为 8 个。
 
-![](https://labuladong.github.io/pictures/unionfind/2.jpg)
+![](https://labuladong.online/algo/images/unionfind/2.jpg)
 
 判断这种「等价关系」非常实用，比如说编译器判断同一个变量的不同引用，比如社交网络中的朋友圈计算等等。
 
@@ -88,6 +88,7 @@ class UF {
  - [Dijkstra 算法模板及应用](https://labuladong.online/algo/fname.html?fname=dijkstra算法)
  - [Kruskal 最小生成树算法](https://labuladong.online/algo/fname.html?fname=kruskal)
  - [Prim 最小生成树算法](https://labuladong.online/algo/fname.html?fname=prim算法)
+ - [【强化练习】运用层序遍历解题 II](https://labuladong.online/algo/fname.html?fname=习题层序2)
  - [一文秒杀所有岛屿题目](https://labuladong.online/algo/fname.html?fname=岛屿题目)
  - [二分图判定算法](https://labuladong.online/algo/fname.html?fname=二分图)
  - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
@@ -124,7 +125,7 @@ class UF {
 
 本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解) 查看：
 
-![](https://labuladong.github.io/pictures/qrcode.jpg)
+![](https://labuladong.online/algo/images/qrcode.jpg)
 
 ======其他语言代码======
 

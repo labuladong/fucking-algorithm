@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/pictures/souyisou1.png)
+![](https://labuladong.online/algo/images/souyisou1.png)
 
 **通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
@@ -39,11 +39,11 @@
 
 前文 [图论第一期：遍历基础](https://labuladong.online/algo/fname.html?fname=图) 说过「图」这种数据结构的基本实现，图中的节点一般就抽象成一个数字（索引），图的具体实现一般是「邻接矩阵」或者「邻接表」。
 
-![](https://labuladong.github.io/pictures/图/0.jpg)
+![](https://labuladong.online/algo/images/图/0.jpg)
 
 比如上图这幅图用邻接表和邻接矩阵的存储方式如下：
 
-![](https://labuladong.github.io/pictures/图/2.jpeg)
+![](https://labuladong.online/algo/images/图/2.jpeg)
 
 前文 [图论第二期：拓扑排序](https://labuladong.online/algo/fname.html?fname=拓扑排序) 告诉你，我们用邻接表的场景更多，结合上图，一幅图可以用如下 Java 代码表示：
 
@@ -125,7 +125,7 @@ void levelTraverse(TreeNode root) {
 
 `while` 循环和 `for` 循环的配合正是这个遍历框架设计的巧妙之处：
 
-![](https://labuladong.github.io/pictures/dijkstra/1.jpeg)
+![](https://labuladong.online/algo/images/dijkstra/1.jpeg)
 
 **`while` 循环控制一层一层往下走，`for` 循环利用 `sz` 变量控制从左到右遍历每一层二叉树节点**。
 
@@ -207,7 +207,7 @@ int BFS(Node start) {
 
 但是，到了「加权图」的场景，事情就没有这么简单了，因为你不能默认每条边的「权重」都是 1 了，这个权重可以是任意正数（Dijkstra 算法要求不能存在负权重边），比如下图的例子：
 
-![](https://labuladong.github.io/pictures/dijkstra/2.jpeg)
+![](https://labuladong.online/algo/images/dijkstra/2.jpeg)
 
 如果沿用 BFS 算法中的 `step` 变量记录「步数」，显然红色路径一步就可以走到终点，但是这一步的权重很大；正确的最小权重路径应该是绿色的路径，虽然需要走很多步，但是路径权重依然很小。
 
@@ -336,4 +336,4 @@ void levelTraverse(TreeNode root) {
 
 本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/fname.html?fname=dijkstra算法) 查看：
 
-![](https://labuladong.github.io/pictures/qrcode.jpg)
+![](https://labuladong.online/algo/images/qrcode.jpg)

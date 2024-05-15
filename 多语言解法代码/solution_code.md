@@ -33897,84 +33897,6 @@ https://leetcode.cn/problems/letter-case-permutation 的多语言解法👆
 
 https://leetcode.cn/problems/letter-combinations-of-a-phone-number 的多语言解法👇
 
-```cpp
-// by chatGPT (cpp)
-class Solution {
-    // 每个数字到字母的映射
-    vector<string> mapping = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-
-    vector<string> res;
-
-public:
-    vector<string> letterCombinations(string digits) {
-        if (digits.empty()) {
-            return res;
-        }
-        // 从 digits[0] 开始进行回溯
-        backtrack(digits, 0, "");
-        return res;
-    }
-
-    // 回溯算法主函数
-    void backtrack(const string& digits, int start, string cur) {
-        if (cur.size() == digits.size()) {
-            // 到达回溯树底部
-            res.push_back(cur);
-            return;
-        }
-        // 回溯算法框架
-        for (int i = start; i < digits.size(); i++) {
-            int digit = digits[i] - '0';
-            for (char c : mapping[digit]) {
-                // 做选择
-                cur.push_back(c);
-                // 递归下一层回溯树
-                backtrack(digits, i + 1, cur);
-                // 撤销选择
-                cur.pop_back();
-            }
-        }
-    }
-};
-```
-
-```go
-// by chatGPT (go)
-func letterCombinations(digits string) []string {
-    mapping := []string{
-        "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz",
-    }
-    var res []string
-    if len(digits) == 0 {
-        return res
-    }
-    // 从 digits[0] 开始进行回溯
-    backtrack(digits, 0, &strings.Builder{}, mapping, &res)
-    return res
-}
-
-// 回溯算法主函数
-func backtrack(digits string, start int, sb *strings.Builder, mapping []string, res *[]string) {
-    if sb.Len() == len(digits) {
-        // 到达回溯树底部
-        *res = append(*res, sb.String())
-        return
-    }
-    // 回溯算法框架
-    for i := start; i < len(digits); i++ {
-        digit := digits[i] - '0'
-        for _, c := range mapping[digit] {
-            // 做选择
-            sb.WriteRune(c)
-            // 递归下一层回溯树
-            backtrack(digits, i+1, sb, mapping, res)
-            // 撤销选择
-            sb.Truncate(sb.Len() - 1)
-        }
-    }
-}
-```
-
 ```java
 // by labuladong (java)
 class Solution {
@@ -33984,108 +33906,37 @@ class Solution {
     };
 
     List<String> res = new LinkedList<>();
+    StringBuilder sb = new StringBuilder();
 
     public List<String> letterCombinations(String digits) {
         if (digits.isEmpty()) {
             return res;
         }
         // 从 digits[0] 开始进行回溯
-        backtrack(digits, 0, new StringBuilder());
+        backtrack(digits, 0);
         return res;
     }
 
     // 回溯算法主函数
-    void backtrack(String digits, int start, StringBuilder sb) {
+    void backtrack(String digits, int start) {
         if (sb.length() == digits.length()) {
             // 到达回溯树底部
             res.add(sb.toString());
             return;
         }
+
         // 回溯算法框架
-        for (int i = start; i < digits.length(); i++) {
-            int digit = digits.charAt(i) - '0';
-            for (char c : mapping[digit].toCharArray()) {
-                // 做选择
-                sb.append(c);
-                // 递归下一层回溯树
-                backtrack(digits, i + 1, sb);
-                // 撤销选择
-                sb.deleteCharAt(sb.length() - 1);
-            }
+        int digit = digits.charAt(start) - '0';
+        for (char c : mapping[digit].toCharArray()) {
+            // 做选择
+            sb.append(c);
+            // 递归下一层回溯树
+            backtrack(digits, start + 1);
+            // 撤销选择
+            sb.deleteCharAt(sb.length() - 1);
         }
     }
 }
-```
-
-```javascript
-// by chatGPT (javascript)
-var letterCombinations = function(digits) {
-    // 每个数字到字母的映射
-    const mapping = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
-
-    const res = [];
-
-    function backtrack(start, sb) {
-        if (sb.length === digits.length) {
-            // 到达回溯树底部
-            res.push(sb.join(''));
-            return;
-        }
-        // 回溯算法框架
-        for (let i = start; i < digits.length; i++) {
-            const digit = digits.charAt(i) - '0';
-            for (const c of mapping[digit]) {
-                // 做选择
-                sb.push(c);
-                // 递归下一层回溯树
-                backtrack(i + 1, sb);
-                // 撤销选择
-                sb.pop();
-            }
-        }
-    }
-
-    if (digits.length === 0) {
-        return res;
-    }
-    // 从 digits[0] 开始进行回溯
-    backtrack(0, []);
-    return res;
-};
-```
-
-```python
-# by chatGPT (python)
-class Solution:
-    # 每个数字到字母的映射
-    mapping = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
-
-    def __init__(self):
-        self.res = []
-
-    def letterCombinations(self, digits: str) -> List[str]:
-        if not digits:
-            return self.res
-        # 从 digits[0] 开始进行回溯
-        self.backtrack(digits, 0, [])
-        return self.res
-
-    # 回溯算法主函数
-    def backtrack(self, digits: str, start: int, path: List[str]):
-        if len(path) == len(digits):
-            # 到达回溯树底部
-            self.res.append(''.join(path))
-            return
-        # 回溯算法框架
-        for i in range(start, len(digits)):
-            digit = int(digits[i])
-            for c in self.mapping[digit]:
-                # 做选择
-                path.append(c)
-                # 递归下一层回溯树
-                self.backtrack(digits, i + 1, path)
-                # 撤销选择
-                path.pop()
 ```
 
 https://leetcode.cn/problems/letter-combinations-of-a-phone-number 的多语言解法👆

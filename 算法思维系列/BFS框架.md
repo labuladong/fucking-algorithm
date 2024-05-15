@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/pictures/souyisou1.png)
+![](https://labuladong.online/algo/images/souyisou1.png)
 
 **通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
@@ -51,7 +51,7 @@ BFS 相对 DFS 的最主要的区别是：**BFS 找到的路径一定是最短�
 
 净整些花里胡哨的，本质上看这些问题都没啥区别，就是一幅「图」，让你从一个起点，走到终点，问最短路径。这就是 BFS 的本质，框架搞清楚了直接默写就好。
 
-![](https://labuladong.github.io/pictures/BFS/0.jpeg)
+![](https://labuladong.online/algo/images/BFS/0.jpeg)
 
 记住下面这个框架就 OK 了：
 
@@ -139,7 +139,7 @@ int minDepth(TreeNode root) {
 
 这里注意这个 `while` 循环和 `for` 循环的配合，**`while` 循环控制一层一层往下走，`for` 循环利用 `sz` 变量控制从左到右遍历每一层二叉树节点**：
 
-![](https://labuladong.github.io/pictures/dijkstra/1.jpeg)
+![](https://labuladong.online/algo/images/dijkstra/1.jpeg)
 
 这一点很重要，这个形式在普通 BFS 问题中都很常见，但是在 [Dijkstra 算法模板框架](https://labuladong.online/algo/fname.html?fname=dijkstra算法) 中我们修改了这种代码模式，读完并理解本文后你可以去看看 BFS 算法是如何演变成 Dijkstra 算法在加权图中寻找最短路径的。
 
@@ -312,9 +312,9 @@ int openLock(String[] deadends, String target) {
 
 为什么这样能够能够提升效率呢？其实从 Big O 表示法分析算法复杂度的话，它俩的最坏复杂度都是 `O(N)`，但是实际上双向 BFS 确实会快一些，我给你画两张图看一眼就明白了：
 
-![](https://labuladong.github.io/pictures/BFS/1.jpeg)
+![](https://labuladong.online/algo/images/BFS/1.jpeg)
 
-![](https://labuladong.github.io/pictures/BFS/2.jpeg)
+![](https://labuladong.online/algo/images/BFS/2.jpeg)
 
 图示中的树形结构，如果终点在最底部，按照传统 BFS 算法的策略，会把整棵树的节点都搜索一遍，最后找到 `target`；而双向 BFS 其实只遍历了半棵树就出现了交集，也就是找到了最短距离。从这个例子可以直观地感受到，双向 BFS 是要比传统 BFS 高效的。
 
@@ -406,15 +406,16 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 
  - [Dijkstra 算法模板及应用](https://labuladong.online/algo/fname.html?fname=dijkstra算法)
  - [Prim 最小生成树算法](https://labuladong.online/algo/fname.html?fname=prim算法)
+ - [【强化练习】运用层序遍历解题 I](https://labuladong.online/algo/fname.html?fname=习题层序1)
+ - [【强化练习】运用层序遍历解题 II](https://labuladong.online/algo/fname.html?fname=习题层序2)
  - [东哥带你刷二叉树（纲领篇）](https://labuladong.online/algo/fname.html?fname=二叉树总结)
  - [二分图判定算法](https://labuladong.online/algo/fname.html?fname=二分图)
- - [二叉树的递归转迭代的代码框架](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
  - [分治算法详解：运算优先级](https://labuladong.online/algo/fname.html?fname=分治算法)
  - [如何用 BFS 算法秒杀各种智力题](https://labuladong.online/algo/fname.html?fname=BFS解决滑动拼图)
  - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
  - [旅游省钱大法：加权最短路径](https://labuladong.online/algo/fname.html?fname=旅行最短路径)
- - [本站简介](https://labuladong.online/algo/fname.html?fname=home)
  - [环检测及拓扑排序算法](https://labuladong.online/algo/fname.html?fname=拓扑排序)
+ - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
  - [用算法打败算法](https://labuladong.online/algo/fname.html?fname=PDF中的算法)
  - [算法学习和心流体验](https://labuladong.online/algo/fname.html?fname=心流)
 
@@ -458,4 +459,4 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 
 **《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/pictures/souyisou2.png)
+![](https://labuladong.online/algo/images/souyisou2.png)

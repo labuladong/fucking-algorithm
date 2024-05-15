@@ -7,7 +7,7 @@
 <a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
 </p>
 
-![](https://labuladong.github.io/pictures/souyisou1.png)
+![](https://labuladong.online/algo/images/souyisou1.png)
 
 **通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
@@ -241,7 +241,7 @@ void traverse(TreeNode root) {
  - [【强化练习】优先级队列经典习题](https://labuladong.online/algo/fname.html?fname=二叉堆习题)
  - [东哥带你刷二叉搜索树（基操篇）](https://labuladong.online/algo/fname.html?fname=BST2)
  - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.online/algo/fname.html?fname=BST3)
- - [二叉树的递归转迭代的代码框架](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
+ - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
 
 </details><hr>
 
@@ -267,4 +267,4 @@ void traverse(TreeNode root) {
 
 **《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
 
-![](https://labuladong.github.io/pictures/souyisou2.png)
+![](https://labuladong.online/algo/images/souyisou2.png)
