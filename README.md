@@ -155,6 +155,8 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [用拉链法实现哈希表](https://labuladong.online/algo/fname.html?fname=哈希表拉链法)
     * [线性探查法的两个难点](https://labuladong.online/algo/fname.html?fname=哈希表线性探查难点)
     * [线性探查法的两种代码实现](https://labuladong.online/algo/fname.html?fname=哈希表线性探查实现)
+  * [手把手带你实现哈希集合](https://labuladong.online/algo/)
+    * [哈希集合的原理及代码实现](https://labuladong.online/algo/fname.html?fname=哈希集合实现)
   * [正在更新 ing](https://labuladong.online/algo/fname.html?fname=更新中)
 
 
