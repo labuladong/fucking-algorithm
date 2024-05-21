@@ -1,5 +1,32 @@
 # 动态规划之KMP字符匹配算法
 
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://labuladong.online/algo/" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](https://labuladong.online/algo/images/souyisou1.png)
+
+**通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+
+
+
+读完本文，你不仅学会了算法套路，还可以顺便解决如下题目：
+
+| LeetCode | 力扣 | 难度 |
+| :----: | :----: | :----: |
+| [28. Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) | 🟠
+
+**-----------**
+
+::: tip
+
+阅读本文之前，建议你先学习一下另一种字符串匹配算法：[Rabin Karp 字符匹配算法](https://labuladong.online/algo/fname.html?fname=rabinkarp)。
+
+:::
+
 KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法，效率很高，但是确实有点复杂。
 
 很多读者抱怨 KMP 算法无法理解，这很正常，想到大学教材上关于 KMP 算法的讲解，也不知道有多少未来的 Knuth、Morris、Pratt 被提前劝退了。有一些优秀的同学通过手推 KMP 算法的过程来辅助理解该算法，这是一种办法，不过本文要从逻辑层面帮助读者理解算法的原理。十行代码之间，KMP 灰飞烟灭。
@@ -10,14 +37,19 @@ KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法
 
 读者见过的 KMP 算法应该是，一波诡异的操作处理 `pat` 后形成一个一维的数组 `next`，然后根据这个数组经过又一波复杂操作去匹配 `txt`。时间复杂度 O(N)，空间复杂度 O(M)。其实它这个 `next` 数组就相当于 `dp` 数组，其中元素的含义跟 `pat` 的前缀和后缀有关，判定规则比较复杂，不好理解。**本文则用一个二维的 `dp` 数组（但空间复杂度还是 O(M)），重新定义其中元素的含义，使得代码长度大大减少，可解释性大大提高**。
 
-PS：本文的代码参考《算法4》，原代码使用的数组名称是 `dfa`（确定有限状态机），因为我们的公众号之前有一系列动态规划的文章，就不说这么高大上的名词了，我对书中代码进行了一点修改，并沿用 `dp` 数组的名称。
+::: note
+
+本文的代码参考《算法4》，原代码使用的数组名称是 `dfa`（确定有限状态机），因为我们的公众号之前有一系列动态规划的文章，就不说这么高大上的名词了，我对书中代码进行了一点修改，并沿用 `dp` 数组的名称。
+
+:::
 
 ### 一、KMP 算法概述
 
 首先还是简单介绍一下 KMP 算法和暴力匹配算法的不同在哪里，难点在哪里，和动态规划有啥关系。
 
-暴力的字符串匹配算法很容易写，看一下它的运行逻辑：
+力扣第 28 题「实现 strStr」就是字符串匹配问题，暴力的字符串匹配算法很容易写，看一下它的运行逻辑：
 
+<!-- muliti_language -->
 ```java
 // 暴力匹配（伪码）
 int search(String pat, String txt) {
@@ -37,21 +69,21 @@ int search(String pat, String txt) {
 }
 ```
 
-对于暴力算法，如果出现不匹配字符，同时回退 `txt` 和 `pat` 的指针，嵌套 for 循环，时间复杂度 $O(MN)$，空间复杂度$O(1)$。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。
+对于暴力算法，如果出现不匹配字符，同时回退 `txt` 和 `pat` 的指针，嵌套 for 循环，时间复杂度 `O(MN)`，空间复杂度`O(1)`。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。
 
-比如 txt = "aaacaaab" pat = "aaab"：
+比如 `txt = "aaacaaab", pat = "aaab"`：
 
-![brutal](../pictures/kmp/1.gif)
+![](https://labuladong.online/algo/images/kmp/1.gif)
 
 很明显，`pat` 中根本没有字符 c，根本没必要回退指针 `i`，暴力解法明显多做了很多不必要的操作。
 
 KMP 算法的不同之处在于，它会花费空间来记录一些信息，在上述情况中就会显得很聪明：
 
-![kmp1](../pictures/kmp/2.gif)
+![](https://labuladong.online/algo/images/kmp/2.gif)
 
-再比如类似的 txt = "aaaaaaab" pat = "aaab"，暴力解法还会和上面那个例子一样蠢蠢地回退指针 `i`，而 KMP 算法又会耍聪明：
+再比如类似的 `txt = "aaaaaaab", pat = "aaab"`，暴力解法还会和上面那个例子一样蠢蠢地回退指针 `i`，而 KMP 算法又会耍聪明：
 
-![kmp2](../pictures/kmp/3.gif)
+![](https://labuladong.online/algo/images/kmp/3.gif)
 
 因为 KMP 算法知道字符 b 之前的字符 a 都是匹配的，所以每次只需要比较字符 b 是否被匹配就行了。
 
@@ -74,24 +106,29 @@ pat = "aaab"
 
 只不过对于 `txt1` 的下面这个即将出现的未匹配情况：
 
-![](../pictures/kmp/txt1.jpg)
+![](https://labuladong.online/algo/images/kmp/txt1.jpg)
 
 `dp` 数组指示 `pat` 这样移动：
 
-![](../pictures/kmp/txt2.jpg)
+![](https://labuladong.online/algo/images/kmp/txt2.jpg)
 
-PS：这个`j` 不要理解为索引，它的含义更准确地说应该是**状态**（state），所以它会出现这个奇怪的位置，后文会详述。
+::: note
+
+这个`j` 不要理解为索引，它的含义更准确地说应该是**状态**（state），所以它会出现这个奇怪的位置，后文会详述。
+
+:::
 
 而对于 `txt2` 的下面这个即将出现的未匹配情况：
 
-![](../pictures/kmp/txt3.jpg)
+![](https://labuladong.online/algo/images/kmp/txt3.jpg)
 
 `dp` 数组指示 `pat` 这样移动：
 
-![](../pictures/kmp/txt4.jpg)
+![](https://labuladong.online/algo/images/kmp/txt4.jpg)
 
 明白了 `dp` 数组只和 `pat` 有关，那么我们这样设计 KMP 算法就会比较漂亮：
 
+<!-- muliti_language -->
 ```java
 public class KMP {
     private int[][] dp;
@@ -122,46 +159,45 @@ int pos2 = kmp.search("aaaaaaab"); //4
 
 为什么说 KMP 算法和状态机有关呢？是这样的，我们可以认为 `pat` 的匹配就是状态的转移。比如当 pat = "ABABC"：
 
-![](../pictures/kmp/state.jpg)
+![](https://labuladong.online/algo/images/kmp/state.jpg)
 
 如上图，圆圈内的数字就是状态，状态 0 是起始状态，状态 5（`pat.length`）是终止状态。开始匹配时 `pat` 处于起始状态，一旦转移到终止状态，就说明在 `txt` 中找到了 `pat`。比如说当前处于状态 2，就说明字符 "AB" 被匹配：
 
-![](../pictures/kmp/state2.jpg)
+![](https://labuladong.online/algo/images/kmp/state2.jpg)
 
 另外，处于不同状态时，`pat` 状态转移的行为也不同。比如说假设现在匹配到了状态 4，如果遇到字符 A 就应该转移到状态 3，遇到字符 C 就应该转移到状态 5，如果遇到字符 B 就应该转移到状态 0：
 
-![](../pictures/kmp/state4.jpg)
+![](https://labuladong.online/algo/images/kmp/state4.jpg)
 
 具体什么意思呢，我们来一个个举例看看。用变量 `j` 表示指向当前状态的指针，当前 `pat` 匹配到了状态 4：
 
-![](../pictures/kmp/exp1.jpg)
+![](https://labuladong.online/algo/images/kmp/exp1.jpg)
 
 如果遇到了字符 "A"，根据箭头指示，转移到状态 3 是最聪明的：
 
-![](../pictures/kmp/exp3.jpg)
+![](https://labuladong.online/algo/images/kmp/exp3.jpg)
 
 如果遇到了字符 "B"，根据箭头指示，只能转移到状态 0（一夜回到解放前）：
 
-![](../pictures/kmp/exp5.jpg)
+![](https://labuladong.online/algo/images/kmp/exp5.jpg)
 
 如果遇到了字符 "C"，根据箭头指示，应该转移到终止状态 5，这也就意味着匹配完成：
 
-![](../pictures/kmp/exp7.jpg)
-
+![](https://labuladong.online/algo/images/kmp/exp7.jpg)
 
 当然了，还可能遇到其他字符，比如 Z，但是显然应该转移到起始状态 0，因为 `pat` 中根本都没有字符 Z：
 
-![](../pictures/kmp/z.jpg)
+![](https://labuladong.online/algo/images/kmp/z.jpg)
 
 这里为了清晰起见，我们画状态图时就把其他字符转移到状态 0 的箭头省略，只画 `pat` 中出现的字符的状态转移：
 
-![](../pictures/kmp/allstate.jpg)
+![](https://labuladong.online/algo/images/kmp/allstate.jpg)
 
 KMP 算法最关键的步骤就是构造这个状态转移图。**要确定状态转移的行为，得明确两个变量，一个是当前的匹配状态，另一个是遇到的字符**；确定了这两个变量后，就可以知道这个情况下应该转移到哪个状态。
 
 下面看一下 KMP 算法根据这幅状态转移图匹配字符串 `txt` 的过程：
 
-![](../pictures/kmp/kmp.gif)
+![](https://labuladong.online/algo/images/kmp/kmp.gif)
 
 **请记住这个 GIF 的匹配过程，这就是 KMP 算法的核心逻辑**！
 
@@ -184,6 +220,7 @@ pat 应该转移到状态 2
 
 根据我们这个 dp 数组的定义和刚才状态转移的过程，我们可以先写出 KMP 算法的 search 函数代码：
 
+<!-- muliti_language -->
 ```java
 public int search(String txt) {
     int M = pat.length();
@@ -216,29 +253,29 @@ for 0 <= j < M: # 状态
 
 这个 next 状态应该怎么求呢？显然，**如果遇到的字符 `c` 和 `pat[j]` 匹配的话**，状态就应该向前推进一个，也就是说 `next = j + 1`，我们不妨称这种情况为**状态推进**：
 
-![](../pictures/kmp/forward.jpg)
+![](https://labuladong.online/algo/images/kmp/forward.jpg)
 
 **如果字符 `c` 和 `pat[j]` 不匹配的话**，状态就要回退（或者原地不动），我们不妨称这种情况为**状态重启**：
 
-![](../pictures/kmp/back.jpg)
+![](https://labuladong.online/algo/images/kmp/back.jpg)
 
 那么，如何得知在哪个状态重启呢？解答这个问题之前，我们再定义一个名字：**影子状态**（我编的名字），用变量 `X` 表示。**所谓影子状态，就是和当前状态具有相同的前缀**。比如下面这种情况：
 
-![](../pictures/kmp/shadow.jpg)
+![](https://labuladong.online/algo/images/kmp/shadow.jpg)
 
 当前状态 `j = 4`，其影子状态为 `X = 2`，它们都有相同的前缀 "AB"。因为状态 `X` 和状态 `j` 存在相同的前缀，所以当状态 `j` 准备进行状态重启的时候（遇到的字符 `c` 和 `pat[j]` 不匹配），可以通过 `X` 的状态转移图来获得**最近的重启位置**。
 
 比如说刚才的情况，如果状态 `j` 遇到一个字符 "A"，应该转移到哪里呢？首先只有遇到 "C" 才能推进状态，遇到 "A" 显然只能进行状态重启。**状态 `j` 会把这个字符委托给状态 `X` 处理，也就是 `dp[j]['A'] = dp[X]['A']`**：
 
-![](../pictures/kmp/shadow1.jpg)
+![](https://labuladong.online/algo/images/kmp/shadow1.jpg)
 
 为什么这样可以呢？因为：既然 `j` 这边已经确定字符 "A" 无法推进状态，**只能回退**，而且 KMP 就是要**尽可能少的回退**，以免多余的计算。那么 `j` 就可以去问问和自己具有相同前缀的 `X`，如果 `X` 遇见 "A" 可以进行「状态推进」，那就转移过去，因为这样回退最少。
 
-![](../pictures/kmp/A.gif)
+![](https://labuladong.online/algo/images/kmp/A.gif)
 
 当然，如果遇到的字符是 "B"，状态 `X` 也不能进行「状态推进」，只能回退，`j` 只要跟着 `X` 指引的方向回退就行了：
 
-![](../pictures/kmp/shadow2.jpg)
+![](https://labuladong.online/algo/images/kmp/shadow2.jpg)
 
 你也许会问，这个 `X` 怎么知道遇到字符 "B" 要回退到状态 0 呢？因为 `X` 永远跟在 `j` 的身后，状态 `X` 如何转移，在之前就已经算出来了。动态规划算法不就是利用过去的结果解决现在的问题吗？
 
@@ -261,6 +298,7 @@ for 0 <= j < M:
 
 如果之前的内容你都能理解，恭喜你，现在就剩下一个问题：影子状态 `X` 是如何得到的呢？下面先直接看完整代码吧。
 
+<!-- muliti_language -->
 ```java
 public class KMP {
     private int[][] dp;
@@ -332,10 +370,11 @@ for (int i = 0; i < N; i++) {
 
 下面来看一下状态转移图的完整构造过程，你就能理解状态 `X` 作用之精妙了：
 
-![](../pictures/kmp/dfa.gif)
+![](https://labuladong.online/algo/images/kmp/dfa.gif)
 
 至此，KMP 算法的核心终于写完啦啦啦啦！看下 KMP 算法的完整代码吧：
 
+<!-- muliti_language -->
 ```java
 public class KMP {
     private int[][] dp;
@@ -399,12 +438,149 @@ public class KMP {
 
 KMP 算法也就是动态规划那点事，我们的公众号文章目录有一系列专门讲动态规划的，而且都是按照一套框架来的，无非就是描述问题逻辑，明确 `dp` 数组含义，定义 base case 这点破事。希望这篇文章能让大家对动态规划有更深的理解。
 
-**致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章**：
 
-![labuladong](../pictures/labuladong.png)
 
-[上一篇：贪心算法之区间调度问题](../动态规划系列/贪心算法之区间调度问题.md)
+<hr>
+<details class="hint-container details">
+<summary><strong>引用本文的文章</strong></summary>
 
-[下一篇：团灭 LeetCode 股票买卖问题](../动态规划系列/团灭股票问题.md)
+ - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
+ - [滑动窗口算法延伸：Rabin Karp 字符匹配算法](https://labuladong.online/algo/fname.html?fname=rabinkarp)
 
-[目录](../README.md#目录)
+</details><hr>
+
+
+
+
+
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
+
+**《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+
+![](https://labuladong.online/algo/images/souyisou2.png)
+
+======其他语言代码======
+
+[28.实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
+
+### python
+
+[MoguCloud](https://github.com/MoguCloud) 提供 实现 strStr() 的 Python 完整代码：
+
+```python
+class Solution:
+  def strStr(self, haystack: str, needle: str) -> int:
+    # 边界条件判断
+    if not needle:
+      return 0
+    pat = needle
+    txt = haystack
+
+    M = len(pat)
+    # dp[状态][字符] = 下个状态
+    dp = [[0 for _ in range(256)] for _ in pat]
+    # base case
+    dp[0][ord(pat[0])] = 1
+    # 影子状态 X 初始化为 0
+    X = 0
+    for j in range(1, M):
+      for c in range(256):
+        dp[j][c] = dp[X][c]
+        dp[j][ord(pat[j])] = j + 1
+        # 更新影子状态
+        X = dp[X][ord(pat[j])]
+
+        N = len(txt)
+        # pat 初始状态为 0 
+        j = 0
+        for i in range(N):
+          # 计算 pat 的下一个状态
+          j = dp[j][ord(txt[i])]
+          # 到达终止态，返回结果
+          if j == M:
+            return i - M + 1
+          # 没到达终止态，匹配失败
+          return -1
+```
+
+
+
+### javascript
+
+```js
+class KMP {
+  constructor(pat) {
+    this.pat = pat;
+    let m = pat.length;
+
+    // dp[状态][字符] = 下个状态  初始化一个m*256的整数矩阵
+    this.dp = new Array(m);
+    for (let i = 0; i < m; i++) {
+      this.dp[i] = new Array(256);
+      this.dp[i].fill(0, 0, 256);
+    }
+
+    // base case
+    this.dp[0][this.pat[0].charCodeAt()] = 1;
+
+    // 影子状态X 初始为0
+    let x = 0;
+
+    // 构建状态转移图
+    for (let j = 1; j < m; j++) {
+      for (let c = 0; c < 256; c++) {
+        this.dp[j][c] = this.dp[x][c];
+      }
+
+      // dp[][对应的ASCII码]
+      this.dp[j][this.pat[j].charCodeAt()] = j + 1;
+
+      // 更新影子状态
+      x = this.dp[x][this.pat[j].charCodeAt()]
+    }
+  }
+
+  search(txt) {
+
+    let m = this.pat.length;
+    let n = txt.length;
+
+    // pat的初始态为0
+    let j = 0;
+    for (let i = 0; i < n; i++) {
+      // 计算pat的下一个状态
+      j = this.dp[j][txt[i].charCodeAt()];
+
+      // 到达终止态 返回结果
+      if (j === m) return i - m + 1;
+    }
+
+    // 没到终止态 匹配失败
+    return -1;
+  }
+
+}
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function(haystack, needle) { 
+  if(haystack === ""){
+    if(needle !== ""){
+      return -1;
+    }
+    return 0;
+  }
+
+  if(needle === ""){
+    return 0;
+  }
+  let kmp = new KMP(needle);
+  return kmp.search(haystack)
+};
+```
+
+
+

@@ -1,10 +1,31 @@
+# Redis 入侵
+
+<p align='center'>
+<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
+<a href="https://labuladong.online/algo/" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
+<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
+<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
+</p>
+
+![](https://labuladong.online/algo/images/souyisou1.png)
+
+**通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 限时优惠；算法可视化编辑器上线，[点击体验](https://labuladong.online/algo/intro/visualize/)！另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+
+
+
+**-----------**
+
 好吧，我也做了回标题党，像我这么细心的同学，怎么可能让服务器被入侵呢？
 
 其实是这样的，昨天我和一个朋友聊天，他说他自己有一台云服务器运行了 Redis 数据库，有一天突然发现数据库里的**数据全没了**，只剩下一个奇奇怪怪的键值对，其中值看起来像一个 RSA 公钥的字符串，他以为是误操作删库了，幸好自己的服务器里没啥重要的数据，也就没在意。
 
 经过一番攀谈交心了解到，他跑了一个比较古老已经停止维护的开源项目，安装的旧版本的 Redis，而且他对 Linux 的使用不是很熟练。我就知道，他的服务器已经被攻陷了，想到也许还会有不少像我这位朋友的人，不重视操作系统的权限、防火墙的设置和数据库的保护，我就写一篇文章简单看看这种情况出现的原因，以及如何防范。
 
-PS：这种手法现在已经行不通了，因为新版本 Redis 都增加了 protect mode，增加了安全性，我们只能在本地简单模拟一下，就别乱试了。
+::: note
+
+这种手法现在已经行不通了，因为新版本 Redis 都增加了 protect mode，增加了安全性，我们只能在本地简单模拟一下，就别乱试了。
+
+:::
 
 ### 事件经过
 
@@ -30,29 +51,29 @@ Redis 监听的默认端口是 6379，我们设置它接收网卡 127.0.0.1 的�
 
 除了密码登录之外，还可以使用 RSA 密钥对登录，但是必须要把我的公钥存到 root 的家目录中 `/root/.ssh/authored_keys`。我们知道 `/root` 目录的权限设置是不允许任何其他用户闯入读写的：
 
-![](../pictures/redis入侵/1.png)
+![](https://labuladong.online/algo/images/redis入侵/1.png)
 
 但是，我发现自己竟然可以直接访问 Redis：
 
-![](../pictures/redis入侵/2.png)
+![](https://labuladong.online/algo/images/redis入侵/2.png)
 
 如果 Redis 是以 root 的身份运行的，那么我就可以通过操作 Redis，让它把我的公钥写到 root 的家目录中。Redis 有一种持久化方式是生成 RDB 文件，其中会包含原始数据。
 
 我露出了邪恶的微笑，先把 Redis 中的数据全部清空，然后把我的 RSA 公钥写到数据库里，这里在开头和结尾加换行符目的是避免 RDB 文件生成过程中损坏到公钥字符串：
 
-![](../pictures/redis入侵/3.png)
+![](https://labuladong.online/algo/images/redis入侵/3.png)
 
 命令 Redis 把生成的数据文件保存到 `/root/.ssh/` 中的 `authored_keys` 文件中：
 
-![](../pictures/redis入侵/4.png)
+![](https://labuladong.online/algo/images/redis入侵/4.png)
 
 现在，root 的家目录中已经包含了我们的 RSA 公钥，我们现在可以通过密钥对登录进 root 了：
 
-![](../pictures/redis入侵/5.png)
+![](https://labuladong.online/algo/images/redis入侵/5.png)
 
 看一下刚才写入 root 家的公钥：
 
-![](../pictures/redis入侵/6.png)
+![](https://labuladong.online/algo/images/redis入侵/6.png)
 
 乱码是 GDB 文件的某种编码吧，但是中间的公钥被完整保存了，而且 ssh 登录程序竟然也识别了这段被乱码包围的公钥！
 
@@ -78,6 +99,14 @@ Redis 监听的默认端口是 6379，我们设置它接收网卡 127.0.0.1 的�
 
 3、利用 rename 功能伪装 flushall 这种危险命令，以防被删库，丢失数据。
 
-坚持原创高质量文章，致力于把算法问题讲清楚，欢迎关注我的公众号 labuladong 获取最新文章：
 
-![labuladong](../pictures/labuladong.jpg)
+
+
+
+**＿＿＿＿＿＿＿＿＿＿＿＿＿**
+
+**《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+
+![](https://labuladong.online/algo/images/souyisou2.png)
+
+======其他语言代码======
