@@ -19535,36 +19535,27 @@ public:
 ```
 
 ```go
-// by chatGPT (go)
 func diameterOfBinaryTree(root *TreeNode) int {
-    maxDiameter := 0
-    maxDepth := func(root *TreeNode) int {
-        if root == nil {
-            return 0
-        }
-        leftMax := maxDepth(root.Left)
-        rightMax := maxDepth(root.Right)
-        // 后序遍历位置顺便计算最大直径
-        maxDiameter = max(maxDiameter, leftMax+rightMax)
-        return 1 + max(leftMax, rightMax)
-    }
-    maxDepth(root)
-    return maxDiameter
+	maxDiameter := 0
+	maxDepth(root, &maxDiameter)
+	return maxDiameter
+}
+
+func maxDepth(node *TreeNode, maxDiameter *int) int {
+	if node == nil {
+		return 0
+	}
+	leftMax := maxDepth(node.Left, maxDiameter)
+	rightMax := maxDepth(node.Right, maxDiameter)
+	// Calculate the diameter
+	*maxDiameter = max(*maxDiameter, leftMax+rightMax)
+	return 1 + max(leftMax, rightMax)
 }
 
 // 这是一种简单粗暴，但是效率不高的解法
 func diameterOfBinaryTree(root *TreeNode) int {
     if root == nil {
         return 0
-    }
-    // 计算出左右子树的最大高度
-    maxDepth := func(root *TreeNode) int {
-        if root == nil {
-            return 0
-        }
-        leftMax := maxDepth(root.Left)
-        rightMax := maxDepth(root.Right)
-        return 1 + max(leftMax, rightMax)
     }
     leftMax := maxDepth(root.Left)
     rightMax := maxDepth(root.Right)
@@ -19574,6 +19565,15 @@ func diameterOfBinaryTree(root *TreeNode) int {
     return max(res,
         max(diameterOfBinaryTree(root.Left),
             diameterOfBinaryTree(root.Right)))
+}
+
+func maxDepth(node *TreeNode) int {
+    if node == nil {
+        return 0
+    }
+    leftMax := maxDepth(node.Left)
+    rightMax := maxDepth(node.Right)
+    return 1 + max(leftMax, rightMax)
 }
 
 func max(a, b int) int {
