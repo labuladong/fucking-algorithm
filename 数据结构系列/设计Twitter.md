@@ -229,7 +229,7 @@ class Twitter {
 
 ### 三、算法设计
 
-实现合并 k 个有序链表的算法需要用到优先级队列（Priority Queue），这种数据结构是二叉堆最重要的应用。你可以理解为它可以对插入的元素自动排序，乱序的元素插入其中就被放到了正确的位置，可以按照从小到大（或从大到小）有序地取出元素。具体可以看这篇 [二叉树实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆详解实现优先级队列)
+实现合并 k 个有序链表的算法需要用到优先级队列（Priority Queue），这种数据结构是二叉堆最重要的应用。你可以理解为它可以对插入的元素自动排序，乱序的元素插入其中就被放到了正确的位置，可以按照从小到大（或从大到小）有序地取出元素。具体可以看这篇 [二叉树实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆实现)
 
 ```python
 PriorityQueue pq

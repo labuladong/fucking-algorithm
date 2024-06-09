@@ -157,6 +157,12 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [线性探查法的两种代码实现](https://labuladong.online/algo/fname.html?fname=哈希表线性探查实现)
   * [手把手带你实现哈希集合](https://labuladong.online/algo/)
     * [哈希集合的原理及代码实现](https://labuladong.online/algo/fname.html?fname=哈希集合实现)
+  * [手写标准库中的二叉树结构](https://labuladong.online/algo/)
+    * [二叉树基础及常见类型](https://labuladong.online/algo/fname.html?fname=二叉树基础)
+    * [正在更新 ing](https://labuladong.online/algo/fname.html?fname=更新中)
+  * [手把手带你实现二叉堆](https://labuladong.online/algo/)
+    * [二叉堆的基本原理](https://labuladong.online/algo/fname.html?fname=二叉堆基础)
+    * [二叉堆的代码实现](https://labuladong.online/algo/fname.html?fname=二叉堆实现)
   * [正在更新 ing](https://labuladong.online/algo/fname.html?fname=更新中)
 
 
@@ -172,8 +178,8 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
   * [回溯算法秒杀所有排列/组合/子集问题](https://labuladong.online/algo/fname.html?fname=子集排列组合)
   * [球盒模型：回溯算法穷举的两种视角](https://labuladong.online/algo/fname.html?fname=回溯两种视角)
   * [BFS 算法解题套路框架](https://labuladong.online/algo/fname.html?fname=BFS框架)
-  * [我写了首诗，把二分搜索算法变成了默写题](https://labuladong.online/algo/fname.html?fname=二分查找详解)
   * [我写了首诗，把滑动窗口算法变成了默写题](https://labuladong.online/algo/fname.html?fname=滑动窗口技巧进阶)
+  * [我写了首诗，把二分搜索算法变成了默写题](https://labuladong.online/algo/fname.html?fname=二分查找详解)
   * [算法时空复杂度分析实用指南](https://labuladong.online/algo/fname.html?fname=时间复杂度)
 
 
@@ -250,7 +256,7 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
     * [【强化练习】哈希表更多习题](https://labuladong.online/algo/fname.html?fname=哈希表习题)
     * [前缀树算法模板秒杀五道算法题](https://labuladong.online/algo/fname.html?fname=trie)
     * [一道求中位数的算法题把我整不会了](https://labuladong.online/algo/fname.html?fname=数据流中位数)
-    * [二叉堆详解实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆详解实现优先级队列)
+    * [二叉堆详解实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆实现)
     * [【强化练习】优先级队列经典习题](https://labuladong.online/algo/fname.html?fname=二叉堆习题)
     * [设计朋友圈时间线功能](https://labuladong.online/algo/fname.html?fname=设计Twitter)
     * [【强化练习】更多经典设计习题](https://labuladong.online/algo/fname.html?fname=设计习题)

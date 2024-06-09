@@ -91,6 +91,7 @@ class UF {
  - [【强化练习】运用层序遍历解题 II](https://labuladong.online/algo/fname.html?fname=习题层序2)
  - [一文秒杀所有岛屿题目](https://labuladong.online/algo/fname.html?fname=岛屿题目)
  - [二分图判定算法](https://labuladong.online/algo/fname.html?fname=二分图)
+ - [二叉树基础及常见类型](https://labuladong.online/algo/fname.html?fname=二叉树基础)
  - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
  - [用算法打败算法](https://labuladong.online/algo/fname.html?fname=PDF中的算法)
 

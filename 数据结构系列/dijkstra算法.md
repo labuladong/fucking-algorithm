@@ -27,7 +27,7 @@
 
 但如果你看过历史文章，应该可以对算法形成自己的理解，就会发现很多算法都是换汤不换药，毫无新意，非常枯燥。
 
-比如，[东哥手把手带你刷二叉树（总纲）](https://labuladong.online/algo/fname.html?fname=二叉树总结) 中说二叉树非常重要，你把这个结构掌握了，就会发现 [动态规划](https://labuladong.online/algo/fname.html?fname=动态规划详解进阶)，[分治算法](https://labuladong.online/algo/fname.html?fname=分治算法)，[回溯（DFS）算法](https://labuladong.online/algo/fname.html?fname=回溯算法详解修订版)，[BFS 算法框架](https://labuladong.online/algo/fname.html?fname=BFS框架)，[Union-Find 并查集算法](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解)，[二叉堆实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆详解实现优先级队列) 就是把二叉树翻来覆去的运用。
+比如，[东哥手把手带你刷二叉树（总纲）](https://labuladong.online/algo/fname.html?fname=二叉树总结) 中说二叉树非常重要，你把这个结构掌握了，就会发现 [动态规划](https://labuladong.online/algo/fname.html?fname=动态规划详解进阶)，[分治算法](https://labuladong.online/algo/fname.html?fname=分治算法)，[回溯（DFS）算法](https://labuladong.online/algo/fname.html?fname=回溯算法详解修订版)，[BFS 算法框架](https://labuladong.online/algo/fname.html?fname=BFS框架)，[Union-Find 并查集算法](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解)，[二叉堆实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆实现) 就是把二叉树翻来覆去的运用。
 
 那么本文又要告诉你，Dijkstra 算法（一般音译成迪杰斯特拉算法）无非就是一个 BFS 算法的加强版，它们都是从二叉树的层序遍历衍生出来的。
 
