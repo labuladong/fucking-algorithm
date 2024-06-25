@@ -131,8 +131,8 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
   * [配套 Chrome 刷题插件](https://labuladong.online/algo/fname.html?fname=chrome插件简介)
   * [配套 vscode 刷题插件](https://labuladong.online/algo/fname.html?fname=vscode插件简介)
   * [配套 JetBrains 刷题插件](https://labuladong.online/algo/fname.html?fname=jb插件简介)
-  * [算法可视化面板简介（必读）](https://labuladong.online/algo/fname.html?fname=可视化简介)
-  * [使用可视化面板的 JavaScript 基础](https://labuladong.online/algo/fname.html?fname=面板js基础)
+  * [算法可视化面板使用说明（必读）](https://labuladong.online/algo/fname.html?fname=可视化简介)
+  * [使用可视化面板的 JS 基础（可选）](https://labuladong.online/algo/fname.html?fname=面板js基础)
   * [30 天刷题打卡挑战（可选）](https://labuladong.online/algo/fname.html?fname=打卡挑战简介)
 
 ### [极速入门：数据结构基础](https://labuladong.online/algo/)
