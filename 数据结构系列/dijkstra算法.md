@@ -27,17 +27,17 @@
 
 但如果你看过历史文章，应该可以对算法形成自己的理解，就会发现很多算法都是换汤不换药，毫无新意，非常枯燥。
 
-比如，[东哥手把手带你刷二叉树（总纲）](https://labuladong.online/algo/fname.html?fname=二叉树总结) 中说二叉树非常重要，你把这个结构掌握了，就会发现 [动态规划](https://labuladong.online/algo/fname.html?fname=动态规划详解进阶)，[分治算法](https://labuladong.online/algo/fname.html?fname=分治算法)，[回溯（DFS）算法](https://labuladong.online/algo/fname.html?fname=回溯算法详解修订版)，[BFS 算法框架](https://labuladong.online/algo/fname.html?fname=BFS框架)，[Union-Find 并查集算法](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解)，[二叉堆实现优先级队列](https://labuladong.online/algo/fname.html?fname=二叉堆实现) 就是把二叉树翻来覆去的运用。
+比如，[东哥手把手带你刷二叉树（总纲）](https://labuladong.online/algo/essential-technique/binary-tree-summary/) 中说二叉树非常重要，你把这个结构掌握了，就会发现 [动态规划](https://labuladong.online/algo/essential-technique/dynamic-programming-framework/)，[分治算法](https://labuladong.online/algo/practice-in-action/divide-and-conquer/)，[回溯（DFS）算法](https://labuladong.online/algo/essential-technique/backtrack-framework/)，[BFS 算法框架](https://labuladong.online/algo/essential-technique/bfs-framework/)，[Union-Find 并查集算法](https://labuladong.online/algo/data-structure/union-find/)，[二叉堆实现优先级队列](https://labuladong.online/algo/data-structure-basic/binary-heap-implement/) 就是把二叉树翻来覆去的运用。
 
 那么本文又要告诉你，Dijkstra 算法（一般音译成迪杰斯特拉算法）无非就是一个 BFS 算法的加强版，它们都是从二叉树的层序遍历衍生出来的。
 
-这也是为什么我在 [学习数据结构和算法的框架思维](https://labuladong.online/algo/fname.html?fname=学习数据结构和算法的高效方法) 中这么强调二叉树的原因。
+这也是为什么我在 [学习数据结构和算法的框架思维](https://labuladong.online/algo/essential-technique/abstraction-of-algorithm/) 中这么强调二叉树的原因。
 
 **下面我们由浅入深，从二叉树的层序遍历聊到 Dijkstra 算法，给出 Dijkstra 算法的代码框架，顺手秒杀几道运用 Dijkstra 算法的题目**。
 
 ### 图的抽象
 
-前文 [图论第一期：遍历基础](https://labuladong.online/algo/fname.html?fname=图) 说过「图」这种数据结构的基本实现，图中的节点一般就抽象成一个数字（索引），图的具体实现一般是「邻接矩阵」或者「邻接表」。
+前文 [图论第一期：遍历基础](https://labuladong.online/algo/data-structure/graph-traverse/) 说过「图」这种数据结构的基本实现，图中的节点一般就抽象成一个数字（索引），图的具体实现一般是「邻接矩阵」或者「邻接表」。
 
 ![](https://labuladong.online/algo/images/图/0.jpg)
 
@@ -45,7 +45,7 @@
 
 ![](https://labuladong.online/algo/images/图/2.jpeg)
 
-前文 [图论第二期：拓扑排序](https://labuladong.online/algo/fname.html?fname=拓扑排序) 告诉你，我们用邻接表的场景更多，结合上图，一幅图可以用如下 Java 代码表示：
+前文 [图论第二期：拓扑排序](https://labuladong.online/algo/data-structure/topological-sort/) 告诉你，我们用邻接表的场景更多，结合上图，一幅图可以用如下 Java 代码表示：
 
 <!-- muliti_language -->
 ```java
@@ -195,7 +195,7 @@ int BFS(Node start) {
 }
 ```
 
-如果对 BFS 算法不熟悉，可以看前文 [BFS 算法框架](https://labuladong.online/algo/fname.html?fname=BFS框架)，这里只是为了让你做个对比，所谓 BFS 算法，就是把算法问题抽象成一幅「无权图」，然后继续玩二叉树层级遍历那一套罢了。
+如果对 BFS 算法不熟悉，可以看前文 [BFS 算法框架](https://labuladong.online/algo/essential-technique/bfs-framework/)，这里只是为了让你做个对比，所谓 BFS 算法，就是把算法问题抽象成一幅「无权图」，然后继续玩二叉树层级遍历那一套罢了。
 
 **注意，我们的 BFS 算法框架也是 `while` 循环嵌套 `for` 循环的形式，也用了一个 `step` 变量记录 `for` 循环执行的次数，无非就是多用了一个 `visited` 集合记录走过的节点，防止走回头路罢了**。
 
@@ -298,16 +298,16 @@ void levelTraverse(TreeNode root) {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [BFS 算法解题套路框架](https://labuladong.online/algo/fname.html?fname=BFS框架)
- - [Kruskal 最小生成树算法](https://labuladong.online/algo/fname.html?fname=kruskal)
- - [Prim 最小生成树算法](https://labuladong.online/algo/fname.html?fname=prim算法)
- - [东哥带你刷二叉树（纲领篇）](https://labuladong.online/algo/fname.html?fname=二叉树总结)
- - [二分图判定算法](https://labuladong.online/algo/fname.html?fname=二分图)
- - [图论基础及遍历算法](https://labuladong.online/algo/fname.html?fname=图)
- - [并查集（Union-Find）算法](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解)
- - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
- - [旅游省钱大法：加权最短路径](https://labuladong.online/algo/fname.html?fname=旅行最短路径)
- - [环检测及拓扑排序算法](https://labuladong.online/algo/fname.html?fname=拓扑排序)
+ - [BFS 算法解题套路框架](https://labuladong.online/algo/essential-technique/bfs-framework/)
+ - [Kruskal 最小生成树算法](https://labuladong.online/algo/data-structure/kruskal/)
+ - [Prim 最小生成树算法](https://labuladong.online/algo/data-structure/prim/)
+ - [东哥带你刷二叉树（纲领篇）](https://labuladong.online/algo/essential-technique/binary-tree-summary/)
+ - [二分图判定算法](https://labuladong.online/algo/data-structure/bipartite-graph/)
+ - [图论基础及遍历算法](https://labuladong.online/algo/data-structure/graph-traverse/)
+ - [并查集（Union-Find）算法](https://labuladong.online/algo/data-structure/union-find/)
+ - [我的刷题心得：算法的本质](https://labuladong.online/algo/essential-technique/algorithm-summary/)
+ - [旅游省钱大法：加权最短路径](https://labuladong.online/algo/dynamic-programming/cheap-travel/)
+ - [环检测及拓扑排序算法](https://labuladong.online/algo/data-structure/topological-sort/)
 
 </details><hr>
 

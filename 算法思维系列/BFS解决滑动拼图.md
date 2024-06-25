@@ -118,7 +118,7 @@ int[][] generateNeighborMapping(int m, int n) {
 }
 ```
 
-至此，我们就把这个问题完全转化成标准的 BFS 问题了，借助前文 [BFS 算法框架](https://labuladong.online/algo/fname.html?fname=BFS框架) 的代码框架，直接就可以套出解法代码了：
+至此，我们就把这个问题完全转化成标准的 BFS 问题了，借助前文 [BFS 算法框架](https://labuladong.online/algo/essential-technique/bfs-framework/) 的代码框架，直接就可以套出解法代码了：
 
 <!-- muliti_language -->
 ```java
@@ -201,7 +201,7 @@ class Solution {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [BFS 算法解题套路框架](https://labuladong.online/algo/fname.html?fname=BFS框架)
+ - [BFS 算法解题套路框架](https://labuladong.online/algo/essential-technique/bfs-framework/)
 
 </details><hr>
 

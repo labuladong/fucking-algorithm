@@ -140,8 +140,8 @@ $ cmd1 | cmd2 | cmd3
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Linux 管道符的坑](https://labuladong.online/algo/fname.html?fname=linux技巧3)
- - [关于 Linux shell 你必须知道的技巧](https://labuladong.online/algo/fname.html?fname=linuxshell)
+ - [Linux 管道符的坑](https://labuladong.online/algo/other-skills/linux-pipeline/)
+ - [关于 Linux shell 你必须知道的技巧](https://labuladong.online/algo/other-skills/linux-shell/)
 
 </details><hr>
 

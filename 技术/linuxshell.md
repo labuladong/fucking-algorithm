@@ -56,7 +56,7 @@ $ rm $(where connect.sh)
 
 **标准输入就是编程语言中诸如`scanf`或者`readline`这种命令；而参数是指程序的`main`函数传入的`args`字符数组**。
 
-前文 [Linux文件描述符](https://labuladong.online/algo/fname.html?fname=linux进程) 说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
+前文 [Linux文件描述符](https://labuladong.online/algo/other-skills/linux-process/) 说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
 
 用刚才的例子说，`rm`命令源代码中肯定不接受标准输入，而是接收命令行参数，删除相应的文件。作为对比，`cat`命令是既接受标准输入，又接受命令行参数：
 
@@ -317,7 +317,7 @@ $ yes | your_cmd
 
 这样就会一路自动 `y` 下去，不会停下让我们输入了。
 
-如果你读过前文 [Linux 文件描述符](https://labuladong.online/algo/fname.html?fname=linux进程)，就知道其原理很简单：
+如果你读过前文 [Linux 文件描述符](https://labuladong.online/algo/other-skills/linux-process/)，就知道其原理很简单：
 
 你单独运行一下 `yes` 命令，发现它就是打印出一大堆字符 y，通过管道把输出和 `your_cmd` 的标准输入相连接，如果 `your_cmd` 又提出无聊的问题，就会从标准输入读取数据，也就会读取到一个 y 和换行符，和你手动输入 y 确认是一个效果。
 
@@ -350,7 +350,7 @@ tail | grep '下一篇' $filename
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Linux 管道符的坑](https://labuladong.online/algo/fname.html?fname=linux技巧3)
+ - [Linux 管道符的坑](https://labuladong.online/algo/other-skills/linux-pipeline/)
 
 </details><hr>
 

@@ -23,7 +23,7 @@
 
 ::: tip
 
-阅读本文之前，建议你先学习一下另一种字符串匹配算法：[Rabin Karp 字符匹配算法](https://labuladong.online/algo/fname.html?fname=rabinkarp)。
+阅读本文之前，建议你先学习一下另一种字符串匹配算法：[Rabin Karp 字符匹配算法](https://labuladong.online/algo/practice-in-action/rabinkarp/)。
 
 :::
 
@@ -444,8 +444,8 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
- - [滑动窗口算法延伸：Rabin Karp 字符匹配算法](https://labuladong.online/algo/fname.html?fname=rabinkarp)
+ - [我的刷题心得：算法的本质](https://labuladong.online/algo/essential-technique/algorithm-summary/)
+ - [滑动窗口算法延伸：Rabin Karp 字符匹配算法](https://labuladong.online/algo/practice-in-action/rabinkarp/)
 
 </details><hr>
 

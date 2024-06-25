@@ -117,7 +117,7 @@ type Session interface {
 
 ::: tip
 
-关于 LRU 算法的奥妙，参见前文 [LRU 算法详解](https://labuladong.online/algo/fname.html?fname=LRU算法)。
+关于 LRU 算法的奥妙，参见前文 [LRU 算法详解](https://labuladong.online/algo/data-structure/lru-cache/)。
 
 :::
 

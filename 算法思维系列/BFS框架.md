@@ -29,7 +29,7 @@
 
 后台有很多人问起 BFS 和 DFS 的框架，今天就来说说吧。
 
-首先，你要说我没写过 BFS 框架，这话没错，今天写个框架你背住就完事儿了。但要是说没写过 DFS 框架，那你还真是说错了，**其实 DFS 算法就是回溯算法**，我们前文 [回溯算法框架套路详解](https://labuladong.online/algo/fname.html?fname=回溯算法详解修订版) 就写过了，而且写得不是一般得好，建议好好复习，嘿嘿嘿~
+首先，你要说我没写过 BFS 框架，这话没错，今天写个框架你背住就完事儿了。但要是说没写过 DFS 框架，那你还真是说错了，**其实 DFS 算法就是回溯算法**，我们前文 [回溯算法框架套路详解](https://labuladong.online/algo/essential-technique/backtrack-framework/) 就写过了，而且写得不是一般得好，建议好好复习，嘿嘿嘿~
 
 BFS 的核心思想应该不难理解的，就是把一些问题抽象成图，从一个点开始，向四周开始扩散。一般来说，我们写 BFS 算法都是用「队列」这种数据结构，每次将一个节点周围的所有节点加入队列。
 
@@ -141,7 +141,7 @@ int minDepth(TreeNode root) {
 
 ![](https://labuladong.online/algo/images/dijkstra/1.jpeg)
 
-这一点很重要，这个形式在普通 BFS 问题中都很常见，但是在 [Dijkstra 算法模板框架](https://labuladong.online/algo/fname.html?fname=dijkstra算法) 中我们修改了这种代码模式，读完并理解本文后你可以去看看 BFS 算法是如何演变成 Dijkstra 算法在加权图中寻找最短路径的。
+这一点很重要，这个形式在普通 BFS 问题中都很常见，但是在 [Dijkstra 算法模板框架](https://labuladong.online/algo/data-structure/dijkstra/) 中我们修改了这种代码模式，读完并理解本文后你可以去看看 BFS 算法是如何演变成 Dijkstra 算法在加权图中寻找最短路径的。
 
 话说回来，二叉树本身是很简单的数据结构，我想上述代码你应该可以理解的，其实其他复杂问题都是这个框架的变形，再探讨复杂问题之前，我们解答两个问题：
 
@@ -396,7 +396,7 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 
 接下来可阅读：
 
-* [BFS 算法如何解决智力题](https://labuladong.online/algo/fname.html?fname=BFS解决滑动拼图)
+* [BFS 算法如何解决智力题](https://labuladong.online/algo/practice-in-action/sliding-puzzle/)
 
 
 
@@ -404,20 +404,20 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Dijkstra 算法模板及应用](https://labuladong.online/algo/fname.html?fname=dijkstra算法)
- - [Prim 最小生成树算法](https://labuladong.online/algo/fname.html?fname=prim算法)
- - [【强化练习】运用层序遍历解题 I](https://labuladong.online/algo/fname.html?fname=习题层序1)
- - [【强化练习】运用层序遍历解题 II](https://labuladong.online/algo/fname.html?fname=习题层序2)
- - [东哥带你刷二叉树（纲领篇）](https://labuladong.online/algo/fname.html?fname=二叉树总结)
- - [二分图判定算法](https://labuladong.online/algo/fname.html?fname=二分图)
- - [分治算法详解：运算优先级](https://labuladong.online/algo/fname.html?fname=分治算法)
- - [如何用 BFS 算法秒杀各种智力题](https://labuladong.online/algo/fname.html?fname=BFS解决滑动拼图)
- - [我的刷题心得：算法的本质](https://labuladong.online/algo/fname.html?fname=算法心得)
- - [旅游省钱大法：加权最短路径](https://labuladong.online/algo/fname.html?fname=旅行最短路径)
- - [环检测及拓扑排序算法](https://labuladong.online/algo/fname.html?fname=拓扑排序)
- - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
- - [用算法打败算法](https://labuladong.online/algo/fname.html?fname=PDF中的算法)
- - [算法学习和心流体验](https://labuladong.online/algo/fname.html?fname=心流)
+ - [Dijkstra 算法模板及应用](https://labuladong.online/algo/data-structure/dijkstra/)
+ - [Prim 最小生成树算法](https://labuladong.online/algo/data-structure/prim/)
+ - [【强化练习】运用层序遍历解题 I](https://labuladong.online/algo/problem-set/binary-tree-level-1/)
+ - [【强化练习】运用层序遍历解题 II](https://labuladong.online/algo/problem-set/binary-tree-level-2/)
+ - [东哥带你刷二叉树（纲领篇）](https://labuladong.online/algo/essential-technique/binary-tree-summary/)
+ - [二分图判定算法](https://labuladong.online/algo/data-structure/bipartite-graph/)
+ - [分治算法详解：运算优先级](https://labuladong.online/algo/practice-in-action/divide-and-conquer/)
+ - [如何用 BFS 算法秒杀各种智力题](https://labuladong.online/algo/practice-in-action/sliding-puzzle/)
+ - [我的刷题心得：算法的本质](https://labuladong.online/algo/essential-technique/algorithm-summary/)
+ - [旅游省钱大法：加权最短路径](https://labuladong.online/algo/dynamic-programming/cheap-travel/)
+ - [环检测及拓扑排序算法](https://labuladong.online/algo/data-structure/topological-sort/)
+ - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/data-structure/iterative-traversal-binary-tree/)
+ - [用算法打败算法](https://labuladong.online/algo/other-skills/algorithm-in-pdf/)
+ - [算法学习和心流体验](https://labuladong.online/algo/other-skills/hert-flow/)
 
 </details><hr>
 

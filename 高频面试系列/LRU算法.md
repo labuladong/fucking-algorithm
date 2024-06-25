@@ -42,7 +42,7 @@ LRU 缓存淘汰算法就是一种常用策略。LRU 的全称是 Least Recently
 
 ![](https://labuladong.online/algo/images/LRU算法/3.jpg)
 
-现在你应该理解 LRU（Least Recently Used）策略了。当然还有其他缓存淘汰策略，比如不要按访问的时序来淘汰，而是按访问频率（LFU 策略）来淘汰等等，各有应用场景。本文讲解 LRU 算法策略，我会在 [LFU 算法详解](https://labuladong.online/algo/fname.html?fname=LFU) 中讲解 LFU 算法。
+现在你应该理解 LRU（Least Recently Used）策略了。当然还有其他缓存淘汰策略，比如不要按访问的时序来淘汰，而是按访问频率（LFU 策略）来淘汰等等，各有应用场景。本文讲解 LRU 算法策略，我会在 [LFU 算法详解](https://labuladong.online/algo/frequency-interview/lfu/) 中讲解 LFU 算法。
 
 ### 一、LRU 算法描述
 
@@ -185,7 +185,7 @@ class DoubleList {
 }
 ```
 
-如果对链表的操作不熟悉，可以看前文 [手把手带你实现双链表](https://labuladong.online/algo/fname.html?fname=链表基础)。
+如果对链表的操作不熟悉，可以看前文 [手把手带你实现双链表](https://labuladong.online/algo/data-structure-basic/linkedlist-basic/)。
 
 到这里就能回答刚才「为什么必须要用双向链表」的问题了，因为我们需要删除操作。删除一个节点不光要得到该节点本身的指针，也需要操作其前驱节点的指针，而双向链表才能支持直接查找前驱，保证操作的时间复杂度 O(1)。
 
@@ -354,11 +354,11 @@ class LRUCache {
 }
 ```
 
-至此，LRU 算法就没有什么神秘的了。更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://labuladong.online/algo/fname.html?fname=设计习题)。
+至此，LRU 算法就没有什么神秘的了。更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://labuladong.online/algo/problem-set/ds-design/)。
 
 接下来可阅读：
 
-* [手把手带你实现 LFU 算法](https://labuladong.online/algo/fname.html?fname=LFU)
+* [手把手带你实现 LFU 算法](https://labuladong.online/algo/frequency-interview/lfu/)
 
 
 
@@ -366,11 +366,11 @@ class LRUCache {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [一文读懂 session 和 cookie](https://labuladong.online/algo/fname.html?fname=session和cookie)
- - [常数时间删除/查找数组中的任意元素](https://labuladong.online/algo/fname.html?fname=随机集合)
- - [数据结构设计：最大栈](https://labuladong.online/algo/fname.html?fname=最大栈)
- - [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.online/algo/fname.html?fname=LFU)
- - [算法笔试「骗分」套路](https://labuladong.online/algo/fname.html?fname=刷题技巧)
+ - [一文读懂 session 和 cookie](https://labuladong.online/algo/other-skills/session-and-cookie/)
+ - [常数时间删除/查找数组中的任意元素](https://labuladong.online/algo/data-structure/random-set/)
+ - [数据结构设计：最大栈](https://labuladong.online/algo/frequency-interview/max-stack/)
+ - [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.online/algo/frequency-interview/lfu/)
+ - [算法笔试「骗分」套路](https://labuladong.online/algo/other-skills/tips-in-exam/)
 
 </details><hr>
 

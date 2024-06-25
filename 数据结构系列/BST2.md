@@ -26,7 +26,7 @@
 
 
 
-我们前文 [东哥带你刷二叉搜索树（特性篇）](https://labuladong.online/algo/fname.html?fname=BST1) 介绍了 BST 的基本特性，还利用二叉搜索树「中序遍历有序」的特性来解决了几道题目，本文来实现 BST 的基础操作：判断 BST 的合法性、增、删、查。其中「删」和「判断合法性」略微复杂。
+我们前文 [东哥带你刷二叉搜索树（特性篇）](https://labuladong.online/algo/data-structure/bst-part1/) 介绍了 BST 的基本特性，还利用二叉搜索树「中序遍历有序」的特性来解决了几道题目，本文来实现 BST 的基础操作：判断 BST 的合法性、增、删、查。其中「删」和「判断合法性」略微复杂。
 
 BST 的基础操作主要依赖「左小右大」的特性，可以在二叉树中做类似二分搜索的操作，寻找一个元素的效率很高。比如下面这就是一棵合法的二叉树：
 
@@ -309,7 +309,7 @@ void BST(TreeNode root, int target) {
 
 3、根据代码框架掌握了 BST 的增删查改操作。
 
-本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见二叉树章节中的 [递归专项练习](https://labuladong.online/algo/fname.html?fname=习题搜索树1)
+本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见二叉树章节中的 [递归专项练习](https://labuladong.online/algo/problem-set/bst1/)
 
 
 
@@ -317,10 +317,10 @@ void BST(TreeNode root, int target) {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.online/algo/fname.html?fname=BST3)
- - [前缀树算法模板秒杀五道算法题](https://labuladong.online/algo/fname.html?fname=trie)
- - [后序遍历的妙用](https://labuladong.online/algo/fname.html?fname=后序遍历)
- - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
+ - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.online/algo/data-structure/bst-part3/)
+ - [前缀树算法模板秒杀五道算法题](https://labuladong.online/algo/data-structure/trie/)
+ - [后序遍历的妙用](https://labuladong.online/algo/data-structure/postorder-traversal/)
+ - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/data-structure/iterative-traversal-binary-tree/)
 
 </details><hr>
 

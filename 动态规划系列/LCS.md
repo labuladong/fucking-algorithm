@@ -26,7 +26,7 @@
 
 不知道大家做算法题有什么感觉，**我总结出来做算法题的技巧就是，把大的问题细化到一个点，先研究在这个小的点上如何解决问题，然后再通过递归/迭代的方式扩展到整个问题**。
 
-比如说我们前文 [手把手带你刷二叉树第三期](https://labuladong.online/algo/fname.html?fname=二叉树系列3)，解决二叉树的题目，我们就会把整个问题细化到某一个节点上，想象自己站在某个节点上，需要做什么，然后套二叉树递归框架就行了。
+比如说我们前文 [手把手带你刷二叉树第三期](https://labuladong.online/algo/data-structure/binary-tree-part3/)，解决二叉树的题目，我们就会把整个问题细化到某一个节点上，想象自己站在某个节点上，需要做什么，然后套二叉树递归框架就行了。
 
 动态规划系列问题也是一样，尤其是子序列相关的问题。**本文从「最长公共子序列问题」展开，总结三道子序列问题**，解这道题仔细讲讲这种子序列问题的套路，你就能感受到这种思维方式了。
 
@@ -47,7 +47,7 @@ int longestCommonSubsequence(String s1, String s2);
 
 显然，这种思路的复杂度非常高，你要穷举出所有子序列，这个复杂度就是指数级的，肯定不实际。
 
-正确的思路是不要考虑整个字符串，而是细化到 `s1` 和 `s2` 的每个字符。前文 [子序列解题模板](https://labuladong.online/algo/fname.html?fname=子序列问题模板) 中总结的一个规律：
+正确的思路是不要考虑整个字符串，而是细化到 `s1` 和 `s2` 的每个字符。前文 [子序列解题模板](https://labuladong.online/algo/dynamic-programming/subsequence-problem/) 中总结的一个规律：
 
 
 
@@ -55,8 +55,8 @@ int longestCommonSubsequence(String s1, String s2);
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [动态规划之子序列问题解题模板](https://labuladong.online/algo/fname.html?fname=子序列问题模板)
- - [经典动态规划：编辑距离](https://labuladong.online/algo/fname.html?fname=编辑距离)
+ - [动态规划之子序列问题解题模板](https://labuladong.online/algo/dynamic-programming/subsequence-problem/)
+ - [经典动态规划：编辑距离](https://labuladong.online/algo/dynamic-programming/edit-distance/)
 
 </details><hr>
 

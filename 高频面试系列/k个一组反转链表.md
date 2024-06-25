@@ -21,7 +21,7 @@
 
 **-----------**
 
-之前的文章 [递归反转链表的一部分](https://labuladong.online/algo/fname.html?fname=递归反转链表的一部分) 讲了如何递归地反转一部分链表，有读者就问如何迭代地反转链表，那么这篇文章的第一部分就会讲一讲如何用迭代方式解决反转单链表的问题。
+之前的文章 [递归反转链表的一部分](https://labuladong.online/algo/data-structure/reverse-linked-list-recursion/) 讲了如何递归地反转一部分链表，有读者就问如何迭代地反转链表，那么这篇文章的第一部分就会讲一讲如何用迭代方式解决反转单链表的问题。
 
 有了这个反转函数之后，我们还是会用递归的方式解决力扣第 25 题「K 个一组翻转链表」，所以检验你递归思维的时候到了，准备好了吗？
 
@@ -35,7 +35,7 @@
 
 ### 一、分析问题
 
-首先，前文 [学习数据结构的框架思维](https://labuladong.online/algo/fname.html?fname=学习数据结构和算法的高效方法) 提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
+首先，前文 [学习数据结构的框架思维](https://labuladong.online/algo/essential-technique/abstraction-of-algorithm/) 提到过，链表是一种兼具递归和迭代性质的数据结构，认真思考一下可以发现**这个问题具有递归性质**。
 
 什么叫递归性质？直接上图理解，比如说我们对这个链表调用 `reverseKGroup(head, 2)`，即以 2 个节点为一组反转链表：
 
@@ -152,7 +152,7 @@ ListNode reverseKGroup(ListNode head, int k) {
 
 从阅读量上看，基本数据结构相关的算法文章看的人都不多，我想说这是要吃亏的。
 
-大家喜欢看动态规划相关的问题，可能因为面试很常见，但就我个人理解，很多算法思想都是源于数据结构的。我们公众号的成名之作之一，[学习数据结构的框架思维](https://labuladong.online/algo/fname.html?fname=学习数据结构和算法的高效方法) 就提过，什么动规、回溯、分治算法，其实都是树的遍历，树这种结构它不就是个多叉链表吗？你能处理基本数据结构的问题，解决一般的算法问题应该也不会太费事。
+大家喜欢看动态规划相关的问题，可能因为面试很常见，但就我个人理解，很多算法思想都是源于数据结构的。我们公众号的成名之作之一，[学习数据结构的框架思维](https://labuladong.online/algo/essential-technique/abstraction-of-algorithm/) 就提过，什么动规、回溯、分治算法，其实都是树的遍历，树这种结构它不就是个多叉链表吗？你能处理基本数据结构的问题，解决一般的算法问题应该也不会太费事。
 
 那么如何分解问题、发现递归性质呢？这个只能多练习，我在数据结构精品课中讲解了 [单链表的递归实现](https://aep.h5.xeknow.com/s/1RQzXc)，应该能够让你进一步加深对递归的理解。
 
@@ -162,9 +162,9 @@ ListNode reverseKGroup(ListNode head, int k) {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [东哥带你刷二叉树（思路篇）](https://labuladong.online/algo/fname.html?fname=二叉树系列1)
- - [算法笔试「骗分」套路](https://labuladong.online/algo/fname.html?fname=刷题技巧)
- - [递归魔法：反转单链表](https://labuladong.online/algo/fname.html?fname=递归反转链表的一部分)
+ - [东哥带你刷二叉树（思路篇）](https://labuladong.online/algo/data-structure/binary-tree-part1/)
+ - [算法笔试「骗分」套路](https://labuladong.online/algo/other-skills/tips-in-exam/)
+ - [递归魔法：反转单链表](https://labuladong.online/algo/data-structure/reverse-linked-list-recursion/)
 
 </details><hr>
 

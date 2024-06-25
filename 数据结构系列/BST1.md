@@ -26,7 +26,7 @@
 
 
 
-前文手把手带你刷二叉树已经写了 [第一期](https://labuladong.online/algo/fname.html?fname=二叉树系列1)，[第二期](https://labuladong.online/algo/fname.html?fname=二叉树系列2) 和 [第三期](https://labuladong.online/algo/fname.html?fname=二叉树系列3)，今天写一篇二叉搜索树（Binary Search Tree，后文简写 BST）相关的文章，手把手带你刷 BST。
+前文手把手带你刷二叉树已经写了 [第一期](https://labuladong.online/algo/data-structure/binary-tree-part1/)，[第二期](https://labuladong.online/algo/data-structure/binary-tree-part2/) 和 [第三期](https://labuladong.online/algo/data-structure/binary-tree-part3/)，今天写一篇二叉搜索树（Binary Search Tree，后文简写 BST）相关的文章，手把手带你刷 BST。
 
 首先，BST 的特性大家应该都很熟悉了：
 
@@ -96,7 +96,7 @@ void traverse(TreeNode root, int k) {
 
 这道题就做完了，不过呢，还是要多说几句，因为这个解法并不是最高效的解法，而是仅仅适用于这道题。
 
-我们前文 [高效计算数据流的中位数](https://labuladong.online/algo/fname.html?fname=数据流中位数) 中就提过今天的这个问题：
+我们前文 [高效计算数据流的中位数](https://labuladong.online/algo/practice-in-action/find-median-from-data-stream/) 中就提过今天的这个问题：
 
 ::: info
 
@@ -230,7 +230,7 @@ void traverse(TreeNode root) {
 
 简单总结下吧，BST 相关的问题，要么利用 BST 左小右大的特性提升算法效率，要么利用中序遍历的特性满足题目的要求，也就这么些事儿吧。
 
-本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见二叉树章节中的 [递归专项练习](https://labuladong.online/algo/fname.html?fname=习题搜索树1)
+本文就到这里，更多经典的二叉树习题以及递归思维的训练，请参见二叉树章节中的 [递归专项练习](https://labuladong.online/algo/problem-set/bst1/)
 
 
 
@@ -238,10 +238,10 @@ void traverse(TreeNode root) {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [【强化练习】优先级队列经典习题](https://labuladong.online/algo/fname.html?fname=二叉堆习题)
- - [东哥带你刷二叉搜索树（基操篇）](https://labuladong.online/algo/fname.html?fname=BST2)
- - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.online/algo/fname.html?fname=BST3)
- - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/fname.html?fname=迭代遍历二叉树)
+ - [【强化练习】优先级队列经典习题](https://labuladong.online/algo/problem-set/binary-heap/)
+ - [东哥带你刷二叉搜索树（基操篇）](https://labuladong.online/algo/data-structure/bst-part2/)
+ - [东哥带你刷二叉搜索树（构造篇）](https://labuladong.online/algo/data-structure/bst-part3/)
+ - [用栈模拟递归迭代遍历二叉树](https://labuladong.online/algo/data-structure/iterative-traversal-binary-tree/)
 
 </details><hr>
 
