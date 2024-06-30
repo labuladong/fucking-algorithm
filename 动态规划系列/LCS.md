@@ -81,6 +81,6 @@ int longestCommonSubsequence(String s1, String s2);
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/fname.html?fname=LCS) 查看：
+本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/dynamic-programming/longest-common-subsequence/) 查看：
 
 ![](https://labuladong.online/algo/images/qrcode.jpg)

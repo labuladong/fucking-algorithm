@@ -334,6 +334,6 @@ void levelTraverse(TreeNode root) {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/fname.html?fname=dijkstra算法) 查看：
+本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/data-structure/dijkstra/) 查看：
 
 ![](https://labuladong.online/algo/images/qrcode.jpg)

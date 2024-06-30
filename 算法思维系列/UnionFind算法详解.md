@@ -124,7 +124,7 @@ class UF {
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/fname.html?fname=UnionFind算法详解) 查看：
+本文为会员内容，请扫码关注公众号或 [点这里](https://labuladong.online/algo/data-structure/union-find/) 查看：
 
 ![](https://labuladong.online/algo/images/qrcode.jpg)
 
