@@ -44,9 +44,11 @@ English version repo and Gitbook is on [english branch](https://github.com/labul
 
 **3、建议收藏我的在线网站，每篇文章开头都有对应的力扣题目链接，可以边看文章边刷题，一共可以手把手带你刷 300 道题目**：
 
-GitHub Pages 地址：https://labuladong.github.io/algo/
+~~GitHub Pages 地址：https://labuladong.online/algo/~~
 
-Gitee Pages 地址：https://labuladong.gitee.io/algo/
+~~Gitee Pages 地址：https://labuladong.gitee.io/algo/~~
+
+2024 最新地址：https://labuladong.online/algo/
 
 **另外建议关注 [我的 B 站](https://space.bilibili.com/14089380)，我把一系列核心算法技巧的文章都录制成了领读视频，方便大家学习**。
 
