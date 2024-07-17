@@ -266,8 +266,8 @@ PDF 共两本，一本《labuladong 的算法秘籍》类似教材，帮你系�
 
   * [手把手刷图算法](https://labuladong.online/algo/)
     * [图论基础及遍历算法](https://labuladong.online/algo/data-structure/graph-traverse/)
-    * [众里寻他千百度：名流问题](https://labuladong.online/algo/frequency-interview/find-celebrity/)
     * [环检测及拓扑排序算法](https://labuladong.online/algo/data-structure/topological-sort/)
+    * [众里寻他千百度：名流问题](https://labuladong.online/algo/frequency-interview/find-celebrity/)
     * [二分图判定算法](https://labuladong.online/algo/data-structure/bipartite-graph/)
     * [并查集（Union-Find）算法](https://labuladong.online/algo/data-structure/union-find/)
     * [Kruskal 最小生成树算法](https://labuladong.online/algo/data-structure/kruskal/)

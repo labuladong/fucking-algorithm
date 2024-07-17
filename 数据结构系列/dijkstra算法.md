@@ -325,6 +325,7 @@ void levelTraverse(TreeNode root) {
 | [286. Walls and Gates](https://leetcode.com/problems/walls-and-gates/?show=1)🔒 | [286. 墙与门](https://leetcode.cn/problems/walls-and-gates/?show=1)🔒 |
 | [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/?show=1) | [310. 最小高度树](https://leetcode.cn/problems/minimum-height-trees/?show=1) |
 | [329. Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/?show=1) | [329. 矩阵中的最长递增路径](https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/?show=1) |
+| [505. The Maze II](https://leetcode.com/problems/the-maze-ii/?show=1)🔒 | [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii/?show=1)🔒 |
 | [542. 01 Matrix](https://leetcode.com/problems/01-matrix/?show=1) | [542. 01 矩阵](https://leetcode.cn/problems/01-matrix/?show=1) |
 
 </details>
