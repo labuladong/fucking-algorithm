@@ -7485,9 +7485,11 @@ class Solution {
 var advantageCount = function(nums1, nums2) {
     var n = nums1.length;
     //给 nums2 降序排序
-    var maxpq = new PriorityQueue((pair1, pair2) => pair2[1] - pair1[1]);
+    var maxpq = new PriorityQueue({
+        compare: (pair1, pair2) => pair2[1] - pair1[1]
+    });
     for (var i = 0; i < n; i++) {
-        maxpq.offer([i, nums2[i]]);
+        maxpq.enqueue([i, nums2[i]]);
     }
     //给 nums1 升序排序
     nums1.sort((a, b) => a - b);
@@ -7496,7 +7498,7 @@ var advantageCount = function(nums1, nums2) {
     var res = new Array(n);
 
     while (!maxpq.isEmpty()) {
-        var pair = maxpq.poll();
+        var pair = maxpq.dequeue();
         // maxval 是 nums2 中的最大值，i 是对应索引
         var i = pair[0], maxval = pair[1];
         if (maxval < nums1[right]) {
