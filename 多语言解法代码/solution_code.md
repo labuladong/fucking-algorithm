@@ -12936,52 +12936,48 @@ class Solution {
 ```
 
 ```go
-// by chatGPT (go)
+// by mario_huang (go)
+var memo []int
+
 func coinChange(coins []int, amount int) int {
-    memo := make([]int, amount+1)
-    for i := 0; i <= amount; i++ {
-        memo[i] = -666
-    }
-    return dp(coins, amount, memo)
+	memo = make([]int, amount+1)
+	// 备忘录初始化为一个不会被取到的特殊值，代表还未被计算
+	for i := 0; i <= amount; i++ {
+		memo[i] = -666
+	}
+	return dp(coins, amount)
 }
 
-func dp(coins []int, amount int, memo []int) int {
-    if amount == 0 {
-        return 0
-    }
-    if amount < 0 {
-        return -1
-    }
-    // 查备忘录，防止重复计算
-    if memo[amount] != -666 {
-        return memo[amount]
-    }
+func dp(coins []int, amount int) int {
+	if amount == 0 {
+		return 0
+	}
+	if amount < 0 {
+		return -1
+	}
+	// 查备忘录，防止重复计算
+	if memo[amount] != -666 {
+		return memo[amount]
+	}
 
-    res := math.MaxInt32
-    for _, coin := range coins {
-        // 计算子问题的结果
-        subProblem := dp(coins, amount-coin, memo)
-        // 子问题无解则跳过
-        if subProblem == -1 {
-            continue
-        }
-        // 在子问题中选择最优解，然后加一
-        res = min(res, subProblem+1)
-    }
-    // 把计算结果存入备忘录
-    if res == math.MaxInt32 {
-        memo[amount] = -1
-    } else {
-        memo[amount] = res
-    }
-    return memo[amount]
-}
-
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+	res := math.MaxInt32
+	for _, coin := range coins {
+		// 计算子问题的结果
+		subProblem := dp(coins, amount-coin)
+		// 子问题无解则跳过
+		if subProblem == -1 {
+			continue
+		}
+		// 在子问题中选择最优解，然后加一
+		res = min(res, subProblem+1)
+	}
+	// 把计算结果存入备忘录
+	if res == math.MaxInt32 {
+		memo[amount] = -1
+	} else {
+		memo[amount] = res
+	}
+	return memo[amount]
 }
 ```
 
