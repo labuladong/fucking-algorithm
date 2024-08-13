@@ -158,7 +158,7 @@ Another important feature of dynamic programming, one might ask, is the optimal 
 
 ### 2. The problem of collecting change
 
-Here's the problem: here are the COINS in different denominations of 'k', c1, c2...Ck ', the number of each coin is unlimited, and then I give you a total amount 'amount', and I ask you ** at least ** how many COINS are needed to scrape up this amount, if it is impossible, the algorithm returns -1. The function signature of the algorithm is as follows:
+Here's the problem: here are the COINS in different denominations of 'k', c1, c2...Ck ', the number of each coin is unlimited, and then I give you a total amount 'amount', and I ask you **at least** how many COINS are needed to scrape up this amount, if it is impossible, the algorithm returns -1. The function signature of the algorithm is as follows:
 
 ```java
 // coins are the face value of the optional coin, is the target amount
@@ -172,7 +172,7 @@ How do you think computers should solve this problem?Obviously, it's a matter of
 **1. brute-force recursion**
 
 
-First, the problem is dynamic programming because it has an "optimal substructure." **to meet the optimal substructure, subproblems must be independent of each other **.What is independence?You don't want to see a mathematical proof, but let me give you an intuitive example.
+First, the problem is dynamic programming because it has an "optimal substructure." **to meet the optimal substructure, subproblems must be independent of each other** .What is independence?You don't want to see a mathematical proof, but let me give you an intuitive example.
 
 
 
@@ -188,7 +188,7 @@ However, if add a condition: your Chinese achievement and mathematics achievemen
 
 
 
-Going back to the problem of making small change, why does it fit the optimal substructure?For example, if you want to ask ` amount = 11 ` when the minimum number of COINS (original), if you know the cobble ` amount = 10 ` minimum number of COINS (a problem), you only need to traverse to the child the answer to the question with a (to choose a value of 1 coin) is the answer to the question, because there is no limit to the number of the coin, there is no mutual between sub-problems, were independent of each other.
+Going back to the problem of making small change, why does it fit the optimal substructure?For example, if you want to ask ` amount = 11 ` when the minimum number of COINS (original), if you know the cobble ` amount = 10 ` minimum number of COINS (a problem), you only need to traverse to the child the answer to the question with a (to choose a value of 1 coin) is the answer to the question, because there is no limit to the number of the coin, there is no mutual restriction between sub-problems, were independent of each other.
 
 
 
@@ -200,7 +200,7 @@ So, now that you know that this is a dynamic programming problem, you have to th
 
 
 
-**then determine the definition of the `dp` function ** : the current target amount is `n`, at least `dp(n)` COINS are needed to make up the amount.
+**then determine the definition of the `dp` functio** : the current target amount is `n`, at least `dp(n)` COINS are needed to make up the amount.
 
 
 
@@ -249,7 +249,7 @@ At this point, the problem is actually solved, but the overlapping subproblems n
 
 ![](../pictures/动态规划详解进阶/5.jpg)
 
-**time complexity analysis: total number of subproblems x time per subproblem **.
+**time complexity analysis: total number of subproblems x time per subproblem**.
 
 The total number of subproblems is the number of recursion tree nodes, which is hard to see, which is order n to the k, but it's exponential. Each subproblem contains a for loop of O(k).So the total time complexity is order k times n to the k, the exponential level.
 
@@ -337,7 +337,7 @@ The memo or DP table is in the pursuit of "how to intelligently be exhaustive." 
 
 
 
-**Work to make the algorithm clear! You are welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles  ** :
+**Work to make the algorithm clear! You are welcome to pay attention to my WeChat public number labuladong, see more easy-to-understand articles** :
 Translator: Jian Ma
 
 Author: labuladong
