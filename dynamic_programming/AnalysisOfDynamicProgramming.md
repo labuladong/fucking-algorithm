@@ -200,7 +200,7 @@ So, now that you know that this is a dynamic programming problem, you have to th
 
 
 
-**then determine the definition of the `dp` functio** : the current target amount is `n`, at least `dp(n)` COINS are needed to make up the amount.
+**then determine the definition of the `dp` function** : the current target amount is `n`, at least `dp(n)` COINS are needed to make up the amount.
 
 
 
