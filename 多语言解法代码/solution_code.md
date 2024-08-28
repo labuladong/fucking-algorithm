@@ -30246,27 +30246,30 @@ public:
 ```
 
 ```go
-// by chatGPT (go)
+// by mario-huang (go)
+package ImplementStackusingQueues
+
 type MyStack struct {
-    q        []int
-    topElem  int
+    q       []int
+    topElem int
 }
 
-/** Initialize your data structure here. */
 func Constructor() MyStack {
-    return MyStack{
-        q: make([]int, 0),
-    }
+    return MyStack{q: []int{}, topElem: 0}
 }
 
-/** Push element x onto stack. */
+/**
+ * 添加元素到栈顶
+ */
 func (this *MyStack) Push(x int) {
     // x 是队列的队尾，是栈的栈顶
     this.q = append(this.q, x)
     this.topElem = x
 }
 
-/** Removes the element on top of the stack and returns that element. */
+/**
+ * 删除栈顶的元素并返回
+ */
 func (this *MyStack) Pop() int {
     size := len(this.q)
     // 留下队尾 2 个元素
@@ -30280,15 +30283,21 @@ func (this *MyStack) Pop() int {
     this.q = append(this.q, this.q[0])
     this.q = this.q[1:]
     // 删除之前的队尾元素
-    return this.q[0]
+    val := this.q[0]
+    this.q = this.q[1:]
+    return val
 }
 
-/** Get the top element. */
+/**
+ * 返回栈顶元素
+ */
 func (this *MyStack) Top() int {
     return this.topElem
 }
 
-/** Returns whether the stack is empty. */
+/**
+ * 判断栈是否为空
+ */
 func (this *MyStack) Empty() bool {
     return len(this.q) == 0
 }
