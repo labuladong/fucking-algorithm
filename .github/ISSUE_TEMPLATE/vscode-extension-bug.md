@@ -1,8 +1,8 @@
 ---
-name: Website bug
-about: Report bug on website https://labuladong.online
+name: vscode extension bug
+about: Report bug on vscode extension
 title: ''
-labels: algo-website
+labels: ''
 assignees: labuladong
 
 ---
@@ -12,7 +12,3 @@ A clear and concise description of what the bug is.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
-
-**Platform**
-Mobile phone or PC?
-What kind of web browser? (chrome/edge/...)

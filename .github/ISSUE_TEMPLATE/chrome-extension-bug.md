@@ -1,8 +1,8 @@
 ---
-name: Website bug
-about: Report bug on website https://labuladong.online
+name: Chrome extension bug
+about: Report bug on Chrome extension
 title: ''
-labels: algo-website
+labels: chrome-extension-bug
 assignees: labuladong
 
 ---
@@ -14,5 +14,4 @@ A clear and concise description of what the bug is.
 If applicable, add screenshots to help explain your problem.
 
 **Platform**
-Mobile phone or PC?
-What kind of web browser? (chrome/edge/...)
+What kind of web browser are you using? (chrome/edge/...)
