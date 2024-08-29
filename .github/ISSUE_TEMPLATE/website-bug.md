@@ -7,6 +7,9 @@ assignees: labuladong
 
 ---
 
+**Version:**
+What's the extension version are you using?
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 

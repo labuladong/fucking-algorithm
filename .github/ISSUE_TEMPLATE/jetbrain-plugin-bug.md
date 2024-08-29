@@ -1,17 +1,17 @@
 ---
-name: Chrome extension bug
-about: Report bug on Chrome extension
+name: JetBrain plugin bug
+about: Report bug on JetBrain plugin
 title: ''
-labels: chrome-extension-bug, vscode-extension-bug
+labels: ''
 assignees: labuladong
 
 ---
+
+**Version:**
+What's the plugin version are you using?
 
 **Describe the bug**
 A clear and concise description of what the bug is.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
-
-**Platform**
-What kind of web browser are you using? (chrome/edge/...)
