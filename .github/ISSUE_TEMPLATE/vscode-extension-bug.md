@@ -2,7 +2,7 @@
 name: vscode extension bug
 about: Report bug on vscode extension
 title: ''
-labels: ''
+labels: vscode-extension-bug
 assignees: labuladong
 
 ---

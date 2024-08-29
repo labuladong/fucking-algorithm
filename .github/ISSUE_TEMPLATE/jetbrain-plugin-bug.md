@@ -2,7 +2,7 @@
 name: JetBrain plugin bug
 about: Report bug on JetBrain plugin
 title: ''
-labels: ''
+labels: jb-plugin-bug
 assignees: labuladong
 
 ---

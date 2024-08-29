@@ -2,7 +2,7 @@
 name: Chrome extension bug
 about: Report bug on Chrome extension
 title: ''
-labels: chrome-extension-bug, vscode-extension-bug
+labels: chrome-extension-bug
 assignees: labuladong
 
 ---
