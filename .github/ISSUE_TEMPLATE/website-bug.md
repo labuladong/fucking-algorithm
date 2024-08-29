@@ -1,6 +1,6 @@
 ---
 name: Website bug
-about: Report bug on website https://labuladong.online
+about: Report bug on website `labuladong.online`
 title: ''
 labels: algo-website
 assignees: labuladong
