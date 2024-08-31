@@ -1,5 +1,5 @@
 ---
-name: vscode extension bug
+name: VSCode extension bug
 about: Report bug on vscode extension
 title: ''
 labels: vscode-extension-bug

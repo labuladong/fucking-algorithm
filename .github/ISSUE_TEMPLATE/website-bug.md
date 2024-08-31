@@ -2,7 +2,7 @@
 name: Website bug
 about: Report bug on website `labuladong.online`
 title: ''
-labels: algo-website
+labels: algo-websie-bug
 assignees: labuladong
 
 ---
