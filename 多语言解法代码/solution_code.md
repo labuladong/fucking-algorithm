@@ -19130,26 +19130,28 @@ var Twitter = function() {
         const followedUserSet = user.followedUserSet;
         // 每个用户的 tweet 是一条按时间排序的链表
         // 现在执行合并多条有序链表的逻辑，找出时间线中的最近 10 条动态
-        const pq = new PriorityQueue((a, b) => {
-            // 按照每条 tweet 的发布时间降序排序（最近发布的排在事件流前面）
-            return b.timestamp - a.timestamp;
+        const pq = new PriorityQueue({
+            compare: (a, b) => {
+                // 按照每条 tweet 的发布时间降序排序（最近发布的排在事件流前面）
+                return b.timestamp - a.timestamp;
+            }
         });
         // 该用户自己的 tweet 也在时间线内
         if (user.tweetHead !== null) {
-            pq.offer(user.tweetHead);
+            pq.enqueue(user.tweetHead);
         }
         for (const other of followedUserSet) {
             if (other.tweetHead !== null) {
-                pq.offer(other.tweetHead);
+                pq.enqueue(other.tweetHead);
             }
         }
         // 合并多条有序链表
         let count = 0;
         while (!pq.isEmpty() && count < 10) {
-            const tweet = pq.poll();
+            const tweet = pq.dequeue();
             res.push(tweet.id);
             if (tweet.next !== null) {
-                pq.offer(tweet.next);
+                pq.enqueue(tweet.next);
             }
             count++;
         }
@@ -19181,82 +19183,6 @@ var Twitter = function() {
         follower.unfollow(followee);
     };
 };
-
-// 优先队列实现
-class PriorityQueue {
-    constructor(comparator) {
-        this.heap = [];
-        this.comparator = comparator;
-    }
-
-    /**
-     * 上浮操作
-     * @param {number} index - 上浮节点的下标
-     */
-    swim(index) {
-        let currentIndex = index;
-        while (currentIndex > 0) {
-            const parentIndex = Math.floor((currentIndex - 1) / 2);
-            if (this.comparator(this.heap[currentIndex], this.heap[parentIndex]) >= 0) {
-                break;
-            }
-            [this.heap[currentIndex], this.heap[parentIndex]] = [this.heap[parentIndex], this.heap[currentIndex]];
-            currentIndex = parentIndex;
-        }
-    }
-
-    /**
-     * 下沉操作
-     * @param {number} index - 下沉节点的下标
-     */
-    sink(index) {
-        let currentIndex = index;
-        while (currentIndex * 2 + 1 < this.heap.length) {
-            const leftIndex = currentIndex * 2 + 1;
-            const rightIndex = currentIndex * 2 + 2 < this.heap.length ? currentIndex * 2 + 2 : leftIndex;
-            const smallerIndex = this.comparator(this.heap[leftIndex], this.heap[rightIndex]) <= 0 ? leftIndex : rightIndex;
-            if (this.comparator(this.heap[currentIndex], this.heap[smallerIndex]) <= 0) {
-                break;
-            }
-            [this.heap[currentIndex], this.heap[smallerIndex]] = [this.heap[smallerIndex], this.heap[currentIndex]];
-            currentIndex = smallerIndex;
-        }
-    }
-
-    /**
-     * 插入元素
-     * @param {*} value - 插入的值
-     */
-    offer(value) {
-        this.heap.push(value);
-        this.swim(this.heap.length - 1);
-    }
-
-    /**
-     * 弹出堆顶元素
-     * @return {*} 堆顶元素
-     */
-    poll() {
-        if (this.size() === 0) {
-            return null;
-        }
-        if (this.size() === 1) {
-            return this.heap.pop();
-        }
-        const top = this.heap[0];
-        this.heap[0] = this.heap.pop();
-        this.sink(0);
-        return top;
-    }
-
-    /**
-     * 获取堆大小
-     * @return {number} 堆大小
-     */
-    size() {
-        return this.heap.length;
-    }
-}
 ```
 
 ```python
