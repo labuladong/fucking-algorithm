@@ -5980,7 +5980,7 @@ class Solution {
             track.add(candidates[i]);
             sum += candidates[i];
             // 递归遍历下一层回溯树
-            backtrack(candidates, i, target, sum);
+            backtrack(candidates, i + 1, target, sum);
             // 撤销选择 candidates[i]
             sum -= candidates[i];
             track.removeLast();
@@ -6019,7 +6019,7 @@ var combinationSum = function(candidates, target) {
             track.push(candidates[i]);
             sum += candidates[i];
             // 递归遍历下一层回溯树
-            backtrack(candidates, i, target, sum);
+            backtrack(candidates, i + 1, target, sum);
             // 撤销选择 candidates[i]
             sum -= candidates[i];
             track.pop();
@@ -13243,7 +13243,7 @@ public:
             track.push_back(candidates[i]);
             sum += candidates[i];
             // 递归遍历下一层回溯树
-            backtrack(candidates, i, target, sum);
+            backtrack(candidates, i + 1, target, sum);
             // 撤销选择 candidates[i]
             sum -= candidates[i];
             track.pop_back();
@@ -13327,7 +13327,7 @@ class Solution {
             track.add(candidates[i]);
             sum += candidates[i];
             // 递归遍历下一层回溯树
-            backtrack(candidates, i, target, sum);
+            backtrack(candidates, i + 1, target, sum);
             // 撤销选择 candidates[i]
             sum -= candidates[i];
             track.removeLast();
