@@ -1,15 +1,10 @@
 # 关于 Linux shell 你必须知道的技巧
 
-<p align='center'>
-<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
-<a href="https://labuladong.online/algo/" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
-<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
-</p>
+
 
 ![](https://labuladong.online/algo/images/souyisou1.png)
 
-**通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 即将涨价；已支持老用户续费~另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -56,7 +51,7 @@ $ rm $(where connect.sh)
 
 **标准输入就是编程语言中诸如`scanf`或者`readline`这种命令；而参数是指程序的`main`函数传入的`args`字符数组**。
 
-前文 [Linux文件描述符](https://labuladong.online/algo/other-skills/linux-process/) 说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
+前文 [Linux文件描述符](https://labuladong.online/algo/fname.html?fname=linux进程) 说过，管道符和重定向符是将数据作为程序的标准输入，而`$(cmd)`是读取`cmd`命令输出的数据作为参数。
 
 用刚才的例子说，`rm`命令源代码中肯定不接受标准输入，而是接收命令行参数，删除相应的文件。作为对比，`cat`命令是既接受标准输入，又接受命令行参数：
 
@@ -182,10 +177,12 @@ $ mv *.{c,cpp} src/
 ```shell
 $ pwd
 /very/long/path
-$ cd # 回到家目录瞅瞅
+# 回到家目录瞅瞅
+$ cd
 $ pwd
 /home/labuladong
-$ cd - # 再返回刚才那个目录
+# 再返回刚才那个目录
+$ cd -
 $ pwd
 /very/long/path
 ```
@@ -267,9 +264,7 @@ $ history | grep 'config'
  7352  ./configure
  7434  git config --global --unset https.proxy
  9609  ifconfig
- 9985  clip -o | sed -z 's/
-/,
-/g' | clip
+ 9985  clip -o | sed -z 's/\n/,\n/g' | clip
 10433  cd ~/.config
 ```
 你使用的所有 shell 命令都会被记录，前面的数字就表示这是第几个命令，找到你想重复使用的命令后，也不需要复制粘贴该命令，**只要使用 `!` + 你想重用的命令编号即可运行该命令**。
@@ -317,7 +312,7 @@ $ yes | your_cmd
 
 这样就会一路自动 `y` 下去，不会停下让我们输入了。
 
-如果你读过前文 [Linux 文件描述符](https://labuladong.online/algo/other-skills/linux-process/)，就知道其原理很简单：
+如果你读过前文 [Linux 文件描述符](https://labuladong.online/algo/fname.html?fname=linux进程)，就知道其原理很简单：
 
 你单独运行一下 `yes` 命令，发现它就是打印出一大堆字符 y，通过管道把输出和 `your_cmd` 的标准输入相连接，如果 `your_cmd` 又提出无聊的问题，就会从标准输入读取数据，也就会读取到一个 y 和换行符，和你手动输入 y 确认是一个效果。
 
@@ -350,7 +345,7 @@ tail | grep '下一篇' $filename
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [Linux 管道符的坑](https://labuladong.online/algo/other-skills/linux-pipeline/)
+ - [Linux 管道符的坑](https://labuladong.online/algo/fname.html?fname=linux技巧3)
 
 </details><hr>
 
@@ -360,8 +355,6 @@ tail | grep '下一篇' $filename
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+
 
 ![](https://labuladong.online/algo/images/souyisou2.png)
-
-======其他语言代码======

@@ -1,15 +1,10 @@
 # 一文读懂 session 和 cookie
 
-<p align='center'>
-<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
-<a href="https://labuladong.online/algo/" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
-<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
-</p>
+
 
 ![](https://labuladong.online/algo/images/souyisou1.png)
 
-**通知：[新版网站会员](https://labuladong.online/algo/intro/site-vip/) 即将涨价；已支持老用户续费~另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~另外，建议你在我的 [网站](https://labuladong.online/algo/) 学习文章，体验更好。**
 
 
 
@@ -109,17 +104,14 @@ type Session interface {
     // 获取 key 对应的值
     Get(key interface{}) interface{}
     // 删除键 key
-	Delete(key interface{})
+    Delete(key interface{})
 }
 ```
 
 再说 `Provider` 为啥要抽象出来。我们上面那个图的 `Provider` 就是一个散列表，保存 `sid` 到 `Session` 的映射，但是实际中肯定会更加复杂。我们不是要时不时删除一些 session 吗，除了设置存活时间之外，还可以采用一些其他策略，比如 LRU 缓存淘汰算法，这样就需要 `Provider` 内部使用哈希链表这种数据结构来存储 session。
 
-::: tip
-
-关于 LRU 算法的奥妙，参见前文 [LRU 算法详解](https://labuladong.online/algo/data-structure/lru-cache/)。
-
-:::
+> [!TIP]
+> 关于 LRU 算法的奥妙，参见前文 [LRU 算法详解](https://labuladong.online/algo/data-structure/lru-cache/)。
 
 因此，`Provider` 作为一个容器，就是要屏蔽算法细节，以合理的数据结构和算法组织 `sid` 和 `Session` 的映射关系，只需要实现下面这几个方法实现对 session 的增删查改：
 
@@ -134,7 +126,7 @@ type Provider interface {
     // 修改一个session
     SessionUpdate(sid string)
     // 通过类似 LRU 的算法回收过期的 session
-	SessionGC(maxLifeTime int64)
+    SessionGC(maxLifeTime int64)
 }
 ```
 
@@ -152,8 +144,6 @@ https://github.com/astaxie/build-web-application-with-golang
 
 **＿＿＿＿＿＿＿＿＿＿＿＿＿**
 
-**《labuladong 的算法笔记》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
+
 
 ![](https://labuladong.online/algo/images/souyisou2.png)
-
-======其他语言代码======
