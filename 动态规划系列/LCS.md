@@ -229,7 +229,16 @@ class Solution {
 }
 ```
 
-<visual slug='longest-common-subsequence'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/longest-common-subsequence/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🍭 代码可视化动画🍭</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 
@@ -338,7 +347,16 @@ class Solution {
 }
 ```
 
-<visual slug='minimum-ascii-delete-sum-for-two-strings'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/minimum-ascii-delete-sum-for-two-strings/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🍭 代码可视化动画🍭</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 

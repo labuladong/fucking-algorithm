@@ -99,7 +99,16 @@ class Solution {
 }
 ```
 
-<visual slug='validate-binary-search-tree'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/validate-binary-search-tree/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🎃 代码可视化动画🎃</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 
@@ -149,7 +158,16 @@ TreeNode searchBST(TreeNode root, int target) {
 }
 ```
 
-<visual slug='search-in-a-binary-search-tree'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/search-in-a-binary-search-tree/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>👾 代码可视化动画👾</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 
@@ -191,7 +209,16 @@ class Solution {
 }
 ```
 
-<visual slug='insert-into-a-binary-search-tree'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/insert-into-a-binary-search-tree/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🌈 代码可视化动画🌈</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 
@@ -307,7 +334,16 @@ class Solution {
 }
 ```
 
-<visual slug='delete-node-in-a-bst'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/delete-node-in-a-bst/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🥳 代码可视化动画🥳</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 

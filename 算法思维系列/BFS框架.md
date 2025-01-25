@@ -355,7 +355,16 @@ class Solution {
 }
 ```
 
-<visual slug='sliding-puzzle'/>
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/leetcode/sliding-puzzle/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🌈 代码可视化动画🌈</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 
 

@@ -328,7 +328,16 @@ int dijkstra(int start, int end, List<Integer>[] graph) {
 
 这是 Dijkstra 算法的可视化面板，你可以点击其中的代码，查看算法的执行过程：
 
-<visual slug="dijkstra-example" />
+
+<hr/>
+<a href="https://labuladong.online/algo-visualize/tutorial/dijkstra-example/" target="_blank">
+<details style="max-width:90%;max-height:400px">
+<summary>
+<strong>🌟 代码可视化动画🌟</strong>
+</summary>
+</details>
+</a>
+<hr/>
 
 ## 时间复杂度分析
 
