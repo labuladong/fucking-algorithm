@@ -25096,30 +25096,32 @@ class MedianFinder {
 // by chatGPT (javascript)
 var MedianFinder = function() {
     // 小顶堆
-    var large = new PriorityQueue();
+    var large = new PriorityQueue({
+        compare: (a, b) => a - b
+    });
     // 大顶堆
-    var small = new PriorityQueue(function(a, b) {
-        return b - a;
+    var small = new PriorityQueue({
+        compare: (a, b) => b - a
     });
 
     this.findMedian = function() {
         // 如果元素不一样多，多的那个堆的堆顶元素就是中位数
         if (large.size() < small.size()) {
-            return small.peek();
+            return small.front();
         } else if (large.size() > small.size()) {
-            return large.peek();
+            return large.front();
         }
         // 如果元素一样多，两个堆堆顶元素的平均数是中位数
-        return (large.peek() + small.peek()) / 2.0;
+        return (large.front() + small.front()) / 2.0;
     };
 
     this.addNum = function(num) {
         if (small.size() >= large.size()) {
-            small.offer(num);
-            large.offer(small.poll());
+            small.enqueue(num);
+            large.enqueue(small.dequeue());
         } else {
-            large.offer(num);
-            small.offer(large.poll());
+            large.enqueue(num);
+            small.enqueue(large.dequeue());
         }
     };
 };
