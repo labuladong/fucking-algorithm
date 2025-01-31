@@ -60033,13 +60033,15 @@ var getOrder = function(tasks) {
     });
 
     // 按照任务的处理时间排序，如果处理时间相同，按照原始索引排序
-    const pq = new PriorityQueue((a, b) => {
-        if (a[1] !== b[1]) {
-            // 比较处理时间
-            return a[1] - b[1];
+    const pq = new PriorityQueue({
+        compare: (a, b) => {
+            if (a[1] !== b[1]) {
+                // 比较处理时间
+                return a[1] - b[1];
+            }
+            // 比较原始索引
+            return a[2] - b[2];
         }
-        // 比较原始索引
-        return a[2] - b[2];
     });
 
     const res = [];
@@ -60049,7 +60051,7 @@ var getOrder = function(tasks) {
     while (res.length < n) {
         if (!pq.isEmpty()) {
             // 完成队列中的一个任务
-            const triple = pq.poll();
+            const triple = pq.dequeue();
             res.push(triple[2]);
             // 每完成一个任务，就要推进时间线
             now += triple[1];
@@ -60061,93 +60063,13 @@ var getOrder = function(tasks) {
 
         // 由于时间线的推进，会产生可以开始执行的任务
         for (; i < n && triples[i][0] <= now; i++) {
-            pq.offer(triples[i]);
+            pq.enqueue(triples[i]);
         }
     }
 
     // JavaScript语言特性，不需要转化成int[]格式
     return res;
 };
-
-class PriorityQueue {
-    constructor(comparator) {
-        this.heap = [];
-        this.comparator = comparator;
-    }
-
-    isEmpty() {
-        return this.heap.length === 0;
-    }
-
-    size() {
-        return this.heap.length;
-    }
-
-    peek() {
-        return this.isEmpty() ? null : this.heap[0];
-    }
-
-    offer(item) {
-        this.heap.push(item);
-        this.siftUp(this.heap.length - 1);
-    }
-
-    poll() {
-        if (this.isEmpty()) {
-            return null;
-        }
-
-        const item = this.heap[0];
-        this.heap[0] = this.heap[this.heap.length - 1];
-        this.heap.pop();
-        this.siftDown(0);
-        return item;
-    }
-
-    heapify() {
-        if (this.isEmpty()) {
-            return;
-        }
-
-        for (let i = Math.floor(this.size() / 2) - 1; i >= 0; i--) {
-            this.siftDown(i);
-        }
-    }
-
-    siftUp(index) {
-        let parent = Math.floor((index - 1) / 2);
-
-        while (index > 0 && this.comparator(this.heap[index], this.heap[parent]) < 0) {
-            const tmp = this.heap[index];
-            this.heap[index] = this.heap[parent];
-            this.heap[parent] = tmp;
-
-            index = parent;
-            parent = Math.floor((index - 1) / 2);
-        }
-    }
-
-    siftDown(index) {
-        let child = index * 2 + 1;
-
-        while (child < this.size()) {
-            if (child + 1 < this.size() && this.comparator(this.heap[child + 1], this.heap[child]) < 0) {
-                child++;
-            }
-
-            if (this.comparator(this.heap[child], this.heap[index]) < 0) {
-                const tmp = this.heap[index];
-                this.heap[index] = this.heap[child];
-                this.heap[child] = tmp;
-
-                index = child;
-                child = index * 2 + 1;
-            } else {
-                break;
-            }
-        }
-    }
-}
 ```
 
 ```python
