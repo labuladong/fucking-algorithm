@@ -64574,28 +64574,30 @@ var topKFrequent = function(words, k) {
         wordToFreq.set(word, wordToFreq.get(word) + 1 || 1);
     }
 
-    let pq = new PriorityQueue((a, b) => {
-        if (a.freq === b.freq) {
-            // 如果出现频率相同，按照字符串字典序排序
-            return b.word.localeCompare(a.word);
-        }
-        // 队列按照字符串出现频率从小到大排序
-        return a.freq - b.freq;
+    let pq = new PriorityQueue({
+        compare: (a, b) => {
+            if (a.freq === b.freq) {
+                // 如果出现频率相同，按照字符串字典序排序
+                return b.word.localeCompare(a.word);
+            }
+            // 队列按照字符串出现频率从小到大排序
+            return a.freq - b.freq;
+        },
     });
 
     // 按照字符串频率升序排序
     for (let [word, freq] of wordToFreq.entries()) {
-        pq.offer({ word, freq });
-        if (pq.size > k) {
+        pq.enqueue({ word, freq });
+        if (pq.size() > k) {
             // 维护出现频率最多的 k 个单词
-            pq.poll();
+            pq.dequeue();
         }
     }
 
     // 把出现次数最多的 k 个字符串返回
     let res = [];
     while (!pq.isEmpty()) {
-        res.push(pq.poll().word);
+        res.push(pq.dequeue().word);
     }
     return res.reverse();
 };
