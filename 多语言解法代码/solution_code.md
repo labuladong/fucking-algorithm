@@ -67522,20 +67522,21 @@ var mergeKLists = function(lists) {
     var dummy = new ListNode(-1);
     var p = dummy;
     // 优先级队列，最小堆
-    var pq = new PriorityQueue(
-        lists.length, (a, b) => (a.val - b.val));
+    var pq = new PriorityQueue({
+        compare: (a, b) => (a.val - b.val)
+    });
     // 将 k 个链表的头结点加入最小堆
     for (var head of lists) {
         if (head != null)
-            pq.add(head);
+            pq.enqueue(head);
     }
 
     while (!pq.isEmpty()) {
         // 获取最小节点，接到结果链表中
-        var node = pq.poll();
+        var node = pq.dequeue();
         p.next = node;
         if (node.next != null) {
-            pq.add(node.next);
+            pq.enqueue(node.next);
         }
         // p 指针不断前进
         p = p.next;
