@@ -52403,24 +52403,26 @@ class Solution {
 var kSmallestPairs = function(nums1, nums2, k) {
     // 存储三元组 (num1[i], nums2[i], i)
     // i 记录 nums2 元素的索引位置，用于生成下一个节点
-    const pq = new PriorityQueue((a, b) => {
-        // 按照数对的元素和升序排序
-        return (a[0] + a[1]) - (b[0] + b[1]);
+    const pq = new PriorityQueue({
+        compare: (a, b) => {
+            // 按照数对的元素和升序排序
+            return (a[0] + a[1]) - (b[0] + b[1]);
+        }
     });
     // 按照 23 题的逻辑初始化优先级队列
     for (let i = 0; i < nums1.length; i++) {
-        pq.offer([nums1[i], nums2[0], 0]);
+        pq.enqueue([nums1[i], nums2[0], 0]);
     }
 
     const res = [];
     // 执行合并多个有序链表的逻辑
     while (!pq.isEmpty() && k > 0) {
-        const cur = pq.poll();
+        const cur = pq.dequeue();
         k--;
         // 链表中的下一个节点加入优先级队列
         const next_index = cur[2] + 1;
         if (next_index < nums2.length) {
-            pq.add([cur[0], nums2[next_index], next_index]);
+            pq.enqueue([cur[0], nums2[next_index], next_index]);
         }
 
         const pair = [];
@@ -52430,65 +52432,6 @@ var kSmallestPairs = function(nums1, nums2, k) {
     }
     return res;
 };
-
-// An implementation of the PriorityQueue.
-class PriorityQueue {
-    constructor(compare = (a, b) => a - b) {
-        this.compare = compare;
-        this.heap = [];
-    }
-    get size() {
-        return this.heap.length;
-    }
-    isEmpty() {
-        return this.size === 0;
-    }
-    peek() {
-        return this.heap[0];
-    }
-    offer(node) {
-        this.heap.push(node);
-        this._siftUp();
-    }
-    poll() {
-        const poppedValue = this.peek();
-        const bottom = this.size - 1;
-        if (bottom > 0) {
-            this._swap(0, bottom);
-        }
-        this.heap.pop();
-        this._siftDown();
-        return poppedValue;
-    }
-    _greater(i, j) {
-        return this.compare(this.heap[i], this.heap[j]) < 0;
-    }
-    _swap(i, j) {
-        [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
-    }
-    _siftUp() {
-        let nodeIdx = this.size - 1;
-        while (nodeIdx > 0 && this._greater(nodeIdx, Math.floor((nodeIdx + 1) / 2) - 1)) {
-            const parentIdx = Math.floor((nodeIdx + 1) / 2) - 1;
-            this._swap(nodeIdx, parentIdx);
-            nodeIdx = parentIdx;
-        }
-    }
-    _siftDown() {
-        let nodeIdx = 0;
-        while (
-            (2 * nodeIdx + 1 < this.size && this._greater(2 * nodeIdx + 1, nodeIdx)) ||
-            (2 * nodeIdx + 2 < this.size && this._greater(2 * nodeIdx + 2, nodeIdx))
-        ) {
-            const greaterChildIdx =
-                2 * nodeIdx + 2 >= this.size || this._greater(2 * nodeIdx + 1, 2 * nodeIdx + 2)
-                    ? 2 * nodeIdx + 1
-                    : 2 * nodeIdx + 2;
-            this._swap(greaterChildIdx, nodeIdx);
-            nodeIdx = greaterChildIdx;
-        }
-    }
-}
 ```
 
 ```python
