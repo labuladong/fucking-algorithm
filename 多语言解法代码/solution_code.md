@@ -32719,85 +32719,26 @@ class KthLargest {
 var KthLargest = function(k, nums) {
     this.k = k;
     // 默认是小顶堆
-    this.pq = new PriorityQueue();
+    this.pq = new MinPriorityQueue()
     
     // 将 nums 装入小顶堆，保留下前 k 大的元素
     for (var i = 0; i < nums.length; i++) {
-        this.pq.offer(nums[i]);
+        this.pq.enqueue(nums[i]);
         if (this.pq.size() > k) {
-            this.pq.poll();
+            this.pq.dequeue();
         }
     }
 };
 
 KthLargest.prototype.add = function(val) {
     // 维护小顶堆只保留前 k 大的元素
-    this.pq.offer(val);
+    this.pq.enqueue(val);
     if (this.pq.size() > this.k) {
-        this.pq.poll();
+        this.pq.dequeue();
     }
     // 堆顶就是第 k 大元素（即倒数第 k 小的元素）
-    return this.pq.peek();
+    return this.pq.front().element;
 };
-
-// 实现一个小顶堆，自行实现添加和弹出方法
-class PriorityQueue {
-    constructor() {
-        this.data = [];
-    }
-    offer(val) {
-        this.data.push(val);
-        this.heapifyUp();
-    }
-    poll() {
-        const first = this.data[0];
-        const last = this.data.pop();
-        if (this.data.length > 0) {
-            this.data[0] = last;
-            this.heapifyDown();
-        }
-        return first;
-    }
-    size() {
-        return this.data.length;
-    }
-    heapifyUp() {
-        let i = this.data.length - 1;
-        while (i > 0) {
-            const parent = (i - 1) >> 1;
-            if (this.data[parent] > this.data[i]) {
-                this.swap(parent, i);
-                i = parent;
-            } else {
-                break;
-            }
-        }
-    }
-    heapifyDown() {
-        let i = 0;
-        const size = this.data.length;
-        while (i < size) {
-            let left = i * 2 + 1;
-            let right = i * 2 + 2;
-            if (left >= size) {
-                break;
-            }
-            let j = left;
-            if (right < size && this.data[right] < this.data[left]) {
-                j = right;
-            }
-            if (this.data[i] > this.data[j]) {
-                this.swap(i, j);
-                i = j;
-            } else {
-                break;
-            }
-        }
-    }
-    swap(i, j) {
-        [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
-    }
-}
 ```
 
 ```python
