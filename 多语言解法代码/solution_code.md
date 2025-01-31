@@ -33315,92 +33315,32 @@ class Solution {
 var kthSmallest = function(matrix, k) {
     // 存储二元组 (matrix[i][j], i, j)
     // i, j 记录当前元素的索引位置，用于生成下一个节点
-    const pq = new PriorityQueue((a, b) => {
-        // 按照元素大小升序排序
-        return a[0] - b[0];
+    const pq = new PriorityQueue({
+        compare: (a, b) => {
+            // 按照元素大小升序排序
+            return a[0] - b[0]
+        }
     });
 
 
     // 初始化优先级队列，把每一行的第一个元素装进去
     for (let i = 0; i < matrix.length; i++) {
-        pq.offer([matrix[i][0], i, 0]);
+        pq.enqueue([matrix[i][0], i, 0]);
     }
 
     let res = -1;
     // 执行合并多个有序链表的逻辑，找到第 k 小的元素
     while (!pq.isEmpty() && k > 0) {
-        const cur = pq.poll();
+        const cur = pq.dequeue();
         res = cur[0];
         k--;
         // 链表中的下一个节点加入优先级队列
         const i = cur[1], j = cur[2];
         if (j + 1 < matrix[i].length) {
-            pq.offer([matrix[i][j + 1], i, j + 1]);
+            pq.enqueue([matrix[i][j + 1], i, j + 1])
         }
     }
     return res;
-};
-
-class PriorityQueue {
-    constructor(comparator) {
-        this.heap = [];
-        this.comparator = comparator;
-    }
-
-    isEmpty() {
-        return this.heap.length === 0;
-    }
-
-    offer(val) {
-        this.heap.push(val);
-        this.bubbleUp(this.heap.length - 1);
-    }
-
-    poll() {
-        if (this.isEmpty()) {
-            return null;
-        }
-        const val = this.heap[0];
-        const lastVal = this.heap.pop();
-        if (this.heap.length > 0) {
-            this.heap[0] = lastVal;
-            this.sinkDown(0);
-        }
-        return val;
-    }
-
-    bubbleUp(pos) {
-        while (pos > 0) {
-            const parentPos = (pos - 1) >>> 1;
-            if (this.comparator(this.heap[pos], this.heap[parentPos]) < 0) {
-                [this.heap[pos], this.heap[parentPos]] = [this.heap[parentPos], this.heap[pos]];
-                pos = parentPos;
-            } else {
-                break;
-            }
-        }
-    }
-
-    sinkDown(pos) {
-        const lastPos = this.heap.length - 1;
-        while (STATUS_PASSED_TEST) {
-            const leftChildPos = pos * 2 + 1;
-            const rightChildPos = pos * 2 + 2;
-            let minPos = pos;
-            if (leftChildPos <= lastPos && this.comparator(this.heap[leftChildPos], this.heap[minPos]) < 0) {
-                minPos = leftChildPos;
-            }
-            if (rightChildPos <= lastPos && this.comparator(this.heap[rightChildPos], this.heap[minPos]) < 0) {
-                minPos = rightChildPos;
-            }
-            if (minPos !== pos) {
-                [this.heap[pos], this.heap[minPos]] = [this.heap[minPos], this.heap[pos]];
-                pos = minPos;
-            } else {
-                break;
-            }
-        }
-    }
 };
 ```
 
