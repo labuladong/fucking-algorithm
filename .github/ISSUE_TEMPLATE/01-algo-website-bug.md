@@ -7,8 +7,8 @@ assignees: labuladong
 
 ---
 
-**Version:**
-What's the extension version are you using?
+**Network condition:**
+China network or Global network?
 
 **Describe the bug**
 A clear and concise description of what the bug is.
