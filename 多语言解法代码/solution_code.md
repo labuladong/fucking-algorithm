@@ -71826,98 +71826,28 @@ class Solution {
 
 ```javascript
 // by chatGPT (javascript)
+// 二叉堆的解法思路
 var getLeastNumbers = function(arr, k) {
   // 大顶堆，堆顶是最大元素
-  let pq = new PriorityQueue((a, b) => {
-    return b - a;
-  });
+  let pq = new MaxPriorityQueue()
   for (let e of arr) {
     // 每个元素都要过一遍二叉堆
-    pq.offer(e);
+    pq.enqueue(e);
     // 堆中元素多于 k 个时，删除堆顶元素
     if (pq.size() > k) {
-      pq.poll();
+        pq.dequeue();
     }
   }
   // pq 中剩下的是 arr 中最小的 k 个元素
   let res = new Array(k);
   let i = 0;
   while (pq.size() > 0) {
-    res[i] = pq.poll();
+    res[i] = pq.dequeue().element;
     i++;
   }
   return res;
 }
 
-class PriorityQueue {
-  constructor(compareFn = (a, b) => a - b) {
-    this.compareFn = compareFn;
-    this.heap = [];
-  }
-
-  // 获取堆的大小
-  size() {
-    return this.heap.length;
-  }
-
-  // 获取堆顶元素
-  peek() {
-    if (this.heap.length === 0) {
-      return null;
-    }
-    return this.heap[0];
-  }
-
-  // 删除堆顶元素
-  poll() {
-    if (this.heap.length === 0) {
-      return null;
-    }
-    const top = this.heap[0];
-    const last = this.heap.pop();
-    if (this.heap.length > 0) {
-      this.heap[0] = last;
-      this.siftDown(0);
-    }
-    return top;
-  }
-
-  // 向堆中插入一个元素
-  offer(elem) {
-    this.heap.push(elem);
-    this.siftUp(this.heap.length - 1);
-  }
-
-  // 元素下滤操作
-  siftDown(k) {
-    while (2 * k + 1 < this.heap.length) {
-      let j = 2 * k + 1;
-      if (j + 1 < this.heap.length && this.compareFn(this.heap[j + 1], this.heap[j]) < 0) {
-        j++;
-      }
-      if (this.compareFn(this.heap[k], this.heap[j]) <= 0) {
-        break;
-      }
-      this.swap(k, j);
-      k = j;
-    }
-  }
-
-  // 元素上滤操作
-  siftUp(k) {
-    while (k > 0 && this.compareFn(this.heap[k], this.heap[Math.floor((k - 1) / 2)]) < 0) {
-      this.swap(k, Math.floor((k - 1) / 2));
-      k = Math.floor((k - 1) / 2);
-    }
-  }
-
-  // 交换堆中的两个元素
-  swap(i, j) {
-    const temp = this.heap[i];
-    this.heap[i] = this.heap[j];
-    this.heap[j] = temp;
-  }
-}
 
 var getLeastNumbers = function(arr, k) {
   let res = new Array(k);
