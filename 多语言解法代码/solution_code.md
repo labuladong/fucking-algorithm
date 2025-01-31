@@ -62648,13 +62648,15 @@ class Solution {
 var nthSuperUglyNumber = function(n, primes) {
     // 优先队列中装三元组 int[] {product, prime, pi}
     // 其中 product 代表链表节点的值，prime 是计算下一个节点所需的质数因子，pi 代表链表上的指针
-    let pq = new PriorityQueue((a, b) => {
-        return a[0] - b[0];
+    let pq = new PriorityQueue({
+        compare: (a, b) => {
+            return a[0] - b[0];
+        }
     });
 
     // 把多条链表的头结点加入优先级队列
     for (let i = 0; i < primes.length; i++) {
-        pq.offer([ 1, primes[i], 1 ]);
+        pq.enqueue([ 1, primes[i], 1 ]);
     }
 
     // 可以理解为最终合并的有序链表（结果链表）
@@ -62664,7 +62666,7 @@ var nthSuperUglyNumber = function(n, primes) {
 
     while (p <= n) {
         // 取三个链表的最小结点
-        let pair = pq.poll();
+        let pair = pq.dequeue();
         let product = pair[0];
         let prime = pair[1];
         let index = pair[2];
@@ -62678,7 +62680,7 @@ var nthSuperUglyNumber = function(n, primes) {
 
         // 生成下一个节点加入优先级队列
         let nextPair = [ugly[index] * prime, prime, index + 1];
-        pq.offer(nextPair);
+        pq.enqueue(nextPair);
     }
     return ugly[n];
 };
