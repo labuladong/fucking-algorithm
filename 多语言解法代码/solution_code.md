@@ -64339,18 +64339,21 @@ var topKFrequent = function(nums, k) {
         valToFreq.set(v, valToFreq.get(v) ? valToFreq.get(v) + 1: 1);
     }
 
-    const pq = new PriorityQueue((a, b) => a.value < b.value);
+    // 最小堆    
+    const pq = new PriorityQueue({
+        compare: (a, b) => a.value - b.value
+    });
 
     for (let [key, value] of valToFreq) {
-        pq.offer({key, value});
+        pq.enqueue({key, value});
         if (pq.size() > k) {
-            pq.poll();
+            pq.dequeue();
         }
     }
 
     const res = [];
     for (let i = 0; i < k; i++) {
-        res.push(pq.poll().key);
+        res.push(pq.dequeue().key);
     }
     return res;
 };
