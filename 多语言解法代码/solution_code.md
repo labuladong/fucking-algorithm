@@ -1999,7 +1999,7 @@ var evalRPN = function(tokens) {
 ```python
 # by chatGPT (python)
 class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
+    def evalRPN(self, tokens):
         stk = []
         for token in tokens:
             if token in "+-*/":
@@ -2013,7 +2013,7 @@ class Solution:
                 elif token == "*":
                     stk.append(a * b)
                 else: # token == "/"
-                    stk.append(int(b / a))
+                    stk.append(int(float(b) / a))
             else:
                 # 是个数字，直接入栈即可
                 stk.append(int(token))
@@ -27129,8 +27129,13 @@ var topKFrequent2 = function(nums, k) {
 
 ```python
 # by chatGPT (python)
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
         # nums 中的元素 -> 该元素出现的频率
         valToFreq = {}
         for v in nums:
