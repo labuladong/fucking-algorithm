@@ -50710,36 +50710,50 @@ public:
 ```
 
 ```go
-// by chatGPT (go)
+// by mario_huang (go)
+var res [][]int
+
+// / 主函数，输入一组不重复的数字，返回它们的全排列
 func permute(nums []int) [][]int {
-    res := [][]int{}
-    track := []int{}   // 记录「路径」
-    used := make([]bool, len(nums))  // 「路径」中的元素会被标记为 true，避免重复使用
-
-    var backtrack func(int)  // 定义回溯函数
-
-    backtrack = func(level int) {
-        if level == len(nums) {   // 触发结束条件
-            tmp := make([]int, len(track))
-            copy(tmp, track)
-            res = append(res, tmp)
-            return
-        }
-        // 枚举出所有可能的选择
-        for i := 0; i < len(nums); i++ {
-            if used[i] {  // 排除不合法的选择
-                continue
-            }
-            track = append(track, nums[i])  // 做选择
-            used[i] = true
-            backtrack(level+1)  // 进入下一层决策树
-            track = track[:len(track)-1]  // 取消选择
-            used[i] = false
-        }
-    }
-
-    backtrack(0)
+    res = [][]int{}
+    // 记录「路径」
+    track := []int{}
+    // 「路径」中的元素会被标记为 true，避免重复使用
+    used := make([]bool, len(nums))
+    backtrack(nums, track, used)
     return res
+}
+
+// 路径：记录在 track 中
+// 选择列表：nums 中不存在于 track 的那些元素（used[i] 为 false）
+// 结束条件：nums 中的元素全都在 track 中出现
+func backtrack(nums []int, track []int, used []bool) {
+    // 触发结束条件
+    if len(track) == len(nums) {
+        // 因为 track 是全局变量，因此需要新建一个数组来存储一份全排列
+        temp := make([]int, len(track))
+        copy(temp, track)
+        res = append(res, temp)
+        return
+    }
+    for i := range nums {
+        // 排除不合法的选择
+        if used[i] {
+            /**<extend up -200>
+            ![](../pictures/backtracking/6.jpg)
+            */
+            // nums[i] 已经在 track 中，跳过
+            continue
+        }
+        // 做选择
+        track = append(track, nums[i])
+        used[i] = true
+        // 进入下一层决策树
+        backtrack(nums, track, used)
+        // 取消选择
+        track = track[:len(track)-1]
+        used[i] = false
+    }
 }
 ```
 
