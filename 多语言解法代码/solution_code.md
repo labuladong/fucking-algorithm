@@ -61835,28 +61835,35 @@ class Solution {
 ```
 
 ```go
-// by chatGPT (go)
-// 
-// subsets is a function that returns all possible subsets of an array of integers.
+// by mario_huang (go)
+var res [][]int
+
+// 记录回溯算法的递归路径
+var track []int
+
+// 主函数
 func subsets(nums []int) [][]int {
-	res := [][]int{}
-	track := []int{}
-	backtrack(nums, 0, track, &res)
-	return res
+    res = [][]int{}
+    track = []int{}
+    backtrack(nums, 0)
+    return res
 }
 
-func backtrack(nums []int, start int, track []int, res *[][]int) {
-	temp := make([]int, len(track))
-	copy(temp, track)
-	*res = append(*res, temp)
-	for i := start; i < len(nums); i++ {
-		// 做选择
-		track = append(track, nums[i])
-		// 回溯
-		backtrack(nums, i+1, track, res)
-		// 撤销选择
-		track = track[:len(track)-1]
-	}
+// 回溯算法核心函数，遍历子集问题的回溯树
+func backtrack(nums []int, start int) {
+    // 前序位置，每个节点的值都是一个子集
+    temp := make([]int, len(track))
+    copy(temp, track)
+    res = append(res, temp)
+    // 回溯算法标准框架
+    for i := start; i < len(nums); i++ {
+        // 做选择
+        track = append(track, nums[i])
+        // 通过 start 参数控制树枝的遍历，避免产生重复的子集
+        backtrack(nums, i+1)
+        // 撤销选择
+        track = track[:len(track)-1]
+    }
 }
 ```
 
