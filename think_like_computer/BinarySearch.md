@@ -75,7 +75,7 @@ int binarySearch(int[] nums,int target){
 
 >A1: Because when we initialize `right`, we set it to `nums.length - 1`, which is index of the last element, not `nums.length`.
 
-Both of them may show up in different binary search implementions, here is diffenences: With the former, both ends are closed, like `[left,right]`, and the later is left open right close interval, like `[left,right)`, so when we use index `nums.length`, it will out of bounds.
+Both of them may show up in different binary search implementions, here is the diffenence: With the former, both ends are closed, like `[left,right]`, and the later is left open right close interval, like `[left,right)`, so when we use index `nums.length`, it will out of bounds.
 
 We will use the former `[left,right]` implemention, which both ends are closed. **This is actually the interval we search every time**.
 
@@ -90,13 +90,13 @@ Of course we can stop when we find the target number in the array:
 ```
 
 But if we havn't find it, we'll need to terminate `while` loop and return `-1`. 
-So when we should terminal `while` loop? That's simple, **when the search inverval is empty, we should stop searching**, which means we have search all items and have nothing left, we just can't find target number in the array.
+So when we should terminate `while` loop? That's simple, **when the search inverval is empty, we should stop searching**, which means we have searched all items and have nothing left, we just can't find target number in the array.
 
 The terminal condition of `while(left <= right)` is `left == right + 1`, we can write it as inverval `[right + 1,right]`, or we can just put a specific number into it, like `[3,2]`. It's obvious that **the inverval is empty**, since there is no number which is larger than 3 and less-and-equal to 2. So we should terminate `while` loop and return -1;
 
-The terminal condition of `while(left < right)` is `left == right`, we can write is as interval `[left,right]`, or we can also put a specific number into it, like `[2,2]`, **the interval is NOT empty**, there is still a number `2`, but the `while` loop is terminated, which means the interval `[2,2]` is missed, index 2 is not been searched, it's wrong when we return -1 directly.
+The terminal condition of `while(left < right)` is `left == right`, we can write is as interval `[left,right]`, or we can also put a specific number into it, like `[2,2]`, **the interval is NOT empty**, there is still a number `2`, but the `while` loop is terminated, which means the interval `[2,2]` is missed, index 2 has not been searched and it's wrong when we return -1 directly.
 
-It is allright if you want to use `while(left < right)` anyway. Since we know how the mistake occurred, we can fix it with a patch:
+It is all right if you want to use `while(left < right)` anyway. Since we know how the mistake occurred, we can fix it with a patch:
 
 ```java
     //...
@@ -106,7 +106,7 @@ It is allright if you want to use `while(left < right)` anyway. Since we know ho
     return nums[left] == target ? left : -1;
 ```
 
-#### Q2: Why we implement it as `left = mid + 1`,`right = mid - 1`? I read others' code and they are implenting it as `right = mid` or `left = mid`, there is not so plus or minus, what's the difference?
+#### Q2: Why we implement it as `left = mid + 1`, `right = mid - 1` ? I read others' code and they are implenting it as `right = mid` or `left = mid`, there is not so plus or minus, what's the difference?
 
 >A2: This is also a difficulty of Binary Search implemention. But you can handle it if you can understand previous content.
 
@@ -118,9 +118,9 @@ It is obviously that we will use `[left,mid - 1]` or `[mid + 1, right]`: we have
 
 >A3: Since then, you should have already mastered all details of Binary Search, along with the reason why it works that way. However, there are some defects still.
 
-For example, there is a sorted array `nums = [1,2,2,2,3]`, `targe = 2`, after processed with Binary Search Algorithm, we will get result `index = 2`. But if we want to get left boundary of `target`, which is `index = 1`, or if we want to get right boundary of `target`, which is `index = 3`, we cannot handle it with this algorithm.
+For example, there is a sorted array `nums = [1,2,2,2,3]`, `target = 2`, after processed with Binary Search Algorithm, we will get result `index = 2`. But if we want to get left boundary of `target`, which is `index = 1`, or if we want to get right boundary of `target`, which is `index = 3`, we cannot handle it with this algorithm.
 
-It's a quite normal demand. Perhaps you would say, can't I find a target, then I search it from target to left(or right)? Sure you can, but it's not so good, since we cannt guarantee the time complexity with O(logn).
+It's a quite normal demand. Perhaps you would say, can't I find the target, then I search it from target to left (or right)? Sure you can, but it's not so good, since we cannot guarantee the time complexity with O(logn).
 
 Here we will discuss this two kind of Binary Search Alghrithm.
 
@@ -173,13 +173,13 @@ while(left < right){
 }
 //target is larger than all nums
 if(left == nums.length) return -1;
-//just like the way previously implenented
+//just like the way previously implemented
 return nums[left] == target ? left : -1;
 ```
 
-#### Q1: Why `left = mid + 1, right = mid`? It's kind of different with previous implement.
+#### Q1: Why `left = mid + 1, right = mid`? It's kind of different to previous implementation.
 
->A1: It's easy to explain. Since our search interval is [left,right), which is left closed right open, so when `nums[mid]` has been detected, in then next move, the search interval should remove `mid` and slit it to two intervals, which is `[left,mid)` and `[mid + 1, right)`.
+>A1: It's easy to explain. Since our search interval is [left,right), which is left closed right open, so when `nums[mid]` has been detected, in then next move, the search interval should remove `mid` and split itself to two intervals, which are `[left,mid)` and `[mid + 1, right)`.
 
 #### Q4: Why this algorithm can be used for search left border?
 
@@ -198,7 +198,7 @@ return nums[left] == target ? left : -1;
 
 ### Part Three: BINARY SEARCH TO FIND RIGHT BORDER
 
-It's almost same with part two: binary search to find left border, there is only two differences, which is marked below:
+It's almost same with *Part 2. Binary Search to look for left border*, there are only two differences, which are marked below:
 
 ```java
 int right_bound(int[] nums,int target){
@@ -229,7 +229,7 @@ int right_bound(int[] nums,int target){
     }
 ```
 
->When `nums[mid] == target`, we don't return immediately. On the contrary we enlarge the lower bound of search interval, to make serach interval move to right rapidlly, and finally we can get right border.
+>When `nums[mid] == target`, we don't return immediately. On the contrary we enlarge the lower bound of search interval, to make serach interval move to right rapidly, and finally we can get right border.
 
 #### Q2: Why we return `left -1`, unlike when we process with left border algorithm and return `left`? In addition I think since we are searching right border, shouldn't we return `right` instead?
 
@@ -251,7 +251,7 @@ As for why `left = mid + 1`, it's same as part two.
 
 #### Q3: Why there is no `return -1`? what if there is no `target` in `nums`?
 
->A3: Like left border search, because the terminal condition of `while` is `left == right`, which means value interval of `left` is `[0,nums.length]`, so we can add some codes and `return -1` apprapoly:
+>A3: Like left border search, because the terminal condition of `while` is `left == right`, which means value interval of `left` is `[0,nums.length]`, so we can add some code and `return -1` appropriately:
 
 ```java
 while(left < right){
@@ -288,7 +288,7 @@ Since we need to find the left border, so when `nums[mid] == target`, we shouldn
 
 For further consideration, we must set `left = mid + 1` when we tighten left border, so no matter we return `left` or `right`, we must `minus 1` with the result.
 
-If you can understand all above, then congratulations,  binary search alghrithm won't borther you any more!
+If you can understand all above, then congratulations,  binary search alghrithm won't bother you any more!
 
 According to this article, you will learn:
 
