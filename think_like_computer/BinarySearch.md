@@ -75,7 +75,7 @@ int binarySearch(int[] nums,int target){
 
 >A1: Because when we initialize `right`, we set it to `nums.length - 1`, which is index of the last element, not `nums.length`.
 
-Both of them may show up in different binary search implementions, here is the diffenence: With the former, both ends are closed, like `[left,right]`, and the later is left open right close interval, like `[left,right)`, so when we use index `nums.length`, it will out of bounds.
+Both of them may show up in different binary search implementions, here is the difference: With the former, both ends are closed, like `[left,right]`, and the later is left open right close interval, like `[left,right)`, so when we use index `nums.length`, it will out of bounds.
 
 We will use the former `[left,right]` implemention, which both ends are closed. **This is actually the interval we search every time**.
 
