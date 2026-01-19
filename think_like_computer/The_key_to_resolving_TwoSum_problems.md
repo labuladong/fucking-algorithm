@@ -131,7 +131,7 @@ In this way, all possible sum of two numbers is stored in `sum`. Every time `fin
 
 For TwoSum problems, one of the difficulties is that the given array is **unordered**. For an unordered array, it seems that we don't have any efficient methods, and an exhaustive search method may be the only way.
 
-**In ordinary circumstances, we will sort the unordered array first and then consider applying the dual-pointer method.**  TwoSum problems make us aware that HashMap or HashSet could help us to resolve unordered array problems.
+**In ordinary circumstances, we will sort the unordered array first and then consider applying the dual-pointer method.** Note that sorting adds O(n log n) time—if O(n) is required, use a hash map instead: for each element, check if its complement (target - element) exists in the map.
 
 Remarkably, the essence of such method is to trade time for space, using different data structures to improve the algorithm performance pertinently.
 
