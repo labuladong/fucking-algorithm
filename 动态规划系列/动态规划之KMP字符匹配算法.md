@@ -461,7 +461,7 @@ KMP 算法也就是动态规划那点事，我们的公众号文章目录有一�
 
 ======其他语言代码======
 
-[28.实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
+[28.实现 strStr()](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 
 ### python
 

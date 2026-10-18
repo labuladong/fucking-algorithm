@@ -77,7 +77,6 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
   * [速成目录学习规划](https://labuladong.online/algo/intro/quick-learning-plan/)
   * [完整目录学习规划](https://labuladong.online/algo/intro/beginner-learning-plan/)
   * [算法刷题的重点和坑](https://labuladong.online/algo/intro/how-to-learn-algorithms/)
-  * [习题章节的练习/复习方法](https://labuladong.online/algo/intro/how-to-practice/)
 
 * [配套学习工具使用指南](https://labuladong.online/algo/menu/tools/)
   * [AI 助教随时答疑](https://labuladong.online/algo/intro/ai-assistant/)
@@ -88,13 +87,13 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
   * [配套 JetBrains 刷题插件](https://labuladong.online/algo/intro/jetbrains/)
   * [本站付费会员](https://labuladong.online/algo/intro/site-vip/)
 
-* [入门：编程语言基础及练习](https://labuladong.online/algo/menu/)
+* [入门：编程语言基础及练习](https://labuladong.online/zh/programming-language/guide/)
   * [本章导读](https://labuladong.online/algo/intro/programming-language-basic/)
-  * [C++ 语言基础](https://labuladong.online/algo/programming-language-basic/cpp/)
-  * [Java 语言基础](https://labuladong.online/algo/programming-language-basic/java/)
-  * [Golang 语言基础](https://labuladong.online/algo/programming-language-basic/golang/)
-  * [Python 语言基础](https://labuladong.online/algo/programming-language-basic/python/)
-  * [JavaScript 语言基础](https://labuladong.online/algo/intro/js/)
+  * [C++ 语言基础](https://labuladong.online/zh/programming-language/menu/cpp-start/)
+  * [Java 语言基础](https://labuladong.online/zh/programming-language/menu/java-start/)
+  * [Golang 语言基础](https://labuladong.online/zh/programming-language/menu/go-start/)
+  * [Python 语言基础](https://labuladong.online/zh/programming-language/menu/py-start/)
+  * [JavaScript 语言基础](https://labuladong.online/zh/programming-language/menu/js-start/)
   * [力扣/LeetCode 解题须知](https://labuladong.online/algo/intro/leetcode/)
   * [编程语言刷题实践](https://labuladong.online/algo/programming-language-basic/lc-practice/)
   * [ACM 模式代码模板](https://labuladong.online/algo/intro/acm-mode/)
@@ -400,9 +399,9 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
     * [字符串乘法计算](https://labuladong.online/algo/practice-in-action/multiply-strings/)
     * [如何判定完美矩形](https://labuladong.online/algo/frequency-interview/perfect-rectangle/)
 
-* [更多内容](https://labuladong.online/algo/menu/appendix/)
+* [更多内容](https://labuladong.online/zh/fullstack/intro/)
   * [计算机基础知识](https://labuladong.online/algo/menu/computer-basics/)
-    * [AI 时代的前端开发入门教程](https://labuladong.online/algo/computer-science/frontend-introduction/)
+    * [AI 时代的前端开发入门教程](https://labuladong.online/zh/fullstack/menu/fullstack-frontend/)
     * [现代加密技术入门](https://labuladong.online/algo/computer-science/encryption-intro/)
     * [深入理解 session 和 cookie](https://labuladong.online/algo/other-skills/session-and-cookie/)
     * [深入理解 JSON Web Token (JWT)](https://labuladong.online/algo/computer-science/how-jwt-works/)
@@ -447,7 +446,7 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
 [bryceustc](https://github.com/bryceustc), 
 [build2645](https://github.com/build2645), 
 [CarrieOn](https://github.com/CarrieOn), 
-[cooker](https://github.com/xiaochuhub), 
+cooker, 
 [Dong Wang](https://github.com/Coder2Programmer), 
 [ExcaliburEX](https://github.com/ExcaliburEX), 
 [floatLig](https://github.com/floatLig), 
@@ -455,10 +454,10 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
 [Fulin Li](https://fulinli.github.io/), 
 [Funnyyanne](https://github.com/Funnyyanne), 
 [GYHHAHA](https://github.com/GYHHAHA), 
-[Hi_archer](https://hiarcher.top/), 
+Hi_archer, 
 [Iruze](https://github.com/Iruze), 
 [Jieyixia](https://github.com/Jieyixia), 
-[Justin](https://github.com/Justin-YGG), 
+Justin, 
 [Kevin](https://github.com/Kevin-free), 
 [Lrc123](https://github.com/Lrc123), 
 [lriy](https://github.com/lriy), 
@@ -468,7 +467,7 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
 [miaoxiaozui2017](https://github.com/miaoxiaozui2017), 
 [natsunoyoru97](https://github.com/natsunoyoru97), 
 [nettee](https://github.com/nettee), 
-[PaperJets](https://github.com/PaperJets), 
+PaperJets, 
 [qy-yang](https://github.com/qy-yang), 
 [realism0331](https://github.com/realism0331), 
 [SCUhzs](https://github.com/brucecat), 
@@ -476,10 +475,10 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
 [shazi4399](https://github.com/shazi4399), 
 [ShuozheLi](https://github.com/ShuoZheLi/), 
 [sinjoywong](https://blog.csdn.net/SinjoyWong), 
-[sunqiuming526](https://github.com/sunqiuming526), 
+sunqiuming526, 
 [Tianhao Zhou](https://github.com/tianhaoz95), 
 [timmmGZ](https://github.com/timmmGZ), 
-[tommytim0515](https://github.com/tommytim0515), 
+tommytim0515, 
 [ucsk](https://github.com/ucsk), 
 [wadegrc](https://github.com/wadegrc), 
 [walsvid](https://github.com/walsvid), 
@@ -490,7 +489,7 @@ English version is on [labuladong.online](https://labuladong.online/algo/en/) to
 [youyun](https://github.com/youyun), 
 [yx-tan](https://github.com/yx-tan), 
 [Zero](https://github.com/Mr2er0), 
-[Ziming](https://github.com/ML-ZimingMeng/LeetCode-Python3)
+Ziming
 
 # Donate
 

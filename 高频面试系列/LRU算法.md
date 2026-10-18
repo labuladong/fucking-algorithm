@@ -519,9 +519,9 @@ class LRUCache {
 <details class="hint-container details">
 <summary><strong>引用本文的文章</strong></summary>
 
- - [一文读懂 session 和 cookie](https://labuladong.online/algo/fname.html?fname=session和cookie)
+ - [一文读懂 session 和 cookie](https://labuladong.online/zh/fullstack/auth/session-and-cookie/)
  - [算法就像搭乐高：手撸 LFU 算法](https://labuladong.online/algo/frequency-interview/lfu/)
- - [算法笔试「骗分」套路](https://labuladong.online/algo/other-skills/tips-in-exam/)
+ - [算法笔试「骗分」套路](../技术/刷题技巧.md)
 
 </details><hr>
 

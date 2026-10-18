@@ -702,8 +702,6 @@ class Solution {
  - [学习数据结构和算法的框架思维](https://labuladong.online/algo/essential-technique/algorithm-summary/)
  - [旅游省钱大法：加权最短路径](https://labuladong.online/algo/dynamic-programming/cheap-travel/)
  - [环检测及拓扑排序算法](https://labuladong.online/algo/data-structure/topological-sort/)
- - [用算法打败算法](https://labuladong.online/algo/fname.html?fname=PDF中的算法)
- - [算法学习和心流体验](https://labuladong.online/algo/fname.html?fname=心流)
 
 </details><hr>
 
